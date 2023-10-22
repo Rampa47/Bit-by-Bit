@@ -1,7 +1,7 @@
 #ifndef MAITRE_D_H
 #define MAITRE_D_H
-
-class MaitreD
+#include "Colleague.h"
+class MaitreD : public Colleague
 {
     public:
         MaitreD * instance();
@@ -11,10 +11,13 @@ class MaitreD
         MaitreD();
         MaitreD(MaitreD&);
         MaitreD & operator=(const MaitreD&);
+         void receive(std::string to,std::string message);
+         void send(std::string to,std::string message);
     
     private:
         //static int uniqueInstance;
         static MaitreD * maitreD;
+
 };
 
 #endif
