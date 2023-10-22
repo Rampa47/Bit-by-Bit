@@ -1,13 +1,15 @@
 #include "LinkedList.h"
 
-LinkedList::LinkedList()
+template <class T>
+LinkedList<T>::LinkedList()
 {
     head = nullptr;
 }
 
-void LinkedList::add(double value)
+template <class T>
+Node<T> * LinkedList<T>::add()
 {
-    Node * node = new Node(value);
+    Node<T> * node = new Node<T>();
 
     if(head == nullptr)
     {
@@ -17,7 +19,7 @@ void LinkedList::add(double value)
     }
     else
     {
-        Node * nodePtr = head;
+        Node<T> * nodePtr = head;
 
         while(nodePtr->getNext() != nullptr)
         {
@@ -30,7 +32,68 @@ void LinkedList::add(double value)
     }
 }
 
-void LinkedList::remove(double value)
+template <class T>
+void LinkedList<T>::createList()
+{
+    add();
+}
+
+template <class T>
+void LinkedList<T>::addCustomer(Customer& value)
+{
+    if(isEmptyList())
+    {
+       Node<T> * node = add();
+       node->addCust(value);
+       node->incrementNumCustomers();
+    }
+    else
+    {
+        Node<T> * ptr = head;
+
+        while(ptr->getNext() != nullptr)
+        {
+            if(!ptr->isFull())
+            {
+                ptr->addCust(value);
+                ptr->incrementNumCustomers(); 
+                return;
+            }
+
+            ptr = ptr->getNext();
+        }
+
+        std::cout << "All the tables are occupied" << std::endl;
+        std::cout << "Please wait until a table becomes available" << std::endl;
+    }
+}
+
+template <class T>
+std::string LinkedList<T>::printCustomers()
+{
+    Node<T> * node = head;
+    int count = 1;
+    std::string restaurantCustomers;
+
+    std::stringstream ss;
+    std::string table;
+
+    while(!node->isEmpty())
+    {
+        ss << count;
+        ss >> table;
+        restaurantCustomers += "Table " + table + ": " + "\n";
+        restaurantCustomers += node->print();
+        node = node->getNext();
+        count++;
+        ss.clear();
+    }
+
+    return restaurantCustomers;
+}
+
+template <class T>
+void LinkedList<T>::remove(T value)
 {
     if(head == nullptr)
     {
@@ -38,7 +101,7 @@ void LinkedList::remove(double value)
     }
     else
     {
-        Node * nodePtr = head;
+        Node<T> * nodePtr = head;
 
         while(nodePtr->getNext() != nullptr && nodePtr->getValue() != value)
         {
@@ -63,25 +126,21 @@ void LinkedList::remove(double value)
         }
         else if(nodePtr->getNext() == nullptr && nodePtr->getValue() == value)
         {
-            std::cout << "Do we get here ?" << std::endl;
-            std::cout << "NodePtr previous is " << nodePtr->getPrev()->getValue() << std::endl;
-            std::cout << "Nodeptr is " << nodePtr->getValue() << std::endl;
-
             nodePtr->getPrev()->setNext(nullptr);
             nodePtr->setPrev(nullptr);
 
-            std::cout << "Now, the value of nodePtr is " << nodePtr->getValue() << std::endl;
             delete nodePtr;
             nodePtr = nullptr;
-            std::cout << "We have deleted the tail from the list" << std::endl;   
         }
     }
 }
 
-bool LinkedList::isEmpty()
+template <class T>
+bool LinkedList<T>::isEmptyList()
 {
     if(head == nullptr)
     {
+        std::cout << "There are no customers in the restaurant" << std::endl;
         return true;
     }
     else
@@ -90,18 +149,20 @@ bool LinkedList::isEmpty()
     }
 }
 
-LinkedList::~LinkedList()
+template <class T>
+LinkedList<T>::~LinkedList()
 {
-    if(isEmpty())
+    if(isEmptyList())
     {
         return;
     }
     else
     {
-        Node * ptr = head, * deletePtr = nullptr;
+        Node<T> * ptr = head, * deletePtr = nullptr;
 
         while(ptr->getNext() != nullptr)
         {
+            ptr->getTable().clear();
             deletePtr = ptr;
             ptr = ptr->getNext();
             delete deletePtr;
@@ -112,7 +173,8 @@ LinkedList::~LinkedList()
     }
 }
 
-Node * LinkedList::getHead()
+template <class T>
+Node<T> * LinkedList<T>::getHead()
 {
     if(this->isEmpty())
     {

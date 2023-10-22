@@ -1,18 +1,20 @@
 #include "Node.h"
 
-Node::Node()
+template <class T>
+Node<T>::Node()
 {
     next = nullptr;
-    value = 0;
+    numCurrentCustomers = 0;
 }
 
-Node::Node(double value)
+template <class T>
+Node<T>::Node(T value)
 {
-    this->value = value;
     next = nullptr;
 }
 
-Node * Node::getNext()
+template <class T>
+Node<T> * Node<T>::getNext()
 {
     if(next == nullptr)
     {
@@ -24,7 +26,8 @@ Node * Node::getNext()
     }
 }
 
-Node * Node::getPrev()
+template <class T>
+Node<T> * Node<T>::getPrev()
 {
     if(prev == nullptr)
     {
@@ -36,12 +39,14 @@ Node * Node::getPrev()
     }
 }
 
-void Node::setNext(Node * node)
+template <class T>
+void Node<T>::setNext(Node<T> * node)
 {
     this->next = node;
 }
 
-void Node::setPrev(Node * node)
+template <class T>
+void Node<T>::setPrev(Node<T> * node)
 {
     if(node == nullptr)
     {
@@ -53,12 +58,85 @@ void Node::setPrev(Node * node)
     }
 }
 
-void Node::setValue(double value)
+template <class T>
+std::string Node<T>::getValue(std::string value)
 {
-    this->value = value;
+    std::vector<Customer>::iterator it;
+
+    for(size_t i = 0; i < customers.size(); i++)
+    {
+        if(customers[i]->getName() == value)
+        {
+            return customers[i]->getName();
+        }
+    }
+
+    return "";
 }
 
-double Node::getValue()
+template <class T>
+bool Node<T>::isFull()
 {
-    return value;
+    if(this->numCurrentCustomers == maxNumCustomers)
+    {
+        std::cout << "The table is fully occupied." << std::endl;
+        std::cout << "Please find alternative seating for the customers" << std::endl;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <class T>
+bool Node<T>::isEmpty()
+{
+    if(this->numCurrentCustomers == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+template <class T>
+std::vector<Customer*> Node<T>::getTable()
+{
+    return customers;
+}
+
+template <class T>
+std::string Node<T>::print()
+{
+    std::string people;
+    std::vector<Customer*>::iterator it;
+
+    for(size_t i = 0; i < customers.size(); i++)
+    {
+        people += customers[i]->getName() + "\n";
+    }
+
+    return people;
+}
+
+template <class T>
+void Node<T>::incrementNumCustomers()
+{
+    numCurrentCustomers++;
+}
+
+template <class T>
+void Node<T>::addCust(Customer& value)
+{
+    if(isFull())
+    {
+        return;
+    }
+    else
+    {
+        customers.push_back(&value);
+    }
 }

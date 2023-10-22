@@ -2,18 +2,22 @@
 #define LINKED_LIST_H
 #include "Node.h"
 
+template <class T>
 class LinkedList
 {
     public:
         LinkedList();
-        void add(double value);
-        void remove(double value);
-        bool isEmpty();
-        Node * getHead();
+        Node<T> * add();
+        void remove(T value);
+        bool isEmptyList();
+        void addCustomer(Customer& value);
+        Node<T> * getHead();
+        std::string printCustomers();
+        void createList();
         ~LinkedList();
 
     private:
-        Node * head;
+        Node<T> * head;
 };
 
 #endif
