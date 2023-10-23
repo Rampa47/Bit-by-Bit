@@ -1,7 +1,7 @@
-#include "LinkedList.h"
-#include "Node.h"
-#include "LinkedList.cpp"
-#include "Node.cpp"
+#include "Restaurant.h"
+#include "Table.h"
+#include "Restaurant.cpp"
+#include "Table.cpp"
 #include "Customer.h"
 #include <iostream>
 #include <string>
@@ -11,7 +11,7 @@ void printList(LinkedList<T>& list);*/
 
 int main()
 {
-    LinkedList<std::string> list;
+    Restaurant<std::string> list;
 
     for(int i = 0; i < 5; i++)
     {
