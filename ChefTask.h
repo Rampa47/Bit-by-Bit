@@ -8,13 +8,11 @@
 class ChefTask {
 public:
     /**
-     * @brief Handles an order placed by a waiter.
+     * @brief Handles a task placed by a waiter.
      *
      * This is a pure virtual function that needs to be implemented by derived classes.
-     *
-     * @param waiter The ID of the waiter who placed the order.
      */
-    virtual void handleOrder() = 0;
+    virtual void handleTask() = 0;
 
     /**
      * @brief Virtual destructor for the ChefTask class.
@@ -23,3 +21,4 @@ public:
 };
 
 #endif
+
