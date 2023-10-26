@@ -14,7 +14,7 @@ void JalapenoChipSauce::cook() {
      * @brief Adds the jalapeno chip sauce.
      */
     chips->cook();
-    std::cout << "adding jalapeno chip sauce..." << std::endl;
+    std::cout << "Adding jalapeno chip sauce..." << std::endl;
 }
 
 JalapenoChipSauce::~JalapenoChipSauce() {

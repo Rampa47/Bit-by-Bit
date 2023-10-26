@@ -11,7 +11,7 @@ Order::Order(int waiter, Chef* chef)
      * @param waiter The ID of the waiter who placed the order.
      * @param chef A pointer to a Chef responsible for the order.
      */
-    std::cout << "Waiter " << waiter << " taking Customer Order." << std::endl;
+    std::cout << "Waiter " << waiter << " taking Customer Order..." << std::endl;
 }
 
 void Order::handleTask() {
@@ -20,7 +20,7 @@ void Order::handleTask() {
      *
      * This function processes the order by preparing the specified dishes.
      */
-    std::cout << "Order passed on to Chef" << std::endl;
+    std::cout << "Order passed on to Chef..." << std::endl;
 
     // Process each dish in the order
     chef->handleOrder(waiter, &dishes);

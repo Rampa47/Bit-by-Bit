@@ -12,10 +12,9 @@
  */
 class Order : public ChefTask {
 private:
-    std::vector<FoodItem*> dishes; // A vector of food items in the order
-    Chef* chef; // A pointer to a Chef
     int waiter; // The ID of the waiter that is in charge of the Order
-
+    Chef* chef; // A pointer to a Chef
+    std::vector<FoodItem*> dishes; // A vector of food items in the order
 public:
     /**
      * @brief Constructor for the Order class.
@@ -38,6 +37,11 @@ public:
      * @param item A pointer to the food item to be added to the order.
      */
     void addFoodItem(FoodItem* item);
+
+    /**
+     * @brief Destructor for the Order class.
+     */
+    virtual ~Order();
 };
 
 #endif

@@ -2,12 +2,13 @@
 #define POULTRY_H
 
 #include "PoultryType.h"
+#include "FoodItem.h"
 
 /**
  * @class Poultry
- * @brief Represents a generic poultry dish.
+ * @brief Represents a type of food item: poultry dish.
  */
-class Poultry {
+class Poultry: public FoodItem {
 private:
     PoultryType* poultryType; // Pointer to the type of poultry
 

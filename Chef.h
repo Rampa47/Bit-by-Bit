@@ -22,6 +22,7 @@ public:
         for(auto dish: *dishes){
             dish->cook();
         }
+        std::cout << "Waiter " << waiter << ": order is ready..." << std::endl;
     };
 };
 
