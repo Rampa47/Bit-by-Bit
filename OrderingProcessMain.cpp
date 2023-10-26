@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Chef.h"
+#include "ChefHandler.h"
 #include "BeefBurger.h"
 #include "ChickenBurger.h"
 #include "PlainChips.h"
@@ -14,7 +14,7 @@
 using namespace std;
 
 int main(){
-    Chef* chef= new Chef;
+    ChefHandler* chef= new ChefHandler;
     Order * order= new Order(0, chef);
 
     order->addFoodItem(new BeefBurger);

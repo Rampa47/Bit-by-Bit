@@ -3,7 +3,7 @@
 
 #include "ChefTask.h"
 #include "FoodItem.h"
-#include "Chef.h"
+#include "ChefHandler.h"
 #include <vector>
 
 /**
@@ -13,16 +13,16 @@
 class Order : public ChefTask {
 private:
     int waiter; // The ID of the waiter that is in charge of the Order
-    Chef* chef; // A pointer to a Chef
+    ChefHandler* chefHandler; // A pointer to a ChefHandler
     std::vector<FoodItem*> dishes; // A vector of food items in the order
 public:
     /**
      * @brief Constructor for the Order class.
      *
      * @param waiter The ID of the waiter who placed the order.
-     * @param chef A pointer to a Chef responsible for the order.
+     * @param chefHandler A pointer to a ChefHandler responsible for the order.
      */
-    Order(int waiter, Chef* chef);
+    Order(int waiter, ChefHandler* chefHandler);
 
     /**
      * @brief Handles the order placed by a waiter.

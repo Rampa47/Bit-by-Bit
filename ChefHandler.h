@@ -1,15 +1,15 @@
-#ifndef CHEF_H
-#define CHEF_H
+#ifndef CHEFHANDLER_H
+#define CHEFHANDLER_H
 
 #include <vector>
 #include "FoodItem.h"
 #include <iostream>
 
 /**
- * @class Chef
- * @brief Represents a chef specializing in poultry dishes.
+ * @class ChefHandler
+ * @brief Represents a chef that cooks dishes.
  */
-class Chef {
+class ChefHandler {
 public:
     /**
      * @brief Handles an order placed by a waiter, preparing a list of poultry dishes.
@@ -18,7 +18,7 @@ public:
      * @param dishes A vector of food items representing the poultry dishes in the order.
      */
     void handleOrder(int waiter, const std::vector<FoodItem*>* dishes){
-        std::cout << "Chef cooking dishes..." << std::endl;
+        std::cout << "ChefHandler cooking dishes..." << std::endl;
         for(auto dish: *dishes){
             dish->cook();
         }
