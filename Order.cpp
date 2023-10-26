@@ -1,15 +1,15 @@
 #include "Order.h"
 #include "FoodItem.h"
-#include "Chef.h"
+#include "chefHandler.h"
 #include <iostream>
 
-Order::Order(int waiter, Chef* chef)
-    : waiter(waiter), chef(chef) {
+Order::Order(int waiter, ChefHandler* chefHandler)
+    : waiter(waiter), chefHandler(chefHandler) {
     /**
      * @brief Constructor for the Order class.
      *
      * @param waiter The ID of the waiter who placed the order.
-     * @param chef A pointer to a Chef responsible for the order.
+     * @param chefHandler A pointer to a chefHandler responsible for the order.
      */
     std::cout << "Waiter " << waiter << " taking Customer Order..." << std::endl;
 }
@@ -20,10 +20,10 @@ void Order::handleTask() {
      *
      * This function processes the order by preparing the specified dishes.
      */
-    std::cout << "Order passed on to Chef..." << std::endl;
+    std::cout << "Order passed on to chefHandler..." << std::endl;
 
     // Process each dish in the order
-    chef->handleOrder(waiter, &dishes);
+    chefHandler->handleOrder(waiter, &dishes);
 }
 
 void Order::addFoodItem(FoodItem* dish) {
