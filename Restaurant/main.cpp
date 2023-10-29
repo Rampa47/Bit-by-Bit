@@ -3,6 +3,7 @@
 #include "Restaurant.cpp"
 #include "Table.cpp"
 #include "Customer.h"
+#include "MaitreD.h"
 #include <iostream>
 #include <string>
 
@@ -12,6 +13,7 @@ void printList(LinkedList<T>& list);*/
 int main()
 {
     Restaurant<std::string> list;
+    //MaitreD<std::string> * maitreD = MaitreD<std::string>::instance();
 
     for(int i = 0; i < 5; i++)
     {
@@ -44,7 +46,16 @@ int main()
     Customer TwentyFourthCustomer("Barney");
     Customer TwentyFifthCustomer("Stanley");
     Customer twentySixthCustomer("Nicholas");
+    Customer twentySeventhCustomer("Jerrico");
+    Customer twentyEighthCustomer("Nebuchadnezzar");
+    Customer twentyninthCustomer("Elijah");
+    Customer thirtiethCustomer("Franklin");
+    Customer thirtyFirstCustomer("Trevor");
+    Customer thirtySecondCustomer("Francis");
+    Customer thirtyThirdCustomer("Jeremiah");
 
+
+    //maitreD->seatCustomers(list, newCustomer);
 
     list.addCustomer(newCustomer);
     list.addCustomer(secondCustomer);
@@ -71,9 +82,20 @@ int main()
     list.addCustomer(TwentyThirdCustomer);
     list.addCustomer(TwentyFourthCustomer);
     list.addCustomer(TwentyFifthCustomer);
+    //std::cout << "Does the segmentation fault occur here when we add the overflow ?" << std::endl;
     list.addCustomer(twentySixthCustomer);
+    list.addCustomer(twentySeventhCustomer);
+    list.addCustomer(twentyEighthCustomer);
+    list.addCustomer(twentyninthCustomer);
+    list.addCustomer(thirtiethCustomer);
+    list.addCustomer(thirtyFirstCustomer);
+    list.addCustomer(thirtySecondCustomer);
+    list.addCustomer(thirtyThirdCustomer);
+    //std::cout << "It must be in the print function perhaps" << std::endl;
 
     std::cout << list.printCustomers() << std::endl;
+
+    list.isFull();
 
     std::cout << "We have reached the end of the program" << std::endl;
 
