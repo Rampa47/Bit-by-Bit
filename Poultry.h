@@ -26,6 +26,15 @@ public:
     void cook();
 
     /**
+     * @brief Get the name of the class.
+     *
+     * This function retrieves the name of the class(food item) and returns it as a string.
+     *
+     * @return A string containing the name of the class.
+     */
+    string getName();
+
+    /**
      * @brief Set the type of poultry for the dish.
      *
      * @param type A pointer to the type of poultry to set.
