@@ -1,6 +1,5 @@
 #include "Order.h"
 #include "FoodItem.h"
-#include "chefHandler.h"
 #include <iostream>
 
 Order::Order(int waiter, ChefHandler* chefHandler)
@@ -20,10 +19,10 @@ void Order::handleTask() {
      *
      * This function processes the order by preparing the specified dishes.
      */
-    std::cout << "Order passed on to chefHandler..." << std::endl;
-     
+    std::cout << "Order passed on to chefs..." << std::endl; 
+//     in code the order is passed on to chefHandler but in the real world what we output to the terminal is that the order is passed on to the chef
     // Process each dish in the order
-    chefHandler->handleOrder(waiter, &dishes);
+    chefHandler->handleOrder(&dishes,waiter);
 }
 
 void Order::addFoodItem(FoodItem* dish) {
