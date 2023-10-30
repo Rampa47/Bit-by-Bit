@@ -21,7 +21,7 @@ void Order::handleTask() {
      * This function processes the order by preparing the specified dishes.
      */
     std::cout << "Order passed on to chefHandler..." << std::endl;
-
+     
     // Process each dish in the order
     chefHandler->handleOrder(waiter, &dishes);
 }

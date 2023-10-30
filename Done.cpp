@@ -5,7 +5,7 @@
 
 
 void Done::cook(OrderContext* orderContext, Order* order){
-        std::cout<< " order done" <<std::endl;
+        std::cout<< " Order done" <<std::endl;
         //what would you like to show about the order or do
     }
 
