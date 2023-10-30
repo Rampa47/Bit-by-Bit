@@ -1,20 +1,17 @@
-Main.out: Table.o Restaurant.o Customer.o main.o
-	g++ Table.o Restaurant.o Customer.o main.o -o Main.out
+CC = g++
+CFLAGS = -Wall -std=c++11
 
-Table.o: Table.cpp
-	g++ -c -g Table.cpp
+SOURCES = main.cpp Customer.cpp Table.cpp Restaurant.cpp TableIterator.cpp
+OBJECTS = $(SOURCES:.cpp=.o)
+EXECUTABLE = Main.out
 
-Restaurant.o: Restaurant.cpp
-	g++ -c -g Restaurant.cpp
+all: $(EXECUTABLE)
 
-Customer.o: Customer.cpp
-	g++ -c -g Customer.cpp
-
-main.o: main.cpp
-	g++ -c -g main.cpp
-
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $@
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 run:
-	./Main.out
-
+	./$(EXECUTABLE)
 clean:
-	rm *.o Main.out
+	rm -f $(EXECUTABLE) $(OBJECTS)
