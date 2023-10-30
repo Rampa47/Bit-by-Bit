@@ -12,6 +12,6 @@ void Mediator::notifications(std::string to,std::string message){
         }
 }
 }
-void Mediator::registerme(Colleague* c){
+void Mediator::registerMe(Colleague* c){
     Colleague.push_back(c);
 }
