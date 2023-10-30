@@ -9,7 +9,7 @@ virtual Colleague::~Colleague(){
 
 void Colleague::reg(Mediator* m){
     mediator = m;
-    m->registerme(this);
+    m->registerMe(this);
 
 }
 std::string Colleague::getClassname(){
