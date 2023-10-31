@@ -3,20 +3,22 @@
 template <class T>
 TableIterator<T>::TableIterator(Table<T>* table)
 {
-    if(table==nullptr)
+    if(table == nullptr)
     {
-        firstTable = currentTable =  nullptr;
+        firstTable = currentTable = nullptr;
     }
 
     //Find first table in linked list
 
     Table<T>* tablePtr = table;
+
     while(tablePtr->getPrev()!=nullptr)
     {
         tablePtr = tablePtr->getPrev();
     }
 
     firstTable = tablePtr;
+
     currentTable = tablePtr;
 }
 
@@ -24,6 +26,24 @@ template <class T>
 Table<T>* TableIterator<T>::first()
 {
     return firstTable;
+}
+
+template <class T>
+TableIterator<T>::~TableIterator()
+{
+    if(firstTable != nullptr)
+    {
+        delete firstTable;
+    }
+
+    firstTable = nullptr;
+
+    if(currentTable != nullptr)
+    {
+        delete currentTable;
+    }
+
+    currentTable = nullptr;
 }
 
 template <class T>
@@ -44,12 +64,10 @@ Table<T>* TableIterator<T>::current()
 template <class T>
 bool TableIterator<T>::hasNext()
 {
-    if(currentTable==nullptr)
+    if(currentTable == nullptr)
     {
         return false;
     }
 
-    return (currentTable->getNext()!=nullptr);
+    return (currentTable->getNext() != nullptr);
 }
-
-

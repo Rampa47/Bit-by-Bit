@@ -1,7 +1,9 @@
 #ifndef MAITRE_D_H
 #define MAITRE_D_H
 #include "Colleague.h"
-class MaitreD : public Colleague
+#include "ComplaintsHandler.h"
+
+class MaitreD : public Colleague, public ComplaintsHandler
 {
     public:
         MaitreD * instance();
@@ -13,6 +15,7 @@ class MaitreD : public Colleague
         MaitreD & operator=(const MaitreD&);
          void receive(std::string to,std::string message);
          void send(std::string to,std::string message);
+         void handleComplaint(string c, int degree);
     
     private:
         //static int uniqueInstance;

@@ -1,9 +1,13 @@
 #include "Restaurant.h"
 
 template <class T>
+int Restaurant<T>::currentNumWaitingAreas = 0;
+
+template <class T>
 Restaurant<T>::Restaurant()
 {
     head = nullptr;
+    maxNumWaitingAreas = 3;
 }
 
 template <class T>
@@ -36,6 +40,33 @@ Table<T> * Restaurant<T>::add()
 }
 
 template <class T>
+Table<T> * Restaurant<T>::addWaitingArea()
+{
+    if(head == nullptr)
+    {
+        std::cout << "Cannot add waiting area to a restaurant has not been created." << std::endl;
+        return nullptr;
+    }
+    else
+    {
+        Table<T> * node = new Table<T>(true);
+
+        Table<T> * nodePtr = head;
+
+        while(nodePtr->getNext() != nullptr)
+        {
+            nodePtr = nodePtr->getNext();
+        }
+
+        nodePtr->setNext(node);
+        node->setPrev(nodePtr);
+        node->setNext(nullptr);
+
+        return node;
+    }
+}
+
+template <class T>
 void Restaurant<T>::createList()
 {
     add();
@@ -49,26 +80,84 @@ void Restaurant<T>::addCustomer(Customer& value)
        Table<T> * node = add();
        node->addCust(value);
        node->incrementNumCustomers();
+       return;
     }
     else
     {
         Table<T> * ptr = head;
+        Table<T> * waitingArea = nullptr;
+        bool fullRestaurant = false;
 
         while(ptr != nullptr)
         {
-            if(!ptr->isFull())
+            if(!ptr->isFull() && !ptr->getTableType())
             {
                 ptr->addCust(value);
                 ptr->incrementNumCustomers(); 
                 return;
             }
 
+            if(ptr->getNext() == nullptr)
+            {
+                waitingArea = ptr;
+                fullRestaurant = true;
+                break;
+            }
+
+            if(ptr->getNext()->getTableType())
+            {
+                waitingArea = ptr->getNext();
+                break;
+            }
+
             ptr = ptr->getNext();
         }
 
-        std::cout << "All the tables are occupied" << std::endl;
-        std::cout << "Please wait until a table becomes available" << std::endl;
-        return;
+        if(fullRestaurant)
+        {
+            std::cout << "All the tables are occupied" << std::endl;
+            std::cout << "Please sit in the waiting area until a table becomes available" << std::endl;
+
+            Table<T> * nodePtr = addWaitingArea();
+            nodePtr->addCust(value);
+
+            nodePtr->incrementNumCustomers();
+            currentNumWaitingAreas++;
+
+            return;
+        }
+        else
+        {
+            while(waitingArea != nullptr)
+            {
+                if(!waitingArea->isFull())
+                {
+                    waitingArea->addCust(value);
+                    waitingArea->incrementNumCustomers();
+                    return;
+                }
+
+                if(waitingArea->getNext() == nullptr)
+                {
+                    break;
+                }
+
+                waitingArea = waitingArea->getNext();
+            }
+
+            if(waitingArea->isFull() && currentNumWaitingAreas <= 3)
+            {
+                Table<T> * newWaitingArea = addWaitingArea();
+                newWaitingArea->addCust(value);
+
+                waitingArea->incrementNumCustomers();
+                return;
+            }
+
+            // std::cout << "The restaurant is filled to capacity" << std::endl;
+            // std::cout << "Apologies for the inconvenience. Please come back another time." << std::endl;
+            return;
+        }
     }
 }
 
@@ -76,7 +165,7 @@ template <class T>
 std::string Restaurant<T>::printCustomers()
 {
     Table<T> * node = head;
-    int count = 1;
+    int count = 1, waitingAreas = 1;
     std::string restaurantCustomers;
 
     std::stringstream ss;
@@ -90,19 +179,32 @@ std::string Restaurant<T>::printCustomers()
         }
         else
         {
-            ss << count;
-            ss >> table;
-            restaurantCustomers += "Table " + table + ": " + "\n";
-            restaurantCustomers += node->print();
-            node = node->getNext();
-            count++;
-            ss.clear();
+            if(!node->getTableType())
+            {
+                ss << count;
+                ss >> table;
+                restaurantCustomers += "Table " + table + ": " + "\n";
+                restaurantCustomers += node->print();
+                node = node->getNext();
+                count++;
+                ss.clear();
+            }
+            else
+            {
+                ss << waitingAreas;
+                ss >> table;
+                restaurantCustomers += "Waiting Table " + table + ": " + "\n";
+                restaurantCustomers += node->print();
+                node = node->getNext();
+                waitingAreas++;
+                ss.clear();
+            }
         }
     }
 
     return restaurantCustomers;
 }
-
+ 
 template <class T>
 void Restaurant<T>::remove(T value)
 {
@@ -199,10 +301,54 @@ Table<T> * Restaurant<T>::getHead()
 }
 
 template <class T>
-TableIterator<T>* Restaurant<T>::createIterator(){
-    return new TableIterator<T>(head);
+bool Restaurant<T>::isFull()
+{
+    Table<T> * nodePtr = head;
+
+    int maxAllowedGuests = nodePtr->getMaxNumCustomers() * getNumTables(); 
+    int guestCounter = 0;
+
+    while(nodePtr != nullptr)
+    {
+        if(nodePtr->isFull() && (!nodePtr->getTableType()))
+        {
+            guestCounter += nodePtr->getNumCurrentCustomers();
+            nodePtr = nodePtr->getNext();
+        }
+
+        if(guestCounter == maxAllowedGuests)
+        {
+            return true;
+        }
+    }
+
+    return false;
 }
 
+template <class T>
+int Restaurant<T>::getNumTables()
+{
+    if(head == nullptr)
+    {
+        return 0;
+    }
+    else
+    {
+        Table<T> * nodePtr = head;
+        int count = 0;
 
+        while(nodePtr != nullptr && !nodePtr->getTableType())
+        {
+            count++;
+            nodePtr = nodePtr->getNext();
+        }
 
+        return count;
+    }
+}
 
+template <class T>
+TableIterator<T>* Restaurant<T>::createIterator()
+{
+    return new TableIterator<T>(head);
+}

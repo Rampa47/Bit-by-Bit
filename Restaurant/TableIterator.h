@@ -1,5 +1,5 @@
-#ifndef TABLEITERATOR_H
-#define TABLEITERATOR_H
+#ifndef TABLE_ITERATOR_H
+#define TABLE_ITERATOR_H
 
 #include "Table.h"
 
@@ -12,6 +12,7 @@ class TableIterator{
         void next();
         Table<T>* current();
         bool hasNext();
+        ~TableIterator();
     
     private:
         Table<T>* firstTable;
