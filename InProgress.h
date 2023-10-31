@@ -1,3 +1,5 @@
+#ifndef INPROGRESS_H
+#define INPROGRESS_H
 #include "OrderState.h"
 #include "OrderContext.h"
 #include <iostream>
@@ -12,3 +14,4 @@ public:
    
      virtual void cook(OrderContext* orderContext, Order* order);
 };
+#endif

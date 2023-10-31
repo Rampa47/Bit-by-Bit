@@ -22,7 +22,7 @@ public:
      *
      * @param order a pointer that will be passed to the cook method specific to the current saved orderState variable's cook method. 
      */
-    bool cook(Order* order);
+    void cookChangeState(Order* order);
      /**
      * @brief Responsible for populating orderState variable with new passed in orderState passed in from the parameter.
      *

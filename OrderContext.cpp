@@ -5,8 +5,8 @@ OrderContext::OrderContext(Order* order,OrderState* orderState){
     this.orderState=orderState;
 
 }
-bool OrderContext::cook(Order* o){
-    orderState->cook(this,o);
+void OrderContext::cookChangeState(Order* order){
+    orderState->cook(this,order);
 }
 void OrderContext::setOrderState(OrderState* orderState){
     if(this.orderState!=nullptr){

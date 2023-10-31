@@ -1,3 +1,5 @@
+#ifndef RAW_H
+#define RAW_H
 #include "OrderState.h"
 #include "OrderContext.h"
 /**
@@ -12,3 +14,4 @@ public:
      virtual void cook(OrderContext* orderContext, Order* order)
      
 };
+#endif //RAW_H
