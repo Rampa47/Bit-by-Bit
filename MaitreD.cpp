@@ -5,7 +5,7 @@ MaitreD * MaitreD::instance()
     if(maitreD == nullptr)
     {
         maitreD = new MaitreD();
-        Classname="MaitreD";
+        //Classname="MaitreD";
     }
 
     return maitreD;
@@ -15,7 +15,7 @@ void MaitreD::receive(std::string to,std::string message){
 }
 void MaitreD::send(std::string to,std::string message){
     
-    mediator.notify(to,message);
+    //mediator.notify(to,message);
 }
 
 void MaitreD::handleComplaint(string c, int degree)
