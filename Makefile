@@ -1,24 +1,26 @@
-CXX = g++
-CXXFLAGS = -std=c++11
+Main.out: Node.o LinkedList.o Customer.o Mediator.o Colleague.o main.o
+	g++ Node.o LinkedList.o Customer.o main.o -o Mediator.o -o Colleague.o -o Main.out
 
-SOURCES = OrderingProcessMain.cpp ChipSauce.cpp BeefBurger.cpp ChickenBurger.cpp PlainChips.cpp TomatoChipSauce.cpp JalapenoChipSauce.cpp GrilledPoultry.cpp FriedPoultry.cpp Poultry.cpp Order.cpp Burger.cpp OrderContext.cpp InProgress.cpp Raw.cpp Done.cpp
+Node.o: Node.cpp
+	g++ -c -g Node.cpp
 
-OBJECTS = $(SOURCES:.cpp=.o)
-EXECUTABLE = OrderingProcessMain.exe
+LinkedList.o: LinkedList.cpp
+	g++ -c -g LinkedList.cpp
 
-all: $(EXECUTABLE)
+Customer.o: Customer.cpp
+	g++ -c -g Customer.cpp\
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJECTS)
+Mediator.o: Mediator.cpp
+	g++ -c -g Mediator.cpp
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+Colleague.o: Colleague.cpp
+	g++ -c -g Colleague.cpp
+
+main.o: main.cpp
+	g++ -c -g main.cpp
+
+run:
+	./Main.out
 
 clean:
-	rm *.o OrderingProcessMain.exe
-
-run: $(EXECUTABLE)
-	./$(EXECUTABLE)
-
-.PHONY: all clean run
-
+	rm *.o Main.out
