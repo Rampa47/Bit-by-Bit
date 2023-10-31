@@ -1,6 +1,7 @@
 #ifndef FOODITEM_H
 #define FOODITEM_H
-
+#include <string>
+using namespace std;
 /**
  * @class FoodItem
  * @brief Represents a food item that can be cooked.
@@ -13,6 +14,15 @@ public:
      * This is a pure virtual function that needs to be implemented by derived classes.
      */
     virtual void cook() = 0;
+
+    /**
+     * @brief Get the name of the class.
+     *
+     * This function retrieves the name of the class and returns it as a string.
+     *
+     * @return A string containing the name of the class.
+     */
+    virtual string getName()=0;
 
     /**
      * @brief Virtual destructor for the FoodItem class.

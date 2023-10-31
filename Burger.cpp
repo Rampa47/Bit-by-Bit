@@ -7,7 +7,7 @@ void Burger::cook() {
      *
      * This function represents the cooking process for a burger.
      */
-    std::cout << "Cooking burger..." << std::endl;
+    std::cout << "Preparing burger..." << std::endl;
     addBuns();
     addPatty();
     addCheese();
@@ -33,6 +33,11 @@ void Burger::addCheese() {
      * @brief Adds cheese to the burger.
      */
     std::cout << "Adding cheese..." << std::endl;
+}
+
+string Burger::getName()
+{
+    return "Burger";
 }
 
 Burger::~Burger() {

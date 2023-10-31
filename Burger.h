@@ -45,6 +45,15 @@ public:
     void addCheese();
 
     /**
+     * @brief Get the name of the class.
+     *
+     * This function retrieves the name of the class(food item) and returns it as a string.
+     *
+     * @return A string containing the name of the class.
+     */
+    string getName();
+
+    /**
      * @brief Virtual destructor for the Burger class.
      */
     virtual ~Burger();

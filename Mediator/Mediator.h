@@ -8,7 +8,7 @@ class Mediator
     public:
       virtual ~Mediator();
        void notifications(std::string to,std::string message);
-       void registerme(Colleague* c);
+       void registerMe(Colleague* c);
     
     private:
     

@@ -1,11 +1,17 @@
 #ifndef MAITRE_D_H
 #define MAITRE_D_H
+#include "Table.h"
+#include "Restaurant.h"
+#include "Customer.h"
 
+template <class T>
 class MaitreD
 {
     public:
-        MaitreD * instance();
-        void seatCustomers();
+        static MaitreD * instance();
+        void seatCustomers(Restaurant<T>& list, Customer& diner);
+        Restaurant<T> * getRestaurant();
+        ~MaitreD();
 
     protected:
         MaitreD();

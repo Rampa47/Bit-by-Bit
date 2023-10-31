@@ -16,6 +16,11 @@ void Poultry::cook() {
     poultryType->cook(); // Delegate the cooking to the specified poultry type
 }
 
+string Poultry::getName()
+{
+    return "Poultry";
+}
+
 void Poultry::setPoultryType(PoultryType* type) {
     /**
      * @brief Set the type of poultry for the dish.
