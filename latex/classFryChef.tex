@@ -1,0 +1,87 @@
+\hypertarget{classFryChef}{}\doxysection{Fry\+Chef Class Reference}
+\label{classFryChef}\index{FryChef@{FryChef}}
+
+
+Represents a Fry Chef responsible for frying fooditems.  
+
+
+
+
+{\ttfamily \#include $<$Fry\+Chef.\+h$>$}
+
+
+
+Inheritance diagram for Fry\+Chef\+:
+% FIG 0
+
+
+Collaboration diagram for Fry\+Chef\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFryChef_a06787b17c62947a038af87cd0f70d2dd}{Fry\+Chef}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classFryChef}{Fry\+Chef}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classFryChef_afdea22ee8fb09bc75d50e8725587f462}{$\sim$\+Fry\+Chef}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classFryChef}{Fry\+Chef}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFryChef_aa9430d17b58ba240c900b99c6b22ed73}{handle\+Order}} (vector$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $\ast$ $>$ $\ast$order, int waiter)
+\begin{DoxyCompactList}\small\item\em Handle a food order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a Fry Chef responsible for frying fooditems. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFryChef_a06787b17c62947a038af87cd0f70d2dd}\label{classFryChef_a06787b17c62947a038af87cd0f70d2dd}} 
+\index{FryChef@{FryChef}!FryChef@{FryChef}}
+\index{FryChef@{FryChef}!FryChef@{FryChef}}
+\doxysubsubsection{\texorpdfstring{FryChef()}{FryChef()}}
+{\footnotesize\ttfamily Fry\+Chef\+::\+Fry\+Chef (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classFryChef}{Fry\+Chef}} object. 
+
+This constructor initializes a new instance of the \mbox{\hyperlink{classFryChef}{Fry\+Chef}} class. \mbox{\Hypertarget{classFryChef_afdea22ee8fb09bc75d50e8725587f462}\label{classFryChef_afdea22ee8fb09bc75d50e8725587f462}} 
+\index{FryChef@{FryChef}!````~FryChef@{$\sim$FryChef}}
+\index{````~FryChef@{$\sim$FryChef}!FryChef@{FryChef}}
+\doxysubsubsection{\texorpdfstring{$\sim$FryChef()}{~FryChef()}}
+{\footnotesize\ttfamily Fry\+Chef\+::$\sim$\+Fry\+Chef (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{classFryChef}{Fry\+Chef}} object. 
+
+This virtual destructor is responsible for cleaning up any resources associated with the \mbox{\hyperlink{classFryChef}{Fry\+Chef}} object. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFryChef_aa9430d17b58ba240c900b99c6b22ed73}\label{classFryChef_aa9430d17b58ba240c900b99c6b22ed73}} 
+\index{FryChef@{FryChef}!handleOrder@{handleOrder}}
+\index{handleOrder@{handleOrder}!FryChef@{FryChef}}
+\doxysubsubsection{\texorpdfstring{handleOrder()}{handleOrder()}}
+{\footnotesize\ttfamily void Fry\+Chef\+::handle\+Order (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $\ast$ $>$ $\ast$}]{order,  }\item[{int}]{waiter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handle a food order. 
+
+This function is responsible for preparing any fooditems in the order that need to be fried.
+
+
+\begin{DoxyParams}{Parameters}
+{\em order} & A vector of \mbox{\hyperlink{classFoodItem}{Food\+Item}} pointers representing the food order. \\
+\hline
+{\em waiter} & An integer representing the waiter ID of the waiter taking the order. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classChefHandler_aa34cc6651709b408fede8bd8e01e88a1}{Chef\+Handler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fry\+Chef.\+h\item 
+Fry\+Chef.\+cpp\end{DoxyCompactItemize}

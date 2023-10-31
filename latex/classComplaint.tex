@@ -1,0 +1,108 @@
+\hypertarget{classComplaint}{}\doxysection{Complaint Class Reference}
+\label{classComplaint}\index{Complaint@{Complaint}}
+
+
+A base class for customer complaints.  
+
+
+
+
+{\ttfamily \#include $<$Complaint.\+h$>$}
+
+
+
+Inheritance diagram for Complaint\+:
+% FIG 0
+
+
+Collaboration diagram for Complaint\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComplaint_a5cb0dd212cdaa6469790b7635b90ecbd}{Complaint}} (\mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} $\ast$\mbox{\hyperlink{classComplaint_a25408a3525e407e9b88f0c847d09bb07}{handler}})
+\begin{DoxyCompactList}\small\item\em Constructor for a \mbox{\hyperlink{classComplaint}{Complaint}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classComplaint_ae3ea484a0552510f5a625c65fca1bd98}\label{classComplaint_ae3ea484a0552510f5a625c65fca1bd98}} 
+virtual \mbox{\hyperlink{classComplaint_ae3ea484a0552510f5a625c65fca1bd98}{$\sim$\+Complaint}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classComplaint}{Complaint}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComplaint_a893621b29c19fae5fb0a85c7456d5e74}{set\+Degree}} (int \mbox{\hyperlink{classComplaint_a574b212edf2f8e3a4d2d3a80387e1fdf}{degree}})
+\begin{DoxyCompactList}\small\item\em Set the degree of complaint severity. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComplaint_a33aa4f549f4036ad3a28eaa1b5dffc27}{Address\+Complaint}} (string complaint, int \mbox{\hyperlink{classComplaint_a574b212edf2f8e3a4d2d3a80387e1fdf}{degree}})=0
+\begin{DoxyCompactList}\small\item\em Address a customer complaint with a specified degree of severity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classComplaint_a25408a3525e407e9b88f0c847d09bb07}\label{classComplaint_a25408a3525e407e9b88f0c847d09bb07}} 
+\mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} $\ast$ \mbox{\hyperlink{classComplaint_a25408a3525e407e9b88f0c847d09bb07}{handler}}
+\begin{DoxyCompactList}\small\item\em The handler responsible for addressing the complaint. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classComplaint_a574b212edf2f8e3a4d2d3a80387e1fdf}\label{classComplaint_a574b212edf2f8e3a4d2d3a80387e1fdf}} 
+int \mbox{\hyperlink{classComplaint_a574b212edf2f8e3a4d2d3a80387e1fdf}{degree}} =1
+\begin{DoxyCompactList}\small\item\em The degree of complaint severity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A base class for customer complaints. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComplaint_a5cb0dd212cdaa6469790b7635b90ecbd}\label{classComplaint_a5cb0dd212cdaa6469790b7635b90ecbd}} 
+\index{Complaint@{Complaint}!Complaint@{Complaint}}
+\index{Complaint@{Complaint}!Complaint@{Complaint}}
+\doxysubsubsection{\texorpdfstring{Complaint()}{Complaint()}}
+{\footnotesize\ttfamily Complaint\+::\+Complaint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} $\ast$}]{handler }\end{DoxyParamCaption})}
+
+
+
+Constructor for a \mbox{\hyperlink{classComplaint}{Complaint}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handler} & A pointer to the \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} responsible for handling the complaint. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComplaint_a33aa4f549f4036ad3a28eaa1b5dffc27}\label{classComplaint_a33aa4f549f4036ad3a28eaa1b5dffc27}} 
+\index{Complaint@{Complaint}!AddressComplaint@{AddressComplaint}}
+\index{AddressComplaint@{AddressComplaint}!Complaint@{Complaint}}
+\doxysubsubsection{\texorpdfstring{AddressComplaint()}{AddressComplaint()}}
+{\footnotesize\ttfamily virtual void Complaint\+::\+Address\+Complaint (\begin{DoxyParamCaption}\item[{string}]{complaint,  }\item[{int}]{degree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Address a customer complaint with a specified degree of severity. 
+
+This pure virtual function is responsible for addressing a customer complaint with the given degree of severity.\+The inheriting classes must have their own implementation of the function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em complaint} & The description of the customer\textquotesingle{}s complaint. \\
+\hline
+{\em degree} & The degree of severity of the complaint. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classTimeComplaint_a500fe7d7b5c2e2531c75ee1a69fc67e8}{Time\+Complaint}}, \mbox{\hyperlink{classServiceComplaint_a74373bb62b72c3303c33dcec6a5ffaca}{Service\+Complaint}}, and \mbox{\hyperlink{classFoodComplaint_a64a493c5cb2d3a4ccb3b7d31d1770a08}{Food\+Complaint}}.
+
+\mbox{\Hypertarget{classComplaint_a893621b29c19fae5fb0a85c7456d5e74}\label{classComplaint_a893621b29c19fae5fb0a85c7456d5e74}} 
+\index{Complaint@{Complaint}!setDegree@{setDegree}}
+\index{setDegree@{setDegree}!Complaint@{Complaint}}
+\doxysubsubsection{\texorpdfstring{setDegree()}{setDegree()}}
+{\footnotesize\ttfamily void Complaint\+::set\+Degree (\begin{DoxyParamCaption}\item[{int}]{degree }\end{DoxyParamCaption})}
+
+
+
+Set the degree of complaint severity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em degree} & The degree of complaint severity to be set. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Complaint.\+h\item 
+Complaint.\+cpp\end{DoxyCompactItemize}

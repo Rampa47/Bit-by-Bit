@@ -1,0 +1,87 @@
+\hypertarget{classHeadChef}{}\doxysection{Head\+Chef Class Reference}
+\label{classHeadChef}\index{HeadChef@{HeadChef}}
+
+
+Represents a Head Chef responsible for complete the plating.  
+
+
+
+
+{\ttfamily \#include $<$Head\+Chef.\+h$>$}
+
+
+
+Inheritance diagram for Head\+Chef\+:
+% FIG 0
+
+
+Collaboration diagram for Head\+Chef\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classHeadChef_ac95033bbe3361915ef93af66d162579b}{Head\+Chef}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classHeadChef}{Head\+Chef}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classHeadChef_a3a14c3f5a5355b116129d49c83f059e9}{$\sim$\+Head\+Chef}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classHeadChef}{Head\+Chef}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHeadChef_a0f077b7d95e8a74fbce6c049331fa752}{handle\+Order}} (vector$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $\ast$ $>$ $\ast$order, int waiter)
+\begin{DoxyCompactList}\small\item\em Handle a food order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a Head Chef responsible for complete the plating. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHeadChef_ac95033bbe3361915ef93af66d162579b}\label{classHeadChef_ac95033bbe3361915ef93af66d162579b}} 
+\index{HeadChef@{HeadChef}!HeadChef@{HeadChef}}
+\index{HeadChef@{HeadChef}!HeadChef@{HeadChef}}
+\doxysubsubsection{\texorpdfstring{HeadChef()}{HeadChef()}}
+{\footnotesize\ttfamily Head\+Chef\+::\+Head\+Chef (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classHeadChef}{Head\+Chef}} object. 
+
+This constructor initializes a new instance of the \mbox{\hyperlink{classHeadChef}{Head\+Chef}} class. \mbox{\Hypertarget{classHeadChef_a3a14c3f5a5355b116129d49c83f059e9}\label{classHeadChef_a3a14c3f5a5355b116129d49c83f059e9}} 
+\index{HeadChef@{HeadChef}!````~HeadChef@{$\sim$HeadChef}}
+\index{````~HeadChef@{$\sim$HeadChef}!HeadChef@{HeadChef}}
+\doxysubsubsection{\texorpdfstring{$\sim$HeadChef()}{~HeadChef()}}
+{\footnotesize\ttfamily Head\+Chef\+::$\sim$\+Head\+Chef (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{classHeadChef}{Head\+Chef}} object. 
+
+This virtual destructor is responsible for cleaning up any resources associated with the \mbox{\hyperlink{classHeadChef}{Head\+Chef}} object. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHeadChef_a0f077b7d95e8a74fbce6c049331fa752}\label{classHeadChef_a0f077b7d95e8a74fbce6c049331fa752}} 
+\index{HeadChef@{HeadChef}!handleOrder@{handleOrder}}
+\index{handleOrder@{handleOrder}!HeadChef@{HeadChef}}
+\doxysubsubsection{\texorpdfstring{handleOrder()}{handleOrder()}}
+{\footnotesize\ttfamily void Head\+Chef\+::handle\+Order (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $\ast$ $>$ $\ast$}]{order,  }\item[{int}]{waiter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handle a food order. 
+
+This function is responsible for completing the plating and adding the final touches before order can be sent to a customer
+
+
+\begin{DoxyParams}{Parameters}
+{\em order} & A vector of \mbox{\hyperlink{classFoodItem}{Food\+Item}} pointers representing the food order. \\
+\hline
+{\em waiter} & An integer representing the waiter ID of the waiter taking the order. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classChefHandler_aa34cc6651709b408fede8bd8e01e88a1}{Chef\+Handler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Head\+Chef.\+h\item 
+Head\+Chef.\+cpp\end{DoxyCompactItemize}

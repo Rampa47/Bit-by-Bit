@@ -1,0 +1,78 @@
+\hypertarget{classChips}{}\doxysection{Chips Class Reference}
+\label{classChips}\index{Chips@{Chips}}
+
+
+Represents a type of food item\+: chips.  
+
+
+
+
+{\ttfamily \#include $<$Chips.\+h$>$}
+
+
+
+Inheritance diagram for Chips\+:
+% FIG 0
+
+
+Collaboration diagram for Chips\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChips_a236e773d639ecd99889b5764f3379588}\label{classChips_a236e773d639ecd99889b5764f3379588}} 
+virtual \mbox{\hyperlink{classChips_a236e773d639ecd99889b5764f3379588}{$\sim$\+Chips}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \mbox{\hyperlink{classChips}{Chips}} class. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classChips_abc786335edcf3d9e5fc61cc3f3cf543b}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Get the name of the class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classChips_a987cd5c623efd07d64e2e63440990e49}{cook}} ()=0
+\begin{DoxyCompactList}\small\item\em Cooks the chips. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a type of food item\+: chips. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classChips_a987cd5c623efd07d64e2e63440990e49}\label{classChips_a987cd5c623efd07d64e2e63440990e49}} 
+\index{Chips@{Chips}!cook@{cook}}
+\index{cook@{cook}!Chips@{Chips}}
+\doxysubsubsection{\texorpdfstring{cook()}{cook()}}
+{\footnotesize\ttfamily virtual void Chips\+::cook (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Cooks the chips. 
+
+This is a pure virtual function that needs to be implemented by derived classes. 
+
+Implements \mbox{\hyperlink{classFoodItem_a7c60667ee80bb9f434a5d5be861cc2c1}{Food\+Item}}.
+
+
+
+Implemented in \mbox{\hyperlink{classChipSauce_a14c94f69dd43c69d51df6d571e70944e}{Chip\+Sauce}}, \mbox{\hyperlink{classTomatoChipSauce_a1409ef8eacf3d1273fdc47787717c580}{Tomato\+Chip\+Sauce}}, \mbox{\hyperlink{classPlainChips_a2a9574ce063bd0dd8fe067a7b7cf4075}{Plain\+Chips}}, and \mbox{\hyperlink{classJalapenoChipSauce_a4bf15eabea97d0abade8672a696322c0}{Jalapeno\+Chip\+Sauce}}.
+
+\mbox{\Hypertarget{classChips_abc786335edcf3d9e5fc61cc3f3cf543b}\label{classChips_abc786335edcf3d9e5fc61cc3f3cf543b}} 
+\index{Chips@{Chips}!getName@{getName}}
+\index{getName@{getName}!Chips@{Chips}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Chips\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the name of the class. 
+
+This function retrieves the name of the class(food item) and returns it as a string.
+
+\begin{DoxyReturn}{Returns}
+A string containing the name of the class. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFoodItem_ad732066183e5a749aa413cd4f874d15e}{Food\+Item}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chips.\+h\item 
+Chips.\+cpp\end{DoxyCompactItemize}

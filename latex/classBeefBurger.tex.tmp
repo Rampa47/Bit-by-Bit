@@ -1,0 +1,65 @@
+\hypertarget{classBeefBurger}{}\doxysection{Beef\+Burger Class Reference}
+\label{classBeefBurger}\index{BeefBurger@{BeefBurger}}
+
+
+Represents a beef burger, a specific type of burger.  
+
+
+
+
+{\ttfamily \#include $<$Beef\+Burger.\+h$>$}
+
+
+
+Inheritance diagram for Beef\+Burger\+:
+% FIG 0
+
+
+Collaboration diagram for Beef\+Burger\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBeefBurger_a786ebdb52492ab13b9a244709c101cc0}{add\+Patty}} () override
+\begin{DoxyCompactList}\small\item\em Adds a beef patty to the burger. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classBeefBurger_a6c8a11d94ea3c680a257fad0b02cad8a}{$\sim$\+Beef\+Burger}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \mbox{\hyperlink{classBeefBurger}{Beef\+Burger}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a beef burger, a specific type of burger. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBeefBurger_a6c8a11d94ea3c680a257fad0b02cad8a}\label{classBeefBurger_a6c8a11d94ea3c680a257fad0b02cad8a}} 
+\index{BeefBurger@{BeefBurger}!````~BeefBurger@{$\sim$BeefBurger}}
+\index{````~BeefBurger@{$\sim$BeefBurger}!BeefBurger@{BeefBurger}}
+\doxysubsubsection{\texorpdfstring{$\sim$BeefBurger()}{~BeefBurger()}}
+{\footnotesize\ttfamily Beef\+Burger\+::$\sim$\+Beef\+Burger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Virtual destructor for the \mbox{\hyperlink{classBeefBurger}{Beef\+Burger}} class. 
+
+Virtual destructor for the \mbox{\hyperlink{classBeefBurger}{Beef\+Burger}} class.
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBeefBurger_a786ebdb52492ab13b9a244709c101cc0}\label{classBeefBurger_a786ebdb52492ab13b9a244709c101cc0}} 
+\index{BeefBurger@{BeefBurger}!addPatty@{addPatty}}
+\index{addPatty@{addPatty}!BeefBurger@{BeefBurger}}
+\doxysubsubsection{\texorpdfstring{addPatty()}{addPatty()}}
+{\footnotesize\ttfamily void Beef\+Burger\+::add\+Patty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds a beef patty to the burger. 
+
+This implementation adds a beef patty to the burger. Adds a beef patty to the burger.
+
+Implements \mbox{\hyperlink{classBurger_a1b4cf114c3c39eace28ae5e790829e47}{Burger}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Beef\+Burger.\+h\item 
+Beef\+Burger.\+cpp\end{DoxyCompactItemize}

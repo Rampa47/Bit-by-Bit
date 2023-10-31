@@ -1,0 +1,113 @@
+\hypertarget{classChefHandler}{}\doxysection{Chef\+Handler Class Reference}
+\label{classChefHandler}\index{ChefHandler@{ChefHandler}}
+
+
+Base class for Chef\+Handlers responsible for handling food orders.  
+
+
+
+
+{\ttfamily \#include $<$Chef\+Handler.\+h$>$}
+
+
+
+Inheritance diagram for Chef\+Handler\+:
+% FIG 0
+
+
+Collaboration diagram for Chef\+Handler\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classChefHandler_a8f1d8ce7473f22dcad74fa949e7c7be0}{Chef\+Handler}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classChefHandler_a6f3408beae61776996407ce68bdbf76c}{$\sim$\+Chef\+Handler}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classChefHandler_aa34cc6651709b408fede8bd8e01e88a1}{handle\+Order}} (vector$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $\ast$ $>$ $\ast$order, int waiter)=0
+\begin{DoxyCompactList}\small\item\em Handle a food order. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classChefHandler_a642f3f59bcb80e19351fb271d8db3d0f}{add\+Successor}} (\mbox{\hyperlink{classChefHandler}{Chef\+Handler}} $\ast$c)
+\begin{DoxyCompactList}\small\item\em Add a successor \mbox{\hyperlink{classChefHandler}{Chef\+Handler}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChefHandler_af370a98941b64fe17190ad43866663f6}\label{classChefHandler_af370a98941b64fe17190ad43866663f6}} 
+\mbox{\hyperlink{classChefHandler}{Chef\+Handler}} $\ast$ {\bfseries successor}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for Chef\+Handlers responsible for handling food orders. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classChefHandler_a8f1d8ce7473f22dcad74fa949e7c7be0}\label{classChefHandler_a8f1d8ce7473f22dcad74fa949e7c7be0}} 
+\index{ChefHandler@{ChefHandler}!ChefHandler@{ChefHandler}}
+\index{ChefHandler@{ChefHandler}!ChefHandler@{ChefHandler}}
+\doxysubsubsection{\texorpdfstring{ChefHandler()}{ChefHandler()}}
+{\footnotesize\ttfamily Chef\+Handler\+::\+Chef\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} object. 
+
+This constructor initializes a new instance of the \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} class. \mbox{\Hypertarget{classChefHandler_a6f3408beae61776996407ce68bdbf76c}\label{classChefHandler_a6f3408beae61776996407ce68bdbf76c}} 
+\index{ChefHandler@{ChefHandler}!````~ChefHandler@{$\sim$ChefHandler}}
+\index{````~ChefHandler@{$\sim$ChefHandler}!ChefHandler@{ChefHandler}}
+\doxysubsubsection{\texorpdfstring{$\sim$ChefHandler()}{~ChefHandler()}}
+{\footnotesize\ttfamily Chef\+Handler\+::$\sim$\+Chef\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} object. 
+
+This virtual destructor is responsible for cleaning up any resources associated with the \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} object. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classChefHandler_a642f3f59bcb80e19351fb271d8db3d0f}\label{classChefHandler_a642f3f59bcb80e19351fb271d8db3d0f}} 
+\index{ChefHandler@{ChefHandler}!addSuccessor@{addSuccessor}}
+\index{addSuccessor@{addSuccessor}!ChefHandler@{ChefHandler}}
+\doxysubsubsection{\texorpdfstring{addSuccessor()}{addSuccessor()}}
+{\footnotesize\ttfamily void Chef\+Handler\+::add\+Successor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChefHandler}{Chef\+Handler}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Add a successor \mbox{\hyperlink{classChefHandler}{Chef\+Handler}}. 
+
+This function is responsible for adding a successor \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} to the current \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} instance, forming a chain of responsibility.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & A pointer to the \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} to be added as a successor. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classChefHandler_aa34cc6651709b408fede8bd8e01e88a1}\label{classChefHandler_aa34cc6651709b408fede8bd8e01e88a1}} 
+\index{ChefHandler@{ChefHandler}!handleOrder@{handleOrder}}
+\index{handleOrder@{handleOrder}!ChefHandler@{ChefHandler}}
+\doxysubsubsection{\texorpdfstring{handleOrder()}{handleOrder()}}
+{\footnotesize\ttfamily virtual void Chef\+Handler\+::handle\+Order (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $\ast$ $>$ $\ast$}]{order,  }\item[{int}]{waiter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Handle a food order. 
+
+This pure virtual function is responsible for preparing a food order.
+
+Subclasses must implement this function to define how they handle the order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em order} & A vector of \mbox{\hyperlink{classFoodItem}{Food\+Item}} pointers representing the food order. \\
+\hline
+{\em waiter} & An integer representing the waiter ID of the waiter taking the order. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classPoultryChef_af01ebfb5fe4ede0f3b253a6de4759d36}{Poultry\+Chef}}, \mbox{\hyperlink{classHeadChef_a0f077b7d95e8a74fbce6c049331fa752}{Head\+Chef}}, \mbox{\hyperlink{classFryChef_aa9430d17b58ba240c900b99c6b22ed73}{Fry\+Chef}}, and \mbox{\hyperlink{classBurgerChef_af9c638aa3ca8f961907ed8b51cf6ff17}{Burger\+Chef}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Chef\+Handler.\+h\item 
+Chef\+Handler.\+cpp\end{DoxyCompactItemize}

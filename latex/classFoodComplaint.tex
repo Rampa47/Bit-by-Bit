@@ -1,0 +1,83 @@
+\hypertarget{classFoodComplaint}{}\doxysection{Food\+Complaint Class Reference}
+\label{classFoodComplaint}\index{FoodComplaint@{FoodComplaint}}
+
+
+Class for food-\/related complaints.  
+
+
+
+
+{\ttfamily \#include $<$Food\+Complaint.\+h$>$}
+
+
+
+Inheritance diagram for Food\+Complaint\+:
+% FIG 0
+
+
+Collaboration diagram for Food\+Complaint\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFoodComplaint_ae9c719143d0c9100bde652454cfe64db}{Food\+Complaint}} (\mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} $\ast$\mbox{\hyperlink{classComplaint_a25408a3525e407e9b88f0c847d09bb07}{handler}})
+\begin{DoxyCompactList}\small\item\em Constructor for a \mbox{\hyperlink{classFoodComplaint}{Food\+Complaint}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFoodComplaint_af4676d28c18cada4b2430af2f5d7b6fd}\label{classFoodComplaint_af4676d28c18cada4b2430af2f5d7b6fd}} 
+virtual \mbox{\hyperlink{classFoodComplaint_af4676d28c18cada4b2430af2f5d7b6fd}{$\sim$\+Food\+Complaint}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classFoodComplaint}{Food\+Complaint}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFoodComplaint_a64a493c5cb2d3a4ccb3b7d31d1770a08}{Address\+Complaint}} (string complaint, int \mbox{\hyperlink{classComplaint_a574b212edf2f8e3a4d2d3a80387e1fdf}{degree}})
+\begin{DoxyCompactList}\small\item\em Address a food-\/related customer complaint with a specified degree of severity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class for food-\/related complaints. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFoodComplaint_ae9c719143d0c9100bde652454cfe64db}\label{classFoodComplaint_ae9c719143d0c9100bde652454cfe64db}} 
+\index{FoodComplaint@{FoodComplaint}!FoodComplaint@{FoodComplaint}}
+\index{FoodComplaint@{FoodComplaint}!FoodComplaint@{FoodComplaint}}
+\doxysubsubsection{\texorpdfstring{FoodComplaint()}{FoodComplaint()}}
+{\footnotesize\ttfamily Food\+Complaint\+::\+Food\+Complaint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} $\ast$}]{handler }\end{DoxyParamCaption})}
+
+
+
+Constructor for a \mbox{\hyperlink{classFoodComplaint}{Food\+Complaint}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handler} & A pointer to the \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} responsible for handling the complaint. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFoodComplaint_a64a493c5cb2d3a4ccb3b7d31d1770a08}\label{classFoodComplaint_a64a493c5cb2d3a4ccb3b7d31d1770a08}} 
+\index{FoodComplaint@{FoodComplaint}!AddressComplaint@{AddressComplaint}}
+\index{AddressComplaint@{AddressComplaint}!FoodComplaint@{FoodComplaint}}
+\doxysubsubsection{\texorpdfstring{AddressComplaint()}{AddressComplaint()}}
+{\footnotesize\ttfamily void Food\+Complaint\+::\+Address\+Complaint (\begin{DoxyParamCaption}\item[{string}]{complaint,  }\item[{int}]{degree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Address a food-\/related customer complaint with a specified degree of severity. 
+
+This function handles food-\/related customer complaints by notifying the specified \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em complaint} & The description of the food-\/related complaint. \\
+\hline
+{\em degree} & The degree of severity of the complaint. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComplaint_a33aa4f549f4036ad3a28eaa1b5dffc27}{Complaint}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Food\+Complaint.\+h\item 
+Food\+Complaint.\+cpp\end{DoxyCompactItemize}

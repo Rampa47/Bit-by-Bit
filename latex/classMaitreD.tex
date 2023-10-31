@@ -1,0 +1,69 @@
+\hypertarget{classMaitreD}{}\doxysection{MaitreD Class Reference}
+\label{classMaitreD}\index{MaitreD@{MaitreD}}
+
+
+Inheritance diagram for MaitreD\+:
+% FIG 0
+
+
+Collaboration diagram for MaitreD\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMaitreD_a3cf6ecbb5385debc2535f8d28d4257b4}\label{classMaitreD_a3cf6ecbb5385debc2535f8d28d4257b4}} 
+\mbox{\hyperlink{classMaitreD}{MaitreD}} $\ast$ {\bfseries instance} ()
+\item 
+\mbox{\Hypertarget{classMaitreD_a39895f89f04e265731b4a58a4689649f}\label{classMaitreD_a39895f89f04e265731b4a58a4689649f}} 
+void {\bfseries seat\+Customers} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMaitreD_ad95a2e63c9ac90df3de0be2f5e6237e5}\label{classMaitreD_ad95a2e63c9ac90df3de0be2f5e6237e5}} 
+{\bfseries MaitreD} (\mbox{\hyperlink{classMaitreD}{MaitreD}} \&)
+\item 
+\mbox{\Hypertarget{classMaitreD_a945f49609be3a0467d3163e92df1c3e9}\label{classMaitreD_a945f49609be3a0467d3163e92df1c3e9}} 
+\mbox{\hyperlink{classMaitreD}{MaitreD}} \& {\bfseries operator=} (const \mbox{\hyperlink{classMaitreD}{MaitreD}} \&)
+\item 
+\mbox{\Hypertarget{classMaitreD_a69e33a1954b9d38e0263b94cda7441ba}\label{classMaitreD_a69e33a1954b9d38e0263b94cda7441ba}} 
+void {\bfseries receive} (std\+::string to, std\+::string message)
+\item 
+\mbox{\Hypertarget{classMaitreD_a41c262bd093385b88f701f3546f25873}\label{classMaitreD_a41c262bd093385b88f701f3546f25873}} 
+void {\bfseries send} (std\+::string to, std\+::string message)
+\item 
+void \mbox{\hyperlink{classMaitreD_aa90129537c003cf89b46180071d78a6c}{handle\+Complaint}} (string c, int degree)
+\begin{DoxyCompactList}\small\item\em Handle a customer complaint with a specified degree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMaitreD_aa90129537c003cf89b46180071d78a6c}\label{classMaitreD_aa90129537c003cf89b46180071d78a6c}} 
+\index{MaitreD@{MaitreD}!handleComplaint@{handleComplaint}}
+\index{handleComplaint@{handleComplaint}!MaitreD@{MaitreD}}
+\doxysubsubsection{\texorpdfstring{handleComplaint()}{handleComplaint()}}
+{\footnotesize\ttfamily void Maitre\+D\+::handle\+Complaint (\begin{DoxyParamCaption}\item[{string}]{c,  }\item[{int}]{degree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Handle a customer complaint with a specified degree. 
+
+This pure virtual function is responsible for handling a customer complaint and processing it based on the given degree of severity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The customer\textquotesingle{}s complaint. \\
+\hline
+{\em degree} & The degree of severity of the complaint. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComplaintsHandler_a70090c75fb50d2c29618a8924aae83ce}{Complaints\+Handler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Maitre\+D.\+h\item 
+Maitre\+D.\+cpp\end{DoxyCompactItemize}

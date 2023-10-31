@@ -1,0 +1,83 @@
+\hypertarget{classServiceComplaint}{}\doxysection{Service\+Complaint Class Reference}
+\label{classServiceComplaint}\index{ServiceComplaint@{ServiceComplaint}}
+
+
+Class for Service-\/related complaints.  
+
+
+
+
+{\ttfamily \#include $<$Service\+Complaint.\+h$>$}
+
+
+
+Inheritance diagram for Service\+Complaint\+:
+% FIG 0
+
+
+Collaboration diagram for Service\+Complaint\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classServiceComplaint_a4179c411a6af8887247b17fa9a3e04fd}{Service\+Complaint}} (\mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} $\ast$\mbox{\hyperlink{classComplaint_a25408a3525e407e9b88f0c847d09bb07}{handler}})
+\begin{DoxyCompactList}\small\item\em Constructor for a \mbox{\hyperlink{classServiceComplaint}{Service\+Complaint}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classServiceComplaint_a432ccfe0b62675e93625833a0c430f20}\label{classServiceComplaint_a432ccfe0b62675e93625833a0c430f20}} 
+virtual \mbox{\hyperlink{classServiceComplaint_a432ccfe0b62675e93625833a0c430f20}{$\sim$\+Service\+Complaint}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classServiceComplaint}{Service\+Complaint}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServiceComplaint_a74373bb62b72c3303c33dcec6a5ffaca}{Address\+Complaint}} (string complaint, int \mbox{\hyperlink{classComplaint_a574b212edf2f8e3a4d2d3a80387e1fdf}{degree}})
+\begin{DoxyCompactList}\small\item\em Address a Service-\/related customer complaint with a specified degree of severity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class for Service-\/related complaints. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classServiceComplaint_a4179c411a6af8887247b17fa9a3e04fd}\label{classServiceComplaint_a4179c411a6af8887247b17fa9a3e04fd}} 
+\index{ServiceComplaint@{ServiceComplaint}!ServiceComplaint@{ServiceComplaint}}
+\index{ServiceComplaint@{ServiceComplaint}!ServiceComplaint@{ServiceComplaint}}
+\doxysubsubsection{\texorpdfstring{ServiceComplaint()}{ServiceComplaint()}}
+{\footnotesize\ttfamily Service\+Complaint\+::\+Service\+Complaint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} $\ast$}]{handler }\end{DoxyParamCaption})}
+
+
+
+Constructor for a \mbox{\hyperlink{classServiceComplaint}{Service\+Complaint}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handler} & A pointer to the \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} responsible for handling the complaint. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classServiceComplaint_a74373bb62b72c3303c33dcec6a5ffaca}\label{classServiceComplaint_a74373bb62b72c3303c33dcec6a5ffaca}} 
+\index{ServiceComplaint@{ServiceComplaint}!AddressComplaint@{AddressComplaint}}
+\index{AddressComplaint@{AddressComplaint}!ServiceComplaint@{ServiceComplaint}}
+\doxysubsubsection{\texorpdfstring{AddressComplaint()}{AddressComplaint()}}
+{\footnotesize\ttfamily void Service\+Complaint\+::\+Address\+Complaint (\begin{DoxyParamCaption}\item[{string}]{complaint,  }\item[{int}]{degree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Address a Service-\/related customer complaint with a specified degree of severity. 
+
+This function handles Service-\/related customer complaints by notifying the specified \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em complaint} & The description of the Service-\/related complaint. \\
+\hline
+{\em degree} & The degree of severity of the complaint. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComplaint_a33aa4f549f4036ad3a28eaa1b5dffc27}{Complaint}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Service\+Complaint.\+h\item 
+Service\+Complaint.\+cpp\end{DoxyCompactItemize}

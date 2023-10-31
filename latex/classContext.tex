@@ -1,0 +1,70 @@
+\hypertarget{classContext}{}\doxysection{Context Class Reference}
+\label{classContext}\index{Context@{Context}}
+
+
+A class that maintains a reference to one of the \mbox{\hyperlink{classComplaint}{Complaint}} strategy objects.  
+
+
+
+
+{\ttfamily \#include $<$Context.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classContext_a6c4238060b8beac256f33bd00d04c8a0}{Context}} (\mbox{\hyperlink{classComplaint}{Complaint}} $\ast$type)
+\begin{DoxyCompactList}\small\item\em Constructor for a \mbox{\hyperlink{classContext}{Context}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classContext_a2d34e4556448e40693f61d15e091b604}\label{classContext_a2d34e4556448e40693f61d15e091b604}} 
+virtual \mbox{\hyperlink{classContext_a2d34e4556448e40693f61d15e091b604}{$\sim$\+Context}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classContext}{Context}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContext_a84f8aefc95844c86aaf9688b15adeee2}{Address\+Complaint}} (string complaint, int degree)
+\begin{DoxyCompactList}\small\item\em Address a customer complaint with a specified degree of severity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that maintains a reference to one of the \mbox{\hyperlink{classComplaint}{Complaint}} strategy objects. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classContext_a6c4238060b8beac256f33bd00d04c8a0}\label{classContext_a6c4238060b8beac256f33bd00d04c8a0}} 
+\index{Context@{Context}!Context@{Context}}
+\index{Context@{Context}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{Context()}{Context()}}
+{\footnotesize\ttfamily Context\+::\+Context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComplaint}{Complaint}} $\ast$}]{type }\end{DoxyParamCaption})}
+
+
+
+Constructor for a \mbox{\hyperlink{classContext}{Context}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & A pointer to the \mbox{\hyperlink{classComplaint}{Complaint}} object representing the current complaint strategy. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classContext_a84f8aefc95844c86aaf9688b15adeee2}\label{classContext_a84f8aefc95844c86aaf9688b15adeee2}} 
+\index{Context@{Context}!AddressComplaint@{AddressComplaint}}
+\index{AddressComplaint@{AddressComplaint}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{AddressComplaint()}{AddressComplaint()}}
+{\footnotesize\ttfamily void Context\+::\+Address\+Complaint (\begin{DoxyParamCaption}\item[{string}]{complaint,  }\item[{int}]{degree }\end{DoxyParamCaption})}
+
+
+
+Address a customer complaint with a specified degree of severity. 
+
+This function calls the current complaint strategy\textquotesingle{}s Address\+Complaint function so that the function can be handled accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em complaint} & The description of the customer\textquotesingle{}s complaint. \\
+\hline
+{\em degree} & The degree of severity of the complaint. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Context.\+h\item 
+Context.\+cpp\end{DoxyCompactItemize}

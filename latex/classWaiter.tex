@@ -1,0 +1,66 @@
+\hypertarget{classWaiter}{}\doxysection{Waiter Class Reference}
+\label{classWaiter}\index{Waiter@{Waiter}}
+
+
+One of the handler responsible for handling customer complaints.  
+
+
+
+
+{\ttfamily \#include $<$Waiter.\+h$>$}
+
+
+
+Inheritance diagram for Waiter\+:
+% FIG 0
+
+
+Collaboration diagram for Waiter\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWaiter_ab2de094297c57ac00eb4359cc4dd9ad8}\label{classWaiter_ab2de094297c57ac00eb4359cc4dd9ad8}} 
+\mbox{\hyperlink{classWaiter_ab2de094297c57ac00eb4359cc4dd9ad8}{Waiter}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for a \mbox{\hyperlink{classWaiter}{Waiter}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWaiter_aa3eac8a78439feb99b0bb50380f8597d}\label{classWaiter_aa3eac8a78439feb99b0bb50380f8597d}} 
+virtual \mbox{\hyperlink{classWaiter_aa3eac8a78439feb99b0bb50380f8597d}{$\sim$\+Waiter}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classWaiter}{Waiter}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWaiter_a11c7cc56b5aa0dbad705f81f7df8e1f9}{handle\+Complaint}} (string c, int degree)
+\begin{DoxyCompactList}\small\item\em Handle a customer complaint with a specified degree of severity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+One of the handler responsible for handling customer complaints. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWaiter_a11c7cc56b5aa0dbad705f81f7df8e1f9}\label{classWaiter_a11c7cc56b5aa0dbad705f81f7df8e1f9}} 
+\index{Waiter@{Waiter}!handleComplaint@{handleComplaint}}
+\index{handleComplaint@{handleComplaint}!Waiter@{Waiter}}
+\doxysubsubsection{\texorpdfstring{handleComplaint()}{handleComplaint()}}
+{\footnotesize\ttfamily void Waiter\+::handle\+Complaint (\begin{DoxyParamCaption}\item[{string}]{c,  }\item[{int}]{degree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handle a customer complaint with a specified degree of severity. 
+
+This function handles customer complaints based on their degree of severity and the type of complaint. It provides responses and potential resolutions for different complaint types.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The type of the customer\textquotesingle{}s complaint. \\
+\hline
+{\em degree} & The degree of severity of the complaint. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComplaintsHandler_a70090c75fb50d2c29618a8924aae83ce}{Complaints\+Handler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Waiter.\+h\item 
+Waiter.\+cpp\end{DoxyCompactItemize}

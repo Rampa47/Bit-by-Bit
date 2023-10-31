@@ -1,0 +1,111 @@
+\hypertarget{classComplaintsHandler}{}\doxysection{Complaints\+Handler Class Reference}
+\label{classComplaintsHandler}\index{ComplaintsHandler@{ComplaintsHandler}}
+
+
+Base class for Complaints\+Handlers responsible for handling customer complaints.  
+
+
+
+
+{\ttfamily \#include $<$Complaints\+Handler.\+h$>$}
+
+
+
+Inheritance diagram for Complaints\+Handler\+:
+% FIG 0
+
+
+Collaboration diagram for Complaints\+Handler\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classComplaintsHandler_aa4d82c15eeccd8874cbd062fe32fb98f}{Complaints\+Handler}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classComplaintsHandler_a48d55062aeea4f7e11ac3bd574ec1179}{$\sim$\+Complaints\+Handler}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComplaintsHandler_a70090c75fb50d2c29618a8924aae83ce}{handle\+Complaint}} (string c, int degree)=0
+\begin{DoxyCompactList}\small\item\em Handle a customer complaint with a specified degree. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComplaintsHandler_ad9ea4e498e5764eba2a71397b48d0004}{add\+Next}} (\mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} $\ast$c)
+\begin{DoxyCompactList}\small\item\em Add the next \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} in the chain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classComplaintsHandler_a14c27b9d7ed8a9702e23753f79cd6bb0}\label{classComplaintsHandler_a14c27b9d7ed8a9702e23753f79cd6bb0}} 
+\mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} $\ast$ {\bfseries next}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for Complaints\+Handlers responsible for handling customer complaints. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComplaintsHandler_aa4d82c15eeccd8874cbd062fe32fb98f}\label{classComplaintsHandler_aa4d82c15eeccd8874cbd062fe32fb98f}} 
+\index{ComplaintsHandler@{ComplaintsHandler}!ComplaintsHandler@{ComplaintsHandler}}
+\index{ComplaintsHandler@{ComplaintsHandler}!ComplaintsHandler@{ComplaintsHandler}}
+\doxysubsubsection{\texorpdfstring{ComplaintsHandler()}{ComplaintsHandler()}}
+{\footnotesize\ttfamily Complaints\+Handler\+::\+Complaints\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} object. 
+
+This constructor initializes a new instance of the \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} class. \mbox{\Hypertarget{classComplaintsHandler_a48d55062aeea4f7e11ac3bd574ec1179}\label{classComplaintsHandler_a48d55062aeea4f7e11ac3bd574ec1179}} 
+\index{ComplaintsHandler@{ComplaintsHandler}!````~ComplaintsHandler@{$\sim$ComplaintsHandler}}
+\index{````~ComplaintsHandler@{$\sim$ComplaintsHandler}!ComplaintsHandler@{ComplaintsHandler}}
+\doxysubsubsection{\texorpdfstring{$\sim$ComplaintsHandler()}{~ComplaintsHandler()}}
+{\footnotesize\ttfamily Complaints\+Handler\+::$\sim$\+Complaints\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} object. 
+
+This virtual destructor is responsible for cleaning up any resources associated with the \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} object. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComplaintsHandler_ad9ea4e498e5764eba2a71397b48d0004}\label{classComplaintsHandler_ad9ea4e498e5764eba2a71397b48d0004}} 
+\index{ComplaintsHandler@{ComplaintsHandler}!addNext@{addNext}}
+\index{addNext@{addNext}!ComplaintsHandler@{ComplaintsHandler}}
+\doxysubsubsection{\texorpdfstring{addNext()}{addNext()}}
+{\footnotesize\ttfamily void Complaints\+Handler\+::add\+Next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} $\ast$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Add the next \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} in the chain. 
+
+This virtual function is responsible for adding the next \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} in the chain of responsibility.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & A pointer to the next \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} to be added to the chain. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComplaintsHandler_a70090c75fb50d2c29618a8924aae83ce}\label{classComplaintsHandler_a70090c75fb50d2c29618a8924aae83ce}} 
+\index{ComplaintsHandler@{ComplaintsHandler}!handleComplaint@{handleComplaint}}
+\index{handleComplaint@{handleComplaint}!ComplaintsHandler@{ComplaintsHandler}}
+\doxysubsubsection{\texorpdfstring{handleComplaint()}{handleComplaint()}}
+{\footnotesize\ttfamily virtual void Complaints\+Handler\+::handle\+Complaint (\begin{DoxyParamCaption}\item[{string}]{c,  }\item[{int}]{degree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Handle a customer complaint with a specified degree. 
+
+This pure virtual function is responsible for handling a customer complaint and processing it based on the given degree of severity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The customer\textquotesingle{}s complaint. \\
+\hline
+{\em degree} & The degree of severity of the complaint. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classWaiter_a11c7cc56b5aa0dbad705f81f7df8e1f9}{Waiter}}, \mbox{\hyperlink{classManager_a8f14ebd8b3fe40713ab3bb313e595af5}{Manager}}, and \mbox{\hyperlink{classMaitreD_aa90129537c003cf89b46180071d78a6c}{MaitreD}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Complaints\+Handler.\+h\item 
+Complaints\+Handler.\+cpp\end{DoxyCompactItemize}

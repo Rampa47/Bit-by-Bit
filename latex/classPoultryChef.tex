@@ -1,0 +1,87 @@
+\hypertarget{classPoultryChef}{}\doxysection{Poultry\+Chef Class Reference}
+\label{classPoultryChef}\index{PoultryChef@{PoultryChef}}
+
+
+Represents a \mbox{\hyperlink{classPoultry}{Poultry}} Chef responsible for preparing \mbox{\hyperlink{classPoultry}{Poultry}}.  
+
+
+
+
+{\ttfamily \#include $<$Poultry\+Chef.\+h$>$}
+
+
+
+Inheritance diagram for Poultry\+Chef\+:
+% FIG 0
+
+
+Collaboration diagram for Poultry\+Chef\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPoultryChef_a3860db22d253b9f072c8f414fed4a885}{Poultry\+Chef}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classPoultryChef}{Poultry\+Chef}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classPoultryChef_a42f557405f25529d9d909a3d082f47af}{$\sim$\+Poultry\+Chef}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classPoultryChef}{Poultry\+Chef}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPoultryChef_af01ebfb5fe4ede0f3b253a6de4759d36}{handle\+Order}} (vector$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $\ast$ $>$ $\ast$order, int waiter)
+\begin{DoxyCompactList}\small\item\em Handle a food order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a \mbox{\hyperlink{classPoultry}{Poultry}} Chef responsible for preparing \mbox{\hyperlink{classPoultry}{Poultry}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPoultryChef_a3860db22d253b9f072c8f414fed4a885}\label{classPoultryChef_a3860db22d253b9f072c8f414fed4a885}} 
+\index{PoultryChef@{PoultryChef}!PoultryChef@{PoultryChef}}
+\index{PoultryChef@{PoultryChef}!PoultryChef@{PoultryChef}}
+\doxysubsubsection{\texorpdfstring{PoultryChef()}{PoultryChef()}}
+{\footnotesize\ttfamily Poultry\+Chef\+::\+Poultry\+Chef (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classPoultryChef}{Poultry\+Chef}} object. 
+
+This constructor initializes a new instance of the \mbox{\hyperlink{classPoultryChef}{Poultry\+Chef}} class. \mbox{\Hypertarget{classPoultryChef_a42f557405f25529d9d909a3d082f47af}\label{classPoultryChef_a42f557405f25529d9d909a3d082f47af}} 
+\index{PoultryChef@{PoultryChef}!````~PoultryChef@{$\sim$PoultryChef}}
+\index{````~PoultryChef@{$\sim$PoultryChef}!PoultryChef@{PoultryChef}}
+\doxysubsubsection{\texorpdfstring{$\sim$PoultryChef()}{~PoultryChef()}}
+{\footnotesize\ttfamily Poultry\+Chef\+::$\sim$\+Poultry\+Chef (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{classPoultryChef}{Poultry\+Chef}} object. 
+
+This virtual destructor is responsible for cleaning up any resources associated with the \mbox{\hyperlink{classPoultryChef}{Poultry\+Chef}} object. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPoultryChef_af01ebfb5fe4ede0f3b253a6de4759d36}\label{classPoultryChef_af01ebfb5fe4ede0f3b253a6de4759d36}} 
+\index{PoultryChef@{PoultryChef}!handleOrder@{handleOrder}}
+\index{handleOrder@{handleOrder}!PoultryChef@{PoultryChef}}
+\doxysubsubsection{\texorpdfstring{handleOrder()}{handleOrder()}}
+{\footnotesize\ttfamily void Poultry\+Chef\+::handle\+Order (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $\ast$ $>$ $\ast$}]{order,  }\item[{int}]{waiter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handle a food order. 
+
+This function is responsible for preparing \mbox{\hyperlink{classPoultry}{Poultry}} if it is found in the order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em order} & A vector of \mbox{\hyperlink{classFoodItem}{Food\+Item}} pointers representing the food order. \\
+\hline
+{\em waiter} & An integer representing the waiter ID of the waiter taking the order. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classChefHandler_aa34cc6651709b408fede8bd8e01e88a1}{Chef\+Handler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Poultry\+Chef.\+h\item 
+Poultry\+Chef.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,87 @@
+\hypertarget{classBurgerChef}{}\doxysection{Burger\+Chef Class Reference}
+\label{classBurgerChef}\index{BurgerChef@{BurgerChef}}
+
+
+Represents a \mbox{\hyperlink{classBurger}{Burger}} Chef responsible for preparing Burgers.  
+
+
+
+
+{\ttfamily \#include $<$Burger\+Chef.\+h$>$}
+
+
+
+Inheritance diagram for Burger\+Chef\+:
+% FIG 0
+
+
+Collaboration diagram for Burger\+Chef\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBurgerChef_a0d1530e2c46f7943db003b5058a7dbd5}{Burger\+Chef}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classBurgerChef}{Burger\+Chef}} object. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classBurgerChef_aac0b26254c23719c051e4fc0d23d69f1}{$\sim$\+Burger\+Chef}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classBurgerChef}{Burger\+Chef}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBurgerChef_af9c638aa3ca8f961907ed8b51cf6ff17}{handle\+Order}} (vector$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $\ast$ $>$ $\ast$order, int waiter)
+\begin{DoxyCompactList}\small\item\em Handle a food order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a \mbox{\hyperlink{classBurger}{Burger}} Chef responsible for preparing Burgers. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBurgerChef_a0d1530e2c46f7943db003b5058a7dbd5}\label{classBurgerChef_a0d1530e2c46f7943db003b5058a7dbd5}} 
+\index{BurgerChef@{BurgerChef}!BurgerChef@{BurgerChef}}
+\index{BurgerChef@{BurgerChef}!BurgerChef@{BurgerChef}}
+\doxysubsubsection{\texorpdfstring{BurgerChef()}{BurgerChef()}}
+{\footnotesize\ttfamily Burger\+Chef\+::\+Burger\+Chef (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classBurgerChef}{Burger\+Chef}} object. 
+
+This constructor initializes a new instance of the \mbox{\hyperlink{classBurgerChef}{Burger\+Chef}} class. \mbox{\Hypertarget{classBurgerChef_aac0b26254c23719c051e4fc0d23d69f1}\label{classBurgerChef_aac0b26254c23719c051e4fc0d23d69f1}} 
+\index{BurgerChef@{BurgerChef}!````~BurgerChef@{$\sim$BurgerChef}}
+\index{````~BurgerChef@{$\sim$BurgerChef}!BurgerChef@{BurgerChef}}
+\doxysubsubsection{\texorpdfstring{$\sim$BurgerChef()}{~BurgerChef()}}
+{\footnotesize\ttfamily Burger\+Chef\+::$\sim$\+Burger\+Chef (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy the \mbox{\hyperlink{classBurgerChef}{Burger\+Chef}} object. 
+
+This virtual destructor is responsible for cleaning up any resources associated with the \mbox{\hyperlink{classBurgerChef}{Burger\+Chef}} object. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBurgerChef_af9c638aa3ca8f961907ed8b51cf6ff17}\label{classBurgerChef_af9c638aa3ca8f961907ed8b51cf6ff17}} 
+\index{BurgerChef@{BurgerChef}!handleOrder@{handleOrder}}
+\index{handleOrder@{handleOrder}!BurgerChef@{BurgerChef}}
+\doxysubsubsection{\texorpdfstring{handleOrder()}{handleOrder()}}
+{\footnotesize\ttfamily void Burger\+Chef\+::handle\+Order (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classFoodItem}{Food\+Item}} $\ast$ $>$ $\ast$}]{order,  }\item[{int}]{waiter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handle a food order. 
+
+This function is responsible for preparing a \mbox{\hyperlink{classBurger}{Burger}} if it is found in the order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em order} & A vector of \mbox{\hyperlink{classFoodItem}{Food\+Item}} pointers representing the food order. \\
+\hline
+{\em waiter} & An integer representing the waiter ID of the waiter taking the order. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classChefHandler_aa34cc6651709b408fede8bd8e01e88a1}{Chef\+Handler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Burger\+Chef.\+h\item 
+Burger\+Chef.\+cpp\end{DoxyCompactItemize}

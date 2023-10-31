@@ -1,0 +1,119 @@
+\hypertarget{classOrder}{}\doxysection{Order Class Reference}
+\label{classOrder}\index{Order@{Order}}
+
+
+Represents an order placed by a waiter.  
+
+
+
+
+{\ttfamily \#include $<$Order.\+h$>$}
+
+
+
+Inheritance diagram for Order\+:
+% FIG 0
+
+
+Collaboration diagram for Order\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classOrder_a9c6628bac1620e1cafc32b1b7593bd60}{Order}} (int waiter, \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} $\ast$chef\+Handler)
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classOrder}{Order}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOrder_a70fdd14af8a807b46802ac1a5c6ba1c2}{handle\+Task}} () override
+\begin{DoxyCompactList}\small\item\em Handles the order placed by a waiter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOrder_a2abda7282cfdd3daa8ba38fcbfe8bfc0}{add\+Food\+Item}} (\mbox{\hyperlink{classFoodItem}{Food\+Item}} $\ast$item)
+\begin{DoxyCompactList}\small\item\em Adds a food item to the order. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classOrder_a8fb25876ccbd534465f5f96ef9bb2212}{$\sim$\+Order}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classOrder}{Order}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an order placed by a waiter. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOrder_a9c6628bac1620e1cafc32b1b7593bd60}\label{classOrder_a9c6628bac1620e1cafc32b1b7593bd60}} 
+\index{Order@{Order}!Order@{Order}}
+\index{Order@{Order}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{Order()}{Order()}}
+{\footnotesize\ttfamily Order\+::\+Order (\begin{DoxyParamCaption}\item[{int}]{waiter,  }\item[{\mbox{\hyperlink{classChefHandler}{Chef\+Handler}} $\ast$}]{chef\+Handler }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \mbox{\hyperlink{classOrder}{Order}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em waiter} & The ID of the waiter who placed the order. \\
+\hline
+{\em chef\+Handler} & A pointer to a \mbox{\hyperlink{classChefHandler}{Chef\+Handler}} responsible for the order. \\
+\hline
+\end{DoxyParams}
+Constructor for the \mbox{\hyperlink{classOrder}{Order}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em waiter} & The ID of the waiter who placed the order. \\
+\hline
+{\em chef\+Handler} & A pointer to a chef\+Handler responsible for the order.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOrder_a8fb25876ccbd534465f5f96ef9bb2212}\label{classOrder_a8fb25876ccbd534465f5f96ef9bb2212}} 
+\index{Order@{Order}!````~Order@{$\sim$Order}}
+\index{````~Order@{$\sim$Order}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{$\sim$Order()}{~Order()}}
+{\footnotesize\ttfamily Order\+::$\sim$\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor for the \mbox{\hyperlink{classOrder}{Order}} class. 
+
+Destructor to clean up and delete all food items in the dishes vector.
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOrder_a2abda7282cfdd3daa8ba38fcbfe8bfc0}\label{classOrder_a2abda7282cfdd3daa8ba38fcbfe8bfc0}} 
+\index{Order@{Order}!addFoodItem@{addFoodItem}}
+\index{addFoodItem@{addFoodItem}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{addFoodItem()}{addFoodItem()}}
+{\footnotesize\ttfamily void Order\+::add\+Food\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFoodItem}{Food\+Item}} $\ast$}]{item }\end{DoxyParamCaption})}
+
+
+
+Adds a food item to the order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & A pointer to the food item to be added to the order. \\
+\hline
+\end{DoxyParams}
+Adds a food item to the order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dish} & A pointer to the food item to be added to the order.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOrder_a70fdd14af8a807b46802ac1a5c6ba1c2}\label{classOrder_a70fdd14af8a807b46802ac1a5c6ba1c2}} 
+\index{Order@{Order}!handleTask@{handleTask}}
+\index{handleTask@{handleTask}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{handleTask()}{handleTask()}}
+{\footnotesize\ttfamily void Order\+::handle\+Task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles the order placed by a waiter. 
+
+This function processes the order by preparing the specified dishes. Handles the order placed by a waiter.
+
+This function processes the order by preparing the specified dishes.
+
+Implements \mbox{\hyperlink{classChefTask_a2d8dc075b7c362e948953bc1ec9e4407}{Chef\+Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Order.\+h\item 
+Order.\+cpp\end{DoxyCompactItemize}

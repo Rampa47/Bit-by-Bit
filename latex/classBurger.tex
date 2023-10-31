@@ -1,0 +1,140 @@
+\hypertarget{classBurger}{}\doxysection{Burger Class Reference}
+\label{classBurger}\index{Burger@{Burger}}
+
+
+Represents a burger as a type of food item.  
+
+
+
+
+{\ttfamily \#include $<$Burger.\+h$>$}
+
+
+
+Inheritance diagram for Burger\+:
+% FIG 0
+
+
+Collaboration diagram for Burger\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBurger_a2554947cac06d74d3451ca5ab41f1189}{cook}} () override
+\begin{DoxyCompactList}\small\item\em Cooks the burger. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBurger_a1b4cf114c3c39eace28ae5e790829e47}{add\+Patty}} ()=0
+\begin{DoxyCompactList}\small\item\em Adds a patty to the burger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBurger_a80ad472a5f95d65b334ec560159e907e}{add\+Buns}} ()
+\begin{DoxyCompactList}\small\item\em Adds buns to the burger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBurger_a62123858b4a8ce8f54f3e69b885b3386}{add\+Salads}} ()
+\begin{DoxyCompactList}\small\item\em Adds salads to the burger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBurger_a484166e4364d9ea4d0caa0a1b25a98e1}{add\+Cheese}} ()
+\begin{DoxyCompactList}\small\item\em Adds cheese to the burger. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classBurger_a748f5f9dc8c32e1f7f36dd9adda471c4}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Get the name of the class. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classBurger_a02a4e935a611d971a7d1bafde53db13d}{$\sim$\+Burger}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \mbox{\hyperlink{classBurger}{Burger}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a burger as a type of food item. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBurger_a02a4e935a611d971a7d1bafde53db13d}\label{classBurger_a02a4e935a611d971a7d1bafde53db13d}} 
+\index{Burger@{Burger}!````~Burger@{$\sim$Burger}}
+\index{````~Burger@{$\sim$Burger}!Burger@{Burger}}
+\doxysubsubsection{\texorpdfstring{$\sim$Burger()}{~Burger()}}
+{\footnotesize\ttfamily Burger\+::$\sim$\+Burger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Virtual destructor for the \mbox{\hyperlink{classBurger}{Burger}} class. 
+
+Virtual destructor for the \mbox{\hyperlink{classBurger}{Burger}} class.
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBurger_a80ad472a5f95d65b334ec560159e907e}\label{classBurger_a80ad472a5f95d65b334ec560159e907e}} 
+\index{Burger@{Burger}!addBuns@{addBuns}}
+\index{addBuns@{addBuns}!Burger@{Burger}}
+\doxysubsubsection{\texorpdfstring{addBuns()}{addBuns()}}
+{\footnotesize\ttfamily void Burger\+::add\+Buns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Adds buns to the burger. 
+
+Derived classes may provide an implementation for adding buns. Adds buns to the burger.\mbox{\Hypertarget{classBurger_a484166e4364d9ea4d0caa0a1b25a98e1}\label{classBurger_a484166e4364d9ea4d0caa0a1b25a98e1}} 
+\index{Burger@{Burger}!addCheese@{addCheese}}
+\index{addCheese@{addCheese}!Burger@{Burger}}
+\doxysubsubsection{\texorpdfstring{addCheese()}{addCheese()}}
+{\footnotesize\ttfamily void Burger\+::add\+Cheese (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Adds cheese to the burger. 
+
+Derived classes may provide an implementation for adding cheese. Adds cheese to the burger.\mbox{\Hypertarget{classBurger_a1b4cf114c3c39eace28ae5e790829e47}\label{classBurger_a1b4cf114c3c39eace28ae5e790829e47}} 
+\index{Burger@{Burger}!addPatty@{addPatty}}
+\index{addPatty@{addPatty}!Burger@{Burger}}
+\doxysubsubsection{\texorpdfstring{addPatty()}{addPatty()}}
+{\footnotesize\ttfamily virtual void Burger\+::add\+Patty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Adds a patty to the burger. 
+
+This is a pure virtual method that needs to be implemented by derived classes. 
+
+Implemented in \mbox{\hyperlink{classChickenBurger_ad0081b6bcf14c6f2c29fa7cb24bb9044}{Chicken\+Burger}}, and \mbox{\hyperlink{classBeefBurger_a786ebdb52492ab13b9a244709c101cc0}{Beef\+Burger}}.
+
+\mbox{\Hypertarget{classBurger_a62123858b4a8ce8f54f3e69b885b3386}\label{classBurger_a62123858b4a8ce8f54f3e69b885b3386}} 
+\index{Burger@{Burger}!addSalads@{addSalads}}
+\index{addSalads@{addSalads}!Burger@{Burger}}
+\doxysubsubsection{\texorpdfstring{addSalads()}{addSalads()}}
+{\footnotesize\ttfamily void Burger\+::add\+Salads (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Adds salads to the burger. 
+
+Derived classes may provide an implementation for adding salads. Adds salads to the burger.\mbox{\Hypertarget{classBurger_a2554947cac06d74d3451ca5ab41f1189}\label{classBurger_a2554947cac06d74d3451ca5ab41f1189}} 
+\index{Burger@{Burger}!cook@{cook}}
+\index{cook@{cook}!Burger@{Burger}}
+\doxysubsubsection{\texorpdfstring{cook()}{cook()}}
+{\footnotesize\ttfamily void Burger\+::cook (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Cooks the burger. 
+
+This function represents the cooking process for a burger. Cooks the burger.
+
+This function represents the cooking process for a burger.
+
+Implements \mbox{\hyperlink{classFoodItem_a7c60667ee80bb9f434a5d5be861cc2c1}{Food\+Item}}.
+
+\mbox{\Hypertarget{classBurger_a748f5f9dc8c32e1f7f36dd9adda471c4}\label{classBurger_a748f5f9dc8c32e1f7f36dd9adda471c4}} 
+\index{Burger@{Burger}!getName@{getName}}
+\index{getName@{getName}!Burger@{Burger}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Burger\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the name of the class. 
+
+This function retrieves the name of the class(food item) and returns it as a string.
+
+\begin{DoxyReturn}{Returns}
+A string containing the name of the class. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFoodItem_ad732066183e5a749aa413cd4f874d15e}{Food\+Item}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Burger.\+h\item 
+Burger.\+cpp\end{DoxyCompactItemize}

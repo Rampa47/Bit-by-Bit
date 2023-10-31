@@ -1,0 +1,83 @@
+\hypertarget{classTimeComplaint}{}\doxysection{Time\+Complaint Class Reference}
+\label{classTimeComplaint}\index{TimeComplaint@{TimeComplaint}}
+
+
+Class for Time-\/related complaints.  
+
+
+
+
+{\ttfamily \#include $<$Time\+Complaint.\+h$>$}
+
+
+
+Inheritance diagram for Time\+Complaint\+:
+% FIG 0
+
+
+Collaboration diagram for Time\+Complaint\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTimeComplaint_a1b46ebd1857fd6627b6c75de4f13b28c}{Time\+Complaint}} (\mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} $\ast$\mbox{\hyperlink{classComplaint_a25408a3525e407e9b88f0c847d09bb07}{handler}})
+\begin{DoxyCompactList}\small\item\em Constructor for a \mbox{\hyperlink{classTimeComplaint}{Time\+Complaint}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTimeComplaint_a2f40b0df1fa9a207816be852a24f0557}\label{classTimeComplaint_a2f40b0df1fa9a207816be852a24f0557}} 
+virtual \mbox{\hyperlink{classTimeComplaint_a2f40b0df1fa9a207816be852a24f0557}{$\sim$\+Time\+Complaint}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classTimeComplaint}{Time\+Complaint}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTimeComplaint_a500fe7d7b5c2e2531c75ee1a69fc67e8}{Address\+Complaint}} (string complaint, int \mbox{\hyperlink{classComplaint_a574b212edf2f8e3a4d2d3a80387e1fdf}{degree}})
+\begin{DoxyCompactList}\small\item\em Address a Time-\/related customer complaint with a specified degree of severity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class for Time-\/related complaints. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTimeComplaint_a1b46ebd1857fd6627b6c75de4f13b28c}\label{classTimeComplaint_a1b46ebd1857fd6627b6c75de4f13b28c}} 
+\index{TimeComplaint@{TimeComplaint}!TimeComplaint@{TimeComplaint}}
+\index{TimeComplaint@{TimeComplaint}!TimeComplaint@{TimeComplaint}}
+\doxysubsubsection{\texorpdfstring{TimeComplaint()}{TimeComplaint()}}
+{\footnotesize\ttfamily Time\+Complaint\+::\+Time\+Complaint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} $\ast$}]{handler }\end{DoxyParamCaption})}
+
+
+
+Constructor for a \mbox{\hyperlink{classTimeComplaint}{Time\+Complaint}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handler} & A pointer to the \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}} responsible for handling the complaint. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTimeComplaint_a500fe7d7b5c2e2531c75ee1a69fc67e8}\label{classTimeComplaint_a500fe7d7b5c2e2531c75ee1a69fc67e8}} 
+\index{TimeComplaint@{TimeComplaint}!AddressComplaint@{AddressComplaint}}
+\index{AddressComplaint@{AddressComplaint}!TimeComplaint@{TimeComplaint}}
+\doxysubsubsection{\texorpdfstring{AddressComplaint()}{AddressComplaint()}}
+{\footnotesize\ttfamily void Time\+Complaint\+::\+Address\+Complaint (\begin{DoxyParamCaption}\item[{string}]{complaint,  }\item[{int}]{degree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Address a Time-\/related customer complaint with a specified degree of severity. 
+
+This function handles Time-\/related customer complaints by notifying the specified \mbox{\hyperlink{classComplaintsHandler}{Complaints\+Handler}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em complaint} & The description of the Time-\/related complaint. \\
+\hline
+{\em degree} & The degree of severity of the complaint. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classComplaint_a33aa4f549f4036ad3a28eaa1b5dffc27}{Complaint}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Time\+Complaint.\+h\item 
+Time\+Complaint.\+cpp\end{DoxyCompactItemize}
