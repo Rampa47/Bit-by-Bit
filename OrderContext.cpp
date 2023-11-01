@@ -1,12 +1,12 @@
 #include "OrderContext.h"
 
-OrderContext::OrderContext(Order* order,OrderState* orderState){
-    this.order=order;
+OrderContext::OrderContext(OrderState* orderState){
+    
     this.orderState=orderState;
 
 }
-void OrderContext::cookChangeState(Order* order){
-    orderState->cook(this,order);
+void OrderContext::cookChangeState(){
+    orderState->cook(this);
 }
 void OrderContext::setOrderState(OrderState* orderState){
     if(this.orderState!=nullptr){
@@ -16,7 +16,7 @@ void OrderContext::setOrderState(OrderState* orderState){
 }
 OrderContext::OrderContext()
 {
-    order=nullptr;
+   
     orderState=nullptr;
 }
 OrderContext::~OrderContext() {

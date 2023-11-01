@@ -12,6 +12,6 @@ class InProgress : public OrderState
 
 public:
    
-     virtual void cook(OrderContext* orderContext, Order* order);
+     virtual void cook(OrderContext* orderContext);
 };
 #endif

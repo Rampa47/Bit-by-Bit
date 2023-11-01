@@ -5,7 +5,7 @@
 
 
    
-     void Raw::cook(OrderContext* orderContext, Order* order){
+     void Raw::cook(OrderContext* orderContext){
         std::cout<<"Cooking the raw order\n";
         orderContext->setOrderState(new InProgress());
         //what would you like to show about the order or do

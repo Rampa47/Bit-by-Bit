@@ -28,10 +28,10 @@ int main(){
     order->addFoodItem(new TomatoChipSauce( new JalapenoChipSauce(new PlainChips)));
     order->addFoodItem(new Poultry(new GrilledPoultry));
     order->addFoodItem(new Poultry(new FriedPoultry));
-    OrderContext* OrderContext=new OrderContext(order,new Raw());
-    OrderContext->cookChangeState(order);//we are changing the state of the whole order to in progress before we handle
+   // OrderContext* OrderContext=new OrderContext(order,new Raw());
+   // OrderContext->cookChangeState(order);//we are changing the state of the whole order to in progress before we handle
     order->handleTask();
-    OrderContext->cookChangeState(order);//we are changing the state to done once the after the order has been handled
+    //OrderContext->cookChangeState(order);//we are changing the state to done once the after the order has been handled
     
     delete OrderContext;
     delete order;

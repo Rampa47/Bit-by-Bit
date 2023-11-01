@@ -4,7 +4,7 @@
 #include <vector>
 #include <typeinfo>
 #include <iostream>
-
+#include "OrderContext.h"
 using namespace std;
 /**
  * @class ChefHandler
@@ -52,7 +52,13 @@ class ChefHandler
          * @param c A pointer to the ChefHandler to be added as a successor.
          */
         virtual void addSuccessor(ChefHandler* c);
-       
+        
+       //Changedstate bool= if true the state if not they dont change the state
+       //the head chef has to trigger the change state
+       /**void ChangeState(){
+        * order->ChangeStateOfOrder();}
+
+       }*/
 };
 
 #endif

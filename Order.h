@@ -16,6 +16,7 @@ private:
     int waiter; // The ID of the waiter that is in charge of the Order
     ChefHandler* chefHandler; // A pointer to a ChefHandler
     std::vector<FoodItem*> dishes; // A vector of food items in the order
+    
 public:
     /**
      * @brief Constructor for the Order class.
@@ -43,6 +44,9 @@ public:
      * @brief Destructor for the Order class.
      */
     virtual ~Order();
+    void ChangeStateOfOrder();
+   //  OrderContext->cookChangeState(this);
+    OrderContext* orderContext=nullptr;
 
      
 };
