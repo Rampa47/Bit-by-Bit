@@ -1,3 +1,5 @@
+#ifndef DONE_H
+#define DONE_H
 #include "OrderState.h"
 #include "OrderContext.h"
 #include <iostream>
@@ -10,5 +12,6 @@ class Done : public OrderState
 
 public:
    
-    virtual void cook(OrderContext* orderContext, Order* order);
+    virtual void cook(OrderContext* orderContext);
 };
+#endif

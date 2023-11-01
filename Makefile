@@ -1,3 +1,4 @@
+
 Main.out: Node.o LinkedList.o Customer.o Mediator.o Colleague.o main.o
 	g++ Node.o LinkedList.o Customer.o main.o -o Mediator.o -o Colleague.o -o Main.out
 
@@ -23,4 +24,5 @@ run:
 	./Main.out
 
 clean:
+
 	rm *.o Main.out

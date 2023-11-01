@@ -1,3 +1,4 @@
+
 CXX = g++
 CXXFLAGS = -std=c++11
 
@@ -21,4 +22,5 @@ run: $(EXECUTABLE)
 	./$(EXECUTABLE)
 
 .PHONY: all clean run
+
 

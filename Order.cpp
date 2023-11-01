@@ -10,9 +10,13 @@ Order::Order(int waiter, ChefHandler* chefHandler)
      * @param waiter The ID of the waiter who placed the order.
      * @param chefHandler A pointer to a chefHandler responsible for the order.
      */
+     this.orderContext=new OrderContext(order,new Raw());
     std::cout << "Waiter " << waiter << " taking Customer Order..." << std::endl;
 }
-
+void Order::ChangeStateOfOrder(){
+    
+    OrderContext->cookChangeState(this);
+}
 void Order::handleTask() {
     /**
      * @brief Handles the order placed by a waiter.
