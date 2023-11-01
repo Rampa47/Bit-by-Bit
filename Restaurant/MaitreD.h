@@ -10,6 +10,7 @@ class MaitreD
     public:
         static MaitreD * instance();
         void seatCustomers(Restaurant<T>& list, Customer& diner);
+        void handleComplaint(std::string complaint);
         Restaurant<T> * getRestaurant();
         ~MaitreD();
 

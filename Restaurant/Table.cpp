@@ -78,9 +78,16 @@ std::string Table<T>::getValue(std::string value)
 }
 
 template <class T>
-int Table<T>::getMaxNumCustomers()
+int Table<T>::getMaxNumCustomers(bool value)
 {
-    return maxNumCustomers;
+    if(value)
+    {
+        return maxExtendedNumCustomers;
+    }
+    else
+    {
+        return maxNumCustomers;
+    }
 }
 
 template <class T>
@@ -90,18 +97,33 @@ int Table<T>::getNumCurrentCustomers()
 }
 
 template <class T>
-bool Table<T>::isFull()
+bool Table<T>::isFull(bool value)
 {
-    if(this->numCurrentCustomers >= maxNumCustomers)
+    if(value)
     {
-        // std::cout << "The table is fully occupied." << std::endl;
-        // std::cout << "Please find alternative seating for the customers" << std::endl;
-        return true;
+        if(this->numCurrentCustomers >= getMaxNumCustomers(value))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     else
     {
-        return false;
+        if(this->numCurrentCustomers >= maxNumCustomers)
+        {
+            // std::cout << "The table is fully occupied." << std::endl;
+            // std::cout << "Please find alternative seating for the customers" << std::endl;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
+    
 }
 
 template <class T>
@@ -157,20 +179,19 @@ void Table<T>::incrementNumCustomers()
 }
 
 template <class T>
-void Table<T>::addCust(Customer& value)
+void Table<T>::addCust(Customer * value)
 {
-    if(isFull())
-    {
-        return;
-    }
-    else
-    {
-        customers.push_back(&value);
-    }
+    customers.push_back(value);
 }
 
 template <class T>
 bool Table<T>::getTableType()
 {
     return isWaitingArea;
+}
+
+template <class T>
+void Table<T>::removeCustomer()
+{
+    this->customers.pop_back();
 }

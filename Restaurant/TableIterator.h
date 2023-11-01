@@ -4,8 +4,8 @@
 #include "Table.h"
 
 template <class T>
-class TableIterator{
-
+class TableIterator
+{
     public:
         TableIterator(Table<T>* table);
         Table<T>* first();
@@ -17,7 +17,6 @@ class TableIterator{
     private:
         Table<T>* firstTable;
         Table<T>* currentTable;
-
 };
 
 #endif // TABLEITERATOR_H

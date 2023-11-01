@@ -19,15 +19,16 @@ class Table
         void setIsWaitingArea(bool isWaitingArea);
         bool getTableType();
         std::string getValue(std::string value);    // Gets the name of a particular customer
-        int getMaxNumCustomers();
+        int getMaxNumCustomers(bool value);
         int getNumCurrentCustomers();
-        bool isFull();      // Checks if the table is full
+        bool isFull(bool value);      // Checks if the table is full
         bool isEmpty();     // Checks if the table is empty
         bool isOccupied();  // Checks if the table is occupied
+        void removeCustomer();
         std::vector<Customer*> getTable();  // Provides access to the particular table's vector (which contains the customers) 
         std::string print();    // Prints the names of the customers at a particular table
         void incrementNumCustomers();
-        void addCust(Customer& value);
+        void addCust(Customer * value);
 
     private:
         Table * next;
@@ -35,6 +36,7 @@ class Table
         std::vector<Customer*> customers;
         int numCurrentCustomers = 0;
         int maxNumCustomers = 5;
+        int maxExtendedNumCustomers = 10;
         bool isWaitingArea;
 };
 
