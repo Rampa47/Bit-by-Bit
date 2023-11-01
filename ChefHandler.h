@@ -5,13 +5,14 @@
 #include <typeinfo>
 #include <iostream>
 #include "OrderContext.h"
+#include "Colleague.h"
 using namespace std;
 /**
  * @class ChefHandler
  *
  * @brief Base class for ChefHandlers responsible for handling food orders.
  */
-class ChefHandler
+class ChefHandler: public Colleague
 {
     protected:
         ChefHandler* successor ;
@@ -59,6 +60,24 @@ class ChefHandler
         * order->ChangeStateOfOrder();}
 
        }*/
+        /**
+         * @brief Receives message from Mediator .
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void receive(std::string to,std::string message,Colleague* me);
+        /**
+         * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
+         *
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void send(std::string to,std::string message);
+       /**
+         * @brief Gets the name of the concrete Class.
+        
+         */
+       
 };
 
 #endif

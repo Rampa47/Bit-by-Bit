@@ -6,6 +6,8 @@ Table<T>::Table()
     next = nullptr;
     numCurrentCustomers = 0;
     isWaitingArea = false;
+    className="Table";
+    waiter=new Waiter(waiterNumberToTable++);
 }
 
 template <class T>
@@ -174,3 +176,20 @@ bool Table<T>::getTableType()
 {
     return isWaitingArea;
 }
+template <class T>
+void Table<T>::receive(std::string to,std::string message,Colleague* me){
+    std::cout<<" Table about to be serviced. Message: " << message <<std::endl;
+ }
+  void  Table<T>::send(std::string to,std::string message){
+    std::cout<<"Customer who would you like to Notify?"<<std::endl;
+    std::cin>>to;
+    std::cout<<"Customer what is your message to the receiver?"<<std::endl;
+    std::cin>>message;
+
+    mediator->notifications(to,message,this);
+ }
+ template <class T>
+ int Table<T>::getWaiterNumber(){
+    return waiter->waiterNumber;
+ }
+ 

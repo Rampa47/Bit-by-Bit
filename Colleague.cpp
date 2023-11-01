@@ -13,5 +13,5 @@ void Colleague::reg(Mediator* m){
 
 }
 std::string Colleague::getClassname(){
-    return Classname;
+    return className;
 }
