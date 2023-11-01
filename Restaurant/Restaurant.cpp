@@ -73,27 +73,64 @@ void Restaurant<T>::createList()
 }
 
 template <class T>
-void Restaurant<T>::addCustomer(Customer& value)
+void Restaurant<T>::addCustomer(std::vector<Customer*> vect)
 {
     if(isEmptyList())
     {
-       Table<T> * node = add();
-       node->addCust(value);
-       node->incrementNumCustomers();
-       return;
+        Table<T> * node = add();
+        bool extraCustomers = false;
+
+        if(vect.size() >= node->getMaxNumCustomers(extraCustomers))
+        {
+            extraCustomers = true;
+        }
+
+        for(size_t i = 0; i < vect.size(); i++)
+        {
+            if(!extraCustomers)
+            {
+                node->addCust(vect[i]);
+                node->incrementNumCustomers(); 
+            }
+            else if(extraCustomers)
+            {
+                node->addCust(vect[i]);
+                node->incrementNumCustomers();
+            }
+        }
+
+        return;
     }
     else
     {
+        bool extraCustomers = false;
         Table<T> * ptr = head;
+
         Table<T> * waitingArea = nullptr;
         bool fullRestaurant = false;
 
+        if(vect.size() > ptr->getMaxNumCustomers(extraCustomers))
+        {
+            extraCustomers = true;
+        }
+
         while(ptr != nullptr)
         {
-            if(!ptr->isFull() && !ptr->getTableType())
+            if((!ptr->isFull(extraCustomers) && !ptr->getTableType()) && !ptr->isOccupied())
             {
-                ptr->addCust(value);
-                ptr->incrementNumCustomers(); 
+                for(size_t j = 0; j < vect.size(); j++)
+                {
+                    if(!extraCustomers)
+                    {
+                        ptr->addCust(vect[j]);
+                        ptr->incrementNumCustomers();
+                    }
+                    else if(ptr->getNumCurrentCustomers() <= ptr->getMaxNumCustomers(extraCustomers))
+                    {
+                        ptr->addCust(vect[j]);
+                        ptr->incrementNumCustomers();
+                    }
+                }
                 return;
             }
 
@@ -119,9 +156,12 @@ void Restaurant<T>::addCustomer(Customer& value)
             std::cout << "Please sit in the waiting area until a table becomes available" << std::endl;
 
             Table<T> * nodePtr = addWaitingArea();
-            nodePtr->addCust(value);
 
-            nodePtr->incrementNumCustomers();
+            for(size_t k = 0; k < vect.size(); k++)
+            {
+                nodePtr->addCust(vect[k]);
+                nodePtr->incrementNumCustomers();
+            }
             currentNumWaitingAreas++;
 
             return;
@@ -130,10 +170,13 @@ void Restaurant<T>::addCustomer(Customer& value)
         {
             while(waitingArea != nullptr)
             {
-                if(!waitingArea->isFull())
+                if(!waitingArea->isFull(false))
                 {
-                    waitingArea->addCust(value);
-                    waitingArea->incrementNumCustomers();
+                    for(int i = 0; i < vect.size(); i++)
+                    {
+                        waitingArea->addCust(vect[i]);
+                        waitingArea->incrementNumCustomers();
+                    }
                     return;
                 }
 
@@ -145,12 +188,16 @@ void Restaurant<T>::addCustomer(Customer& value)
                 waitingArea = waitingArea->getNext();
             }
 
-            if(waitingArea->isFull() && currentNumWaitingAreas <= 3)
+            if(waitingArea->isFull(false) && currentNumWaitingAreas <= 3)
             {
                 Table<T> * newWaitingArea = addWaitingArea();
-                newWaitingArea->addCust(value);
 
-                waitingArea->incrementNumCustomers();
+                for(int j = 0; j < vect.size(); j++)
+                {
+                    waitingArea->addCust(vect[j]);
+                    waitingArea->incrementNumCustomers();
+                }
+
                 return;
             }
 
@@ -304,22 +351,34 @@ template <class T>
 bool Restaurant<T>::isFull()
 {
     Table<T> * nodePtr = head;
+    bool occupied = false;
 
-    int maxAllowedGuests = nodePtr->getMaxNumCustomers() * getNumTables(); 
+    int numGuestsForFullRequirement = nodePtr->getMaxNumCustomers(false) * getNumTables();
+    int maxAllowedGuests = nodePtr->getMaxNumCustomers(true) * getNumTables(); 
     int guestCounter = 0;
 
     while(nodePtr != nullptr)
     {
-        if(nodePtr->isFull() && (!nodePtr->getTableType()))
+        if(!nodePtr->getTableType())
         {
             guestCounter += nodePtr->getNumCurrentCustomers();
-            nodePtr = nodePtr->getNext();
         }
 
-        if(guestCounter == maxAllowedGuests)
+        if(nodePtr->isOccupied())
+        {
+            occupied = true;
+        }
+        else
+        {
+            occupied = false;
+        }
+
+        if((guestCounter >= numGuestsForFullRequirement || guestCounter <= maxAllowedGuests) || occupied)
         {
             return true;
         }
+
+        nodePtr = nodePtr->getNext();
     }
 
     return false;
