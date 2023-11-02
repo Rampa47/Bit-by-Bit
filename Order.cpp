@@ -1,5 +1,4 @@
 #include "Order.h"
-#include "FoodItem.h"
 #include <iostream>
 
 Order::Order(int waiter, ChefHandler* chefHandler)
@@ -10,40 +9,54 @@ Order::Order(int waiter, ChefHandler* chefHandler)
      * @param waiter The ID of the waiter who placed the order.
      * @param chefHandler A pointer to a chefHandler responsible for the order.
      */
-     this.orderContext=new OrderContext(order,new Raw());
+    this->orderContext=new OrderContext(new Raw());
     std::cout << "Waiter " << waiter << " taking Customer Order..." << std::endl;
 }
-void Order::ChangeStateOfOrder(){
+void Order::changeStateOfOrder(){
     
-    OrderContext->cookChangeState(this);
+    orderContext->cookChangeState();
 }
 void Order::handleTask() {
     /**
      * @brief Handles the order placed by a waiter.
      *
-     * This function processes the order by preparing the specified dishes.
+     * This function processes the order by passing the order to the PoultryChef(receiver).
      */
-    std::cout << "Order passed on to chefs..." << std::endl; 
-//     in code the order is passed on to chefHandler but in the real world what we output to the terminal is that the order is passed on to the chef
-    // Process each dish in the order
-    chefHandler->handleOrder(&dishes,waiter);
+    chefHandler->handleOrder(this);
 }
 
-void Order::addFoodItem(FoodItem* dish) {
+void Order::addFoodItem(FoodItem* foodItem) {
     /**
      * @brief Adds a food item to the order.
      *
-     * @param dish A pointer to the food item to be added to the order.
+     * @param foodItem A pointer to the food item to be added to the order.
      */
-    dishes.push_back(dish);
+    foodItems.push_back(foodItem);
 }
 
 Order::~Order() {
     /**
-     * @brief Destructor to clean up and delete all food items in the dishes vector.
+     * @brief Destructor to clean up and delete all food items in the foodItems vector.
      */
-    for (FoodItem* dish : dishes) {
-        delete dish;
+    for (FoodItem* foodItem : foodItems) {
+        delete foodItem;
     }
-    dishes.clear();
+    foodItems.clear();
+    delete orderContext;
+}
+
+
+const std::vector<FoodItem*>& Order::getFoodItems(){
+    /**
+     * @brief returns the foodItems parameter
+     */
+    return foodItems;
+}
+
+    
+const int Order::getWaiter(){
+    /**
+     * @brief returns the waiterNumber parameter
+     */
+    return waiter;
 }

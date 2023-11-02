@@ -29,10 +29,9 @@ class HeadChef:public ChefHandler
          *
          *  This function is responsible for completing the plating and adding the final touches before order can be sent to a customer
          * 
-         * @param order A vector of FoodItem pointers representing the food order.
-         * @param waiter An integer representing the waiter ID of the waiter taking the order.
+         * @param order An order object representing the customer order.
          */
-        void handleOrder(vector<FoodItem*>* order, int waiter);
+        void handleOrder(Order* order);
 };
 
 #endif
