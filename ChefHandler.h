@@ -1,6 +1,8 @@
 #ifndef CHEFHANDLER_H
 #define CHEFHANDLER_H
 #include <iostream>
+#include "OrderContext.h"
+#include "Colleague.h"
 class Order;
 using namespace std;
 /**
@@ -8,7 +10,7 @@ using namespace std;
  *
  * @brief Base class for ChefHandlers responsible for handling food orders.
  */
-class ChefHandler
+class ChefHandler: public Colleague
 {
     protected:
         ChefHandler* successor ;
@@ -48,6 +50,32 @@ class ChefHandler
          * @param c A pointer to the ChefHandler to be added as a successor.
          */
         virtual void addSuccessor(ChefHandler* c);
+        
+       //Changedstate bool= if true the state if not they dont change the state
+       //the head chef has to trigger the change state
+       /**void ChangeState(){
+        * order->ChangeStateOfOrder();}
+
+       }*/
+        /**
+         * @brief Receives message from Mediator .
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void receive(std::string to,std::string message,Colleague* me);
+        /**
+         * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
+         *
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void send();
+       /**
+         * @brief Gets the name of the concrete Class.
+        
+         */
+        std::string getClassname();
+       
 };
 
 #endif
