@@ -30,8 +30,23 @@ class Table: public Colleague
         std::vector<Customer*> getTable();  // Provides access to the particular table's vector (which contains the customers) 
         std::string print();    // Prints the names of the customers at a particular table
         void incrementNumCustomers();
-        void addCust(Customer& value);
-
+       
+       
+        void addCust(Customer * value);
+   /**
+         * @brief Receives message from Mediator .
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void receive(std::string to,std::string message,Colleague* me);
+        /**
+         * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
+         *
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void send(std::string to,std::string message);
+       int getWaiterNumber();
     private:
         Table * next;
         Table * prev;
