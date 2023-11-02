@@ -1,7 +1,6 @@
 #ifndef ORDERSTATE_H
 #define ORDERSTATE_H
 #include "OrderContext.h"
-#include "Order.h"
 #include <iostream>
 /**
  * @class OrderState

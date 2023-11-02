@@ -1,10 +1,7 @@
 #ifndef CHEFHANDLER_H
 #define CHEFHANDLER_H
-#include "FoodItem.h"
-#include <vector>
-#include <typeinfo>
 #include <iostream>
-#include "OrderContext.h"
+class Order;
 #include "Colleague.h"
 using namespace std;
 /**
@@ -39,10 +36,9 @@ class ChefHandler: public Colleague
          * 
          * Subclasses must implement this function to define how they handle the order.
          *
-         * @param order A vector of FoodItem pointers representing the food order.
-         * @param waiter An integer representing the waiter ID of the waiter taking the order.
+         * @param order An order object representing the customer order.
          */
-        virtual void handleOrder(vector<FoodItem*>* order, int waiter)=0;
+        virtual void handleOrder(Order* order)=0;
 
         /**
          * @brief Add a successor ChefHandler.
@@ -60,24 +56,6 @@ class ChefHandler: public Colleague
         * order->ChangeStateOfOrder();}
 
        }*/
-        /**
-         * @brief Receives message from Mediator .
-         * @param to Specifies to who the message is for.
-         * @param message The actual message that will be received by the receiver.
-         */
-       void receive(std::string to,std::string message,Colleague* me);
-        /**
-         * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
-         *
-         * @param to Specifies to who the message is for.
-         * @param message The actual message that will be received by the receiver.
-         */
-       void send(std::string to,std::string message);
-       /**
-         * @brief Gets the name of the concrete Class.
-        
-         */
-       
 };
 
 #endif

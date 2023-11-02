@@ -30,10 +30,9 @@ class BurgerChef:public ChefHandler
          *
          *  This function is responsible for preparing  a Burger if it is found in the order. 
          * 
-         * @param order A vector of FoodItem pointers representing the food order.
-         * @param waiter An integer representing the waiter ID of the waiter taking the order.
+         * @param order An order object representing the customer order.
          */
-        void handleOrder(vector<FoodItem*>* order, int waiter);
+        void handleOrder(Order* order);
     
 };
 #endif

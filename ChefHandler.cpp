@@ -1,7 +1,7 @@
 #include "ChefHandler.h"
 
 
-ChefHandler::ChefHandler()
+ChefHandler::ChefHandler(): successor(NULL)
 {
     className="ChefHandler";
 }

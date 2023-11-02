@@ -1,4 +1,5 @@
 #include "PoultryChef.h"
+#include "Order.h"
 
 PoultryChef::PoultryChef()
 {
@@ -6,16 +7,14 @@ PoultryChef::PoultryChef()
 
 PoultryChef::~PoultryChef()
 {
+    if (successor!=NULL) delete successor;
 }
 
-void PoultryChef::handleOrder(vector<FoodItem*>* order, int waiter)
+void PoultryChef::handleOrder(Order* order)
 {
-    //not sure if i change the state here but if i do , ill need the DishState pointer to the current order
-    /*
-        //need passed in Dishstate* state;
-        state.getNextState(); // which should be inprogress/cooking/preparing order
-    */
-    for (FoodItem* foodItem : *order)
+    std::cout << "Order passed on to the Poultry Chef..." << std::endl;
+    order->changeStateOfOrder();
+    for (FoodItem* foodItem : order->getFoodItems())
     {
         if (foodItem->getName().compare("Poultry")==0) 
         {
@@ -23,5 +22,5 @@ void PoultryChef::handleOrder(vector<FoodItem*>* order, int waiter)
         }
     }
 
-    successor->handleOrder(order,waiter);
+    successor->handleOrder(order);
 }
