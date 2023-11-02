@@ -45,11 +45,12 @@ class Waiter: public ComplaintsHandler , public Colleague
          * @param to Specifies to who the message is for.
          * @param message The actual message that will be received by the receiver.
          */
-       void send(std::string to,std::string message);
+       void send();
        /**
          * @brief Gets the name of the concrete Class.
         
          */
+         std::string getClassname();
         private:
          /**
          * @brief Constructor for a Waiter object.It is made private to prevent from being instantiated without a waiter number;

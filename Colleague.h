@@ -25,7 +25,7 @@ class Colleague
          * @param to Specifies to who the message is for.
          * @param message The actual message that will be received by the receiver.
          */
-       virtual void send(std::string to,std::string message)=0;
+       virtual void send()=0;
        /**
          * @brief This function aims to attach the Colleague to the Mediator giving the colleague a gateway to communicate to other colleagues through the mediator
          *  or to be communicated to by other colleagues.
@@ -37,7 +37,7 @@ class Colleague
        /**
          * @brief Returns the concrete Colleagues name.
          */
-        std::string getClassname();
+        virtual std::string getClassname()=0;
 
     
     private:

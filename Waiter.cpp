@@ -27,9 +27,11 @@ void Waiter::handleComplaint(string c, int degree)
     }
 }
  void Waiter::receive(std::string to,std::string message,Colleague* me){
-    std::cout<<to<<"Your message: "<< message <<std::endl;
+     std::cout<<"Waiter "<<waiterNumber<<" message: "<< message <<std::endl;
  }
-  void  Waiter::send(std::string to,std::string message){
+  void  Waiter::send(){
+    std::string message="";
+      std::string to="";
     std::cout<<"Waiter who would you like to Notify?"<<std::endl;
     std::cin>>to;
     std::cout<<"Waiter what is your message to the receiver?"<<std::endl;
@@ -37,3 +39,6 @@ void Waiter::handleComplaint(string c, int degree)
 
     mediator->notifications(to,message,this);
  }
+ std::string Waiter::getClassname(){
+    return "Waiter";
+}

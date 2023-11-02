@@ -23,10 +23,10 @@ class MaitreD :public Colleague
        /**
          * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
          *
-         * @param to Specifies to who the message is for.
-         * @param message The actual message that will be received by the receiver.
+         * 
          */
-       void send(std::string to,std::string message);
+     void send();
+    std::string getClassname();
        
 
     protected:

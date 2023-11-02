@@ -1,8 +1,9 @@
 #ifndef CHEFHANDLER_H
 #define CHEFHANDLER_H
 #include <iostream>
-class Order;
+#include "OrderContext.h"
 #include "Colleague.h"
+class Order;
 using namespace std;
 /**
  * @class ChefHandler
@@ -56,6 +57,25 @@ class ChefHandler: public Colleague
         * order->ChangeStateOfOrder();}
 
        }*/
+        /**
+         * @brief Receives message from Mediator .
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void receive(std::string to,std::string message,Colleague* me);
+        /**
+         * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
+         *
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void send();
+       /**
+         * @brief Gets the name of the concrete Class.
+        
+         */
+        std::string getClassname();
+       
 };
 
 #endif

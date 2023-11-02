@@ -2,6 +2,7 @@
 #define MEDIATOR_H
 #include <iostream>
 #include "Colleague.h"
+#include <vector>
 class Colleague;
 /**
  * @class Mediator

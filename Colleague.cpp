@@ -3,7 +3,7 @@
 
 
 
-virtual Colleague::~Colleague(){
+ Colleague::~Colleague(){
         mediator=nullptr;
 }
 
@@ -12,6 +12,4 @@ void Colleague::reg(Mediator* m){
     m->registerMe(this);
 
 }
-std::string Colleague::getClassname(){
-    return className;
-}
+
