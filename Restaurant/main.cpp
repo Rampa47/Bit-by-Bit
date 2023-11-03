@@ -8,9 +8,6 @@
 #include <iostream>
 #include <string>
 
-/*template <class T>
-void printList(LinkedList<T>& list);*/
-
 int randomNumCustomers(int min, int max);
 
 int randomCustomers(std::vector<std::string> names);
@@ -28,10 +25,7 @@ int main()
     "Yasmine", "Zane", "Sophia", "William", "Ella", "James", "Ava", "Elijah",
     "Scarlett", "Benjamin", "Lily", "Lucas", "Chloe", "Aiden", "Zoe" };
 
-    for(int i = 0; i < 5; i++)
-    {
-        list.add();
-    }
+    list.createList();
 
     int numCustomers = randomNumCustomers(1,10);
 
@@ -47,9 +41,18 @@ int main()
         secondVect.push_back(new Customer(names[randomCustomers(names)]));
     }
 
+    numCustomers = randomNumCustomers(1,10);
+
+    for(int k = 0; k < numCustomers; k++)
+    {
+        thirdVect.push_back(new Customer(names[randomCustomers(names)]));
+    }
+
     MaitreD<std::string>::instance()->seatCustomers(list,vect);
 
     MaitreD<std::string>::instance()->seatCustomers(list,secondVect);
+
+    MaitreD<std::string>::instance()->seatCustomers(list,thirdVect);
 
     // list.addCustomer(vect);
 
@@ -59,7 +62,7 @@ int main()
 
     std::cout << "Do we get past printing the customers ?" << std::endl;
 
-    list.isFull();
+    //list.isFull();
 
     std::cout << "We have reached the end of the program" << std::endl;
 
@@ -72,6 +75,13 @@ int main()
     {
         delete secondVect[k];
     }
+
+    for(int j = 0; j < thirdVect.size(); j++)
+    {
+        delete thirdVect[j];
+    }
+
+    names.clear();
 
     return 0;
 }
@@ -89,27 +99,3 @@ int randomCustomers(std::vector<std::string> vect)
 
     return customerName;
 }
-
-
-
-/*template <class T>
-void printList(LinkedList<T>& list)
-{
-    if(list.isEmptyList())
-    {
-        return;
-    }
-    else
-    {
-        Node<T> * ptr = list.getHead();
-
-        std::cout << "Here are all the guests in the restaurant" << std::endl;
-        while (ptr != nullptr)
-        {
-            std::cout << ptr->getValue() << " ";
-            ptr = ptr->getNext();
-        }
-
-        std::cout << std::endl;
-    }
-}*/

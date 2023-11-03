@@ -7,7 +7,7 @@ Waiter::Waiter(int n)  {
     this->order = nullptr;
     this->currentBillAmount=0.0;
 
-    greetCustomer();
+    //greetCustomer();
 }
 
 void Waiter::greetCustomer() {
@@ -61,18 +61,15 @@ string response;
 }
 void Waiter::handleComplaint(string c, int degree) {
 
-    if (degree <=3 && c.compare("Service")==0)
-    {
-        cout << "Waiter #" << waiterNumber << " acknowledges the service complaint. We will do our best to resolve it and be more professional , timely and friendly" << endl;
-    }
-    else{
-        next->handleComplaint(c,degree);
-}
+
+    cout<<"I apologise for the wait we have caused"<<endl;
+    cout<<"Thank you for your patience. Your order will be ready soon"<<endl;
+
 }
 
-void Waiter::takeOrder() {
+void Waiter::takeOrder(Order *order) {
    cout << " *** Waiter #" << waiterNumber << " is taking  an order. ***" << endl;
-   cout<<"Please enter the item number you'd like to order"<<endl;
+  /* cout<<"Please enter the item number you'd like to order"<<endl;
    int itemNum,itemQuantity;
    cin>>itemNum;
    if(itemNum>=1 && itemNum<= menu->getMenuItemsSize())
@@ -81,11 +78,11 @@ void Waiter::takeOrder() {
        cout<<"Please enter the quantity"<<endl;
        cin>>itemQuantity;
 
-
+       //order=new Order(this->waiterNumber , chef );
        if(itemNum==1)
        {
            int burgerOption;
-          order=new Order(this->waiterNumber , new BurgerChef );
+          //order=new Order(this->waiterNumber , new BurgerChef );
           cout<<"Would you like a:"<<endl;
           cout<<"1)Beef Burger"<<endl;
           cout<<"2)Chicken Burger"<<endl;
@@ -174,13 +171,15 @@ void Waiter::takeOrder() {
                // order->addFoodItem(food);
            }
            send("PoultryChef" , "Order is placed");
+           order->handleTask();
+           delete order;
            updateBill( menu->getChipsPrice(),itemQuantity);
        }
    else {
        cout<<"Invalid item number. Please choose a valid item"<<endl;
    }
 
-
+*/
 }
 
 void Waiter::updateBill(double price , int quantity) {
@@ -229,7 +228,16 @@ void Waiter::presentBill() {
 }
 
 void Waiter::handlePayment() {
+    int customerRating;
     cout << "Processing payment... Thank you for joining us!" << endl;
+    cout<<"Before you go, please rate your experience out of 5:"<<endl ;
+    cin>>customerRating;
+    if(customerRating<3)
+    {
+        cout<<"We are sincerely apologise for the inconvenience you've experienced. We're committed to improving and ensuring a better experience in the future."<<endl;
+        cout<<"To help us improve , please let us know what your biggest issue was:"<<endl ;
+        cout<<"1)"<<endl;
+    }
     cout<<"We hope to see you soon ;D"<<endl;
 }
 
