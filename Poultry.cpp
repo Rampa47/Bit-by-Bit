@@ -1,5 +1,6 @@
 #include "Poultry.h"
 #include "PoultryType.h"
+#include <iostream>
 
 Poultry::Poultry(PoultryType* type) : poultryType(type) {
     /**
@@ -13,6 +14,7 @@ void Poultry::cook() {
     /**
      * @brief Cooks the poultry dish using the specified poultry type.
      */
+    std::cout << "Preparing the Poultry..." << std::endl;
     poultryType->cook(); // Delegate the cooking to the specified poultry type
 }
 

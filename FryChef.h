@@ -9,30 +9,29 @@
 class FryChef:public ChefHandler
 {
 
-    public:
-        /**
-         * @brief Construct a new FryChef object.
-         *
-         * This constructor initializes a new instance of the FryChef class.
-         */
-        FryChef();
+public:
+    /**
+     * @brief Construct a new FryChef object.
+     *
+     * This constructor initializes a new instance of the FryChef class.
+     */
+    FryChef();
 
-         /**
-         * @brief Destroy the FryChef object.
-         *
-         * This virtual destructor is responsible for cleaning up any resources
-         * associated with the FryChef object.
-         */
-        virtual ~FryChef();
+    /**
+    * @brief Destroy the FryChef object.
+    *
+    * This virtual destructor is responsible for cleaning up any resources
+    * associated with the FryChef object.
+    */
+    virtual ~FryChef();
 
-        /**
-         * @brief Handle a food order.
-         *
-         *  This function is responsible for preparing any fooditems in the order that need to be fried. 
-         * 
-         * @param order A vector of FoodItem pointers representing the food order.
-         * @param waiter An integer representing the waiter ID of the waiter taking the order.
-         */
-        void handleOrder(vector<FoodItem*>* order, int waiter);
+    /**
+     * @brief Handle a food order.
+     *
+     *  This function is responsible for preparing any fooditems in the order that need to be fried.
+     *
+     * @param order An order object representing the customer order.
+     */
+    void handleOrder(Order* order);
 };
 #endif

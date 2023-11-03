@@ -1,5 +1,4 @@
 #include <iostream>
-#include <memory>
 #include "PoultryChef.h"
 #include "FryChef.h"
 #include "BurgerChef.h"
@@ -13,6 +12,7 @@
 #include "GrilledPoultry.h"
 #include "FriedPoultry.h"
 #include "Poultry.h"
+
 
 using namespace std;
 
@@ -32,7 +32,6 @@ int main()
     order->addFoodItem(new Poultry(new FriedPoultry));
 
 	order->handleTask();
-  	cout << endl;
     delete order;
     delete orderhandler;
 

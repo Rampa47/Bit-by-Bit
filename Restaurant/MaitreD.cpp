@@ -10,7 +10,7 @@ MaitreD<T> * MaitreD<T>::instance()
     {
         maitreD = new MaitreD<T>();
     }
-
+     className="MaitreD";
     return maitreD;
 }
 
@@ -31,6 +31,3 @@ MaitreD<T>::~MaitreD()
 
     maitreD = nullptr;
 }
-
-template <class T>
-MaitreD<T>::MaitreD(){}

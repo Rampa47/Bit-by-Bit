@@ -1,28 +1,27 @@
+CXX = g++
+CXXFLAGS = -std=c++11 -g  # Including the -g flag for debugging information
 
-Main.out: Node.o LinkedList.o Customer.o Mediator.o Colleague.o main.o
-	g++ Node.o LinkedList.o Customer.o main.o -o Mediator.o -o Colleague.o -o Main.out
+SOURCES = OrderHandlingMain.cpp ChipSauce.cpp BeefBurger.cpp ChickenBurger.cpp PlainChips.cpp TomatoChipSauce.cpp JalapenoChipSauce.cpp GrilledPoultry.cpp FriedPoultry.cpp Poultry.cpp Order.cpp Burger.cpp OrderContext.cpp InProgress.cpp Raw.cpp Done.cpp PoultryChef.cpp FryChef.cpp Chips.cpp BurgerChef.cpp HeadChef.cpp ChefHandler.cpp
 
-Node.o: Node.cpp
-	g++ -c -g Node.cpp
+# Generate object file paths within the obj/ directory
+OBJECTS = $(SOURCES:%.cpp=obj/%.o)
 
-LinkedList.o: LinkedList.cpp
-	g++ -c -g LinkedList.cpp
+EXECUTABLE = test/OrderHandlingMain
 
-Customer.o: Customer.cpp
-	g++ -c -g Customer.cpp\
+all: $(EXECUTABLE)
 
-Mediator.o: Mediator.cpp
-	g++ -c -g Mediator.cpp
+$(EXECUTABLE): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJECTS)
 
-Colleague.o: Colleague.cpp
-	g++ -c -g Colleague.cpp
-
-main.o: main.cpp
-	g++ -c -g main.cpp
-
-run:
-	./Main.out
+# Rule to compile individual source files into object files
+obj/%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 clean:
+	rm -f obj/*.o $(EXECUTABLE)
 
-	rm *.o Main.out
+run: $(EXECUTABLE)
+	./$(EXECUTABLE)
+
+.PHONY: all clean run
+

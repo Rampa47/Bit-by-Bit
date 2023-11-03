@@ -1,15 +1,5 @@
-#include "OrderState.h"
-#include "OrderContext.h"
+//
+// Created by Khanya on 11/2/2023.
+//
+
 #include "Raw.h"
-#include <iostream>
-
-
-   
-     void Raw::cook(OrderContext* orderContext){
-        std::cout<<"Cooking the raw order\n";
-        orderContext->setOrderState(new InProgress());
-        //what would you like to show about the order or do
-       
-    }
-
-

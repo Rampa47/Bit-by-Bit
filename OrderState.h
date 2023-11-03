@@ -1,7 +1,6 @@
 #ifndef ORDERSTATE_H
 #define ORDERSTATE_H
 #include "OrderContext.h"
-#include "Order.h"
 #include <iostream>
 /**
  * @class OrderState
@@ -12,10 +11,10 @@ class OrderState
 
 public:
 
-   virtual ~OrderState(){};
+    virtual ~OrderState(){};
 /**
  * @brief This will be the Abstract Parent class's cook method whic is pure virtual therefore  the Derived classes will implement the cook method based on their current state.
  */
-   virtual void cook(OrderContext* orderContext) = 0;
+    virtual void cook(OrderContext* orderContext) = 0;
 };
 #endif //ORDERSTATE_H
