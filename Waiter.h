@@ -3,7 +3,7 @@
 #include <string>
 #include "ComplaintsHandler.h"
 #include "Order.h"
-//#include "Table.h"
+#include "Table.h"
 #include "ChefTask.h"
 #include "FoodItem.h"
 #include "Menu.h"
@@ -29,10 +29,11 @@ private:
     Menu *menu ;
     int maxOrderAttempts ;
      double currentBillAmount;
+     //Table *table;
 public:
     Waiter(int wNum);
     void handleComplaint(string c, int degree);
-    void takeOrder();
+    void takeOrder(Order *order);
     void receive(string to, string message);
     void send(string to, string message);
     void greetCustomer();
