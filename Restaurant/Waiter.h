@@ -12,8 +12,7 @@ class Waiter
         void handleComplaint();
 
     private:
-        Table<T> * assignedTable;
-        Restaurant<T> 
+        Table<T> * assignedTable; 
 };
 
 #endif

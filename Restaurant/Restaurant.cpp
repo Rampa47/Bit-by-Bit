@@ -69,6 +69,16 @@ Table<T> * Restaurant<T>::addWaitingArea()
 template <class T>
 void Restaurant<T>::createList()
 {
+    int numTables;
+    std::cout << "Welcome to CoutureFood" << std::endl;
+    std::cout << "How many tables would you like to add to the restaurant." << std::endl;
+    std::cin >> numTables;
+
+    while(numTables <= 0)
+    {
+        std::cout << "Please select a valid number of tables to create." << std::endl;
+    }
+    for(int i = 0; i < numTables; i++)
     add();
 }
 
