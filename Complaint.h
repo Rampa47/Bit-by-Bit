@@ -14,7 +14,6 @@ class Complaint
 {
     protected:
         ComplaintsHandler* handler=NULL;///< The handler responsible for addressing the complaint.
-        int degree=1;///< The degree of complaint severity
 
     public:
         /**
@@ -29,12 +28,6 @@ class Complaint
          */
         virtual ~Complaint();
 
-        /**
-         * @brief Set the degree of complaint severity.
-         *
-         * @param degree The degree of complaint severity to be set.
-         */
-        void setDegree(int degree);
 
         /**
          * @brief Address a customer complaint with a specified degree of severity.
