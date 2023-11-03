@@ -193,20 +193,27 @@ bool Table<T>::getTableType()
     return isWaitingArea;
 }
 template <class T>
-void Table<T>::receive(std::string to,std::string message,Colleague* me){
+void Table<T>::receive(std::string to,std::string message){
     std::cout<<" Table about to be serviced. Message: " << message <<std::endl;
  }
  template <class T>
   void  Table<T>::send(){
-    std::string message="";
-      std::string to="";
-    std::cout<<"Customer who would you like to Notify?"<<std::endl;
-    std::cin>>to;
-    std::cout<<"Customer what is your message to the receiver?"<<std::endl;
-    std::cin>>message;
+    std::string message = "";
+    std::string to = "";
+    std::cout << "Customer would you like to order now? " << std::endl;
+    std::cout << "1.Yes" << std::endl;
+    std::cout << "2.No" << std::endl;
 
-   mediator->notifications(to,message,this);
- }
+    std::cin >> to;
+    if (to == "1") {
+     to = "Waiter";
+     message = "Please may we order";
+    } else {
+        return; 
+    }
+
+    mediator->notifications(to, message, this);
+  }
  template <class T>
  int Table<T>::getWaiterNumber(){
     return waiter->waiterNumber;
@@ -223,4 +230,6 @@ void Table<T>::removeCustomer()
 template <class T>
 void Table<T>::setWaiter(Waiter* waiter){
     this->waiter=waiter;
+    tableWaiterNumber = waiterNumberToTable++;
+    waiter->setWaiterNumber(tableWaiterNumber);
 }

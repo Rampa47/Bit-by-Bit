@@ -38,7 +38,7 @@ class Waiter: public ComplaintsHandler , public Colleague
          * @param to Specifies to who the message is for.
          * @param message The actual message that will be received by the receiver.
          */
-         void receive(std::string to,std::string message,Colleague* me);
+         void receive(std::string to,std::string message);
           /**
          * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
          *
@@ -51,6 +51,7 @@ class Waiter: public ComplaintsHandler , public Colleague
         
          */
          std::string getClassname();
+         void setWaiterNumber(int waiternumber);
         private:
          /**
          * @brief Constructor for a Waiter object.It is made private to prevent from being instantiated without a waiter number;

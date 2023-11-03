@@ -27,12 +27,19 @@ void ChefHandler::receive(std::string to,std::string message,Colleague* me){
     std::cout<<"Chefs you have a notification: " << message <<std::endl;
  }
    void  ChefHandler::send(){
-   std::string message="";
-      std::string to="";
-    std::cout<<"HeadChef who would you like to Notify?"<<std::endl;
-    std::cin>>to;
-    std::cout<<"HeadChef what is your message to the receiver?"<<std::endl;
-    std::cin>>message;
+    std::string message = "";
+    std::string to = "";
+    std::cout << "Chef would you like to send the order to the Waiter now? " << std::endl;
+    std::cout << "1.Yes" << std::endl;
+    std::cout << "2.No" << std::endl;
+
+    std::cin >> to;
+    if (to == "1") {
+     to = "Waiter";
+    message = "Here is your order for your table from Chef.";
+    } else {
+        return; 
+    }
 
     mediator->notifications(to,message,this);
  }
