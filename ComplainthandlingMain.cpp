@@ -17,7 +17,7 @@ int main()
     //add once class is fixed
     handler->addNext(new Manager());
     Context* context[3];
-    context[0] = new Context(new TimeComplaint(handler));
+    context[0] = new Context(new TimeComplaint());
     context[0]->AddressComplaint("We have been waiting for our order for over 30 minutes!",2);
     cout<<endl;
 
