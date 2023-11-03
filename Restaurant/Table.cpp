@@ -1,4 +1,6 @@
 #include "Table.h"
+#include "EmptyTable.h"
+
 template <class T>
 int Table<T>::waiterNumberToTable = 0;
 template <class T>
@@ -220,7 +222,52 @@ void Table<T>::removeCustomer()
 {
     this->customers.pop_back();
 }
+
 template <class T>
-void Table<T>::setWaiter(Waiter* waiter){
+void Table<T>::setWaiter(Waiter<T>* waiter){
     this->waiter=waiter;
+}
+
+template <class T>
+Waiter<T>* Table<T>::getWaiter(){
+    return this.waiter;
+}
+
+template <class T>
+void Table<T>::leave(){
+    setState();
+    tableState->handle();
+}
+
+
+/// @brief  
+/// @tparam T
+template <class T>
+void Table<T>::order(){
+    setState();
+    tableState->handle();
+}
+
+template <class T>
+void Table<T>::payBill(){
+    setState();
+
+    // if(tableState->toString()=="")
+    tableState
+}
+// void setMood()
+
+template <class T>
+void Table<T>::receive(std::string to, std::string message){
+
+}
+
+template <class T>
+void Table<T>::send(std::string to, std::string message){
+
+}
+
+template <class T>
+void Table<T>::setState(){
+    tableState = tableState->getNextState();
 }

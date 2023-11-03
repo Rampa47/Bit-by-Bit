@@ -7,6 +7,7 @@
 #include "Customer.h"
 #include "Colleague.h"
 #include "Waiter.h"
+#include "TableState.h"
 
 template <class T>
 class Table: public Colleague
@@ -30,6 +31,12 @@ class Table: public Colleague
         std::vector<Customer*> getTable();  // Provides access to the particular table's vector (which contains the customers) 
         std::string print();    // Prints the names of the customers at a particular table
         void incrementNumCustomers();
+        void leave();
+        void order();
+        void payBill();
+        // void setMood()
+        void receive(std::string to, std::string message);
+        void send(std::string to, std::string message);
        
        
         void addCust(Customer * value);
@@ -53,8 +60,13 @@ class Table: public Colleague
          * @return  waiter number is returned.
          */
        int getWaiterNumber();
-       void setWaiter(Waiter* waiter);
+       void setWaiter(Waiter<T>* waiter);
+       Waiter<T>* getWaiter();
        std::string getClassname();
+       void setState();
+
+
+      //  void giveOrder(Order* tableOrder);
     private:
         Table * next;
         Table * prev;
@@ -64,7 +76,9 @@ class Table: public Colleague
         int maxExtendedNumCustomers = 10;
         bool isWaitingArea;
         Waiter* waiter=nullptr;
+        //Order* tablesOrder = nullptr;
         static int waiterNumberToTable;//a unique waiter number will be generated for each table that creates ab instance of the waiter
+        TableState* tableState;
 };
 
 #endif

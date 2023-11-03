@@ -10,6 +10,7 @@ class Waiter
         Waiter();
         void takeOrder();
         void handleComplaint();
+        
 
     private:
         Table<T> * assignedTable;
