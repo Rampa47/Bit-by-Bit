@@ -5,11 +5,9 @@
 #include <string>
 #include <sstream>
 #include "Customer.h"
-#include "Colleague.h"
-#include "Waiter.h"
 
 template <class T>
-class Table: public Colleague
+class Table
 {
     public:
         Table();     // Default constructor
@@ -30,8 +28,6 @@ class Table: public Colleague
         std::vector<Customer*> getTable();  // Provides access to the particular table's vector (which contains the customers) 
         std::string print();    // Prints the names of the customers at a particular table
         void incrementNumCustomers();
-       
-       
         void addCust(Customer * value);
    /**
          * @brief Receives message from Mediator .
@@ -55,6 +51,7 @@ class Table: public Colleague
        int getWaiterNumber();
        void setWaiter(Waiter* waiter);
        std::string getClassname();
+
     private:
         Table * next;
         Table * prev;
@@ -63,8 +60,6 @@ class Table: public Colleague
         int maxNumCustomers = 5;
         int maxExtendedNumCustomers = 10;
         bool isWaitingArea;
-        Waiter* waiter=nullptr;
-        static int waiterNumberToTable;//a unique waiter number will be generated for each table that creates ab instance of the waiter
 };
 
 #endif

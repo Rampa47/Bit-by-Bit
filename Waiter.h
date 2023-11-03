@@ -1,39 +1,42 @@
+
 #ifndef WAITER_H
 #define WAITER_H
+#include <string>
 #include "ComplaintsHandler.h"
-#include "Colleague.h"
+#include "Order.h"
+#include "Table.h"
+#include "ChefTask.h"
+#include "FoodItem.h"
+#include "Menu.h"
+#include "Burger.h"
+#include "Poulltry.h"
+#include "Chips.h"
+#include "BeefBurger.h"
+#include "PoultryChef.h"
+#include "BurgerChef.h"
+#include "FryChef.h"
+#include "HeadChef.h"
+#include <vector>
+#include <thread>
+#include <iostream>
+#include <fstream>
+using namespace std ;
 
-/**
- * @class Waiter
- *
- * @brief One of the handlers responsible for handling customer complaints.
- *
- */
-class Waiter: public ComplaintsHandler , public Colleague
-{
-    public:
-         int waiterNumber=0;
-        /**
-         * @brief Constructor with a parameter that instantiates a waiter number to the waiterNumber variable .
-         */
-        Waiter(int waiterNumberToTable);
 
-        /**
-         * @brief Destructor for the Waiter object.
-         */
-        virtual ~Waiter();
-
-       /**
-         * @brief Handle a customer complaint with a specified degree of severity.
-         *
-         * This function handles customer complaints based on their degree of severity and the type
-         * of complaint. It provides responses and potential resolutions for different complaint types.
-         *
-         * @param c The type of the customer's complaint.
-         * @param degree The degree of severity of the complaint.
-         */
-        void handleComplaint(string c, int degree);
-        /**
+class Waiter :public ComplaintsHandler , public Colleague{
+private:
+    int waiterNumber;
+    Order* order;
+    Menu *menu ;
+    int maxOrderAttempts ;
+     double currentBillAmount;
+     //Table *table;
+public:
+    Waiter(int wNum);
+    void handleComplaint(string c, int degree);
+    void takeOrder(Order *order);
+    void receive(string to, string message);
+    /**
          * @brief Receives message from Mediator .
          * @param to Specifies to who the message is for.
          * @param message The actual message that will be received by the receiver.
@@ -52,11 +55,16 @@ class Waiter: public ComplaintsHandler , public Colleague
          */
          std::string getClassname();
          void setWaiterNumber(int waiternumber);
-        private:
-         /**
-         * @brief Constructor for a Waiter object.It is made private to prevent from being instantiated without a waiter number;
-         */
-          Waiter();
-       
+    void greetCustomer();
+    void presentMenu();
+    void updateBill(double price , int quantity);
+    void presentBill();
+    void createTab();
+    void handlePayment();
+    void saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID);
+    void retrieveBillAmountFromTextFile();
+
 };
+
 #endif
+

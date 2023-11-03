@@ -1,8 +1,6 @@
 #ifndef CHEFHANDLER_H
 #define CHEFHANDLER_H
 #include <iostream>
-#include "OrderContext.h"
-#include "Colleague.h"
 class Order;
 using namespace std;
 /**
@@ -10,36 +8,36 @@ using namespace std;
  *
  * @brief Base class for ChefHandlers responsible for handling food orders.
  */
-class ChefHandler: public Colleague
+class ChefHandler
 {
-    protected:
-        ChefHandler* successor ;
-    public:
-        /**
-         * @brief Construct a new ChefHandler object.
-         *
-         * This constructor initializes a new instance of the ChefHandler class.
-         */
-        ChefHandler();
+protected:
+    ChefHandler* successor ;
+public:
+    /**
+     * @brief Construct a new ChefHandler object.
+     *
+     * This constructor initializes a new instance of the ChefHandler class.
+     */
+    ChefHandler();
 
-        /**
-         * @brief Destroy the ChefHandler object.
-         *
-         * This virtual destructor is responsible for cleaning up any resources
-         * associated with the ChefHandler object.
-         */
-        virtual ~ChefHandler();
+    /**
+     * @brief Destroy the ChefHandler object.
+     *
+     * This virtual destructor is responsible for cleaning up any resources
+     * associated with the ChefHandler object.
+     */
+    virtual ~ChefHandler();
 
-        /**
-         * @brief Handle a food order.
-         *
-         * This pure virtual function is responsible for preparing a food order.
-         * 
-         * Subclasses must implement this function to define how they handle the order.
-         *
-         * @param order An order object representing the customer order.
-         */
-        virtual void handleOrder(Order* order)=0;
+    /**
+     * @brief Handle a food order.
+     *
+     * This pure virtual function is responsible for preparing a food order.
+     *
+     * Subclasses must implement this function to define how they handle the order.
+     *
+     * @param order An order object representing the customer order.
+     */
+    virtual void handleOrder(Order* order)=0;
 
         /**
          * @brief Add a successor ChefHandler.
@@ -62,7 +60,7 @@ class ChefHandler: public Colleague
          * @param to Specifies to who the message is for.
          * @param message The actual message that will be received by the receiver.
          */
-       void receive(std::string to,std::string message);
+       void receive(std::string to,std::string message,Colleague* me);
         /**
          * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
          *

@@ -3,7 +3,7 @@
 
 ChefHandler::ChefHandler(): successor(NULL)
 {
-    className="ChefHandler";
+
 }
 
 
@@ -23,7 +23,7 @@ void ChefHandler::addSuccessor(ChefHandler* c)
         successor->addSuccessor(c);
     }
 }
-void ChefHandler::receive(std::string to,std::string message,Colleague* me){
+void ChefHandler::receive(std::string to,std::string message){
     std::cout<<"Chefs you have a notification: " << message <<std::endl;
  }
    void  ChefHandler::send(){

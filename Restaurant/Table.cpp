@@ -1,14 +1,11 @@
 #include "Table.h"
-template <class T>
-int Table<T>::waiterNumberToTable = 0;
+
 template <class T>
 Table<T>::Table()
 {
     next = nullptr;
     numCurrentCustomers = 0;
     isWaitingArea = false;
-    className="Table";
-    waiter= nullptr;
 }
 
 template <class T>
@@ -145,7 +142,7 @@ bool Table<T>::isEmpty()
 template <class T>
 bool Table<T>::isOccupied()
 {
-    if(this->numCurrentCustomers > 0 && this->numCurrentCustomers < 5)
+    if(this->numCurrentCustomers > 0 && this->numCurrentCustomers <= 10)
     {
         return true;
     }
@@ -222,6 +219,7 @@ void Table<T>::receive(std::string to,std::string message){
 std::string Table<T>::getClassname(){
     return "Table";
 }
+
 template <class T>
 void Table<T>::removeCustomer()
 {
@@ -233,3 +231,4 @@ void Table<T>::setWaiter(Waiter* waiter){
     tableWaiterNumber = waiterNumberToTable++;
     waiter->setWaiterNumber(tableWaiterNumber);
 }
+
