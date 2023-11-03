@@ -1,27 +1,29 @@
+# Compiler and compiler flags
 CXX = g++
-CXXFLAGS = -std=c++11 -g  # Including the -g flag for debugging information
+CXXFLAGS = -std=c++11 -Wall
 
-SOURCES = OrderHandlingMain.cpp ChipSauce.cpp BeefBurger.cpp ChickenBurger.cpp PlainChips.cpp TomatoChipSauce.cpp JalapenoChipSauce.cpp GrilledPoultry.cpp FriedPoultry.cpp Poultry.cpp Order.cpp Burger.cpp OrderContext.cpp InProgress.cpp Raw.cpp Done.cpp PoultryChef.cpp FryChef.cpp Chips.cpp BurgerChef.cpp HeadChef.cpp ChefHandler.cpp Customer.cpp Waiter.cpp TableIterator.cpp Table.cpp
+# Directories
+SRC_DIR = src
+OBJ_DIR = obj
 
-# Generate object file paths within the obj/ directory
-OBJECTS = $(SOURCES:%.cpp=obj/%.o)
+# Source files and object files
+SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
+OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
 
-EXECUTABLE = test/OrderHandlingMain
+# Executable name
+EXECUTABLE = my_program
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJECTS)
+$(EXECUTABLE): $(OBJ_FILES)
+	@mkdir -p $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
-# Rule to compile individual source files into object files
-obj/%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(OBJ_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f obj/*.o $(EXECUTABLE)
+	rm -rf $(OBJ_DIR) $(EXECUTABLE)
 
-run: $(EXECUTABLE)
-	./$(EXECUTABLE)
-
-.PHONY: all clean run
-
+.PHONY: all clean
