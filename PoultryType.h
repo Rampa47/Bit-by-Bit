@@ -18,6 +18,11 @@ public:
      * This is a pure virtual function that needs to be implemented by derived classes.
      */
     virtual void cook() = 0;
+    /**
+     * @brief Get the price of the food item.
+     * @return the price of the food item
+     */
+    virtual double getPrice()=0;
 };
 
 #endif

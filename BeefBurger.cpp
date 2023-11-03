@@ -13,3 +13,7 @@ BeefBurger::~BeefBurger() {
      * @brief Virtual destructor for the BeefBurger class.
      */
 }
+
+double BeefBurger::getPrice(){
+    return 109.99;
+}

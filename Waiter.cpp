@@ -11,54 +11,9 @@ Waiter::Waiter(int n)  {
 }
 
 void Waiter::greetCustomer() {
-    cout<<"Good day and welcome to the resturant!"<<endl;
-    cout<<"I am going to be your waiter for today"<<endl;
-    cout<<"Sit back and enjoy the experience"<<endl;
+    cout<<"Waiter " << waiterNumber <<" greets customers and presents menu..."<<endl;
 }
 
-void Waiter::presentMenu() {
-int orderAttempts = 0;
-bool readyToOrder = false;
-string response;
-
-    while (orderAttempts < maxOrderAttempts && !readyToOrder)
-    {
-
-        menu->displayMenu();
-
-        cout << "Are you ready to order? (yes/no): ";
-        cin >> response;
-
-        if (response == "yes")
-        {
-            readyToOrder = true;
-            takeOrder();
-
-        }
-        else if (response == "no")
-        {
-            orderAttempts++;
-
-            if (orderAttempts < maxOrderAttempts)
-            {
-               cout << "No problem. I'll come back in 10 seconds." <<endl;
-               this_thread::sleep_for(chrono::seconds(10));
-               presentMenu();
-            }
-            else
-            {
-                cout << "I'm sorry, you've reached the maximum number of order attempts." << endl;
-                cout<<"Please order something"<<endl;
-                takeOrder();
-            }
-        }
-        else {
-            cout << "Invalid response. Please specify 'yes' or 'no'." << endl;
-        }
-    }
-
-
-}
 void Waiter::handleComplaint(string c, int degree) {
 
     if (degree <=3 && c.compare("Service")==0)
@@ -70,117 +25,15 @@ void Waiter::handleComplaint(string c, int degree) {
 }
 }
 
-void Waiter::takeOrder() {
-   cout << " *** Waiter #" << waiterNumber << " is taking  an order. ***" << endl;
-   cout<<"Please enter the item number you'd like to order"<<endl;
-   int itemNum,itemQuantity;
-   cin>>itemNum;
-   if(itemNum>=1 && itemNum<= menu->getMenuItemsSize())
-   {
-       //itemNum--;
-       cout<<"Please enter the quantity"<<endl;
-       cin>>itemQuantity;
+void Waiter::takeOrder(Order* order) {
+    if (order!=NULL) delete order;
+    this->order= order;
+   order->handleTask();
 
+}
 
-       if(itemNum==1)
-       {
-           int burgerOption;
-          order=new Order(this->waiterNumber , new BurgerChef );
-          cout<<"Would you like a:"<<endl;
-          cout<<"1)Beef Burger"<<endl;
-          cout<<"2)Chicken Burger"<<endl;
-          cout<<"Enter '1' or '2' for the option you want"<<endl;
-          cin>>burgerOption;
-          if(burgerOption==1)
-          {
-              for(int i=0 ; i< itemQuantity;i++) {
-                  order->addFoodItem(new BeefBurger);
-              }
-              send("PoultryChef" , "Order is placed");
-              updateBill( menu->getBurgerPrice(),itemQuantity);
-          }
-          else if(burgerOption==2)
-          {
-              for(int i=0 ; i< itemQuantity;i++) {
-                  //   order->addFoodItem(new ChickenBurger);
-              }
-              send("PoultryChef" , "Order is placed");
-              updateBill( menu->getBurgerPrice(),itemQuantity);
-          }
-          else
-          {
-              cout<<"Please enter a valid option"<<endl;
-          }
-       }
-       else if(itemNum==2)
-       {
-           //ChefHandler * poultry = new PoultryChef;
-           order=new Order(this->waiterNumber , new FryChef );
-           int chipsOptions;
-           cout<<"Would you like :"<<endl;
-           cout<<"1)Plain Chips"<<endl;
-           cout<<"2)Chips with sauce"<<endl;
-           cout<<"Enter '1' or '2' for the option you want"<<endl;
-           cin>>chipsOptions;
-           if(chipsOptions==1)
-           {
-               for(int i=0 ; i< itemQuantity;i++) {
-                   //   order->addFoodItem(new Plain);
-               }
-               send("PoultryChef" , "Order is placed");
-               updateBill( menu->getChipsPrice(),itemQuantity);
-           }
-           else if(chipsOptions==2)
-           {
-               int sauceOptions;
-               cout<<"Would you like :"<<endl;
-               cout<<"1)Tomato Sauce"<<endl;
-               cout<<"2)Jalapeno Sauce"<<endl;
-               cout<<"Enter '1' or '2' for the option you want"<<endl;
-               cin>>sauceOptions;
-
-               if(sauceOptions==1)
-               {
-                   for(int i=0 ; i< itemQuantity;i++) {
-                       //   order->addFoodItem(new Tomato);
-                   }
-                   send("PoultryChef" , "Order is placed");
-                   updateBill( menu->getChipsPrice(),itemQuantity);
-               }
-               else if(sauceOptions==2)
-
-                   for(int i=0 ; i< itemQuantity;i++) {
-                       //   order->addFoodItem(new Jalapeno);
-                   }
-                   send("PoultryChef" , "Order is placed");
-                   updateBill( menu->getChipsPrice(),itemQuantity);
-               }
-               else
-               {
-                   cout<<"Please enter a valid option"<<endl;
-               }
-           }
-           else
-           {
-               cout<<"Please enter a valid option"<<endl;
-           }
-
-       }
-       else if(itemNum==3)
-       {
-          // FoodItem *food = new Poultry;
-           order=new Order(this->waiterNumber , new PoultryChef );
-           for(int i=0 ; i< itemQuantity;i++) {
-               // order->addFoodItem(food);
-           }
-           send("PoultryChef" , "Order is placed");
-           updateBill( menu->getChipsPrice(),itemQuantity);
-       }
-   else {
-       cout<<"Invalid item number. Please choose a valid item"<<endl;
-   }
-
-
+Waiter::~Waiter(){
+    if (order!=NULL) delete order;
 }
 
 void Waiter::updateBill(double price , int quantity) {
@@ -276,4 +129,9 @@ void Waiter::retrieveBillAmountFromTextFile()  {
     this->currentBillAmount=billAmount;
     presentBill();
 
+}
+
+
+const int Waiter::getWaiterNumber(){
+    return waiterNumber;
 }

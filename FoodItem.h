@@ -28,6 +28,12 @@ public:
      * @brief Virtual destructor for the FoodItem class.
      */
     virtual ~FoodItem() = default;
+
+    /**
+     * @brief Get the price of the food item.
+     * @return the price of the food item
+     */
+    virtual double getPrice()=0;
 };
 
 #endif

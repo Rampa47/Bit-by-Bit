@@ -22,3 +22,7 @@ JalapenoChipSauce::~JalapenoChipSauce() {
      * @brief Virtual destructor for the JalapenoChipSauce class.
      */
 }
+
+double JalapenoChipSauce::getPrice(){
+    return chips->getPrice()+7.99;
+}
