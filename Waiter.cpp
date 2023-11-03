@@ -1,11 +1,17 @@
+
+
+
 #include "Waiter.h"
 #include <iostream>
 #include "Order.h" // Include necessary headers for other classes if used
 
-Waiter::Waiter(int n)  {
-    this->waiterNumber = n;
+Waiter::Waiter(int waiterNumberToTable)  {
+    
     this->order = nullptr;
     this->currentBillAmount=0.0;
+    className="Waiter"; 
+    this->waiterNumber=waiterNumberToTable;
+ 
 
     //greetCustomer();
 }
@@ -186,16 +192,25 @@ void Waiter::updateBill(double price , int quantity) {
     currentBillAmount += price *quantity;
 }
 void Waiter::receive(std::string to, std::string message) {
-    cout << "Waiter #" << waiterNumber << " received message: '" << message << "' from " << to << endl;
-    if(to=="Chef Handler" || to=="ChefHandler")
-    {
-        cout<<"***Waiter is heading to head chef***"<<endl;
-    }
+    std::cout<<"Waiter "<<waiterNumber<<" message: "<< message <<std::endl;
 }
 
-void Waiter::send(std::string to, std::string message) {
-   // mediator.notify(to,message);
-    cout << "Waiter #" << waiterNumber << " sent message: '" << message << "' to " << to << endl;
+void Waiter::send() {
+    std::string message = "";
+    std::string to = "";
+    std::cout << "Waiter would you like to send the order to the Chef now? " << std::endl;
+    std::cout << "1.Yes" << std::endl;
+    std::cout << "2.No" << std::endl;
+
+    std::cin >> to;
+    if (to == "1") {
+     to = "ChefHandler";
+     message = "Here is my order for table: "+ waiterNumber;
+    } else {
+        return; 
+    }
+
+    mediator->notifications(to,message,this);
 }
 
 void Waiter::presentBill() {
@@ -285,3 +300,11 @@ void Waiter::retrieveBillAmountFromTextFile()  {
     presentBill();
 
 }
+std::string Waiter::getClassname(){
+    return "Waiter";
+}
+void Waiter::setWaiterNumber(int waiternumber){
+    this->waiterNumber=waiternumber;
+
+}
+

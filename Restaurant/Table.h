@@ -29,6 +29,28 @@ class Table
         std::string print();    // Prints the names of the customers at a particular table
         void incrementNumCustomers();
         void addCust(Customer * value);
+   /**
+         * @brief Receives message from Mediator .
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void receive(std::string to,std::string message);
+        /**
+         * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
+         *
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void send();
+         /**
+         * @brief Returns the Waiter number associated with the Table.
+         *
+         * 
+         * @return  waiter number is returned.
+         */
+       int getWaiterNumber();
+       void setWaiter(Waiter* waiter);
+       std::string getClassname();
 
     private:
         Table * next;

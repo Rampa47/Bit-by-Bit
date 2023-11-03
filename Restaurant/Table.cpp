@@ -189,9 +189,46 @@ bool Table<T>::getTableType()
 {
     return isWaitingArea;
 }
+template <class T>
+void Table<T>::receive(std::string to,std::string message){
+    std::cout<<" Table about to be serviced. Message: " << message <<std::endl;
+ }
+ template <class T>
+  void  Table<T>::send(){
+    std::string message = "";
+    std::string to = "";
+    std::cout << "Customer would you like to order now? " << std::endl;
+    std::cout << "1.Yes" << std::endl;
+    std::cout << "2.No" << std::endl;
+
+    std::cin >> to;
+    if (to == "1") {
+     to = "Waiter";
+     message = "Please may we order";
+    } else {
+        return; 
+    }
+
+    mediator->notifications(to, message, this);
+  }
+ template <class T>
+ int Table<T>::getWaiterNumber(){
+    return waiter->waiterNumber;
+ }
+ template <class T>
+std::string Table<T>::getClassname(){
+    return "Table";
+}
 
 template <class T>
 void Table<T>::removeCustomer()
 {
     this->customers.pop_back();
 }
+template <class T>
+void Table<T>::setWaiter(Waiter* waiter){
+    this->waiter=waiter;
+    tableWaiterNumber = waiterNumberToTable++;
+    waiter->setWaiterNumber(tableWaiterNumber);
+}
+

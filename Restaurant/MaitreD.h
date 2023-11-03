@@ -12,6 +12,8 @@ class MaitreD
         void seatCustomers(Restaurant<T>& list, std::vector<Customer*> vect);
         void handleComplaint(std::string complaint);
         ~MaitreD();
+   
+       
 
     protected:
         MaitreD();

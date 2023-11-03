@@ -1,3 +1,4 @@
+
 #ifndef WAITER_H
 #define WAITER_H
 #include <string>
@@ -22,7 +23,7 @@
 using namespace std ;
 
 
-class Waiter :public ComplaintsHandler{
+class Waiter :public ComplaintsHandler , public Colleague{
 private:
     int waiterNumber;
     Order* order;
@@ -35,7 +36,25 @@ public:
     void handleComplaint(string c, int degree);
     void takeOrder(Order *order);
     void receive(string to, string message);
-    void send(string to, string message);
+    /**
+         * @brief Receives message from Mediator .
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+         void receive(std::string to,std::string message);
+          /**
+         * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
+         *
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void send();
+       /**
+         * @brief Gets the name of the concrete Class.
+        
+         */
+         std::string getClassname();
+         void setWaiterNumber(int waiternumber);
     void greetCustomer();
     void presentMenu();
     void updateBill(double price , int quantity);
@@ -48,3 +67,4 @@ public:
 };
 
 #endif
+

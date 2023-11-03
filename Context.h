@@ -1,6 +1,7 @@
 #ifndef CONTEXT_H
 #define CONTEXT_H
 #include "Complaint.h"
+include "Maitre"
 
 /**
  * @class Context

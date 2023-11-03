@@ -38,4 +38,4 @@ run:
 	./Main.out
 
 clean:
-	rm -f obj/*.o test/mainMediator
+	rm -f *.o Main.out
