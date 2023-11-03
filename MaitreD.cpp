@@ -25,8 +25,5 @@ void MaitreD::handleComplaint(string c, int degree)
         cout<<"We're sorry that your meal didn't live up to your taste preferences."<<endl;
         cout<<"We would be happy to make you a fresh dish right away."<<endl;
     }
-    else
-    {
-        next->handleComplaint(c,degree);
-    }
+    
 }

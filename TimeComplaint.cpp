@@ -8,9 +8,8 @@ TimeComplaint::~TimeComplaint()
 {
 }
 
-void TimeComplaint::AddressComplaint(string complaint,int degree)
+void TimeComplaint::AddressComplaint(string complaint)
 {
-    this->degree=degree;
     cout << "Time Complaint: " << complaint << endl;
-    handler->handleComplaint("Time",degree);
+    handler->handleComplaint();
 }

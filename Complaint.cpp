@@ -1,8 +1,8 @@
 #include"Complaint.h"
 
-Complaint::Complaint()
+Complaint::Complaint(ComplaintsHandler* handler)
 {
-   
+   this->handler=handler;
 }
 
 Complaint::~Complaint()

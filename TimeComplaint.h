@@ -16,7 +16,7 @@ class TimeComplaint:public Complaint
          *
          * @param handler A pointer to the ComplaintsHandler responsible for handling the complaint.
          */
-        TimeComplaint(ComplaintsHandler* handler);
+        TimeComplaint();
 
         /**
          * @brief Destructor for the TimeComplaint object.
@@ -31,7 +31,7 @@ class TimeComplaint:public Complaint
          * @param complaint The description of the Time related complaint.
          * @param degree The degree of severity of the complaint.
          */
-        void AddressComplaint(string complaint,int degree);
+        void AddressComplaint(string complaint);
 };
 
 #endif

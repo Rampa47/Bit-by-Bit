@@ -31,7 +31,7 @@ class ServiceComplaint: public Complaint
          * @param complaint The description of the Service related complaint.
          * @param degree The degree of severity of the complaint.
          */
-        void AddressComplaint(string complaint,int degree);
+        void AddressComplaint(string complaint);
 };
 
 #endif

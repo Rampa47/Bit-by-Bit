@@ -8,9 +8,8 @@ FoodComplaint::~FoodComplaint()
 {
 }
 
-void FoodComplaint::AddressComplaint(string complaint,int degree)
+void FoodComplaint::AddressComplaint(string complaint)
 {
-    this->degree=degree;
     cout << "Food Complaint: " <<  complaint << endl;
-    handler->handleComplaint("Food",degree);
+    handler->handleComplaint();
 }

@@ -21,7 +21,7 @@ class Complaint
          *
          * @param handler A pointer to the ComplaintsHandler responsible for handling the complaint.
          */
-        Complaint();
+        Complaint(ComplaintsHandler* handler);
 
         /**
          * @brief Destructor for the Complaint object.
@@ -38,7 +38,7 @@ class Complaint
          * @param complaint The description of the customer's complaint.
          * @param degree The degree of severity of the complaint.
          */
-        virtual void AddressComplaint(string complaint, int degree) = 0;
+        virtual void AddressComplaint(string complaint) = 0;
 };
 #endif
 

@@ -32,6 +32,6 @@ class FoodComplaint: public Complaint
          * @param complaint The description of the food related complaint.
          * @param degree The degree of severity of the complaint.
          */
-        void AddressComplaint(string complaint,int degree);
+        void AddressComplaint(string complaint);
 };
 #endif

@@ -37,7 +37,7 @@ public:
      * @param c The customer's complaint.
      * @param degree The degree of severity of the complaint.
      */
-    virtual void handleComplaint(string c,int degree)=0;
+    virtual void handleComplaint()=0;
     
 };
 

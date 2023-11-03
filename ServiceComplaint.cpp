@@ -9,9 +9,8 @@ ServiceComplaint::~ServiceComplaint()
 {
 }
 
-void ServiceComplaint::AddressComplaint(string complaint,int degree)
+void ServiceComplaint::AddressComplaint(string complaint)
 {
-    this->degree=degree;
     cout << "Service Complaint: " << complaint << endl;
-    handler->handleComplaint("Service",degree);
+    handler->handleComplaint();
 }
