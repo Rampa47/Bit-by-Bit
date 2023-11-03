@@ -13,7 +13,7 @@ using namespace std;
 class Complaint
 {
     protected:
-        ComplaintsHandler* handler;///< The handler responsible for addressing the complaint.
+        ComplaintsHandler* handler=NULL;///< The handler responsible for addressing the complaint.
         int degree=1;///< The degree of complaint severity
 
     public:
@@ -22,7 +22,7 @@ class Complaint
          *
          * @param handler A pointer to the ComplaintsHandler responsible for handling the complaint.
          */
-        Complaint(ComplaintsHandler* handler);
+        Complaint();
 
         /**
          * @brief Destructor for the Complaint object.
