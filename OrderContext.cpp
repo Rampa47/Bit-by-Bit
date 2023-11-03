@@ -2,7 +2,7 @@
 #include "OrderState.h"
 
 OrderContext::OrderContext(OrderState* orderState){
-    
+
     this->orderState=orderState;
 
 }
@@ -17,9 +17,9 @@ void OrderContext::setOrderState(OrderState* orderState){
 }
 OrderContext::OrderContext()
 {
-   
+
     orderState=nullptr;
 }
 OrderContext::~OrderContext() {
-	delete  orderState;
+    delete  orderState;
 }
