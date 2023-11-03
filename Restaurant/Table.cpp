@@ -1,11 +1,14 @@
 #include "Table.h"
-
+template <class T>
+int Table<T>::waiterNumberToTable = 0;
 template <class T>
 Table<T>::Table()
 {
     next = nullptr;
     numCurrentCustomers = 0;
     isWaitingArea = false;
+    className="Table";
+    waiter= nullptr;
 }
 
 template <class T>
@@ -78,9 +81,16 @@ std::string Table<T>::getValue(std::string value)
 }
 
 template <class T>
-int Table<T>::getMaxNumCustomers()
+int Table<T>::getMaxNumCustomers(bool value)
 {
-    return maxNumCustomers;
+    if(value)
+    {
+        return maxExtendedNumCustomers;
+    }
+    else
+    {
+        return maxNumCustomers;
+    }
 }
 
 template <class T>
@@ -90,18 +100,33 @@ int Table<T>::getNumCurrentCustomers()
 }
 
 template <class T>
-bool Table<T>::isFull()
+bool Table<T>::isFull(bool value)
 {
-    if(this->numCurrentCustomers >= maxNumCustomers)
+    if(value)
     {
-        // std::cout << "The table is fully occupied." << std::endl;
-        // std::cout << "Please find alternative seating for the customers" << std::endl;
-        return true;
+        if(this->numCurrentCustomers >= getMaxNumCustomers(value))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     else
     {
-        return false;
+        if(this->numCurrentCustomers >= maxNumCustomers)
+        {
+            // std::cout << "The table is fully occupied." << std::endl;
+            // std::cout << "Please find alternative seating for the customers" << std::endl;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
+    
 }
 
 template <class T>
@@ -157,20 +182,45 @@ void Table<T>::incrementNumCustomers()
 }
 
 template <class T>
-void Table<T>::addCust(Customer& value)
+void Table<T>::addCust(Customer * value)
 {
-    if(isFull())
-    {
-        return;
-    }
-    else
-    {
-        customers.push_back(&value);
-    }
+    customers.push_back(value);
 }
 
 template <class T>
 bool Table<T>::getTableType()
 {
     return isWaitingArea;
+}
+template <class T>
+void Table<T>::receive(std::string to,std::string message,Colleague* me){
+    std::cout<<" Table about to be serviced. Message: " << message <<std::endl;
+ }
+ template <class T>
+  void  Table<T>::send(){
+    std::string message="";
+      std::string to="";
+    std::cout<<"Customer who would you like to Notify?"<<std::endl;
+    std::cin>>to;
+    std::cout<<"Customer what is your message to the receiver?"<<std::endl;
+    std::cin>>message;
+
+   mediator->notifications(to,message,this);
+ }
+ template <class T>
+ int Table<T>::getWaiterNumber(){
+    return waiter->waiterNumber;
+ }
+ template <class T>
+std::string Table<T>::getClassname(){
+    return "Table";
+}
+template <class T>
+void Table<T>::removeCustomer()
+{
+    this->customers.pop_back();
+}
+template <class T>
+void Table<T>::setWaiter(Waiter* waiter){
+    this->waiter=waiter;
 }

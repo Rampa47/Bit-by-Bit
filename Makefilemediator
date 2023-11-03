@@ -1,0 +1,41 @@
+Main.out: Table.o PoultryChef.o  Waiter.o HeadChef.o Mediator.o MaitreD.o FryChef.o ChefHandler.o BurgerChef.o Colleague.o mainMediator.o
+	g++ Table.o PoultryChef.o  Waiter.o HeadChef.o Mediator.o MaitreD.o FryChef.o ChefHandler.o BurgerChef.o Colleague.o main.o -o Main.out
+
+Table.o: Table.cpp
+	g++ -c -g Table.cpp
+
+PoultryChef.o: PoultryChef.cpp
+	g++ -c -g PoultryChef.cpp
+
+Waiter.o: Waiter.cpp
+	g++ -c -g Waiter.cpp
+
+Mediator.o: Mediator.cpp
+	g++ -c -g Mediator.cpp
+
+MaitreD.o: MaitreD.cpp
+	g++ -c -g MaitreD.cpp
+
+HeadChef.o: HeadChef.cpp
+	g++ -c -g HeadChef.cpp
+
+FryChef.o: FryChef.cpp
+	g++ -c -g FryChef.cpp
+
+ChefHandler.o: ChefHandler.cpp
+	g++ -c -g ChefHandler.cpp
+
+BurgerChef.o: BurgerChef.cpp
+	g++ -c -g BurgerChef.cpp
+
+Colleague.o: Colleague.cpp
+	g++ -c -g Colleague.cpp
+
+mainMediator.o: mainMediator.cpp
+	g++ -c -g mainMediator.cpp
+
+run:
+	./Main.out
+
+clean:
+	rm -f obj/*.o test/mainMediator

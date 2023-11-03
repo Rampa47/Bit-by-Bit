@@ -12,7 +12,7 @@ void ComplaintsHandler::addNext(ComplaintsHandler* c)
 {
     if(next==nullptr)
     {
-            next=c;
+        next=c;
     }
     else
     {

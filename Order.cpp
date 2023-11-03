@@ -2,7 +2,7 @@
 #include <iostream>
 
 Order::Order(int waiter, ChefHandler* chefHandler)
-    : waiter(waiter), chefHandler(chefHandler) {
+        : waiter(waiter), chefHandler(chefHandler) {
     /**
      * @brief Constructor for the Order class.
      *
@@ -13,7 +13,7 @@ Order::Order(int waiter, ChefHandler* chefHandler)
     std::cout << "Waiter " << waiter << " taking Customer Order..." << std::endl;
 }
 void Order::changeStateOfOrder(){
-    
+
     orderContext->cookChangeState();
 }
 void Order::handleTask() {
@@ -53,7 +53,7 @@ const std::vector<FoodItem*>& Order::getFoodItems(){
     return foodItems;
 }
 
-    
+
 const int Order::getWaiter(){
     /**
      * @brief returns the waiterNumber parameter
