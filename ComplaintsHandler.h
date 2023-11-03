@@ -11,8 +11,6 @@ using namespace std;
  */
 class ComplaintsHandler
 {
-protected:
-    ComplaintsHandler* next;
 
 public:
     /**
@@ -40,16 +38,7 @@ public:
      * @param degree The degree of severity of the complaint.
      */
     virtual void handleComplaint(string c,int degree)=0;
-
-    /**
-     * @brief Add the next ComplaintsHandler in the chain.
-     *
-     * This virtual function is responsible for adding the next ComplaintsHandler
-     * in the chain responsibility.
-     *
-     * @param c A pointer to the next ComplaintsHandler to be added to the chain.
-     */
-    virtual void addNext(ComplaintsHandler* c);
+    
 };
 
 #endif

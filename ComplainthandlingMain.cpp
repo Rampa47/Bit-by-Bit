@@ -5,13 +5,14 @@
 #include "TimeComplaint.h"
 #include "FoodComplaint.h"
 #include "ServiceComplaint.h"
+#include "MaitreD.h"
 using namespace std;
 
 int main() 
 {
 	
     ComplaintsHandler* handler= new Waiter();
-    //MaitreD MD = MaitreD::instance(); add once class is fixed
+    MaitreD MD = MaitreD::instance(); 
     //handler->addNext( MaitreD::instance());
     //add once class is fixed
     handler->addNext(new Manager());
