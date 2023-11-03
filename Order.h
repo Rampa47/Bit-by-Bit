@@ -19,7 +19,7 @@ private:
     ChefHandler* chefHandler; // A pointer to a ChefHandler
     std::vector<FoodItem*> foodItems; // A vector of food items in the order
     OrderContext* orderContext; // The context of the order's state
-    
+
 public:
     /**
      * @brief Constructor for the Order class.
@@ -63,7 +63,7 @@ public:
     const int getWaiter();
 
 
-     
+
 };
 
 #endif
