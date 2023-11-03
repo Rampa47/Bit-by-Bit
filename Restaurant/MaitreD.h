@@ -1,5 +1,5 @@
-#ifndef MAITRE_D_H
-#define MAITRE_D_H
+#ifndef MAITRED_H
+#define MAITRED_H
 #include "Table.h"
 #include "Restaurant.h"
 #include "Customer.h"
@@ -9,10 +9,9 @@ template <class T>
 class MaitreD :public Colleague
 {
     public:
-        static MaitreD * instance();
-        void seatCustomers(Restaurant<T>& list, Customer& diner);
+        static MaitreD<T> * instance();
+        void seatCustomers(Restaurant<T>& list, std::vector<Customer*> vect);
         void handleComplaint(std::string complaint);
-        Restaurant<T> * getRestaurant();
         ~MaitreD();
          /**
          * @brief Receives message from Mediator .
@@ -36,7 +35,7 @@ class MaitreD :public Colleague
     
     private:
         //static int uniqueInstance;
-        static MaitreD * maitreD;
+        static MaitreD<T> * maitreD;
 };
 
 #endif
