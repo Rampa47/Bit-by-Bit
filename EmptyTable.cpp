@@ -1,22 +1,22 @@
 #include "EmptyTable.h"
 #include "OccupiedTable.h"
 
-template <class T>
-void EmptyTable<T>::handle(Table<T>& table)
+
+void EmptyTable::handle(Table& table)
 {
     //simulate cleaning or setting up the table
     std::cout << "The table has become available.\n";
 }
 
-template <class T>
-TableState<T>* EmptyTable<T>::getNextState()
+
+TableState* EmptyTable::getNextState()
 {
     return new OccupiedTable();
     
 }
 
-template <class T>
-std::string EmptyTable<T>::toString()
+
+std::string EmptyTable::toString()
 {
     return "Empty Table";
 }

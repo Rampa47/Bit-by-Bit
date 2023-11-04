@@ -3,7 +3,7 @@
 #include <string>
 #include <cstdlib>
 #include <array>
-#include "CustomerDisposition.h"
+
 #include "ChickenBurger.h"
 #include "BeefBurger.h"
 #include "PlainChips.h"
@@ -13,11 +13,11 @@
 #include "FriedPoultry.h"
 #include "Poultry.h"
 #include "FoodItem.h"
+#include "Order.h"
 
 
 
-class Order{};
-class Waiter{};
+
 class Customer
 {
     public:

@@ -18,16 +18,18 @@ class Restaurant
        Table * getHead(); // To access the head when iterating through the list
       std::string printCustomers(); 
        void createList();  // Makes use of the add function to create the restaurant
-        TableIterator<T>* createIterator();
+        TableIterator* createIterator();
         ~Restaurant();      // Destructor
          Table * getTableAt(int index);
         int getNumTables();
 
     private:
-        Table<T> * head;
+        Table * head;
         int maxNumWaitingAreas;
         static int currentNumWaitingAreas;
 };
+
+#endif
 
 
 

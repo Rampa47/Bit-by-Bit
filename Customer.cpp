@@ -124,7 +124,7 @@ std::shared_ptr<CustomerDisposition> Customer::getRandomMood(){
 void Customer::selectFoodItems(Order * order){
 
     srand((unsigned) time(NULL));
-	int numOfItems = rand()%5;
+	int numOfItems = rand()%5+1;
 
     for(int i=0; i<numOfItems;i++ ){
         int item= rand()%7;
