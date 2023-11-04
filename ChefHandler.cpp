@@ -41,7 +41,7 @@ void ChefHandler::receive(std::string to,std::string message){
         return; 
     }
 
-    mediator->notifications(to,message,this);
+    mediator->notifications(to,message);
  }
 std::string ChefHandler::getClassname(){
     return "ChefHandler";
