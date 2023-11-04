@@ -19,7 +19,8 @@ class Table: public Colleague
     public:
         Table();     // Default constructor
         Table(bool isWaitingArea);      // Parameterised constructor (Was used in testing the list)
-         Table * getNext(); 
+        Table(Waiter* w);
+        Table * getNext(); 
         Table * getPrev();
         void setNext(Table * node);
         void setPrev(Table * node);
@@ -64,12 +65,17 @@ class Table: public Colleague
       void callWaiter(ChefHandler* chef);
       void setState();
         Waiter* getWaiter();
+      void IsEverythingOkay(ComplaintsHandler* CH);
+        int getRandomZeroOrOne();
+        int generateComplaint();
+        int generateDegree();
+
     private:
         Table * next;
         Table * prev;
         std::vector<Customer*> customers;
         TableState* tableState;
-
+        Complaint* c=NULL;
         int numCurrentCustomers = 0;
         int maxNumCustomers = 5;
         int maxExtendedNumCustomers = 10;

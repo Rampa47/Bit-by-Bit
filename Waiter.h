@@ -45,6 +45,7 @@ public:
     void saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID);
     void retrieveBillAmountFromTextFile();
     const int getWaiterNumber();
+    void addNext(ComplaintsHandler* c);
     ~Waiter();
 
 };

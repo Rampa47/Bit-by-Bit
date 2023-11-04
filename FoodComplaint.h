@@ -12,7 +12,6 @@ class FoodComplaint: public Complaint
 {
 
     public:
-       FoodComplaint(ComplaintsHandler* handler);
         /**
          * @brief Constructor for a FoodComplaint object.
          *
@@ -33,9 +32,8 @@ class FoodComplaint: public Complaint
          * @param complaint The description of the food related complaint.
          * @param degree The degree of severity of the complaint.
          */
-        void AddressComplaint(string complaint,int degree);
+        void AddressComplaint();
 
-        string getname(){return "";};
-       FoodComplaint(ComplaintsHandler* handler,int degree);
+        string getname();
 };
 #endif

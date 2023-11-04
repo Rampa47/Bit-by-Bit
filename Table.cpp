@@ -13,14 +13,13 @@ Table::Table()
     numCurrentCustomers = 0;
     isWaitingArea = false;
     className="Table";
-    waiter= nullptr;
-
-
-
-
+    waiter= nullptr;   
     
-    
-    
+}
+
+Table::Table(Waiter* w)
+{
+    waiter=w;
 }
 
 
