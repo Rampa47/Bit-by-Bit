@@ -6,13 +6,20 @@ Waiter::Waiter(int n)  {
     this->waiterNumber = n;
     this->order = nullptr;
     this->currentBillAmount=0.0;
-
+    className="Waiter"; 
+    this->waiterNumber=waiterNumberToTable;
     greetCustomer();
+
+
+
+
+   
 }
 
 void Waiter::greetCustomer() {
     cout<<"Waiter " << waiterNumber <<" greets customers and presents menu..."<<endl;
 }
+
 
 void Waiter::handleComplaint(string c, int degree) {
 
@@ -24,6 +31,7 @@ void Waiter::handleComplaint(string c, int degree) {
         next->handleComplaint(c,degree);
 }
 }
+
 
 void Waiter::takeOrder(Order* order) {
     if (order!=NULL) delete order;
@@ -40,16 +48,25 @@ void Waiter::updateBill(double price , int quantity) {
     currentBillAmount += price *quantity;
 }
 void Waiter::receive(std::string to, std::string message) {
-    cout << "Waiter #" << waiterNumber << " received message: '" << message << "' from " << to << endl;
-    if(to=="Chef Handler" || to=="ChefHandler")
-    {
-        cout<<"***Waiter is heading to head chef***"<<endl;
-    }
+    std::cout<<"Waiter "<<waiterNumber<<" message: "<< message <<std::endl;
 }
 
-void Waiter::send(std::string to, std::string message) {
-   // mediator.notify(to,message);
-    cout << "Waiter #" << waiterNumber << " sent message: '" << message << "' to " << to << endl;
+void Waiter::send() {
+     std::string message = "";
+    std::string to = "";
+    std::cout << "Waiter would you like to send the order to the Chef now? " << std::endl;
+    std::cout << "1.Yes" << std::endl;
+    std::cout << "2.No" << std::endl;
+
+    std::cin >> to;
+    if (to == "1") {
+     to = "ChefHandler";
+     message = "Here is my order for table: "+ waiterNumber;
+    } else {
+        return; 
+    }
+
+    mediator->notifications(to,message,this);
 }
 
 void Waiter::presentBill() {
@@ -81,10 +98,21 @@ void Waiter::presentBill() {
 
 }
 
+//use random numbers for options
 void Waiter::handlePayment() {
+    int customerRating;
     cout << "Processing payment... Thank you for joining us!" << endl;
+    cout<<"Before you go, please rate your experience out of 5:"<<endl ;
+    cin>>customerRating;
+    if(customerRating<3)
+    {
+        cout<<"We are sincerely apologise for the inconvenience you've experienced. We're committed to improving and ensuring a better experience in the future."<<endl;
+        cout<<"To help us improve , please let us know what your biggest issue was:"<<endl ;
+        cout<<"1)"<<endl;
+    }
     cout<<"We hope to see you soon ;D"<<endl;
 }
+
 
 void Waiter::createTab() {
     cout << "Creating a tab for the customer. You can settle the bill later." << endl;
@@ -100,6 +128,7 @@ void Waiter::createTab() {
 
 }
 
+
 void Waiter::saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID) {
 
     ofstream file("tabs.txt");
@@ -113,6 +142,7 @@ void Waiter::saveBillAmountToTextFile(double billAmount ,string name , int conta
     }
 
 }
+
 void Waiter::retrieveBillAmountFromTextFile()  {
     double billAmount = 0.0;
     string custName ;
@@ -134,4 +164,11 @@ void Waiter::retrieveBillAmountFromTextFile()  {
 
 const int Waiter::getWaiterNumber(){
     return waiterNumber;
+}
+void Waiter::setWaiterNumber(int waiternumber){
+    this->waiterNumber=waiternumber;
+
+}
+std::string Waiter::getClassname(){
+    return "Waiter";
 }

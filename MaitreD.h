@@ -1,26 +1,26 @@
-#ifndef MAITRE_D_H
-#define MAITRE_D_H
-#include "Colleague.h"
-#include "ComplaintsHandler.h"
+#ifndef MAITRED_H
+#define MAITRED_H
+#include "Table.h"
+#include "Restaurant.h"
+#include "Customer.h"
+#include "TableIterator.h"
 
-class MaitreD : public Colleague, public ComplaintsHandler
+class MaitreD
 {
     public:
-        MaitreD * instance();
-        void seatCustomers();
+        static MaitreD * instance();
+        void seatCustomers(Restaurant& list, std::vector<Customer*> vect);
+        void handleComplaint(std::string complaint);
+        ~MaitreD();
 
     protected:
         MaitreD();
         MaitreD(MaitreD&);
         MaitreD & operator=(const MaitreD&);
-         void receive(std::string to,std::string message);
-         void send(std::string to,std::string message);
-         void handleComplaint(string c, int degree);
     
     private:
         //static int uniqueInstance;
         static MaitreD * maitreD;
-
 };
 
 #endif

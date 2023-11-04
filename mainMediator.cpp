@@ -8,20 +8,25 @@
 #include "PoultryChef.h"
 //#include "Colleague.h"
 int main() {
-    std::string Waiterr="Waiter";
-    std::string Tablee="Table";
-    std::string Maitree="MaitreD";
-    std::string ChefHandlerr="ChefHandler";
   Mediator* mediator=new Mediator();
   Table* table=new Table();
-  Waiter* waiter=new Waiter(table->getWaiter());
+  Table* table2=new Table();
+  Waiter* waiter=new Waiter();
+  Waiter* waiter2=new Waiter();
   table->setWaiter(waiter);
+  table2->setWaiter(waiter2);
  // MaitreD* maitre=MaitreD::instance();
-    Colleague* chef= new PoultryChef();
-  table->reg(mediator);
-  waiter->reg(mediator);
-  //maitre->reg(mediator);
+ //ChefHandler* c= new PoultryChef();
+ Colleague* chef= new PoultryChef();
+ table->reg(mediator);
+ table2->reg(mediator);
+ waiter->reg(mediator);
+ waiter2->reg(mediator);
+
   chef->reg(mediator);
-  table->send();
+  //table->send(); works
+  //table2->send(); work
+  chef->send();
+
    return 0;
 }
