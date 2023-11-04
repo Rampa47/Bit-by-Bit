@@ -1,10 +1,7 @@
 #include "Restaurant.h"
 #include "Table.h"
-#include "Restaurant.cpp"
-#include "Table.cpp"
 #include "Customer.h"
 #include "MaitreD.h"
-#include "MaitreD.cpp"
 #include <iostream>
 #include <string>
 
@@ -14,7 +11,7 @@ int randomCustomers(std::vector<std::string> names);
 
 int main()
 {
-    Restaurant<std::string> list;
+    Restaurant list;
     std::vector<Customer*> vect, secondVect, thirdVect, fourthVect, fifthVect, sixthVect; 
     //MaitreD<std::string> * maitreD;
 
@@ -48,11 +45,11 @@ int main()
         thirdVect.push_back(new Customer(names[randomCustomers(names)]));
     }
 
-    MaitreD<std::string>::instance()->seatCustomers(list,vect);
+    MaitreD::instance()->seatCustomers(list,vect);
 
-    MaitreD<std::string>::instance()->seatCustomers(list,secondVect);
+    MaitreD::instance()->seatCustomers(list,secondVect);
 
-    MaitreD<std::string>::instance()->seatCustomers(list,thirdVect);
+    MaitreD::instance()->seatCustomers(list,thirdVect);
 
     // list.addCustomer(vect);
 
@@ -60,11 +57,12 @@ int main()
 
     std::cout << list.printCustomers() << std::endl;
 
-    std::cout << "Do we get past printing the customers ?" << std::endl;
+    std::cout << "Removing customers from a table" << std::endl;
 
-    //list.isFull();
+    list.remove(list.getTableAt(1));
 
-    std::cout << "We have reached the end of the program" << std::endl;
+    std::cout << "Printing the customers again after the removal" << std::endl;
+    std::cout << list.printCustomers() << std::endl;
 
     for(int i = 0; i < vect.size(); i++)
     {
@@ -80,6 +78,8 @@ int main()
     {
         delete thirdVect[j];
     }
+
+    std::cout << "We have reached the end of the program" << std::endl;
 
     names.clear();
 

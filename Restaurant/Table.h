@@ -6,17 +6,15 @@
 #include <sstream>
 #include "Customer.h"
 
-template <class T>
 class Table
 {
     public:
         Table();     // Default constructor
         Table(bool isWaitingArea);      // Parameterised constructor (Was used in testing the list)
-        Table<T> * getNext(); 
-        Table<T> * getPrev();
-        void setNext(Table<T> * node);
-        void setPrev(Table<T> * node);
-        void setIsWaitingArea(bool isWaitingArea);
+        Table * getNext(); 
+        Table * getPrev();
+        void setNext(Table * node);
+        void setPrev(Table * node);
         bool getTableType();
         std::string getValue(std::string value);    // Gets the name of a particular customer
         int getMaxNumCustomers(bool value);
@@ -24,7 +22,7 @@ class Table
         bool isFull(bool value);      // Checks if the table is full
         bool isEmpty();     // Checks if the table is empty
         bool isOccupied();  // Checks if the table is occupied
-        void removeCustomer();
+        void removeCustomers();
         std::vector<Customer*> getTable();  // Provides access to the particular table's vector (which contains the customers) 
         std::string print();    // Prints the names of the customers at a particular table
         void incrementNumCustomers();

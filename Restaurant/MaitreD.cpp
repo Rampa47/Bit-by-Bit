@@ -1,28 +1,23 @@
 #include "MaitreD.h"
 
-template <class T>
-MaitreD<T> * MaitreD<T>::maitreD = nullptr;
+MaitreD * MaitreD::maitreD = nullptr;
 
-template <class T>
-MaitreD<T> * MaitreD<T>::instance()
+MaitreD * MaitreD::instance()
 {
     if(maitreD == nullptr)
     {
-        maitreD = new MaitreD<T>();
+        maitreD = new MaitreD();
     }
 
     return maitreD;
 }
 
-
-template <class T>
-void MaitreD<T>::seatCustomers(Restaurant<T>& list, std::vector<Customer*> vect)
+void MaitreD::seatCustomers(Restaurant& list, std::vector<Customer*> vect)
 {
     list.addCustomer(vect);
 }
 
-template <class T>
-MaitreD<T>::~MaitreD()
+MaitreD::~MaitreD()
 {
     if(maitreD != nullptr)
     {
@@ -32,5 +27,4 @@ MaitreD<T>::~MaitreD()
     maitreD = nullptr;
 }
 
-template <class T>
-MaitreD<T>::MaitreD(){}
+MaitreD::MaitreD(){}

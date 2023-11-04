@@ -1,7 +1,6 @@
 #include "TableIterator.h"
 
-template <class T>
-TableIterator<T>::TableIterator(Table<T>* table)
+TableIterator::TableIterator(Table* table)
 {
     if(table == nullptr)
     {
@@ -10,7 +9,7 @@ TableIterator<T>::TableIterator(Table<T>* table)
 
     //Find first table in linked list
 
-    Table<T>* tablePtr = table;
+    Table* tablePtr = table;
 
     while(tablePtr->getPrev()!=nullptr)
     {
@@ -22,14 +21,12 @@ TableIterator<T>::TableIterator(Table<T>* table)
     currentTable = tablePtr;
 }
 
-template <class T>
-Table<T>* TableIterator<T>::first()
+Table* TableIterator::first()
 {
     return firstTable;
 }
 
-template <class T>
-TableIterator<T>::~TableIterator()
+TableIterator::~TableIterator()
 {
     if(firstTable != nullptr)
     {
@@ -46,8 +43,7 @@ TableIterator<T>::~TableIterator()
     currentTable = nullptr;
 }
 
-template <class T>
-void TableIterator<T>::next()
+void TableIterator::next()
 {
     if(hasNext())
     {
@@ -55,14 +51,12 @@ void TableIterator<T>::next()
     }
 }
 
-template <class T>
-Table<T>* TableIterator<T>::current()
+Table* TableIterator::current()
 {
     return currentTable;
 }
 
-template <class T>
-bool TableIterator<T>::hasNext()
+bool TableIterator::hasNext()
 {
     if(currentTable == nullptr)
     {
