@@ -70,6 +70,7 @@ class Table: public Colleague
         int generateComplaint();
         int generateDegree();
 
+
     private:
         Table * next;
         Table * prev;

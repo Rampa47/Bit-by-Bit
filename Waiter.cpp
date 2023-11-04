@@ -2,17 +2,13 @@
 #include <iostream>
 #include "Order.h" // Include necessary headers for other classes if used
 
-Waiter::Waiter(int n)  {
+Waiter::Waiter(int n, ChefHandler* chef)  {
     this->waiterNumber = n;
     this->order = nullptr;
     this->currentBillAmount=0.0;
     className="Waiter"; 
     greetCustomer();
-
-
-
-
-   
+    this->chef= chef;
 }
 
 void Waiter::greetCustomer() {
