@@ -1,7 +1,7 @@
 #ifndef ORDER_H
 #define ORDER_H
 
-#include "ChefTask.h"
+
 #include "FoodItem.h"
 #include "ChefHandler.h"
 #include "OrderContext.h"
@@ -13,7 +13,7 @@
  * @class Order
  * @brief Represents an order placed by a customer.
  */
-class Order : public ChefTask {
+class Order  {
 private:
     int waiter; // The ID of the waiter that is in charge of the Order
     std::vector<FoodItem*> foodItems; // A vector of food items in the order

@@ -17,6 +17,9 @@ $(EXECUTABLE): $(OBJ_FILES)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+run: $(EXECUTABLE)
+	./$(EXECUTABLE)
+
 clean:
 	rm -f $(OBJ_FILES) $(EXECUTABLE)
 

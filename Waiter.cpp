@@ -2,11 +2,12 @@
 #include <iostream>
 #include "Order.h" // Include necessary headers for other classes if used
 
-Waiter::Waiter(int n)  {
-    this->waiterNumber = n;
+Waiter::Waiter(int wNum, ChefHandler* chef) {
+    this->waiterNumber = wNum;
     this->order = nullptr;
     this->currentBillAmount=0.0;
     className="Waiter"; 
+    this->chef=chef;
     greetCustomer();
 
 
@@ -49,7 +50,7 @@ void Waiter::addNext(ComplaintsHandler* c)
 void Waiter::takeOrder(Order* order) {
     if (order!=NULL) delete order;
     this->order= order;
-   order->handleTask();
+    chef->handleOrder(order);
 
 }
 
@@ -178,10 +179,10 @@ void Waiter::retrieveBillAmountFromTextFile()  {
 const int Waiter::getWaiterNumber(){
     return waiterNumber;
 }
-void Waiter::setWaiterNumber(int waiternumber){
-    this->waiterNumber=waiternumber;
+// void Waiter::setWaiterNumber(int waiternumber){
+//     this->waiterNumber=waiternumber;
 
-}
+// }
 std::string Waiter::getClassname(){
     return "Waiter";
 }

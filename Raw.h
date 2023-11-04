@@ -1,7 +1,7 @@
 #ifndef RAW_H
 #define RAW_H
 #include "OrderState.h"
-//#include "InProgress.h"
+#include "InProgress.h"
 /**
  * @class Raw
  * @brief Is the initial state of the order
