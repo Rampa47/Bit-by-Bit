@@ -20,11 +20,11 @@ class CompositeBillPayer : BillComponent{
          * @param bills a vector of shared pointers to bill objects
         */ 
         CompositeBillPayer(std::string payerName, std::vector<std::shared_ptr<BillPayer>> bills);
-        void addBill(std::shared_ptr<Bill> bill);
+        void addBill(std::shared_ptr<BillPayer> bill);
         
     
     private:
-        std::vector<Bill> bills;
+        std::vector<BillPayer> bills;
         std::string payerName;
 };
 

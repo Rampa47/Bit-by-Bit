@@ -5,12 +5,20 @@
 
 class BillPayer : public BillComponent{
     public:
-        BillPayer(Order order, std::string payerName);
+        BillPayer(std::shared_ptr<Order> order, std::string payerName); //if order is passed in from waiter/table
+        BillPayer(int amount, std::string payerName); //if customer keeps order
+        
         std::string getPayerName();
 
+        ////////////Inherited///////////////////
+        void payAmountDue();
+        int getTotalAmount();
+        
+
     private:
+        int amount; //calculated from Order object
         std::string payerName;
-        Order customerOrder;
+        std::shared_ptr<Order> customerOrder;
     
 };
 

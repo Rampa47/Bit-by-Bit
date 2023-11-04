@@ -4,14 +4,14 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <iostream> 
 
 #include "../../Order.h"
 
 class BillComponent{
     public:
-        virtual void addBill(std::shared_ptr<BillComponent> bill) =0;
         virtual void payAmountDue() =0;
-        virtual void calculateAmountDue()=0;
+        virtual int getTotalAmount()=0;
         virtual ~BillComponent();
 };
 
