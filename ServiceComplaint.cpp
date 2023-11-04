@@ -1,7 +1,7 @@
 #include "ServiceComplaint.h"
 
 
-ServiceComplaint::ServiceComplaint(ComplaintsHandler* handler): Complaint(handler)
+ServiceComplaint::ServiceComplaint(ComplaintsHandler* handler,int degree): Complaint(handler,degree)
 {
 }
 
@@ -9,8 +9,8 @@ ServiceComplaint::~ServiceComplaint()
 {
 }
 
-void ServiceComplaint::AddressComplaint(string complaint)
+void ServiceComplaint::AddressComplaint()
 {
-    cout << "Service Complaint: " << complaint << endl;
-    handler->handleComplaint();
+    cout << "Service Complaint: " << endl;
+    //handler->handleComplaint();
 }
