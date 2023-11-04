@@ -14,14 +14,14 @@ class Complaint
 {
     protected:
         ComplaintsHandler* handler=NULL;///< The handler responsible for addressing the complaint.
-
+        int degree;
     public:
         /**
          * @brief Constructor for a Complaint object.
          *
          * @param handler A pointer to the ComplaintsHandler responsible for handling the complaint.
          */
-        Complaint(ComplaintsHandler* handler);
+        Complaint(ComplaintsHandler* handler,int degree);
 
         /**
          * @brief Destructor for the Complaint object.
@@ -38,7 +38,7 @@ class Complaint
          * @param complaint The description of the customer's complaint.
          * @param degree The degree of severity of the complaint.
          */
-        virtual void AddressComplaint(string complaint) = 0;
+        virtual void AddressComplaint() = 0;
 };
 #endif
 
