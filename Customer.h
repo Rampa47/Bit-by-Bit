@@ -25,26 +25,11 @@ class Customer
       
         Customer(std::string name);
         std::string getName(); /**<Returns the name of a customer */
-
-
-   
-
-
-       // void expressMood(Waiter* waiter);
-        
         void selectFoodItems(Order * order);
         double getBillAmount();
 
-        //client is no longer a colleague 
-        // void receive(std::string to,std::string message);
-        // void send(std::string to,std::string message);
-
     private:
-     
         std::string name;
-   
-       
- 
         double billAmount;
        
 
