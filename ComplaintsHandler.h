@@ -12,6 +12,8 @@ using namespace std;
 class ComplaintsHandler
 {
 
+protected:
+    ComplaintsHandler* next ;
 public:
     /**
      * @brief Construct a new ChefHandler object.
@@ -28,6 +30,8 @@ public:
      */
     virtual ~ComplaintsHandler();
 
+    virtual void addNext(ComplaintsHandler* c);
+
     /**
      * @brief Handle a customer complaint with a specified degree.
      *
@@ -37,7 +41,7 @@ public:
      * @param c The customer's complaint.
      * @param degree The degree of severity of the complaint.
      */
-    virtual void handleComplaint()=0;
+    virtual void handleComplaint(string c, int degree)=0;
     
 };
 
