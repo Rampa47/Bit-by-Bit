@@ -43,7 +43,7 @@ class Customer
         int tableNumber;
         std::string name;
    
-        std::shared_ptr<Order> receivedOrder;
+        Order* receivedOrder;
         static std::array<std::string,40> names;
        
 
