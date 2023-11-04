@@ -21,10 +21,14 @@ class CompositeBillPayer : BillComponent{
         */ 
         CompositeBillPayer(std::string payerName, std::vector<std::shared_ptr<BillPayer>> bills);
         void addBill(std::shared_ptr<BillPayer> bill);
+
+        ////////////Inherited///////////////////
+        void payAmountDue();
+        float getTotalAmount();
         
     
     private:
-        std::vector<BillPayer> bills;
+        std::vector<std::shared_ptr<BillPayer>> bills;
         std::string payerName;
 };
 

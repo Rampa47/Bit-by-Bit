@@ -26,9 +26,20 @@ BillPayer::BillPayer(int amount, std::string payerName){
 void BillPayer::payAmountDue(){
     //If Order object is passed in, this function will give a breakdown of the customer's order
     //food item by food item
-    std::cout << payerName << " pays R" << amount << " for their meal";
+    std::cout << payerName << " pays R" << amount << " for their meal" << std::endl;
 }
 
-int BillPayer::getTotalAmount(){
+/**
+ * @brief Returns the cost of the customer's order
+*/
+float BillPayer::getTotalAmount(){
     return amount;
+}
+
+/**
+ * @brief returns the name of the payer of their specific order
+ * @return payerName
+*/
+std::string BillPayer::getPayerName() const {
+    return payerName;
 }

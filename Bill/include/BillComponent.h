@@ -11,7 +11,7 @@
 class BillComponent{
     public:
         virtual void payAmountDue() =0;
-        virtual int getTotalAmount()=0;
+        virtual float getTotalAmount()=0;
         virtual ~BillComponent();
 };
 

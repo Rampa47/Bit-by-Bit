@@ -8,11 +8,11 @@ class BillPayer : public BillComponent{
         BillPayer(std::shared_ptr<Order> order, std::string payerName); //if order is passed in from waiter/table
         BillPayer(int amount, std::string payerName); //if customer keeps order
         
-        std::string getPayerName();
+        std::string getPayerName() const;
 
         ////////////Inherited///////////////////
         void payAmountDue();
-        int getTotalAmount();
+        float getTotalAmount();
         
 
     private:
