@@ -78,6 +78,8 @@ void Restaurant<T>::addCustomer(std::vector<Customer*> vect)
     if(isEmptyList())
     {
         Table<T> * node = add();
+        
+
         bool extraCustomers = false;
 
         if(vect.size() >= node->getMaxNumCustomers(extraCustomers))

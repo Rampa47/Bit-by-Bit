@@ -1,6 +1,7 @@
 #include "ReceivedOrder.h"
 #include "AwaitingBill.h"
 
+
 template <class T>
 void ReceivedOrder<T>::handle(Table<T>& table)
 {

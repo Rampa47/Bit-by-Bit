@@ -39,7 +39,7 @@ class Table: public Colleague
         void send(std::string to, std::string message);
        
        
-        void addCust(Customer * value);
+        void addCust(Customer * value); //change state
    /**
          * @brief Receives message from Mediator .
          * @param to Specifies to who the message is for.
