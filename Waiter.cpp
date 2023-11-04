@@ -59,16 +59,23 @@ string response;
 
 
 }
-void Waiter::handleComplaint(string c, int degree) {
+void Waiter::handleComplaint(string c, int degree) 
+{
 
-
-    cout<<"I apologise for the wait we have caused"<<endl;
-    cout<<"Thank you for your patience. Your order will be ready soon"<<endl;
+    if(degree<3 && c.compare("Time")==0)
+    {
+        cout<<"I apologise for the wait we have caused.Thank you for your patience. Your order will be ready soon."<<endl;
+        cout<<"Complaint handled by waiter."<<endl;
+    }
+    else
+    {
+        next->handleComplaint(c,degree);
+    }
 
 }
 
-void Waiter::takeOrder(Order *order) {
-   cout << " *** Waiter #" << waiterNumber << " is taking  an order. ***" << endl;
+void Waiter::takeOrder(Order *order) 
+{
   /* cout<<"Please enter the item number you'd like to order"<<endl;
    int itemNum,itemQuantity;
    cin>>itemNum;
