@@ -1,6 +1,7 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 #include "ComplaintsHandler.h"
+#include "HeadChef.h"
 
 /**
  * @class Manager
@@ -31,6 +32,7 @@ class Manager: public ComplaintsHandler
          * @param degree The degree of severity of the complaint.
          */
         void handleComplaint(string c, int degree);
+        void addNext(ComplaintsHandler* c);
 };
 
 #endif
