@@ -14,6 +14,7 @@ int main()
     ComplaintsHandler* handler= new Waiter();
     MaitreD MD = MaitreD::instance(); 
     //handler->addNext( MaitreD::instance());
+    //static MaitreD* maitre=MaitreD::instance();
     //add once class is fixed
     handler->addNext(new Manager());
     Context* context[3];

@@ -1,6 +1,6 @@
 #include "FoodComplaint.h"
 
-FoodComplaint::FoodComplaint(ComplaintsHandler* handler): Complaint(handler)
+FoodComplaint::FoodComplaint(ComplaintsHandler* handler,int degree): Complaint(handler,degree)
 {
 }
 
@@ -8,8 +8,8 @@ FoodComplaint::~FoodComplaint()
 {
 }
 
-void FoodComplaint::AddressComplaint(string complaint)
+void FoodComplaint::AddressComplaint()
 {
-    cout << "Food Complaint: " <<  complaint << endl;
-    handler->handleComplaint();
+    cout << "Food Complaint: " << endl;
+    //handler->handleComplaint("Food",);
 }
