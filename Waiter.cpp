@@ -1,18 +1,13 @@
 #include "Waiter.h"
 #include <iostream>
-#include "Order.h" // Include necessary headers for other classes if used
+#include "Order.h"
 
-Waiter::Waiter(int n)  {
+Waiter::Waiter(int n, ChefHandler* chef)  {
     this->waiterNumber = n;
     this->order = nullptr;
     this->currentBillAmount=0.0;
     className="Waiter"; 
-    this->waiterNumber=waiterNumberToTable;
     greetCustomer();
-
-
-
-
    
 }
 
@@ -36,7 +31,7 @@ void Waiter::handleComplaint(string c, int degree) {
 void Waiter::takeOrder(Order* order) {
     if (order!=NULL) delete order;
     this->order= order;
-   order->handleTask();
+    chef->handleOrder(order);
 
 }
 
@@ -66,7 +61,7 @@ void Waiter::send() {
         return; 
     }
 
-    mediator->notifications(to,message,this);
+    mediator->notifications(to,message);
 }
 
 void Waiter::presentBill() {
