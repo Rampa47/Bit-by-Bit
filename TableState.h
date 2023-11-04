@@ -4,10 +4,10 @@
 #include <string>
 #include "Table.h"      //context
 
-template <class T>
+class Table;
 class TableState{
     public:
-        virtual void handle(Table<T>& table) = 0;
+        virtual void handle(Table& table) = 0;
         virtual TableState* getNextState()=0;
         virtual std::string toString()=0;
     private:

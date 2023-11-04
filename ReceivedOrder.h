@@ -3,12 +3,12 @@
 
 #include "TableState.h"
 
-template <class T>
-class ReceivedOrder: public TableState<T>
+
+class ReceivedOrder: public TableState
 {
     public:
-        virtual void handle(Table<T>& table);
-        virtual TableState<T>* getNextState();
+        virtual void handle(Table& table);
+        virtual TableState* getNextState();
         virtual std::string toString();
     
 };

@@ -1,22 +1,22 @@
 #include "ReceivedOrder.h"
 #include "AwaitingBill.h"
 
-template <class T>
-void ReceivedOrder<T>::handle(Table<T>& table)
+
+void ReceivedOrder::handle(Table& table)
 {
     // table.giveOrder(table.getWaiter().giveOrder());
-    std::cout << "[The table has received their order]" << std::endl   
+    std::cout << "[The table has received their order]" << std::endl ; 
 }
 
-template <class T>
-TableState<T>* ReceivedOrder<T>::getNextState()
+
+TableState* ReceivedOrder::getNextState()
 {
     return new AwaitingBill();
     
 }
 
-template <class T>
-std::string ReceivedOrder<T>::toString()
+
+std::string ReceivedOrder::toString()
 {
     return "Received Order";
 }

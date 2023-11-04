@@ -180,7 +180,7 @@ void Restaurant::addCustomer(std::vector<Customer*> vect)
             {
                 if(!waitingArea->isFull(false))
                 {
-                    for(int i = 0; i < vect.size(); i++)
+                    for(size_t i = 0; i < vect.size(); i++)
                     {
                         waitingArea->addCust(vect[i]);
                         waitingArea->incrementNumCustomers();
@@ -200,7 +200,7 @@ void Restaurant::addCustomer(std::vector<Customer*> vect)
             {
                 Table * newWaitingArea = addWaitingArea();
 
-                for(int j = 0; j < vect.size(); j++)
+                for(size_t j = 0; j < vect.size(); j++)
                 {
                     waitingArea->addCust(vect[j]);
                     waitingArea->incrementNumCustomers();
