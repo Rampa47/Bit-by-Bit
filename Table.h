@@ -8,6 +8,7 @@
 
 
 
+
 #ifndef TABLE_H
 #define TABLE_H
 #include <iostream>
@@ -26,10 +27,10 @@ class Table: public Colleague
     public:
         Table();     // Default constructor
         Table(bool isWaitingArea);      // Parameterised constructor (Was used in testing the list)
-        Table<T> * getNext(); 
-        Table<T> * getPrev();
-        void setNext(Table<T> * node);
-        void setPrev(Table<T> * node);
+         Table * getNext(); 
+        Table * getPrev();
+        void setNext(Table * node);
+        void setPrev(Table * node);
         // void setIsWaitingArea(bool isWaitingArea);
         bool getTableType();
         std::string getValue(std::string value);    // Gets the name of a particular customer
@@ -40,7 +41,7 @@ class Table: public Colleague
         bool isOccupied();  // Checks if the table is occupied
         void removeCustomer();
         std::vector<Customer*> getTable();  // Provides access to the particular table's vector (which contains the customers) 
-        std::string print();    // Prints the names of the customers at a particular table
+       std::string print();    // Prints the names of the customers at a particular table
         void incrementNumCustomers();
        
        
@@ -79,6 +80,5 @@ class Table: public Colleague
         Waiter* waiter=nullptr;
         static int waiterNumberToTable;//a unique waiter number will be generated for each table that creates ab instance of the waiter
 };
-
 
 #endif

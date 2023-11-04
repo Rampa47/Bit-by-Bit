@@ -1,10 +1,11 @@
 
+
 #include "Table.h"
 
 template <class T>
-int Table<T>::waiterNumberToTable = 0;
-template <class T>
-Table<T>::Table()
+int Table::waiterNumberToTable = 0;
+
+Table::Table()
 {
     next = nullptr;
     numCurrentCustomers = 0;
@@ -20,18 +21,20 @@ Table<T>::Table()
     
 }
 
-template <class T>
-Table<T>::Table(bool isWaitingArea)
+
+Table::Table(bool isWaitingArea)
 {
     this->isWaitingArea = isWaitingArea;
     next = nullptr;
     numCurrentCustomers = 0;
 
+  
+
      
 }
 
-template <class T>
-Table<T> * Table<T>::getNext()
+
+Table * Table::getNext()
 {
     if(next == nullptr)
     {
@@ -41,15 +44,12 @@ Table<T> * Table<T>::getNext()
     {
         return next;
     }
-
-
-
-
-    
+   
 }
 
-template <class T>
-Table<T> * Table<T>::getPrev()
+
+
+Table * Table::getPrev()
 {
     if(prev == nullptr)
     {
@@ -64,14 +64,17 @@ Table<T> * Table<T>::getPrev()
    
 }
 
-template <class T>
-void Table<T>::setNext(Table<T> * node)
+
+
+
+void Table::setNext(Table * node)
 {
     this->next = node;
 }
 
-template <class T>
-void Table<T>::setPrev(Table<T> * node)
+
+
+void Table::setPrev(Table * node)
 {
     if(node == nullptr)
     {
@@ -81,14 +84,10 @@ void Table<T>::setPrev(Table<T> * node)
     {
         this->prev = node;
     }
-
-
-
-   
 }
 
-template <class T>
-std::string Table<T>::getValue(std::string value)
+
+std::string Table::getValue(std::string value)
 {
     std::vector<Customer>::iterator it;
 
@@ -108,8 +107,9 @@ std::string Table<T>::getValue(std::string value)
    
 }
 
-template <class T>
-int Table<T>::getMaxNumCustomers(bool value)
+
+
+int Table::getMaxNumCustomers(bool value)
 {
     if(value)
     {
@@ -123,14 +123,18 @@ int Table<T>::getMaxNumCustomers(bool value)
 
 }
 
-template <class T>
-int Table<T>::getNumCurrentCustomers()
+
+
+int Table::getNumCurrentCustomers()
 {
     return numCurrentCustomers;
 }
 
-template <class T>
-bool Table<T>::isFull(bool value)
+
+
+
+
+bool Table::isFull(bool value)
 {
     if(value)
     {
@@ -156,18 +160,11 @@ bool Table<T>::isFull(bool value)
             return false;
         }
     }
-
-
-
-
-
-
-
     
 }
 
-template <class T>
-bool Table<T>::isEmpty()
+
+bool Table::isEmpty()
 {
     if(this->numCurrentCustomers == 0)
     {
@@ -179,8 +176,8 @@ bool Table<T>::isEmpty()
     }
 }
 
-template <class T>
-bool Table<T>::isOccupied()
+
+bool Table::isOccupied()
 {
     if(this->numCurrentCustomers > 0 && this->numCurrentCustomers <= 10)
     {
@@ -193,14 +190,16 @@ bool Table<T>::isOccupied()
 }
 
 
-template <class T>
-std::vector<Customer*> Table<T>::getTable()
+
+std::vector<Customer*> Table::getTable()
 {
     return customers;
 }
 
-template <class T>
-std::string Table<T>::print()
+
+
+
+std::string Table::print()
 {
     std::string people;
     std::vector<Customer*>::iterator it;
@@ -215,29 +214,32 @@ std::string Table<T>::print()
 
 
 
-template <class T>
-void Table<T>::incrementNumCustomers()
+
+void Table::incrementNumCustomers()
 {
     numCurrentCustomers++;
 }
 
 
-template <class T>
-void Table<T>::addCust(Customer * value)
+
+void Table::addCust(Customer * value)
 {
     customers.push_back(value);
 }
-template <class T>
-bool Table<T>::getTableType()
+
+
+
+bool Table::getTableType()
 {
     return isWaitingArea;
 }
-template <class T>
-void Table<T>::receive(std::string to,std::string message){
+
+
+void Table::receive(std::string to,std::string message){
     std::cout<<" Table about to be serviced. Message: " << message <<std::endl;
  }
- template <class T>
-  void  Table<T>::send(){
+
+  void  Table::send(){
     std::string message = "";
     std::string to = "";
     std::cout << "Customer would you like to order now? " << std::endl;
@@ -254,22 +256,24 @@ void Table<T>::receive(std::string to,std::string message){
 
     mediator->notifications(to, message, this);
   }
- template <class T>
- int Table<T>::getWaiterNumber(){
+
+ int Table::getWaiterNumber(){
     return waiter->waiterNumber;
  }
- template <class T>
-std::string Table<T>::getClassname(){
+ 
+std::string Table::getClassname(){
     return "Table";
 }
 
-template <class T>
-void Table<T>::removeCustomer()
+
+
+void Table::removeCustomers()
 {
-    this->customers.pop_back();
+    customers.clear();
+    numCurrentCustomers = 0;
 }
-template <class T>
-void Table<T>::setWaiter(Waiter* waiter){
+
+void Table::setWaiter(Waiter* waiter){
     this->waiter=waiter;
     tableWaiterNumber = waiterNumberToTable++;
     waiter->setWaiterNumber(tableWaiterNumber);
@@ -277,12 +281,52 @@ void Table<T>::setWaiter(Waiter* waiter){
 
 
 
-template <class T>
-void Table<T>::callWaiter(ChefHandler* chef){
+
+void Table::callWaiter(ChefHandler* chef){
     Order * order= new Order(waiter->waiterNumber, chef);
     for (auto customer: customers){
         customer->selectFoodItems(order);
     }
     waiter->takeOrder(order);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
