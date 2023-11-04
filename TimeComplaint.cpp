@@ -1,6 +1,6 @@
 #include "TimeComplaint.h"
 
-TimeComplaint::TimeComplaint(ComplaintsHandler* handler): Complaint(handler)
+TimeComplaint::TimeComplaint(ComplaintsHandler* handler,int degree): Complaint(handler,degree)
 {
 }
 
@@ -8,8 +8,8 @@ TimeComplaint::~TimeComplaint()
 {
 }
 
-void TimeComplaint::AddressComplaint(string complaint)
+void TimeComplaint::AddressComplaint()
 {
-    cout << "Time Complaint: " << complaint << endl;
-    handler->handleComplaint();
+    cout << "Time Complaint: " << endl;
+    //handler->handleComplaint();
 }
