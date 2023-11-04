@@ -32,6 +32,8 @@ class TimeComplaint:public Complaint
          * @param degree The degree of severity of the complaint.
          */
         void AddressComplaint();
+
+        string getname();
 };
 
 #endif

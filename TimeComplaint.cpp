@@ -10,5 +10,10 @@ TimeComplaint::~TimeComplaint()
 
 void TimeComplaint::AddressComplaint()
 {
-    handler->handleComplaint("Time",degree);
+    handler->handleComplaint(getname(),degree);
+}
+
+string TimeComplaint::getname()
+{
+    return "Time";
 }

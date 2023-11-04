@@ -10,3 +10,7 @@ Complaint::~Complaint()
 {
 }
 
+void Complaint::setDegree(int degree)
+{
+   this->degree=degree;
+}

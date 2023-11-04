@@ -11,5 +11,10 @@ ServiceComplaint::~ServiceComplaint()
 
 void ServiceComplaint::AddressComplaint()
 {
-    handler->handleComplaint("Service",degree);
+    handler->handleComplaint(getname(),degree);
+}
+
+string ServiceComplaint::getname()
+{
+    return "Service";
 }

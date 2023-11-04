@@ -32,7 +32,7 @@ string response;
         if (response == "yes")
         {
             readyToOrder = true;
-            takeOrder();
+            //takeOrder(); uncomment
 
         }
         else if (response == "no")
@@ -49,7 +49,7 @@ string response;
             {
                 cout << "I'm sorry, you've reached the maximum number of order attempts." << endl;
                 cout<<"Please order something"<<endl;
-                takeOrder();
+                 //takeOrder(); uncomment
             }
         }
         else {
@@ -72,6 +72,17 @@ void Waiter::handleComplaint(string c, int degree)
         next->handleComplaint(c,degree);
     }
 
+}
+void Waiter::addNext(ComplaintsHandler* c)
+{
+    if(next==NULL)
+    {
+        next=c;
+    }
+    else
+    {
+        next->addNext(c);
+    }
 }
 
 void Waiter::takeOrder(Order *order) 

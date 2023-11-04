@@ -30,3 +30,15 @@ void HeadChef::handleComplaint(string c, int degree)
         next->handleComplaint(c,degree);
     }
 }
+
+void HeadChef::addNext(ComplaintsHandler* c)
+{
+    if(next==NULL)
+    {
+        next=c;
+    }
+    else
+    {
+        next->addNext(c);
+    }
+}

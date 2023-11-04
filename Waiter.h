@@ -22,7 +22,8 @@
 using namespace std ;
 
 
-class Waiter :public ComplaintsHandler{
+class Waiter :public ComplaintsHandler
+{
 private:
     int waiterNumber;
     Order* order;
@@ -44,6 +45,7 @@ public:
     void handlePayment();
     void saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID);
     void retrieveBillAmountFromTextFile();
+    void addNext(ComplaintsHandler* c);
 
 };
 

@@ -39,6 +39,10 @@ class Complaint
          * @param degree The degree of severity of the complaint.
          */
         virtual void AddressComplaint() = 0;
+
+        void setDegree(int degree);
+
+        virtual string getname()=0;
 };
 #endif
 

@@ -10,5 +10,10 @@ FoodComplaint::~FoodComplaint()
 
 void FoodComplaint::AddressComplaint()
 {
-    handler->handleComplaint("Food",degree);
+    handler->handleComplaint(getname(),degree);
+}
+
+string FoodComplaint::getname()
+{
+    return "Food";
 }

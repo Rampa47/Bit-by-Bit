@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++11
 
-SOURCES = ComplainthandlingMain.cpp Waiter.cpp Manager.cpp FoodComplaint.cpp TimeComplaint.cpp ServiceComplaint.cpp Complaint.cpp Context.cpp ComplaintsHandler.cpp
+SOURCES = ComplainthandlingMain.cpp Waiter.cpp Table.cpp Manager.cpp HeadChef.cpp FoodComplaint.cpp TimeComplaint.cpp ServiceComplaint.cpp Complaint.cpp ComplaintsHandler.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 EXECUTABLE = Complainthandlingmain.exe

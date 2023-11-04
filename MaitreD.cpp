@@ -1,24 +1,42 @@
 #include "MaitreD.h"
 
-MaitreD * MaitreD::instance()
+template <class T>
+MaitreD<T> * MaitreD<T>::maitreD = nullptr;
+
+template <class T>
+MaitreD<T> * MaitreD<T>::instance()
 {
     if(maitreD == nullptr)
     {
-        maitreD = new MaitreD();
-        Classname="MaitreD";
+        maitreD = new MaitreD<T>();
     }
 
     return maitreD;
 }
-void MaitreD::receive(std::string to,std::string message){
-  std::cout<<"MaitreD Message: "<<message<<std::endl;
-}
-void MaitreD::send(std::string to,std::string message){
-    
-    mediator.notify(to,message);
+
+
+template <class T>
+void MaitreD<T>::seatCustomers(Restaurant<T>& list, std::vector<Customer*> vect)
+{
+    list.addCustomer(vect);
 }
 
-void MaitreD::handleComplaint(string c, int degree)
+template <class T>
+MaitreD<T>::~MaitreD()
+{
+    if(maitreD != nullptr)
+    {
+        delete maitreD;
+    }
+
+    maitreD = nullptr;
+}
+
+template <class T>
+MaitreD<T>::MaitreD(){}
+
+template <class T>
+void MaitreD<T>::handleComplaint(string c, int degree)
 {
     if (degree<3&&c.compare("Food")==0)
     {

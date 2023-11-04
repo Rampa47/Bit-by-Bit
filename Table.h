@@ -6,7 +6,9 @@
 #include <sstream>
 #include "Customer.h"
 #include <random>
-#include "Complaint.h"
+#include "TimeComplaint.h"
+#include "FoodComplaint.h"
+#include "ServiceComplaint.h"
 
 using namespace std;
 template <class T>
@@ -32,10 +34,10 @@ class Table
         std::string print();    // Prints the names of the customers at a particular table
         void incrementNumCustomers();
         void addCust(Customer * value);
-        void IsEverythingOkay();
+        void IsEverythingOkay(ComplaintsHandler* CH);
         int getRandomZeroOrOne();
         int generateComplaint();
-        int Table<T>::generateDegree();
+        int generateDegree();
 
     private:
         Table * next;

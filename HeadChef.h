@@ -34,6 +34,7 @@ public:
     void handleOrder(Order* order);
 
     void handleComplaint(string c, int degree);
+    void addNext(ComplaintsHandler* c);
 };
 
 #endif

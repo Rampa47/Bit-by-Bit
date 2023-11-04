@@ -197,10 +197,11 @@ void Table<T>::removeCustomer()
 }
 
 template <class T>
-void Table<T>::IsEverythingOkay()
+void Table<T>::IsEverythingOkay(ComplaintsHandler* CH)
 {
-    cout<<"Is everything Okay?"
-    int okay= getRandomZeroOrOne();
+    cout<<"Is everything Okay?";
+    int okay= 0;
+    okay=getRandomZeroOrOne();
     if(okay==1)
     {
         cout<<"Yes, thank you."<<endl;
@@ -208,26 +209,64 @@ void Table<T>::IsEverythingOkay()
     else
     {
         cout<<"No."<<endl;
-        int degree=degree=generateDegree(); 
+        int degree=generateDegree(); 
         int typecomplaint=generateComplaint();
         if(typecomplaint==2)
         {
             if(c==NULL)
             {
-                c=new TimeComplaint();
+                c=new TimeComplaint(CH,degree);
             }
             else
             {
-                if()
+                if(c->getname()=="Time")
+                {
+                    c->setDegree(5);
+                }
+                else
+                {
+                    delete c;
+                    c=new TimeComplaint(CH,degree);
+                }
             }
         }
         else if(typecomplaint==4)
         {
-            
+            if(c==NULL)
+            {
+                c=new FoodComplaint(CH,degree);
+            }
+            else
+            {
+                if(c->getname()=="Food")
+                {
+                    c->setDegree(5);
+                }
+                else
+                {
+                    delete c;
+                    c=new FoodComplaint(CH,degree);
+                }
+            }
         }
         else
         {
-            
+            if(c==NULL)
+            {
+                c=new ServiceComplaint(CH,degree);
+            }
+            else
+            {
+                if(c->getname()=="Service")
+                {
+                    c->setDegree(5);
+                }
+                else
+                {
+                    delete c;
+                    c=new ServiceComplaint(CH,degree);
+                }
+            }
         }
 
     }
