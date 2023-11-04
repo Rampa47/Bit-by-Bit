@@ -1,14 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
 #ifndef TABLE_H
 #define TABLE_H
 #include <iostream>
@@ -20,8 +10,10 @@
 #include "Waiter.h"
 #include "ChefHandler.h"
 #include "Order.h"
+#include "TableState.h"
 
-template <class T>
+
+
 class Table: public Colleague
 {
     public:
@@ -43,7 +35,9 @@ class Table: public Colleague
         std::vector<Customer*> getTable();  // Provides access to the particular table's vector (which contains the customers) 
        std::string print();    // Prints the names of the customers at a particular table
         void incrementNumCustomers();
-       
+       void leave();
+        void order();
+        void payBill();
        
         void addCust(Customer * value);
    /**
@@ -68,10 +62,13 @@ class Table: public Colleague
        void setWaiter(Waiter* waiter);
        std::string getClassname();
       void callWaiter(ChefHandler* chef);
+      void setState();
+        Waiter* getWaiter();
     private:
         Table * next;
         Table * prev;
         std::vector<Customer*> customers;
+        TableState* tableState;
 
         int numCurrentCustomers = 0;
         int maxNumCustomers = 5;
@@ -81,4 +78,3 @@ class Table: public Colleague
         static int waiterNumberToTable;//a unique waiter number will be generated for each table that creates ab instance of the waiter
 };
 
-#endif
