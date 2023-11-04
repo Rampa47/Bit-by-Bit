@@ -57,6 +57,12 @@ public:
      * @brief Virtual destructor for the Burger class.
      */
     virtual ~Burger();
+
+    /**
+     * @brief Get the price of the food item.
+     * @return the price of the food item
+     */
+    virtual double getPrice()=0;
 };
 
 #endif

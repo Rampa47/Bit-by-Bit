@@ -3,15 +3,8 @@
 #include "FryChef.h"
 #include "BurgerChef.h"
 #include "HeadChef.h"
-#include "Order.h"
-#include "ChickenBurger.h"
-#include "BeefBurger.h"
-#include "PlainChips.h"
-#include "TomatoChipSauce.h"
-#include "JalapenoChipSauce.h"
-#include "GrilledPoultry.h"
-#include "FriedPoultry.h"
-#include "Poultry.h"
+#include "Customer.h"
+#include "Table.h"
 
 
 using namespace std;
@@ -23,17 +16,24 @@ int main()
 	orderhandler->addSuccessor(new FryChef());
 	orderhandler->addSuccessor(new BurgerChef());
 	orderhandler->addSuccessor(new HeadChef());
+	vector<Customer*> customers;
+	Table<int>* table;
+	for (int i=0; i<5; i++ ){
+		customers.push_back(new Customer());
+		table->addCust(customers[i]);
+	}
 
-    Order * order= new Order(4, orderhandler);
-	order->addFoodItem(new ChickenBurger);
-	order->addFoodItem(new Poultry(new GrilledPoultry));
-    order->addFoodItem(new BeefBurger);
-    order->addFoodItem(new TomatoChipSauce( new JalapenoChipSauce(new PlainChips)));
-    order->addFoodItem(new Poultry(new FriedPoultry));
+	Waiter* waiter= new Waiter(1);
+	table->setWaiter(waiter);
+	table->callWaiter(orderhandler);
+	
 
-	order->handleTask();
-    delete order;
+	for (auto c: customers){
+		delete c;
+	}
     delete orderhandler;
+	delete waiter;
+	delete table;
 
     return 0;
 }

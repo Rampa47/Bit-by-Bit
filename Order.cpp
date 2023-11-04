@@ -41,7 +41,6 @@ Order::~Order() {
     for (FoodItem* foodItem : foodItems) {
         delete foodItem;
     }
-    foodItems.clear();
     delete orderContext;
 }
 

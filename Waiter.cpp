@@ -1,191 +1,47 @@
-
-
-
 #include "Waiter.h"
 #include <iostream>
 #include "Order.h" // Include necessary headers for other classes if used
 
-Waiter::Waiter(int waiterNumberToTable)  {
-    
+Waiter::Waiter(int n)  {
+    this->waiterNumber = n;
     this->order = nullptr;
     this->currentBillAmount=0.0;
     className="Waiter"; 
     this->waiterNumber=waiterNumberToTable;
- 
+    greetCustomer();
 
-    //greetCustomer();
+
+
+
+   
 }
 
 void Waiter::greetCustomer() {
-    cout<<"Good day and welcome to the resturant!"<<endl;
-    cout<<"I am going to be your waiter for today"<<endl;
-    cout<<"Sit back and enjoy the experience"<<endl;
+    cout<<"Waiter " << waiterNumber <<" greets customers and presents menu..."<<endl;
 }
 
-void Waiter::presentMenu() {
-int orderAttempts = 0;
-bool readyToOrder = false;
-string response;
 
-    while (orderAttempts < maxOrderAttempts && !readyToOrder)
-    {
-
-        menu->displayMenu();
-
-        cout << "Are you ready to order? (yes/no): ";
-        cin >> response;
-
-        if (response == "yes")
-        {
-            readyToOrder = true;
-            takeOrder();
-
-        }
-        else if (response == "no")
-        {
-            orderAttempts++;
-
-            if (orderAttempts < maxOrderAttempts)
-            {
-               cout << "No problem. I'll come back in 10 seconds." <<endl;
-               this_thread::sleep_for(chrono::seconds(10));
-               presentMenu();
-            }
-            else
-            {
-                cout << "I'm sorry, you've reached the maximum number of order attempts." << endl;
-                cout<<"Please order something"<<endl;
-                takeOrder();
-            }
-        }
-        else {
-            cout << "Invalid response. Please specify 'yes' or 'no'." << endl;
-        }
-    }
-
-
-}
 void Waiter::handleComplaint(string c, int degree) {
 
+    if (degree <=3 && c.compare("Service")==0)
+    {
+        cout << "Waiter #" << waiterNumber << " acknowledges the service complaint. We will do our best to resolve it and be more professional , timely and friendly" << endl;
+    }
+    else{
+        next->handleComplaint(c,degree);
+}
+}
 
-    cout<<"I apologise for the wait we have caused"<<endl;
-    cout<<"Thank you for your patience. Your order will be ready soon"<<endl;
+
+void Waiter::takeOrder(Order* order) {
+    if (order!=NULL) delete order;
+    this->order= order;
+   order->handleTask();
 
 }
 
-void Waiter::takeOrder(Order *order) {
-   cout << " *** Waiter #" << waiterNumber << " is taking  an order. ***" << endl;
-  /* cout<<"Please enter the item number you'd like to order"<<endl;
-   int itemNum,itemQuantity;
-   cin>>itemNum;
-   if(itemNum>=1 && itemNum<= menu->getMenuItemsSize())
-   {
-       //itemNum--;
-       cout<<"Please enter the quantity"<<endl;
-       cin>>itemQuantity;
-
-       //order=new Order(this->waiterNumber , chef );
-       if(itemNum==1)
-       {
-           int burgerOption;
-          //order=new Order(this->waiterNumber , new BurgerChef );
-          cout<<"Would you like a:"<<endl;
-          cout<<"1)Beef Burger"<<endl;
-          cout<<"2)Chicken Burger"<<endl;
-          cout<<"Enter '1' or '2' for the option you want"<<endl;
-          cin>>burgerOption;
-          if(burgerOption==1)
-          {
-              for(int i=0 ; i< itemQuantity;i++) {
-                  order->addFoodItem(new BeefBurger);
-              }
-              send("PoultryChef" , "Order is placed");
-              updateBill( menu->getBurgerPrice(),itemQuantity);
-          }
-          else if(burgerOption==2)
-          {
-              for(int i=0 ; i< itemQuantity;i++) {
-                  //   order->addFoodItem(new ChickenBurger);
-              }
-              send("PoultryChef" , "Order is placed");
-              updateBill( menu->getBurgerPrice(),itemQuantity);
-          }
-          else
-          {
-              cout<<"Please enter a valid option"<<endl;
-          }
-       }
-       else if(itemNum==2)
-       {
-           //ChefHandler * poultry = new PoultryChef;
-           order=new Order(this->waiterNumber , new FryChef );
-           int chipsOptions;
-           cout<<"Would you like :"<<endl;
-           cout<<"1)Plain Chips"<<endl;
-           cout<<"2)Chips with sauce"<<endl;
-           cout<<"Enter '1' or '2' for the option you want"<<endl;
-           cin>>chipsOptions;
-           if(chipsOptions==1)
-           {
-               for(int i=0 ; i< itemQuantity;i++) {
-                   //   order->addFoodItem(new Plain);
-               }
-               send("PoultryChef" , "Order is placed");
-               updateBill( menu->getChipsPrice(),itemQuantity);
-           }
-           else if(chipsOptions==2)
-           {
-               int sauceOptions;
-               cout<<"Would you like :"<<endl;
-               cout<<"1)Tomato Sauce"<<endl;
-               cout<<"2)Jalapeno Sauce"<<endl;
-               cout<<"Enter '1' or '2' for the option you want"<<endl;
-               cin>>sauceOptions;
-
-               if(sauceOptions==1)
-               {
-                   for(int i=0 ; i< itemQuantity;i++) {
-                       //   order->addFoodItem(new Tomato);
-                   }
-                   send("PoultryChef" , "Order is placed");
-                   updateBill( menu->getChipsPrice(),itemQuantity);
-               }
-               else if(sauceOptions==2)
-
-                   for(int i=0 ; i< itemQuantity;i++) {
-                       //   order->addFoodItem(new Jalapeno);
-                   }
-                   send("PoultryChef" , "Order is placed");
-                   updateBill( menu->getChipsPrice(),itemQuantity);
-               }
-               else
-               {
-                   cout<<"Please enter a valid option"<<endl;
-               }
-           }
-           else
-           {
-               cout<<"Please enter a valid option"<<endl;
-           }
-
-       }
-       else if(itemNum==3)
-       {
-          // FoodItem *food = new Poultry;
-           order=new Order(this->waiterNumber , new PoultryChef );
-           for(int i=0 ; i< itemQuantity;i++) {
-               // order->addFoodItem(food);
-           }
-           send("PoultryChef" , "Order is placed");
-           order->handleTask();
-           delete order;
-           updateBill( menu->getChipsPrice(),itemQuantity);
-       }
-   else {
-       cout<<"Invalid item number. Please choose a valid item"<<endl;
-   }
-
-*/
+Waiter::~Waiter(){
+    if (order!=NULL) delete order;
 }
 
 void Waiter::updateBill(double price , int quantity) {
@@ -196,7 +52,7 @@ void Waiter::receive(std::string to, std::string message) {
 }
 
 void Waiter::send() {
-    std::string message = "";
+     std::string message = "";
     std::string to = "";
     std::cout << "Waiter would you like to send the order to the Chef now? " << std::endl;
     std::cout << "1.Yes" << std::endl;
@@ -242,6 +98,7 @@ void Waiter::presentBill() {
 
 }
 
+//use random numbers for options
 void Waiter::handlePayment() {
     int customerRating;
     cout << "Processing payment... Thank you for joining us!" << endl;
@@ -255,6 +112,7 @@ void Waiter::handlePayment() {
     }
     cout<<"We hope to see you soon ;D"<<endl;
 }
+
 
 void Waiter::createTab() {
     cout << "Creating a tab for the customer. You can settle the bill later." << endl;
@@ -270,6 +128,7 @@ void Waiter::createTab() {
 
 }
 
+
 void Waiter::saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID) {
 
     ofstream file("tabs.txt");
@@ -283,6 +142,7 @@ void Waiter::saveBillAmountToTextFile(double billAmount ,string name , int conta
     }
 
 }
+
 void Waiter::retrieveBillAmountFromTextFile()  {
     double billAmount = 0.0;
     string custName ;
@@ -300,11 +160,15 @@ void Waiter::retrieveBillAmountFromTextFile()  {
     presentBill();
 
 }
-std::string Waiter::getClassname(){
-    return "Waiter";
+
+
+const int Waiter::getWaiterNumber(){
+    return waiterNumber;
 }
 void Waiter::setWaiterNumber(int waiternumber){
     this->waiterNumber=waiternumber;
 
 }
-
+std::string Waiter::getClassname(){
+    return "Waiter";
+}

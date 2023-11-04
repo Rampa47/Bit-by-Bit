@@ -20,6 +20,12 @@ public:
      * @brief Virtual destructor for the FriedPoultry class.
      */
     virtual ~FriedPoultry();
+
+    /**
+     * @brief Get the price of the food item.
+     * @return the price of the food item
+     */
+    virtual double getPrice();
 };
 
 #endif
