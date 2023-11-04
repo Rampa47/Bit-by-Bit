@@ -3,11 +3,11 @@
 
 #include "TableState.h"
 
-template <class T>
-class AwaitingBill: public TableState<T>{
+
+class AwaitingBill: public TableState{
     public:
-        virtual void handle(Table<T>& table);
-        virtual TableState<T>* getNextState();
+        virtual void handle(Table& table);
+        virtual TableState* getNextState();
         virtual std::string toString();
 
     private:

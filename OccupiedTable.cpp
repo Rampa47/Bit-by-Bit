@@ -1,22 +1,22 @@
 #include "OccupiedTable.h"
 #include "RequestToOrder.h"
 
-template <class T>
-void OccupiedTable<T>::handle(Table<T>& table)
+
+void OccupiedTable::handle(Table& table)
 {
-    std::cout << "[Customers are seated]"
+    std::cout << "[Customers are seated]";
     //table.getWaiter().greet();
 }
 
-template <class T>
-TableState<T>* OccupiedTable<T>::getNextState()
+
+TableState* OccupiedTable::getNextState()
 {
     return new RequestToOrder();
     
 }
 
-template <class T>
-std::string OccupiedTable<T>::toString()
+
+std::string OccupiedTable::toString()
 {
     return "Occupied Table";
 }

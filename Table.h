@@ -12,7 +12,7 @@
 #include "Order.h"
 #include "TableState.h"
 
-
+class TableState;
 
 class Table: public Colleague
 {
@@ -31,7 +31,7 @@ class Table: public Colleague
         bool isFull(bool value);      // Checks if the table is full
         bool isEmpty();     // Checks if the table is empty
         bool isOccupied();  // Checks if the table is occupied
-        void removeCustomer();
+        void removeCustomers();
         std::vector<Customer*> getTable();  // Provides access to the particular table's vector (which contains the customers) 
        std::string print();    // Prints the names of the customers at a particular table
         void incrementNumCustomers();
@@ -77,4 +77,4 @@ class Table: public Colleague
         Waiter* waiter=nullptr;
         static int waiterNumberToTable;//a unique waiter number will be generated for each table that creates ab instance of the waiter
 };
-
+#endif

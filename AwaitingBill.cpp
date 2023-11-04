@@ -1,8 +1,8 @@
 #include "AwaitingBill.h"
 #include "PaidBill.h"
 
-template <class T>
-void AwaitingBill<T>::handle(Table<T>& table)
+
+void AwaitingBill::handle(Table& table)
 {
     std::cout << "[Table-" << table.getWaiterNumber() << "] is waiting for the bill]\n" << std::endl;
     
@@ -10,15 +10,15 @@ void AwaitingBill<T>::handle(Table<T>& table)
     //table.setBill(table.getWaiter().getBill());
 }
 
-template <class T>
-TableState<T>* AwaitingBill<T>::getNextState()
+
+TableState* AwaitingBill::getNextState()
 {
     return new PaidBill();
     
 }
 
-template <class T>
-std::string AwaitingBill<T>::toString()
+
+std::string AwaitingBill::toString()
 {
     return "Awaiting Bill";
 }
