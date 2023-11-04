@@ -1,22 +1,20 @@
 #ifndef TABLE_ITERATOR_H
 #define TABLE_ITERATOR_H
-
 #include "Table.h"
 
-template <class T>
 class TableIterator
 {
     public:
-        TableIterator(Table<T>* table);
-        Table<T>* first();
+        TableIterator(Table* table);
+        Table* first();
         void next();
-        Table<T>* current();
+        Table* current();
         bool hasNext();
         ~TableIterator();
     
     private:
-        Table<T>* firstTable;
-        Table<T>* currentTable;
+        Table* firstTable;
+        Table* currentTable;
 };
 
 #endif // TABLEITERATOR_H
