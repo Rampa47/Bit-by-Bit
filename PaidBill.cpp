@@ -1,22 +1,22 @@
 #include "PaidBill.h"
 #include "EmptyTable.h"
 
-template <class T>
-void PaidBill<T>::handle(Table<T>& table)
+
+void PaidBill::handle(Table& table)
 {
    //total paid, tip, goodbye message
-   std::cout << "Total paid by table-" << table.getWaiterNumber() <<": R" <<  ; //table.getWaiter().getTotal();
+   std::cout << "Total paid by table-" << table.getWaiterNumber() <<": R" << std::endl ; //table.getWaiter().getTotal();
 }
 
-template <class T>
-TableState<T>* PaidBill<T>::getNextState()
+
+TableState* PaidBill::getNextState()
 {
     return new EmptyTable();
     
 }
 
-template <class T>
-std::string PaidBill<T>::toString()
+
+std::string PaidBill::toString()
 {
     return "Paid Bill";
 }

@@ -3,10 +3,7 @@
 FoodComplaint::FoodComplaint(ComplaintsHandler* handler,int degree): Complaint(handler,degree)
 {
 }
-FoodComplaint::FoodComplaint(ComplaintsHandler* handler,int degree)
-{
 
-}
 
 FoodComplaint::~FoodComplaint()
 {

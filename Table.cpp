@@ -270,11 +270,11 @@ void Table::receive(std::string to,std::string message){
         return; 
     }
 
-    mediator->notifications(to, message, this);
+    mediator->notifications(to, message);
   }
 
  int Table::getWaiterNumber(){
-    return waiter->waiterNumber;
+    return waiter->getWaiterNumber();
  }
  
 std::string Table::getClassname(){
@@ -291,15 +291,15 @@ void Table::removeCustomers()
 
 void Table::setWaiter(Waiter* waiter){
     this->waiter=waiter;
-    tableWaiterNumber = waiterNumberToTable++;
-    waiter->setWaiterNumber(tableWaiterNumber);
+   // tableWaiterNumber = waiterNumberToTable++;
+    //waiter->setWaiterNumber(tableWaiterNumber);
 }
 
 
 
 
 void Table::callWaiter(ChefHandler* chef){
-    Order * order= new Order(waiter->waiterNumber, chef);
+    Order * order= new Order(waiter->getWaiterNumber());
     for (auto customer: customers){
         customer->selectFoodItems(order);
     }
@@ -308,20 +308,20 @@ void Table::callWaiter(ChefHandler* chef){
 
 
 
-Waiter Table::getWaiter(){
-    return this.waiter;
+Waiter* Table::getWaiter(){
+    return this->waiter;
 }
 
 
 void Table::leave(){
     setState();
-    tableState->handle();
+    tableState->handle(*this);
 }
 
 
 void Table::order(){
     setState();
-    tableState->handle();
+    tableState->handle(*this);
 }
 
 void Table::payBill(){

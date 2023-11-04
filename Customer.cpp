@@ -26,47 +26,48 @@ void Customer::selectFoodItems(Order * order){
 
     srand((unsigned) time(NULL));
 	int numOfItems = rand()%5+1;
+    FoodItem* foodItem;
 
     for(int i=0; i<numOfItems;i++ ){
         int item= rand()%7;
         switch (item)
         {
         case 0:
-            FoodItem* foodItem= new ChickenBurger();
+            foodItem= new ChickenBurger();
             order->addFoodItem(foodItem);
             billAmount+=foodItem->getPrice();
             break;
         case 1:
-            FoodItem* foodItem= new Poultry(new GrilledPoultry);
+            foodItem= new Poultry(new GrilledPoultry);
             order->addFoodItem(foodItem);
             billAmount+=foodItem->getPrice();
             break;
         case 2:
-            FoodItem* foodItem= new BeefBurger();
+            foodItem= new BeefBurger();
             order->addFoodItem(foodItem);
             billAmount+=foodItem->getPrice();
             break;
         case 3:
-            FoodItem* foodItem= new TomatoChipSauce( new JalapenoChipSauce(new PlainChips));
+            foodItem= new TomatoChipSauce( new JalapenoChipSauce(new PlainChips));
             order->addFoodItem(foodItem);
             billAmount+=foodItem->getPrice();
             break;
         case 4:
-            FoodItem* foodItem= new Poultry(new FriedPoultry);
+            foodItem= new Poultry(new FriedPoultry);
             order->addFoodItem(foodItem);
             billAmount+=foodItem->getPrice();
             break;
         case 5:
-            FoodItem* foodItem= new JalapenoChipSauce(new PlainChips);
+            foodItem= new JalapenoChipSauce(new PlainChips);
             order->addFoodItem(foodItem);
             billAmount+=foodItem->getPrice();
         case 6:
-            FoodItem* foodItem= new TomatoChipSauce(new PlainChips);
+            foodItem= new TomatoChipSauce(new PlainChips);
             order->addFoodItem(foodItem);
             billAmount+=foodItem->getPrice();
             break;
         case 7:
-            FoodItem* foodItem= new PlainChips;
+            foodItem= new PlainChips;
             order->addFoodItem(foodItem);
             billAmount+=foodItem->getPrice();
             break;
