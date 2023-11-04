@@ -5,17 +5,6 @@
 #include "ComplaintsHandler.h"
 #include "Order.h"
 #include "Table.h"
-#include "ChefTask.h"
-#include "FoodItem.h"
-#include "Menu.h"
-#include "Burger.h"
-#include "Poulltry.h"
-#include "Chips.h"
-#include "BeefBurger.h"
-#include "PoultryChef.h"
-#include "BurgerChef.h"
-#include "FryChef.h"
-#include "HeadChef.h"
 #include <vector>
 #include <thread>
 #include <iostream>
@@ -27,8 +16,7 @@ class Waiter :public ComplaintsHandler , public Colleague{
 private:
     int waiterNumber;
     Order* order;
-    Menu *menu ;
-    int maxOrderAttempts ;
+    int maxOrderAttempts;
      double currentBillAmount;
      //Table *table;
 public:
@@ -54,7 +42,7 @@ public:
         
          */
          std::string getClassname();
-         void setWaiterNumber(int waiternumber);
+   void setWaiterNumber(int waiternumber);
     void greetCustomer();
     void presentMenu();
     void updateBill(double price , int quantity);
