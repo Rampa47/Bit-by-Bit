@@ -1,14 +1,11 @@
 #include "Table.h"
-template <class T>
-int Table<T>::waiterNumberToTable = 0;
+
 template <class T>
 Table<T>::Table()
 {
     next = nullptr;
     numCurrentCustomers = 0;
     isWaitingArea = false;
-    className="Table";
-    waiter= nullptr;
 }
 
 template <class T>
@@ -145,7 +142,7 @@ bool Table<T>::isEmpty()
 template <class T>
 bool Table<T>::isOccupied()
 {
-    if(this->numCurrentCustomers > 0 && this->numCurrentCustomers < 5)
+    if(this->numCurrentCustomers > 0 && this->numCurrentCustomers <= 10)
     {
         return true;
     }
@@ -193,20 +190,27 @@ bool Table<T>::getTableType()
     return isWaitingArea;
 }
 template <class T>
-void Table<T>::receive(std::string to,std::string message,Colleague* me){
+void Table<T>::receive(std::string to,std::string message){
     std::cout<<" Table about to be serviced. Message: " << message <<std::endl;
  }
  template <class T>
   void  Table<T>::send(){
-    std::string message="";
-      std::string to="";
-    std::cout<<"Customer who would you like to Notify?"<<std::endl;
-    std::cin>>to;
-    std::cout<<"Customer what is your message to the receiver?"<<std::endl;
-    std::cin>>message;
+    std::string message = "";
+    std::string to = "";
+    std::cout << "Customer would you like to order now? " << std::endl;
+    std::cout << "1.Yes" << std::endl;
+    std::cout << "2.No" << std::endl;
 
-   mediator->notifications(to,message,this);
- }
+    std::cin >> to;
+    if (to == "1") {
+     to = "Waiter";
+     message = "Please may we order";
+    } else {
+        return; 
+    }
+
+    mediator->notifications(to, message, this);
+  }
  template <class T>
  int Table<T>::getWaiterNumber(){
     return waiter->waiterNumber;
@@ -215,6 +219,7 @@ void Table<T>::receive(std::string to,std::string message,Colleague* me){
 std::string Table<T>::getClassname(){
     return "Table";
 }
+
 template <class T>
 void Table<T>::removeCustomer()
 {
@@ -223,4 +228,7 @@ void Table<T>::removeCustomer()
 template <class T>
 void Table<T>::setWaiter(Waiter* waiter){
     this->waiter=waiter;
+    tableWaiterNumber = waiterNumberToTable++;
+    waiter->setWaiterNumber(tableWaiterNumber);
 }
+

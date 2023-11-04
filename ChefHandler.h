@@ -39,15 +39,41 @@ public:
      */
     virtual void handleOrder(Order* order)=0;
 
-    /**
-     * @brief Add a successor ChefHandler.
-     *
-     * This function is responsible for adding a successor ChefHandler to the current
-     * ChefHandler instance, forming a chain of responsibility.
-     *
-     * @param c A pointer to the ChefHandler to be added as a successor.
-     */
-    virtual void addSuccessor(ChefHandler* c);
+        /**
+         * @brief Add a successor ChefHandler.
+         *
+         * This function is responsible for adding a successor ChefHandler to the current
+         * ChefHandler instance, forming a chain of responsibility.
+         *
+         * @param c A pointer to the ChefHandler to be added as a successor.
+         */
+        virtual void addSuccessor(ChefHandler* c);
+        
+       //Changedstate bool= if true the state if not they dont change the state
+       //the head chef has to trigger the change state
+       /**void ChangeState(){
+        * order->ChangeStateOfOrder();}
+
+       }*/
+        /**
+         * @brief Receives message from Mediator .
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void receive(std::string to,std::string message,Colleague* me);
+        /**
+         * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
+         *
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void send();
+       /**
+         * @brief Gets the name of the concrete Class.
+        
+         */
+        std::string getClassname();
+       
 };
 
 #endif

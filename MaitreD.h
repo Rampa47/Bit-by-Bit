@@ -3,7 +3,7 @@
 #include "Colleague.h"
 #include "ComplaintsHandler.h"
 
-class MaitreD : public Colleague, public ComplaintsHandler
+class MaitreD :  public ComplaintsHandler
 {
     public:
         MaitreD * instance();

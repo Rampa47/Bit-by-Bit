@@ -19,7 +19,7 @@ class Mediator
          * @param to Specifies to who the message is for.
          * @param message The actual message that will be received by the receiver.
          */
-       void notifications(std::string to,std::string message,Colleague* me);
+       void notifications(std::string to,std::string message);
        /**
          * @brief This function aims to add a colleague (that has chosen to be subscribed or recognised by the Mediator) to its "database".
          *
@@ -29,9 +29,9 @@ class Mediator
        void registerMe(Colleague* colleague);
     
     private:
-    
-     std::vector<Colleague*> ChefAndMaitreD;//holds the Colleagues that has subscribed to the Mediator specifically the Maitre D and the Chef
-     std::vector<Colleague*> TablesAndWaiters;//holds the Colleagues that has subscribed to the Mediator specifically the Tables and the Waiters
+     std::vector<Colleague*> Chef;//holds the Colleagues that has subscribed to the Mediator specifically the Maitre D and the Chef
+     std::vector<Colleague*> Tables;//holds the Colleagues that has subscribed to the Mediator specifically the Tables and the Waiters
+     std::vector<Colleague*> Waiter;
 };
 
 #endif
