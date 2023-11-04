@@ -18,3 +18,15 @@ void HeadChef::handleOrder(Order* order)
     
 }
 
+void HeadChef::handleComplaint(string c, int degree)
+{
+    if (degree<3&&c.compare("Food")==0)
+    {
+        cout<<"We're sorry that your meal didn't live up to your taste preferences.We would be happy to make you a fresh dish right away."<<endl;
+        cout<<"Complaint handled by HeadChef."<<endl;
+    }
+    else
+    {
+        next->handleComplaint(c,degree);
+    }
+}
