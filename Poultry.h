@@ -45,6 +45,12 @@ public:
      * @brief Destructor for the Poultry class.
      */
     virtual ~Poultry();
+
+    /**
+     * @brief Get the price of the food item.
+     * @return the price of the food item
+     */
+    virtual double getPrice();
 };
 
 #endif

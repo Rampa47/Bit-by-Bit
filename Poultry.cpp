@@ -38,3 +38,7 @@ Poultry::~Poultry() {
      */
     delete poultryType; // Release the allocated memory for the poultry type
 }
+
+double Poultry::getPrice(){
+    return poultryType->getPrice();
+}
