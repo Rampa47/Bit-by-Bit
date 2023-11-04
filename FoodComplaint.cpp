@@ -10,6 +10,5 @@ FoodComplaint::~FoodComplaint()
 
 void FoodComplaint::AddressComplaint()
 {
-    cout << "Food Complaint: " << endl;
-    //handler->handleComplaint("Food",);
+    handler->handleComplaint("Food",degree);
 }

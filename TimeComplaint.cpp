@@ -10,6 +10,5 @@ TimeComplaint::~TimeComplaint()
 
 void TimeComplaint::AddressComplaint()
 {
-    cout << "Time Complaint: " << endl;
-    //handler->handleComplaint();
+    handler->handleComplaint("Time",degree);
 }

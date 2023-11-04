@@ -11,6 +11,5 @@ ServiceComplaint::~ServiceComplaint()
 
 void ServiceComplaint::AddressComplaint()
 {
-    cout << "Service Complaint: " << endl;
-    //handler->handleComplaint();
+    handler->handleComplaint("Service",degree);
 }
