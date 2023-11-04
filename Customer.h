@@ -30,7 +30,7 @@ class Customer
         int getTableNumber() const;
 
         Order* order();
-        void expressMood(Waiter* waiter);
+       // void expressMood(Waiter* waiter);
         void receiveOrder(Order* order);
         void eatFood();
         void selectFoodItems(Order * order);
