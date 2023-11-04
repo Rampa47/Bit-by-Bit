@@ -1,35 +1,42 @@
 #include <iostream>
 #include "Waiter.h"
+#include "Waiter.cpp"
 #include "Manager.h"
+#include "Manager.cpp"
 #include"Context.h"
-//#include "TimeComplaint.h"
+#include "TimeComplaint.h"
 #include "FoodComplaint.h"
 #include "ServiceComplaint.h"
+//#include "MaitreD.h"
+//#include "MaitreD.cpp"
+//#include "AllWaiters.h"
+//#include "AllWaiters.cpp"
+#include "Table.h"
 using namespace std;
 
 int main() 
 {
-	
-    ComplaintsHandler* handler= new Waiter();
-    //MaitreD MD = MaitreD::instance(); add once class is fixed
-    //handler->addNext( MaitreD::instance());
-    //add once class is fixed
-    handler->addNext(new Manager());
-    Context* context[3];
-   // context[0] = new Context(new TimeComplaint(handler));
-    context[0]->AddressComplaint("We have been waiting for our order for over 30 minutes!",2);
-    cout<<endl;
+   
 
-    context[1] = new Context(new FoodComplaint(handler));
-    context[1]->AddressComplaint("The food is too cold!",2);
-    cout<<endl;
-    
-    context[2] = new Context(new ServiceComplaint(handler));
-    context[2]->AddressComplaint("Our waiter was rude!",5);
-    cout<<endl;
+    HeadChef* chef= new HeadChef();
+    Waiter* handler1= new Waiter(1);
+    Waiter* handler2= new Waiter(2);
 
-    for (int i = 0; i < 3; i++)
-        delete context[i];
+    handler1->addNext(chef);
+    handler2->addNext(chef);
+    chef->addNext(new Manager());
+
+    /// then as the maitre d makes wounds they will ask 
+    Table<string>* t1= new Table<string>(); //honestly dont know what type
+    Table<string>* t2= new Table<string>();
+    t1->IsEverythingOkay(handler1);
+    t2->IsEverythingOkay(handler2);
+
+    delete t2;
+    delete t1;
+    delete handler2;
+    delete handler1;
+    delete chef;
 
 
     return 0;

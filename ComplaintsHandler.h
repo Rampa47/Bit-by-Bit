@@ -11,9 +11,9 @@ using namespace std;
  */
 class ComplaintsHandler
 {
-protected:
-    ComplaintsHandler* next;
 
+protected:
+    ComplaintsHandler* next ;
 public:
     /**
      * @brief Construct a new ChefHandler object.
@@ -30,6 +30,8 @@ public:
      */
     virtual ~ComplaintsHandler();
 
+    virtual void addNext(ComplaintsHandler* c);
+
     /**
      * @brief Handle a customer complaint with a specified degree.
      *
@@ -39,17 +41,8 @@ public:
      * @param c The customer's complaint.
      * @param degree The degree of severity of the complaint.
      */
-    virtual void handleComplaint(string c,int degree)=0;
-
-    /**
-     * @brief Add the next ComplaintsHandler in the chain.
-     *
-     * This virtual function is responsible for adding the next ComplaintsHandler
-     * in the chain responsibility.
-     *
-     * @param c A pointer to the next ComplaintsHandler to be added to the chain.
-     */
-    virtual void addNext(ComplaintsHandler* c);
+    virtual void handleComplaint(string c, int degree)=0;
+    
 };
 
 #endif

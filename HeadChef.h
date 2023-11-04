@@ -1,12 +1,13 @@
 #ifndef HEADCHEF_H
 #define HEADCHEF_H
 #include "ChefHandler.h"
-
+#include "ComplaintsHandler.h"
 /**
  * @class HeadChef
  * @brief Represents a Head Chef responsible for complete the plating.
  */
-class HeadChef:public ChefHandler
+//class HeadChef:public ChefHandler, public ComplaintsHandler
+class HeadChef: public ComplaintsHandler
 {
 public:
     /**
@@ -32,6 +33,9 @@ public:
      * @param order An order object representing the customer order.
      */
     void handleOrder(Order* order);
+
+    void handleComplaint(string c, int degree);
+    void addNext(ComplaintsHandler* c);
 };
 
 #endif
