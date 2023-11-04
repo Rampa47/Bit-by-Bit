@@ -1,6 +1,7 @@
 #ifndef CHEFHANDLER_H
 #define CHEFHANDLER_H
 #include <iostream>
+#include "Colleague.h"
 class Order;
 using namespace std;
 /**
@@ -8,7 +9,7 @@ using namespace std;
  *
  * @brief Base class for ChefHandlers responsible for handling food orders.
  */
-class ChefHandler
+class ChefHandler : public Colleague
 {
 protected:
     ChefHandler* successor ;
@@ -60,7 +61,7 @@ public:
          * @param to Specifies to who the message is for.
          * @param message The actual message that will be received by the receiver.
          */
-       void receive(std::string to,std::string message,Colleague* me);
+       void receive(std::string to,std::string message);
         /**
          * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
          *
