@@ -1,8 +1,10 @@
 
 
+
 #include "Table.h"
 
-template <class T>
+#include "EmptyTable.h"
+
 int Table::waiterNumberToTable = 0;
 
 Table::Table()
@@ -28,6 +30,8 @@ Table::Table(bool isWaitingArea)
     next = nullptr;
     numCurrentCustomers = 0;
 
+    
+
   
 
      
@@ -45,6 +49,9 @@ Table * Table::getNext()
         return next;
     }
    
+ 
+
+
 }
 
 
@@ -59,7 +66,7 @@ Table * Table::getPrev()
     {
         return prev;
     }
-
+ 
 
    
 }
@@ -74,6 +81,7 @@ void Table::setNext(Table * node)
 
 
 
+
 void Table::setPrev(Table * node)
 {
     if(node == nullptr)
@@ -85,6 +93,8 @@ void Table::setPrev(Table * node)
         this->prev = node;
     }
 }
+
+
 
 
 std::string Table::getValue(std::string value)
@@ -109,6 +119,8 @@ std::string Table::getValue(std::string value)
 
 
 
+
+
 int Table::getMaxNumCustomers(bool value)
 {
     if(value)
@@ -122,6 +134,7 @@ int Table::getMaxNumCustomers(bool value)
 
 
 }
+
 
 
 
@@ -177,6 +190,9 @@ bool Table::isEmpty()
 }
 
 
+
+
+
 bool Table::isOccupied()
 {
     if(this->numCurrentCustomers > 0 && this->numCurrentCustomers <= 10)
@@ -211,6 +227,7 @@ std::string Table::print()
 
     return people;
 }
+
 
 
 
@@ -289,6 +306,65 @@ void Table::callWaiter(ChefHandler* chef){
     }
     waiter->takeOrder(order);
 }
+
+
+
+Waiter Table::getWaiter(){
+    return this.waiter;
+}
+
+
+void Table::leave(){
+    setState();
+    tableState->handle();
+}
+
+
+void Table::order(){
+    setState();
+    tableState->handle();
+}
+
+void Table::payBill(){
+    setState();
+
+    // if(tableState->toString()=="")
+    //tableState
+}
+
+void Table::setState(){
+    tableState = tableState->getNextState();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
