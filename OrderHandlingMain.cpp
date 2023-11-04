@@ -17,7 +17,7 @@ int main()
 	orderhandler->addSuccessor(new BurgerChef());
 	orderhandler->addSuccessor(new HeadChef());
 	vector<Customer*> customers;
-	Table<int>* table;
+	Table* table;
 	for (int i=0; i<5; i++ ){
 		customers.push_back(new Customer());
 		table->addCust(customers[i]);

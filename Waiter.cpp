@@ -66,7 +66,7 @@ void Waiter::send() {
         return; 
     }
 
-    mediator->notifications(to,message,this);
+    mediator->notifications(to,message);
 }
 
 void Waiter::presentBill() {
