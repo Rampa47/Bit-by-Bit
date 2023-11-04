@@ -13,3 +13,7 @@ GrilledPoultry::~GrilledPoultry() {
      * @brief Virtual destructor for the GrilledPoultry class.
      */
 }
+
+double GrilledPoultry::getPrice(){
+    return 162.90;
+}

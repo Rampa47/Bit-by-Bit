@@ -21,6 +21,11 @@ public:
      * @brief Virtual destructor for the BeefBurger class.
      */
     virtual ~BeefBurger();
+    /**
+     * @brief Get the price of the food item.
+     * @return the price of the food item
+     */
+    virtual double getPrice();
 };
 
 #endif

@@ -6,7 +6,8 @@
  * @class HeadChef
  * @brief Represents a Head Chef responsible for complete the plating.
  */
-class HeadChef:public ChefHandler, public ComplaintsHandler
+//class HeadChef:public ChefHandler, public ComplaintsHandler
+class HeadChef: public ComplaintsHandler
 {
 public:
     /**

@@ -1,19 +1,16 @@
 #include "Restaurant.h"
 
-template <class T>
-int Restaurant<T>::currentNumWaitingAreas = 0;
+int Restaurant::currentNumWaitingAreas = 0;
 
-template <class T>
-Restaurant<T>::Restaurant()
+Restaurant::Restaurant()
 {
     head = nullptr;
     maxNumWaitingAreas = 3;
 }
 
-template <class T>
-Table<T> * Restaurant<T>::add()
+Table * Restaurant::add()
 {
-    Table<T> * node = new Table<T>();
+    Table * node = new Table();
 
     if(head == nullptr)
     {
@@ -24,7 +21,7 @@ Table<T> * Restaurant<T>::add()
     }
     else
     {
-        Table<T> * nodePtr = head;
+        Table * nodePtr = head;
 
         while(nodePtr->getNext() != nullptr)
         {
@@ -39,8 +36,7 @@ Table<T> * Restaurant<T>::add()
     }
 }
 
-template <class T>
-Table<T> * Restaurant<T>::addWaitingArea()
+Table * Restaurant::addWaitingArea()
 {
     if(head == nullptr)
     {
@@ -49,9 +45,9 @@ Table<T> * Restaurant<T>::addWaitingArea()
     }
     else
     {
-        Table<T> * node = new Table<T>(true);
+        Table * node = new Table(true);
 
-        Table<T> * nodePtr = head;
+        Table * nodePtr = head;
 
         while(nodePtr->getNext() != nullptr)
         {
@@ -66,8 +62,7 @@ Table<T> * Restaurant<T>::addWaitingArea()
     }
 }
 
-template <class T>
-void Restaurant<T>::createList()
+void Restaurant::createList()
 {
     int numTables;
     std::cout << "Welcome to CoutureFood" << std::endl;
@@ -78,16 +73,19 @@ void Restaurant<T>::createList()
     {
         std::cout << "Please select a valid number of tables to create." << std::endl;
     }
+
     for(int i = 0; i < numTables; i++)
-    add();
+    {
+        add();
+    }
+    
 }
 
-template <class T>
-void Restaurant<T>::addCustomer(std::vector<Customer*> vect)
+void Restaurant::addCustomer(std::vector<Customer*> vect)
 {
     if(isEmptyList())
     {
-        Table<T> * node = add();
+        Table * node = add();
         bool extraCustomers = false;
 
         if(vect.size() >= node->getMaxNumCustomers(extraCustomers))
@@ -114,9 +112,9 @@ void Restaurant<T>::addCustomer(std::vector<Customer*> vect)
     else
     {
         bool extraCustomers = false;
-        Table<T> * ptr = head;
+        Table * ptr = head;
 
-        Table<T> * waitingArea = nullptr;
+        Table * waitingArea = nullptr;
         bool fullRestaurant = false;
 
         if(vect.size() > ptr->getMaxNumCustomers(extraCustomers))
@@ -165,7 +163,7 @@ void Restaurant<T>::addCustomer(std::vector<Customer*> vect)
             std::cout << "All the tables are occupied" << std::endl;
             std::cout << "Please sit in the waiting area until a table becomes available" << std::endl;
 
-            Table<T> * nodePtr = addWaitingArea();
+            Table * nodePtr = addWaitingArea();
 
             for(size_t k = 0; k < vect.size(); k++)
             {
@@ -182,7 +180,7 @@ void Restaurant<T>::addCustomer(std::vector<Customer*> vect)
             {
                 if(!waitingArea->isFull(false))
                 {
-                    for(int i = 0; i < vect.size(); i++)
+                    for(size_t i = 0; i < vect.size(); i++)
                     {
                         waitingArea->addCust(vect[i]);
                         waitingArea->incrementNumCustomers();
@@ -200,9 +198,9 @@ void Restaurant<T>::addCustomer(std::vector<Customer*> vect)
 
             if(waitingArea->isFull(false) && currentNumWaitingAreas <= 3)
             {
-                Table<T> * newWaitingArea = addWaitingArea();
+                Table * newWaitingArea = addWaitingArea();
 
-                for(int j = 0; j < vect.size(); j++)
+                for(size_t j = 0; j < vect.size(); j++)
                 {
                     waitingArea->addCust(vect[j]);
                     waitingArea->incrementNumCustomers();
@@ -218,10 +216,9 @@ void Restaurant<T>::addCustomer(std::vector<Customer*> vect)
     }
 }
 
-template <class T>
-std::string Restaurant<T>::printCustomers()
+std::string Restaurant::printCustomers()
 {
-    Table<T> * node = head;
+    Table * node = head;
     int count = 1, waitingAreas = 1;
     std::string restaurantCustomers;
 
@@ -261,52 +258,8 @@ std::string Restaurant<T>::printCustomers()
 
     return restaurantCustomers;
 }
- 
-template <class T>
-void Restaurant<T>::remove(T value)
-{
-    if(head == nullptr)
-    {
-        return;
-    }
-    else
-    {
-        Table<T> * nodePtr = head;
 
-        while(nodePtr->getNext() != nullptr && nodePtr->getValue() != value)
-        {
-            nodePtr = nodePtr->getNext();
-        }
-
-        if(head->getValue() == value)
-        {
-            head = head->getNext();
-            nodePtr->setNext(nullptr);
-            head->setPrev(nullptr);
-
-            delete nodePtr;
-            nodePtr = nullptr;
-        }
-        else if(nodePtr->getNext() != nullptr && nodePtr->getValue() == value)
-        {
-            nodePtr->getPrev()->setNext(nodePtr->getNext());
-            nodePtr->getNext()->setPrev(nodePtr->getPrev());
-            delete nodePtr;
-            nodePtr = nullptr;
-        }
-        else if(nodePtr->getNext() == nullptr && nodePtr->getValue() == value)
-        {
-            nodePtr->getPrev()->setNext(nullptr);
-            nodePtr->setPrev(nullptr);
-
-            delete nodePtr;
-            nodePtr = nullptr;
-        }
-    }
-}
-
-template <class T>
-bool Restaurant<T>::isEmptyList()
+bool Restaurant::isEmptyList()
 {
     if(head == nullptr)
     {
@@ -319,8 +272,7 @@ bool Restaurant<T>::isEmptyList()
     }
 }
 
-template <class T>
-Restaurant<T>::~Restaurant()
+Restaurant::~Restaurant()
 {
     if(isEmptyList())
     {
@@ -328,7 +280,7 @@ Restaurant<T>::~Restaurant()
     }
     else
     {
-        Table<T> * ptr = head, * deletePtr = nullptr;
+        Table * ptr = head, * deletePtr = nullptr;
 
         while(ptr != nullptr)
         {
@@ -344,10 +296,9 @@ Restaurant<T>::~Restaurant()
     }
 }
 
-template <class T>
-Table<T> * Restaurant<T>::getHead()
+Table * Restaurant::getHead()
 {
-    if(this->isEmpty())
+    if(this->head->isEmpty())
     {
         return nullptr;
     }
@@ -357,10 +308,9 @@ Table<T> * Restaurant<T>::getHead()
     }
 }
 
-template <class T>
-bool Restaurant<T>::isFull()
+bool Restaurant::isFull()
 {
-    Table<T> * nodePtr = head;
+    Table * nodePtr = head;
     bool occupied = false;
 
     int numGuestsForFullRequirement = nodePtr->getMaxNumCustomers(false) * getNumTables();
@@ -394,8 +344,7 @@ bool Restaurant<T>::isFull()
     return false;
 }
 
-template <class T>
-int Restaurant<T>::getNumTables()
+int Restaurant::getNumTables()
 {
     if(head == nullptr)
     {
@@ -403,7 +352,7 @@ int Restaurant<T>::getNumTables()
     }
     else
     {
-        Table<T> * nodePtr = head;
+        Table * nodePtr = head;
         int count = 0;
 
         while(nodePtr != nullptr && !nodePtr->getTableType())
@@ -416,8 +365,60 @@ int Restaurant<T>::getNumTables()
     }
 }
 
-template <class T>
-TableIterator<T>* Restaurant<T>::createIterator()
+
+TableIterator* Restaurant::createIterator()
 {
-    return new TableIterator<T>(head);
+    return new TableIterator(head);
+}
+
+Table * Restaurant::getTableAt(int index)
+{
+    if(this->isEmptyList())
+    {
+        return nullptr;
+    }
+    else
+    {
+        if(index < 0 || index >= getNumTables())
+        {
+            return nullptr;
+        }
+        else
+        {
+            int count = 0;
+            Table * nodePtr = head;
+
+            while(nodePtr != nullptr && count != index)
+            {
+                nodePtr = nodePtr->getNext();
+                count++;
+            }
+
+            if(count == index)
+            {
+                return nodePtr;
+            }
+        }
+
+        return nullptr;
+    }
+}
+
+void Restaurant::remove(Table * table)
+{
+    if(isEmptyList())
+    {
+        return;
+    }
+    else
+    {
+        for(int i = 0; i < getNumTables(); i++)
+        {
+            if(getTableAt(i) == table)
+            {
+                getTableAt(i)->removeCustomers();
+                return;
+            }
+        }   
+    }
 }

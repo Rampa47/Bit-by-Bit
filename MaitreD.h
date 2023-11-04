@@ -3,15 +3,14 @@
 #include "Table.h"
 #include "Restaurant.h"
 #include "Customer.h"
-#include "ComplaintsHandler.h"
+#include "TableIterator.h"
 
-template <class T>
-class MaitreD:public ComplaintsHandler
+class MaitreD
 {
     public:
-        static MaitreD<T> * instance();
-        void seatCustomers(Restaurant<T>& list, std::vector<Customer*> vect);
-        void handleComplaint(std::string complaint, int degree);
+        static MaitreD * instance();
+        void seatCustomers(Restaurant& list, std::vector<Customer*> vect);
+        void handleComplaint(std::string complaint);
         ~MaitreD();
 
     protected:
@@ -21,7 +20,7 @@ class MaitreD:public ComplaintsHandler
     
     private:
         //static int uniqueInstance;
-        static MaitreD<T> * maitreD;
+        static MaitreD * maitreD;
 };
 
 #endif

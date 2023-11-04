@@ -13,3 +13,7 @@ ChickenBurger::~ChickenBurger() {
      * @brief Virtual destructor for the ChickenBurger class.
      */
 }
+
+double ChickenBurger::getPrice(){
+    return 90.50;
+}

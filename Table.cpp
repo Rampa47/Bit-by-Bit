@@ -1,23 +1,43 @@
+
+
+
 #include "Table.h"
 
-template <class T>
-Table<T>::Table()
+#include "EmptyTable.h"
+
+int Table::waiterNumberToTable = 0;
+
+Table::Table()
 {
     next = nullptr;
     numCurrentCustomers = 0;
     isWaitingArea = false;
+    className="Table";
+    waiter= nullptr;   
+    
 }
 
-template <class T>
-Table<T>::Table(bool isWaitingArea)
+Table::Table(Waiter* w)
+{
+    waiter=w;
+}
+
+
+Table::Table(bool isWaitingArea)
 {
     this->isWaitingArea = isWaitingArea;
     next = nullptr;
     numCurrentCustomers = 0;
+
+    
+
+  
+
+     
 }
 
-template <class T>
-Table<T> * Table<T>::getNext()
+
+Table * Table::getNext()
 {
     if(next == nullptr)
     {
@@ -27,10 +47,15 @@ Table<T> * Table<T>::getNext()
     {
         return next;
     }
+   
+ 
+
+
 }
 
-template <class T>
-Table<T> * Table<T>::getPrev()
+
+
+Table * Table::getPrev()
 {
     if(prev == nullptr)
     {
@@ -40,16 +65,23 @@ Table<T> * Table<T>::getPrev()
     {
         return prev;
     }
+ 
+
+   
 }
 
-template <class T>
-void Table<T>::setNext(Table<T> * node)
+
+
+
+void Table::setNext(Table * node)
 {
     this->next = node;
 }
 
-template <class T>
-void Table<T>::setPrev(Table<T> * node)
+
+
+
+void Table::setPrev(Table * node)
 {
     if(node == nullptr)
     {
@@ -61,8 +93,10 @@ void Table<T>::setPrev(Table<T> * node)
     }
 }
 
-template <class T>
-std::string Table<T>::getValue(std::string value)
+
+
+
+std::string Table::getValue(std::string value)
 {
     std::vector<Customer>::iterator it;
 
@@ -75,10 +109,18 @@ std::string Table<T>::getValue(std::string value)
     }
 
     return "";
+
+
+
+
+   
 }
 
-template <class T>
-int Table<T>::getMaxNumCustomers(bool value)
+
+
+
+
+int Table::getMaxNumCustomers(bool value)
 {
     if(value)
     {
@@ -88,16 +130,23 @@ int Table<T>::getMaxNumCustomers(bool value)
     {
         return maxNumCustomers;
     }
+
+
 }
 
-template <class T>
-int Table<T>::getNumCurrentCustomers()
+
+
+
+int Table::getNumCurrentCustomers()
 {
     return numCurrentCustomers;
 }
 
-template <class T>
-bool Table<T>::isFull(bool value)
+
+
+
+
+bool Table::isFull(bool value)
 {
     if(value)
     {
@@ -126,8 +175,8 @@ bool Table<T>::isFull(bool value)
     
 }
 
-template <class T>
-bool Table<T>::isEmpty()
+
+bool Table::isEmpty()
 {
     if(this->numCurrentCustomers == 0)
     {
@@ -139,8 +188,11 @@ bool Table<T>::isEmpty()
     }
 }
 
-template <class T>
-bool Table<T>::isOccupied()
+
+
+
+
+bool Table::isOccupied()
 {
     if(this->numCurrentCustomers > 0 && this->numCurrentCustomers <= 10)
     {
@@ -152,14 +204,17 @@ bool Table<T>::isOccupied()
     }
 }
 
-template <class T>
-std::vector<Customer*> Table<T>::getTable()
+
+
+std::vector<Customer*> Table::getTable()
 {
     return customers;
 }
 
-template <class T>
-std::string Table<T>::print()
+
+
+
+std::string Table::print()
 {
     std::string people;
     std::vector<Customer*>::iterator it;
@@ -172,150 +227,181 @@ std::string Table<T>::print()
     return people;
 }
 
-template <class T>
-void Table<T>::incrementNumCustomers()
+
+
+
+
+void Table::incrementNumCustomers()
 {
     numCurrentCustomers++;
 }
 
-template <class T>
-void Table<T>::addCust(Customer * value)
+
+
+void Table::addCust(Customer * value)
 {
     customers.push_back(value);
 }
 
-template <class T>
-bool Table<T>::getTableType()
+
+
+bool Table::getTableType()
 {
     return isWaitingArea;
 }
 
-template <class T>
-void Table<T>::removeCustomer()
-{
-    this->customers.pop_back();
-}
 
-template <class T>
-void Table<T>::IsEverythingOkay(ComplaintsHandler* CH)
-{
-    cout<<"Is everything Okay?";
-    int okay= 0;
-    okay=getRandomZeroOrOne();
-    if(okay==1)
-    {
-        cout<<"Yes, thank you."<<endl;
+void Table::receive(std::string to,std::string message){
+    std::cout<<" Table about to be serviced. Message: " << message <<std::endl;
+ }
+
+  void  Table::send(){
+    std::string message = "";
+    std::string to = "";
+    std::cout << "Customer would you like to order now? " << std::endl;
+    std::cout << "1.Yes" << std::endl;
+    std::cout << "2.No" << std::endl;
+
+    std::cin >> to;
+    if (to == "1") {
+     to = "Waiter";
+     message = "Please may we order";
+    } else {
+        return; 
     }
-    else
-    {
-        cout<<"No."<<endl;
-        int degree=generateDegree(); 
-        int typecomplaint=generateComplaint();
-        if(typecomplaint==2)
-        {
-            if(c==NULL)
-            {
-                c=new TimeComplaint(CH,degree);
-            }
-            else
-            {
-                if(c->getname()=="Time")
-                {
-                    c->setDegree(5);
-                }
-                else
-                {
-                    delete c;
-                    c=new TimeComplaint(CH,degree);
-                }
-            }
-        }
-        else if(typecomplaint==4)
-        {
-            if(c==NULL)
-            {
-                c=new FoodComplaint(CH,degree);
-            }
-            else
-            {
-                if(c->getname()=="Food")
-                {
-                    c->setDegree(5);
-                }
-                else
-                {
-                    delete c;
-                    c=new FoodComplaint(CH,degree);
-                }
-            }
-        }
-        else
-        {
-            if(c==NULL)
-            {
-                c=new ServiceComplaint(CH,degree);
-            }
-            else
-            {
-                if(c->getname()=="Service")
-                {
-                    c->setDegree(5);
-                }
-                else
-                {
-                    delete c;
-                    c=new ServiceComplaint(CH,degree);
-                }
-            }
-        }
 
+    mediator->notifications(to, message, this);
+  }
+
+ int Table::getWaiterNumber(){
+    return waiter->waiterNumber;
+ }
+ 
+std::string Table::getClassname(){
+    return "Table";
+}
+
+
+
+void Table::removeCustomers()
+{
+    customers.clear();
+    numCurrentCustomers = 0;
+}
+
+void Table::setWaiter(Waiter* waiter){
+    this->waiter=waiter;
+    tableWaiterNumber = waiterNumberToTable++;
+    waiter->setWaiterNumber(tableWaiterNumber);
+}
+
+
+
+
+void Table::callWaiter(ChefHandler* chef){
+    Order * order= new Order(waiter->waiterNumber, chef);
+    for (auto customer: customers){
+        customer->selectFoodItems(order);
     }
+    waiter->takeOrder(order);
 }
 
-template <class T>
-int Table<T>::getRandomZeroOrOne() 
-{
-    // Create a random device to generate random numbers
-    random_device rd;
 
-    // Create a random number generator using the random device
-    mt19937 gen(rd());
 
-    // Create a distribution that generates 0 or 1 with equal probability
-    uniform_int_distribution<int> distribution(0, 1);
-
-    // Generate and return a random 0 or 1
-    return distribution(gen);
+Waiter Table::getWaiter(){
+    return this.waiter;
 }
 
-template <class T>
-int Table<T>::generateComplaint() 
-{
-    // Create a random device to generate random numbers
-    random_device rd;
 
-    // Create a random number generator using the random device
-    mt19937 gen(rd());
-
-    // Create a distribution that generates 0, 2, or 3 with equal probability
-    uniform_int_distribution<int> distribution(2, 4);
-
-    // Generate and return a random value of 0, 2, or 3
-    return distribution(gen);
+void Table::leave(){
+    setState();
+    tableState->handle();
 }
 
-template <class T>
-int Table<T>::generateDegree() 
-{
-    // Create a random device to generate random numbers
-    random_device rd;
 
-    // Create a random number generator using the random device
-    mt19937 gen(rd());
-
-    // Create a distribution that generates 0, 2, or 3 with equal probability
-    uniform_int_distribution<int> distribution(0, 10);
-
-    // Generate and return a random value of 0, 2, or 3
-    return distribution(gen);
+void Table::order(){
+    setState();
+    tableState->handle();
 }
+
+void Table::payBill(){
+    setState();
+
+    // if(tableState->toString()=="")
+    //tableState
+}
+
+void Table::setState(){
+    tableState = tableState->getNextState();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
