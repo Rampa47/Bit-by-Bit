@@ -14,12 +14,12 @@ class Waiter :public ComplaintsHandler , public Colleague{
 private:
     int waiterNumber;
     Order* order;
-    int maxOrderAttempts ;
     double currentBillAmount;
+    ChefHandler * chef;
 
    
 public:
-    Waiter(int wNum);
+    Waiter(int wNum, ChefHandler* chef);
     void handleComplaint(string c, int degree);
     void takeOrder(Order* order);
     /**

@@ -1,8 +1,8 @@
 #include "Order.h"
 #include <iostream>
 
-Order::Order(int waiter, ChefHandler* chefHandler)
-        : waiter(waiter), chefHandler(chefHandler) {
+Order::Order(int waiter)
+        : waiter(waiter){
     /**
      * @brief Constructor for the Order class.
      *
@@ -16,14 +16,7 @@ void Order::changeStateOfOrder(){
 
     orderContext->cookChangeState();
 }
-void Order::handleTask() {
-    /**
-     * @brief Handles the order placed by a waiter.
-     *
-     * This function processes the order by passing the order to the PoultryChef(receiver).
-     */
-    chefHandler->handleOrder(this);
-}
+
 
 void Order::addFoodItem(FoodItem* foodItem) {
     /**
