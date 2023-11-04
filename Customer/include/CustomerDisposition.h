@@ -27,6 +27,7 @@ class CustomerDisposition{
          * moodDirection::positive returns the next, more positive mood, while moodDirection::positive does the opposite.
         */
         virtual std::shared_ptr<CustomerDisposition> getNextMood(enum moodDirection nextMood) =0;
+        virtual ~CustomerDisposition();
 };
 
 #include "HappyMood.h"

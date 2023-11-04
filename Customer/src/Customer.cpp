@@ -44,7 +44,7 @@ std::shared_ptr<Order> Customer::order()
     //---Mood changing logic depending on time spent in waiting area
 
     //order construction logic - Dependent on Order
-    std::cout << name <<" makes an order" <<  timeElapsed << std::endl;
+    std::cout << name <<" makes an order" << std::endl;
     return nullptr;
 }
 
@@ -63,7 +63,7 @@ void Customer::receiveOrder(std::shared_ptr<Order> order)
     }
     //---Mood changing logic depending on time spent waiting for food
 
-    std::cout << name << " receives their order " << timeElapsed <<  std::endl;
+    std::cout << name << " receives their order after " << timeElapsed << " minutes" <<  std::endl;
     this->receivedOrder = order;
 }
 

@@ -11,7 +11,7 @@ The Customer subsystem is responsible for managing actions that are typically pe
 <br>
   
 **End-User Requirements** <br>
-* When creating a customer object, an end-user is must provide a name for said customer using it's constructor, passing a name as a parameter
+* When creating a customer object, an end-user must provide a name for said customer using it's constructor, passing a name as a parameter
 * Alternatively, the default Customer constructor can be used to create a customer with a randomly selected name. <br>
 
     ```c++
@@ -28,9 +28,28 @@ The Customer subsystem is responsible for managing actions that are typically pe
 * The ```receiveOrder()``` method is called when the customer receives their order.
   *  This method takes an Order object as a parameter.
 
-**Restrictions** <br>
+**Restrictions/Constraints** <br>
+* Scalability - For a large number of customer, the performance of the system will decrease. This is due to every customer having a unique CustomerDisposition object.
+* Integration requirements -  The CustomerDisposition class is heavily dependent on a Waiter Object, since majority of the customer's mood dependent behaviour interacts with a waiter object 
+
 
 
 ### Processes
-### Patterns Used
+![Activity diagram](../../Images/Activity%20Diagram1.jpg)
+### Pattern Used
+
+  **State pattern**
+  * Participants
+    * Context - Customer
+    * State - CustomerDisposition
+    * ConcreteStates - HappyMood, ContentMood, UnhappyMood
+  
+  **Reason for State pattern** <br>
+   In the restaurant, _the customer must exhibit different functionality, based on its current state_ - A customer (graciously) tips a waiter when happy; fairly when satisfied; or can file a complaint when upset.
+   This reasoning justifies the use of the State design pattern as it aligns with the intent of the pattern: <br> 
+   "Allow an object to alter its behavior when its internal state changes. The object will appear to change its class". <br><br>
+
+   ![]()
+
 ### Objects involved (System Interface)
+![]()
