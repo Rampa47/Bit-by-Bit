@@ -30,10 +30,11 @@ class Customer
         int getTableNumber() const;
 
         Order* order();
-        void expressMood(Waiter* waiter);
+       // void expressMood(Waiter* waiter);
         void receiveOrder(Order* order);
         void eatFood();
         void selectFoodItems(Order * order);
+        double getBillAmount();
 
         //client is no longer a colleague 
         // void receive(std::string to,std::string message);
@@ -42,10 +43,9 @@ class Customer
     private:
         int tableNumber;
         std::string name;
-   
         std::shared_ptr<Order> receivedOrder;
         static std::array<std::string,40> names;
-       
+        double billAmount;
 
 
 };
