@@ -36,7 +36,7 @@ public:
          */
        void send();
        std::string getClassname();
-          void setWaiterNumber(int waiternumber);
+         // void setWaiterNumber(int waiternumber);
     void greetCustomer();
     void updateBill(double price , int quantity);
     void presentBill();

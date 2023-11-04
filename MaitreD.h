@@ -10,12 +10,12 @@ class MaitreD
     public:
         static MaitreD * instance();
         void seatCustomers(Restaurant& list, std::vector<Customer*> vect);
-        void handleComplaint(std::string complaint);
+       // void handleComplaint(std::string complaint);
         ~MaitreD();
 
     protected:
         MaitreD();
-        MaitreD(MaitreD&);
+        //MaitreD(MaitreD&);
         MaitreD & operator=(const MaitreD&);
     
     private:

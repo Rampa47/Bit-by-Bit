@@ -4,6 +4,7 @@ FoodComplaint::FoodComplaint(ComplaintsHandler* handler,int degree): Complaint(h
 {
 }
 
+
 FoodComplaint::~FoodComplaint()
 {
 }

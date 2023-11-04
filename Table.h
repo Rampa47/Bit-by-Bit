@@ -11,6 +11,7 @@
 #include "ChefHandler.h"
 #include "Order.h"
 #include "TableState.h"
+#include "Complaint.h"
 
 class TableState;
 
@@ -65,6 +66,7 @@ class Table: public Colleague
       void callWaiter(ChefHandler* chef);
       void setState();
         Waiter* getWaiter();
+ 
       void IsEverythingOkay(ComplaintsHandler* CH);
         int getRandomZeroOrOne();
         int generateComplaint();
