@@ -343,6 +343,32 @@ void Table::setState(){
     tableState = tableState->getNextState();
 }
 
+/**
+ * @throws exception of type string - if there are currently no customers at the table
+ * @note There will always be a customer who is chosen as the payer (at random) when this method is called
+*/
+BillComponent* Table::generateBill(){
+    if(customers.size() <= 0) throw "There are no customers, currently at the table, to pay the bill";
+
+    //get random payer from table
+    std::string payerName = this->customers[rand()%customers.size()]->getName();
+    
+    //create and populate internal, CompositeBillPayer node
+    CompositeBillPayer* billPayer = new CompositeBillPayer(payerName);
+    for(Customer* c : customers){
+        billPayer->addBill(c->getBill());
+    }
+
+    //add CompositeBillPayer node(s) to 'root' node
+    DelegatingCompositeBill* encompassingBill = new DelegatingCompositeBill({billPayer});
+
+    //randomly decide whether tab is opened
+    int openTab = rand()%2;
+    encompassingBill->openTab(openTab);
+
+    return encompassingBill;
+}
+
 
 
 

@@ -15,6 +15,7 @@
 #include "FoodItem.h"
 #include "Order.h"
 #include "Waiter.h"
+#include "BillPayer.h"
 
 
 
@@ -27,6 +28,7 @@ class Customer
         std::string getName(); /**<Returns the name of a customer */
         void selectFoodItems(Order * order);
         double getBillAmount();
+        BillPayer* getBill();
 
     private:
         std::string name;
