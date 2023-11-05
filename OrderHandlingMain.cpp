@@ -136,9 +136,9 @@ int main()
            Table* table=new Table();
  
 
- 	Waiter* waiter= new Waiter(1,orderhandler);
- 	table->setWaiter(waiter);
- 	table->callWaiter(orderhandler);
+ 	//Waiter* waiter= new Waiter(1,orderhandler);
+ 	//table->setWaiter(waiter);
+ 	//table->callWaiter(orderhandler);
     MaitreD::instance()->seatCustomers(list,vect);
 
     MaitreD::instance()->seatCustomers(list,secondVect);
