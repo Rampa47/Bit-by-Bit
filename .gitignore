@@ -24,9 +24,11 @@ Customer/latex
 Customer/obj
 Bill/obj
 *.md
+.vscode
 
-/.vscode/*
-/Makefile
-.vscode/
 BillMain.cpp
 *.o.DS_Store
+
+*.o
+*.exe
+
