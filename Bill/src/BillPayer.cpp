@@ -1,4 +1,4 @@
-#include "../include/Bill.h"
+#include "../include/BillPayer.h"
 
 /**
  * @brief Parameterized constructor for BillPayer class
@@ -41,5 +41,5 @@ std::string BillPayer::getPayerName() const {
 }
 
 BillPayer::~BillPayer(){
-    std::cout << "bill payer destroyed" << std::endl;
+    //std::cout << "bill payer destroyed" << std::endl;
 }

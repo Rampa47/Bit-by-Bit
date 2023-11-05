@@ -51,5 +51,5 @@ DelegatingCompositeBill::~DelegatingCompositeBill(){
     for(auto bill : bills){
         delete bill;
     }
-    std::cout << "delegating composite structure destroyed" << std::endl;
+    //std::cout << "delegating composite structure destroyed" << std::endl;
 }

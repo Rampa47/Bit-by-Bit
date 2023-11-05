@@ -1,4 +1,4 @@
-#include "../include/CompositeBill.h"
+#include "../include/CompositeBillPayer.h"
 
 /**
  * @brief parameterized constructor for CompositeBillPayer
@@ -64,5 +64,5 @@ CompositeBillPayer::~CompositeBillPayer(){
     for(auto bill : bills){
         delete bill;
     }
-    std::cout << "composite bill payer destroyed" << std::endl;
+    //std::cout << "composite bill payer destroyed" << std::endl;
 }

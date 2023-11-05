@@ -1,7 +1,7 @@
 #ifndef COMPOSITEBILL_H
 #define COMPOSITEBILL_H
 
-#include "Bill.h"
+#include "BillPayer.h"
 
 
 /**
