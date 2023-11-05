@@ -1,25 +1,24 @@
 #include "ReadyToLeave.h"
 #include "EmptyTable.h"
 
-/// @brief Prints out the total amount paid by the table. Goodbye message sent to waiter.
-/// @tparam T 
+
+/// @brief Removes the customers from the table and sets the table's state to Empty.
 /// @param table 
-template <class T>
-void ReadyToLeave<T>::handle(Table<T>& table)
+void ReadyToLeave::handle(Table& table)
 {
-   //remove customers from table
+   table.removeCustomers();
    table.setState();
 }
 
-template <class T>
-TableState<T>* ReadyToLeave<T>::getNextState()
+
+TableState* ReadyToLeave::getNextState()
 {
     return new EmptyTable();
     
 }
 
-template <class T>
-std::string ReadyToLeave<T>::toString()
+
+std::string ReadyToLeave::toString()
 {
     return "Ready to leave.";
 }
