@@ -23,8 +23,8 @@ Facade::Facade(int tables){
     hc->reg(mediator);
 
     restaurant= new Restaurant();
-    for (int i=1; i<=tables; i++){
-        Waiter* w= new Waiter(i,orderhandler);
+    for (int i=0; i<tables; i++){
+        Waiter* w= new Waiter(i+1,orderhandler);
         waiters.push_back(w);
         w->reg(mediator);
         Table* t= restaurant->add();
@@ -49,7 +49,7 @@ void Facade::execute1(){
 }
 
 void Facade::execute2(){
-    cout<<restaurant->printCustomers()<<endl;
+    // cout<<restaurant->printCustomers()<<endl;
 
 }
 

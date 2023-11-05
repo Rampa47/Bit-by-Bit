@@ -62,8 +62,9 @@ class Table: public Colleague
        int getWaiterNumber();
        void setWaiter(Waiter* waiter);
        std::string getClassname();
-      void callWaiter(ChefHandler* chef);
+      void callWaiter();
       void setState();
+      TableState* getState();
         Waiter* getWaiter();
  
       void IsEverythingOkay(ComplaintsHandler* CH);

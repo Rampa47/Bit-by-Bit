@@ -36,6 +36,7 @@ public:
 
     void handleComplaint(string c, int degree);
     void addNext(ComplaintsHandler* c);
+    void send();
 };
 
 #endif

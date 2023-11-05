@@ -11,8 +11,8 @@ void PlainChips::cook() {
     /**
      * @brief Cooks the plain chips.
      */
-    std::cout << "Preparing the Chips..." << std::endl;
-    std::cout << "Frying plain chips..." << std::endl;
+    std::cout << "  Preparing the Chips..." << std::endl;
+    std::cout << "      Frying plain chips..." << std::endl;
 }
 
 

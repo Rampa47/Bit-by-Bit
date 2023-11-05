@@ -18,8 +18,6 @@ $(EXECUTABLE): $(OBJ_FILES)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 run: $(EXECUTABLE)
-	make clean
-	make
 	./$(EXECUTABLE)
 
 clean:
