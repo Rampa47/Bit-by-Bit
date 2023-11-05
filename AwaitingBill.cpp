@@ -1,6 +1,5 @@
 #include "AwaitingBill.h"
-#include "PaidBill.h"
-
+#include "ReadyToLeave.h"
 
 void AwaitingBill::handle(Table& table)
 {
@@ -10,10 +9,9 @@ void AwaitingBill::handle(Table& table)
     //table.setBill(table.getWaiter().getBill());
 }
 
-
 TableState* AwaitingBill::getNextState()
 {
-    return new PaidBill();
+    return new ReadyToLeave();
     
 }
 

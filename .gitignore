@@ -26,4 +26,4 @@ Bill/obj
 *.md
 .vscode/
 BillMain.cpp
-*.o
+*.o.DS_Store

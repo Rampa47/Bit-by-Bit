@@ -16,7 +16,7 @@ Table::Table()
     isWaitingArea = false;
     className="Table";
     waiter= nullptr;   
-    
+    tableState = new EmptyTable(); 
 }
 
 void Table::setWaiter(Waiter* w)
@@ -30,6 +30,7 @@ Table::Table(bool isWaitingArea)
     this->isWaitingArea = isWaitingArea;
     next = nullptr;
     numCurrentCustomers = 0;
+    tableState = new EmptyTable(); 
 
     
 
@@ -297,9 +298,6 @@ void Table::removeCustomers()
 }
 
 
-
-
-
 void Table::callWaiter(ChefHandler* chef){
     Order * order= new Order(waiter->getWaiterNumber());
     for (auto customer: customers){
@@ -317,13 +315,13 @@ Waiter* Table::getWaiter(){
 
 void Table::leave(){
     setState();
-    tableState->handle(*this);
+    handleTableState();
 }
 
 
 void Table::order(){
     setState();
-    tableState->handle(*this);
+    handleTableState();
 }
 
 void Table::payBill(){
@@ -361,6 +359,10 @@ BillComponent* Table::generateBill(){
     encompassingBill->openTab(openTab);
 
     return encompassingBill;
+}
+
+void Table::handleTableState(){
+    tableState->handle(*this);
 }
 
 
