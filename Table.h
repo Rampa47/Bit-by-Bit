@@ -12,6 +12,8 @@
 #include "Order.h"
 #include "TableState.h"
 #include "Complaint.h"
+#include "CompositeBillPayer.h"
+#include "DelegatingCompositebill.h"
 
 class TableState;
 
@@ -71,7 +73,8 @@ class Table: public Colleague
         int getRandomZeroOrOne();
         int generateComplaint();
         int generateDegree();
-
+      
+      BillComponent* generateBill();
 
     private:
         Table * next;
