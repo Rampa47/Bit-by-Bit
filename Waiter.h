@@ -3,10 +3,13 @@
 #include <string>
 #include "ComplaintsHandler.h"
 #include "Order.h"
+//#include "Bill.h"
 #include <vector>
 #include <thread>
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
 using namespace std ;
 
 
@@ -14,8 +17,10 @@ class Waiter :public ComplaintsHandler , public Colleague{
 private:
     int waiterNumber;
     Order* order;
-    double currentBillAmount;
+    //UNCOMMENT WHEN BILL CLASS IS AVAILABLE 
+    //Bill *customerBill;
     ChefHandler * chef;
+   // Table *table;
 
    
 public:
@@ -38,14 +43,18 @@ public:
        std::string getClassname();
          // void setWaiterNumber(int waiternumber);
     void greetCustomer();
-    void updateBill(double price , int quantity);
-    void presentBill();
-    void createTab();
-    void handlePayment();
+   // void updateBill(double price , int quantity);
+   // void presentBill();
+   // void createTab();
+   // void handlePayment();
+
+   //NB function below must take a Bill object .it will have all this information
     void saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID);
-    void retrieveBillAmountFromTextFile();
+    void checkCustomer();//checks if customer is ready to order
+    //void retrieveBillAmountFromTextFile();
     const int getWaiterNumber();
     void addNext(ComplaintsHandler* c);
+    void generateBill();
     ~Waiter();
 
 };
