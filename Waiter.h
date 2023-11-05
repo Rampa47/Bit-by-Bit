@@ -50,6 +50,7 @@ public:
 
    //NB function below must take a Bill object .it will have all this information
     void saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID);
+    void checkCustomer();//checks if customer is ready to order
     //void retrieveBillAmountFromTextFile();
     const int getWaiterNumber();
     void addNext(ComplaintsHandler* c);
