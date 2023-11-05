@@ -112,6 +112,8 @@ void Waiter::generateBill()
     //{ if (customerBill->tabCreated ==true)
    // {
     //saveBillAmountToTextFile(customerBill);
+    //delete customerBill;
+    //table->leave() NB : SUPPOSED TO TRIGGER NEXT TABLE STATE FOR THEM TO LEAVE 
  //  }else{customerBill->print}
 
    // }
