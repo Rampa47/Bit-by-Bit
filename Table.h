@@ -11,6 +11,7 @@
 #include "ChefHandler.h"
 #include "Order.h"
 #include "TableState.h"
+#include "Complaint.h"
 
 class TableState;
 
