@@ -3,6 +3,7 @@
 #include <string>
 #include "ComplaintsHandler.h"
 #include "Order.h"
+//#include "Bill.h"
 #include <vector>
 #include <thread>
 #include <iostream>
@@ -14,7 +15,8 @@ class Waiter :public ComplaintsHandler , public Colleague{
 private:
     int waiterNumber;
     Order* order;
-    double currentBillAmount;
+    //UNCOMMENT WHEN BILL CLASS IS AVAILABLE 
+    //Bill *customerBill;
     ChefHandler * chef;
 
    
@@ -38,12 +40,12 @@ public:
        std::string getClassname();
          // void setWaiterNumber(int waiternumber);
     void greetCustomer();
-    void updateBill(double price , int quantity);
-    void presentBill();
-    void createTab();
-    void handlePayment();
-    void saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID);
-    void retrieveBillAmountFromTextFile();
+   // void updateBill(double price , int quantity);
+   // void presentBill();
+   // void createTab();
+   // void handlePayment();
+   // void saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID);
+    //void retrieveBillAmountFromTextFile();
     const int getWaiterNumber();
     void addNext(ComplaintsHandler* c);
     ~Waiter();

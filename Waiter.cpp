@@ -5,10 +5,9 @@
 Waiter::Waiter(int wNum, ChefHandler* chef) {
     this->waiterNumber = wNum;
     this->order = nullptr;
-    this->currentBillAmount=0.0;
     className="Waiter"; 
     this->chef=chef;
-    greetCustomer();
+    //greetCustomer();
 
 
 
@@ -58,9 +57,9 @@ Waiter::~Waiter(){
     if (order!=NULL) delete order;
 }
 
-void Waiter::updateBill(double price , int quantity) {
+/*void Waiter::updateBill(double price , int quantity) {
     currentBillAmount += price *quantity;
-}
+}*/
 void Waiter::receive(std::string to, std::string message) {
     std::cout<<"Waiter "<<waiterNumber<<" message: "<< message <<std::endl;
 }
@@ -82,7 +81,7 @@ void Waiter::send() {
 
     mediator->notifications(to,message);
 }
-
+/*
 void Waiter::presentBill() {
     cout << " *** Waiter #" << waiterNumber << " is presenting the bill. ***" << endl;
     cout << "Your total bill amount is: R" << currentBillAmount << endl;
@@ -174,7 +173,7 @@ void Waiter::retrieveBillAmountFromTextFile()  {
     presentBill();
 
 }
-
+*/
 
 const int Waiter::getWaiterNumber(){
     return waiterNumber;
