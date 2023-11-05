@@ -8,6 +8,8 @@
 #include <thread>
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
 using namespace std ;
 
 
@@ -18,6 +20,7 @@ private:
     //UNCOMMENT WHEN BILL CLASS IS AVAILABLE 
     //Bill *customerBill;
     ChefHandler * chef;
+   // Table *table;
 
    
 public:
@@ -44,10 +47,13 @@ public:
    // void presentBill();
    // void createTab();
    // void handlePayment();
-   // void saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID);
+
+   //NB function below must take a Bill object .it will have all this information
+    void saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID);
     //void retrieveBillAmountFromTextFile();
     const int getWaiterNumber();
     void addNext(ComplaintsHandler* c);
+    void generateBill();
     ~Waiter();
 
 };

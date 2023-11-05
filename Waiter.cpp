@@ -62,10 +62,32 @@ Waiter::~Waiter(){
 }*/
 void Waiter::receive(std::string to, std::string message) {
     std::cout<<"Waiter "<<waiterNumber<<" message: "<< message <<std::endl;
+   
 }
 
 void Waiter::send() {
-     std::string message = "";
+    std::string message = "";
+    std::string to = "";
+    std::cout << "Waiter: Sending order to the Chef now..." << std::endl;
+
+    while (true) {
+        
+        srand(static_cast<unsigned int>(time(0))); 
+
+        int availability = rand() % 2; 
+        std::cout << "***checking poultry chefs availability**" << std::endl;
+        if (availability == 1) { 
+            to = "Poultry Chef";
+            message = "Here is my order for table: " + std::to_string(waiterNumber);
+            std::cout << "Chef is available. Order is placed" << std::endl;
+            mediator->notifications(to, message);
+            break; // Chef is available, exit the loop
+        } else {
+            std::cout << "Chef is not available at the moment. Retrying in 10 seconds." << std::endl;
+            std::this_thread::sleep_for(std::chrono::seconds(10));
+        }
+    }
+   /* std::string message = "";
     std::string to = "";
     std::cout << "Waiter would you like to send the order to the Chef now? " << std::endl;
     std::cout << "1.Yes" << std::endl;
@@ -80,6 +102,20 @@ void Waiter::send() {
     }
 
     mediator->notifications(to,message);
+    */ 
+}
+void Waiter::generateBill()
+{
+    cout<<"**Generating customer Bill(s) "<<endl;
+    //customerBill = table->generateBill();
+    //if (customerBill!=null)
+    //{ if (customerBill->tabCreated ==true)
+   // {
+    //saveBillAmountToTextFile(customerBill);
+ //  }else{customerBill->print}
+
+   // }
+
 }
 /*
 void Waiter::presentBill() {
