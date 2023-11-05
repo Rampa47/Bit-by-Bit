@@ -19,7 +19,7 @@ Table::Table()
     
 }
 
-Table::Table(Waiter* w)
+void Table::setWaiter(Waiter* w)
 {
     waiter=w;
 }
@@ -220,7 +220,6 @@ std::string Table::print()
 {
     std::string people;
     std::vector<Customer*>::iterator it;
-
     for(size_t i = 0; i < customers.size(); i++)
     {
         people += customers[i]->getName() + "\n";
@@ -297,11 +296,6 @@ void Table::removeCustomers()
     numCurrentCustomers = 0;
 }
 
-void Table::setWaiter(Waiter* waiter){
-    this->waiter=waiter;
-   // tableWaiterNumber = waiterNumberToTable++;
-    //waiter->setWaiterNumber(tableWaiterNumber);
-}
 
 
 

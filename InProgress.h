@@ -2,7 +2,6 @@
 #define INPROGRESS_H
 #include "OrderState.h"
 #include "Done.h"
-#include "OrderContext.h"
 #include <iostream>
 /**
  * @class InProgress
