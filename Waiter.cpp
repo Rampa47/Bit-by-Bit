@@ -8,10 +8,9 @@
 Waiter::Waiter(int wNum, ChefHandler* chef) {
     this->waiterNumber = wNum;
     this->order = nullptr;
-    this->currentBillAmount=0.0;
     className="Waiter"; 
     this->chef=chef;
-    greetCustomer();
+    //greetCustomer();
 
 
 
@@ -73,9 +72,6 @@ Waiter::~Waiter(){
 }
 
 
-void Waiter::updateBill(double price , int quantity) {
-    currentBillAmount += price *quantity;
-}
 void Waiter::receive(std::string to, std::string message) {
     std::cout<<"Waiter "<<waiterNumber<<" message: "<< message <<std::endl;
 }
@@ -104,64 +100,7 @@ void Waiter::send() {
     }
 }
 
-void Waiter::presentBill() {
-    cout << " *** Waiter #" << waiterNumber << " is presenting the bill. ***" << endl;
-    cout << "Your total bill amount is: R" << currentBillAmount << endl;
-    cout << "What would you like to do?" << endl;
-    cout << "1. Pay now" << endl;
-    cout << "2. Create a tab" << endl;
-    cout << "3. Ask for more time" << endl;
 
-    int choice;
-    cin >> choice;
-
-    switch (choice) {
-        case 1:
-
-            handlePayment();
-            break;
-        case 2:
-            createTab();
-            break;
-        case 3:
-            cout << "No problem. Take your time. Let us know when you're ready to pay." << endl;
-            break;
-        default:
-            cout << "Invalid choice. Please select 1, 2, or 3." << endl;
-            break;
-    }
-
-}
-
-//use random numbers for options
-void Waiter::handlePayment() {
-    int customerRating;
-    cout << "Processing payment... Thank you for joining us!" << endl;
-    cout<<"Before you go, please rate your experience out of 5:"<<endl ;
-    cin>>customerRating;
-    if(customerRating<3)
-    {
-        cout<<"We are sincerely apologise for the inconvenience you've experienced. We're committed to improving and ensuring a better experience in the future."<<endl;
-        cout<<"To help us improve , please let us know what your biggest issue was:"<<endl ;
-        cout<<"1)"<<endl;
-    }
-    cout<<"We hope to see you soon ;D"<<endl;
-}
-
-
-void Waiter::createTab() {
-    cout << "Creating a tab for the customer. You can settle the bill later." << endl;
-    string customerName;
-    int custContact, custID;
-    cout<<"Please enter your full name and surname "<<endl;
-    cin>>customerName;
-    cout<<"Please enter your contact number"<<endl;
-    cin>>custContact;
-    cout<<"Please enter your ID number"<<endl;
-    cin>>custID;
-     saveBillAmountToTextFile(currentBillAmount, customerName,custContact, custID);
-
-}
 
 
 void Waiter::saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID) {
@@ -177,7 +116,7 @@ void Waiter::saveBillAmountToTextFile(double billAmount ,string name , int conta
     }
 
 }
-
+/*
 void Waiter::retrieveBillAmountFromTextFile()  {
     double billAmount = 0.0;
     string custName ;
@@ -194,7 +133,7 @@ void Waiter::retrieveBillAmountFromTextFile()  {
     this->currentBillAmount=billAmount;
     presentBill();
 
-}
+}*/
 
 
 const int Waiter::getWaiterNumber(){
@@ -205,8 +144,12 @@ std::string Waiter::getClassname(){
     return "Waiter";
 }
 
-void Waiter::generateBill()
+void Waiter::getBill()
 {
     cout<<"**Generating customer Bill(s) "<<endl;
-
+    //NB: THE FOLLOWING IS WAITING FOR BILL TO BE INCORPORATED INTO TABLE CLASS
+        //customerBill =table->generateBill();
+        //if (customerBill->tabCreated=1)
+        //{saveBillAmountToTextFile(customerBill)}
+//else {cout<<customerBill->print}
 }
