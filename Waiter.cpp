@@ -1,3 +1,5 @@
+
+
 #include "Waiter.h"
 #include <iostream>
 #include "Order.h" // Include necessary headers for other classes if used
@@ -6,19 +8,25 @@
 Waiter::Waiter(int wNum, ChefHandler* chef) {
     this->waiterNumber = wNum;
     this->order = nullptr;
+    this->currentBillAmount=0.0;
     className="Waiter"; 
     this->chef=chef;
-    //greetCustomer();
+    greetCustomer();
 
 
 
 
    
 }
+void Waiter::checkCustomer()
+{
+    cout<<"Are you ready to order now?"<<endl;
+}
 
 void Waiter::greetCustomer() {
     cout<<"Waiter " << waiterNumber <<" greets customers and presents menu..."<<endl;
 }
+
 
 void Waiter::handleComplaint(string c, int degree) 
 {
@@ -34,6 +42,8 @@ void Waiter::handleComplaint(string c, int degree)
     }
 
 }
+
+
 void Waiter::addNext(ComplaintsHandler* c)
 {
     if(next==NULL)
@@ -47,6 +57,7 @@ void Waiter::addNext(ComplaintsHandler* c)
 }
 
 
+
 void Waiter::takeOrder(Order* order) {
     if (this->order!=NULL) 
         delete this->order;
@@ -55,20 +66,18 @@ void Waiter::takeOrder(Order* order) {
 
 }
 
+
 Waiter::~Waiter(){
     if (this->order!=NULL) 
         delete this->order;
 }
-void Waiter::checkCustomer()
-{
-    cout<<"Are you ready to order now?"<<endl;
-    }
-/*void Waiter::updateBill(double price , int quantity) {
+
+
+void Waiter::updateBill(double price , int quantity) {
     currentBillAmount += price *quantity;
-}*/
+}
 void Waiter::receive(std::string to, std::string message) {
     std::cout<<"Waiter "<<waiterNumber<<" message: "<< message <<std::endl;
-   
 }
 
 void Waiter::send() {
@@ -93,39 +102,8 @@ void Waiter::send() {
             std::this_thread::sleep_for(std::chrono::seconds(10));
         }
     }
-   /* std::string message = "";
-    std::string to = "";
-    std::cout << "Waiter would you like to send the order to the Chef now? " << std::endl;
-    std::cout << "1.Yes" << std::endl;
-    std::cout << "2.No" << std::endl;
-
-     to=random_integer;
-    if (to == "1") {
-     to = "ChefHandler";
-     message = "Here is my order for table: "+ waiterNumber;
-    } else {
-        return; 
-    }
-
-    mediator->notifications(to,message);
-    */ 
 }
-void Waiter::generateBill()
-{
-    cout<<"**Generating customer Bill(s) "<<endl;
-    //customerBill = table->generateBill();
-    //if (customerBill!=null)
-    //{ if (customerBill->tabCreated ==true)
-   // {
-    //saveBillAmountToTextFile(customerBill);
-    //delete customerBill;
-    //table->leave() NB : SUPPOSED TO TRIGGER NEXT TABLE STATE FOR THEM TO LEAVE 
- //  }else{customerBill->print}
 
-   // }
-
-}
-/*
 void Waiter::presentBill() {
     cout << " *** Waiter #" << waiterNumber << " is presenting the bill. ***" << endl;
     cout << "Your total bill amount is: R" << currentBillAmount << endl;
@@ -217,15 +195,18 @@ void Waiter::retrieveBillAmountFromTextFile()  {
     presentBill();
 
 }
-*/
+
 
 const int Waiter::getWaiterNumber(){
     return waiterNumber;
 }
-// void Waiter::setWaiterNumber(int waiternumber){
-//     this->waiterNumber=waiternumber;
 
-// }
 std::string Waiter::getClassname(){
     return "Waiter";
+}
+
+void Waiter::generateBill()
+{
+    cout<<"**Generating customer Bill(s) "<<endl;
+
 }
