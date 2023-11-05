@@ -47,14 +47,16 @@ void Waiter::addNext(ComplaintsHandler* c)
 
 
 void Waiter::takeOrder(Order* order) {
-    if (order!=NULL) delete order;
+    if (this->order!=NULL) 
+        delete this->order;
     this->order= order;
     chef->handleOrder(order);
 
 }
 
 Waiter::~Waiter(){
-    if (order!=NULL) delete order;
+    if (this->order!=NULL) 
+        delete this->order;
 }
 void Waiter::checkCustomer()
 {
