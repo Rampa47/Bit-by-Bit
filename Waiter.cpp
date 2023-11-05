@@ -56,7 +56,10 @@ void Waiter::takeOrder(Order* order) {
 Waiter::~Waiter(){
     if (order!=NULL) delete order;
 }
-
+void Waiter::checkCustomer()
+{
+    cout<<"Are you ready to order now?"<<endl;
+    }
 /*void Waiter::updateBill(double price , int quantity) {
     currentBillAmount += price *quantity;
 }*/
