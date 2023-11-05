@@ -298,9 +298,6 @@ void Table::removeCustomers()
 }
 
 
-
-
-
 void Table::callWaiter(ChefHandler* chef){
     Order * order= new Order(waiter->getWaiterNumber());
     for (auto customer: customers){
@@ -318,13 +315,13 @@ Waiter* Table::getWaiter(){
 
 void Table::leave(){
     setState();
-    tableState->handle(*this);
+    handleTableState();
 }
 
 
 void Table::order(){
     setState();
-    tableState->handle(*this);
+    handleTableState();
 }
 
 void Table::payBill(){
@@ -336,6 +333,10 @@ void Table::payBill(){
 
 void Table::setState(){
     tableState = tableState->getNextState();
+}
+
+void Table::handleTableState(){
+    tableState->handle(*this);
 }
 
 

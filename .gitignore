@@ -17,3 +17,4 @@
 214 Project_Mediator/cmake-build-debug/.cmake/api/v1/reply/index-2023-10-19T09-29-15-0374.json
 *.txt
 *.md
+.DS_Store
