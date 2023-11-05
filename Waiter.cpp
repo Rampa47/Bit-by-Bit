@@ -144,8 +144,12 @@ std::string Waiter::getClassname(){
     return "Waiter";
 }
 
-void Waiter::generateBill()
+void Waiter::getBill()
 {
     cout<<"**Generating customer Bill(s) "<<endl;
-
+    //NB: THE FOLLOWING IS WAITING FOR BILL TO BE INCORPORATED INTO TABLE CLASS
+        //customerBill =table->generateBill();
+        //if (customerBill->tabCreated=1)
+        //{saveBillAmountToTextFile(customerBill)}
+//else {cout<<customerBill->print}
 }

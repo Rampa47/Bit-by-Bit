@@ -41,20 +41,16 @@ public:
          */
        void send();
        std::string getClassname();
-         // void setWaiterNumber(int waiternumber);
+         
     void greetCustomer();
-   // void updateBill(double price , int quantity);
-   // void presentBill();
-   // void createTab();
-   // void handlePayment();
-
-   //NB function below must take a Bill object .it will have all this information
+   
+   //NB function below must take a Bill object as param .it will have all this information
     void saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID);
     void checkCustomer();//checks if customer is ready to order
     //void retrieveBillAmountFromTextFile();
     const int getWaiterNumber();
     void addNext(ComplaintsHandler* c);
-    void generateBill();
+    void getBill();
     ~Waiter();
 
 };
