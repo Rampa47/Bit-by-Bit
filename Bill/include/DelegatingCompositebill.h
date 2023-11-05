@@ -15,12 +15,17 @@ class DelegatingCompositeBill : public BillComponent{
          * @brief parameterized constructor for Delegating Composite bill
          * @param bills a vector of shared pointers to bill objects
         */ 
-        DelegatingCompositeBill(std::vector<std::shared_ptr<BillComponent>> bills);
-        void addBill(std::shared_ptr<BillComponent> bill);
+        DelegatingCompositeBill(std::vector<BillComponent*> bills);
+        void addBill(BillComponent* bill);
+
+        //////////////////inherited////////////////////////
+        virtual string getBillReceipt();
+        virtual float getTotalAmount();
+        
         
     
     private:
-        std::vector<BillComponent> bills;
+        std::vector<BillComponent*> bills;
 
 };
 

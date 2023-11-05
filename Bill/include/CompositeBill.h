@@ -7,7 +7,7 @@
 /**
  * @brief This class models how a customer (or customers) can choose to pay the meal costs for multiple other customers.
 */
-class CompositeBillPayer : BillComponent{
+class CompositeBillPayer : public BillComponent{
     public:
         /**
          * @brief parameterized constructor for Composite bill
@@ -19,16 +19,15 @@ class CompositeBillPayer : BillComponent{
          * @brief parameterized constructor for Composite bill
          * @param bills a vector of shared pointers to bill objects
         */ 
-        CompositeBillPayer(std::string payerName, std::vector<std::shared_ptr<BillPayer>> bills);
-        void addBill(std::shared_ptr<BillPayer> bill);
+        CompositeBillPayer(std::string payerName, std::vector<BillPayer*> bills);
+        void addBill(BillPayer* bill);
 
         ////////////Inherited///////////////////
-        void payAmountDue();
+        std::string getBillReceipt();
         float getTotalAmount();
         
-    
     private:
-        std::vector<std::shared_ptr<BillPayer>> bills;
+        std::vector<BillPayer*> bills;
         std::string payerName;
 };
 

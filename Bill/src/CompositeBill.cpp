@@ -1,4 +1,4 @@
-#include "CompositeBill.h"
+#include "../include/CompositeBill.h"
 
 /**
  * @brief parameterized constructor for CompositeBillPayer
@@ -13,7 +13,7 @@ CompositeBillPayer::CompositeBillPayer(std::string payerName){
  * @param payerName The name of the customer paying for other customers' orders
  * @param bills The bills for which this class instance will pay
 */
-CompositeBillPayer::CompositeBillPayer(std::string payerName, std::vector<std::shared_ptr<BillPayer>> bills){
+CompositeBillPayer::CompositeBillPayer(std::string payerName, std::vector<BillPayer*> bills){
     this->payerName = payerName; 
     this->bills = bills;
 }
@@ -21,24 +21,29 @@ CompositeBillPayer::CompositeBillPayer(std::string payerName, std::vector<std::s
 /**
  * @brief Adds sub-bill which a CompositeBillPayer instance will pay for
 */
-void CompositeBillPayer::addBill(std::shared_ptr<BillPayer> bill){
+void CompositeBillPayer::addBill(BillPayer* bill){
     bills.push_back(bill);
 }
 
 /**
  * @brief Displays order payment for multiple customers
 */
-void CompositeBillPayer::payAmountDue(){
+std::string CompositeBillPayer::getBillReceipt(){
     //loop through sub-bills
     //go through each order item and output
     //Payed by this->payerName
+    stringstream ss;
+    std::string temp;
 
-    std::cout << payerName << " pays R" << getTotalAmount << " for the meals of:" << std::endl;
+    ss << payerName << " pays R" << getTotalAmount() << " for the meals of:" << std::endl;
 
     for(auto bill : bills){
-        std::cout << "->" << bill->getPayerName() << std::endl;
+        ss << "-> (R" << bill->getTotalAmount() << ") " << bill->getPayerName() << std::endl;
     }
-    std::cout << endl;
+    ss << std::endl;
+    temp += ss.str();
+
+    return temp;
 }
 
 /**
