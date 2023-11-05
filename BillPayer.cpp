@@ -1,4 +1,4 @@
-#include "../include/BillPayer.h"
+#include "BillPayer.h"
 
 /**
  * @brief Parameterized constructor for BillPayer class

@@ -1,4 +1,4 @@
-#include "../include/BillComponent.h"
+#include "BillComponent.h"
 
 std::string BillComponent::getBillReceipt(){}
 float BillComponent::getTotalAmount(){}

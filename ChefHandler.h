@@ -2,6 +2,7 @@
 #define CHEFHANDLER_H
 #include <iostream>
 class Order;
+class Colleague;
 using namespace std;
 /**
  * @class ChefHandler

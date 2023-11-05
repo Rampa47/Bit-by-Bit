@@ -1,4 +1,4 @@
-#include "../include/DelegatingCompositebill.h"
+#include "DelegatingCompositebill.h"
 
 /**
  * @brief default DelegatingCompositeBill constructor

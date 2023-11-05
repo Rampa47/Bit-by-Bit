@@ -7,7 +7,7 @@
 #include <iostream> 
 #include <sstream>
 
-#include "../../Order.h"
+#include "Order.h"
 
 class BillComponent{
     public:
