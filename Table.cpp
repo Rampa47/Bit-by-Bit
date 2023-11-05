@@ -16,7 +16,7 @@ Table::Table()
     isWaitingArea = false;
     className="Table";
     waiter= nullptr;   
-    
+    tableState = new EmptyTable(); 
 }
 
 void Table::setWaiter(Waiter* w)
@@ -30,6 +30,7 @@ Table::Table(bool isWaitingArea)
     this->isWaitingArea = isWaitingArea;
     next = nullptr;
     numCurrentCustomers = 0;
+    tableState = new EmptyTable(); 
 
     
 
