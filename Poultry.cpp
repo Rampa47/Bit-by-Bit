@@ -14,7 +14,7 @@ void Poultry::cook() {
     /**
      * @brief Cooks the poultry dish using the specified poultry type.
      */
-    std::cout << "Preparing the Poultry..." << std::endl;
+    std::cout << "  Preparing the Poultry..." << std::endl;
     poultryType->cook(); // Delegate the cooking to the specified poultry type
 }
 

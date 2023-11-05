@@ -1,10 +1,9 @@
-#ifndef PAIDBILL_H
-#define PAIDBILL_H
+#ifndef READYTOLEAVE_HPP
+#define READYTOLEAVE_HPP
 
 #include "TableState.h"
 
-
-class PaidBill: public TableState
+class ReadyToLeave: public TableState
 {
     public:
         virtual void handle(Table& table);
@@ -14,4 +13,4 @@ class PaidBill: public TableState
 };
 
 
-#endif // PAIDBILL_H
+#endif // READYTOLEAVE_HPP

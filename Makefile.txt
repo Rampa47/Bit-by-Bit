@@ -23,7 +23,7 @@ run: $(EXECUTABLE)
 clean:
 	rm -f $(OBJ_FILES) $(EXECUTABLE)
 
-vilgrind: $(EXECUTABLE)
+valgrind: $(EXECUTABLE)
 	valgrind --leak-check=full ./$(EXECUTABLE)
 
 .PHONY: all clean

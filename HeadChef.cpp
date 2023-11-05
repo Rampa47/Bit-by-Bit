@@ -12,9 +12,10 @@ HeadChef::~HeadChef()
 void HeadChef::handleOrder(Order* order)
 {
     std::cout << "Order passed on to the Head Chef..." << std::endl;
-    order->changeStateOfOrder();
+    cout << "Waiter " << order->getWaiter() << " order almost ready" <<endl;
     cout<<"Putting the Finishing Strokes... "<<endl;
-    cout << "Waiter " << order->getWaiter() << " order is ready..." <<endl;
+    order->changeStateOfOrder();
+    send();
     
 }
 
@@ -42,4 +43,8 @@ void HeadChef::addNext(ComplaintsHandler* c)
     {
         next->addNext(c);
     }
+}
+
+void HeadChef::send(){
+    mediator->notifications("Waiter","Order is ready.");
 }

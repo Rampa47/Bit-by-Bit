@@ -81,7 +81,7 @@ void Restaurant::createList()
     
 }
 
-void Restaurant::addCustomer(std::vector<Customer*> vect)
+Table* Restaurant::addCustomer(std::vector<Customer*> vect)
 {
     if(isEmptyList())
     {
@@ -107,7 +107,7 @@ void Restaurant::addCustomer(std::vector<Customer*> vect)
             }
         }
 
-        return;
+        return node;
     }
     else
     {
@@ -139,7 +139,9 @@ void Restaurant::addCustomer(std::vector<Customer*> vect)
                         ptr->incrementNumCustomers();
                     }
                 }
-                return;
+                ptr->getWaiter()->greetCustomer();
+                std::cout<<ptr->print();
+                return ptr;
             }
 
             if(ptr->getNext() == nullptr)
@@ -161,7 +163,6 @@ void Restaurant::addCustomer(std::vector<Customer*> vect)
         if(fullRestaurant)
         {
             std::cout << "All the tables are occupied" << std::endl;
-            std::cout << "Please sit in the waiting area until a table becomes available" << std::endl;
 
             Table * nodePtr = addWaitingArea();
 
@@ -172,7 +173,7 @@ void Restaurant::addCustomer(std::vector<Customer*> vect)
             }
             currentNumWaitingAreas++;
 
-            return;
+            return nodePtr;
         }
         else
         {
@@ -185,7 +186,7 @@ void Restaurant::addCustomer(std::vector<Customer*> vect)
                         waitingArea->addCust(vect[i]);
                         waitingArea->incrementNumCustomers();
                     }
-                    return;
+                    return waitingArea;
                 }
 
                 if(waitingArea->getNext() == nullptr)
@@ -206,12 +207,12 @@ void Restaurant::addCustomer(std::vector<Customer*> vect)
                     waitingArea->incrementNumCustomers();
                 }
 
-                return;
+                return waitingArea;
             }
 
             // std::cout << "The restaurant is filled to capacity" << std::endl;
             // std::cout << "Apologies for the inconvenience. Please come back another time." << std::endl;
-            return;
+            return waitingArea;
         }
     }
 }
@@ -237,7 +238,11 @@ std::string Restaurant::printCustomers()
             {
                 ss << count;
                 ss >> table;
-                restaurantCustomers += "Table " + table + ": " + "\n";
+                ss.clear();
+                ss << node->getWaiterNumber();
+                string wn;
+                ss >> wn;
+                restaurantCustomers += "Table " + table + ", Waiter "+wn+": \n";
                 restaurantCustomers += node->print();
                 node = node->getNext();
                 count++;

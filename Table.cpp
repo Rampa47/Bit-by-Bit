@@ -15,13 +15,15 @@ Table::Table()
     numCurrentCustomers = 0;
     isWaitingArea = false;
     className="Table";
-    waiter= nullptr;   
+    waiter= nullptr;  
+    tableState= new EmptyTable(); 
     
 }
 
-Table::Table(Waiter* w)
+void Table::setWaiter(Waiter* w)
 {
     waiter=w;
+    waiter->setTable(this);
 }
 
 
@@ -30,6 +32,7 @@ Table::Table(bool isWaitingArea)
     this->isWaitingArea = isWaitingArea;
     next = nullptr;
     numCurrentCustomers = 0;
+    tableState = new EmptyTable(); 
 
     
 
@@ -220,12 +223,11 @@ std::string Table::print()
 {
     std::string people;
     std::vector<Customer*>::iterator it;
-
     for(size_t i = 0; i < customers.size(); i++)
     {
         people += customers[i]->getName() + "\n";
     }
-
+    people="The customers on the table: \n"+people+"\n";
     return people;
 }
 
@@ -254,32 +256,14 @@ bool Table::getTableType()
 
 
 void Table::receive(std::string to,std::string message){
-    std::cout<<" Table about to be serviced. Message: " << message <<std::endl;
+    std::cout<<message <<std::endl;
  }
 
-  void Table::send(){
-    std::random_device rd;
-    std::mt19937 gen(rd()); 
-    std::uniform_int_distribution<int> dis(0, 1);
-
-    
-    int random_integer = dis(gen);
-    std::string message = "";
-    std::string to = "";
-    std::cout << "Customer would you like to order now? " << std::endl;
-    std::cout << "1.Yes" << std::endl;
-    std::cout << "2.No" << std::endl;
-
-     to=random_integer;
-    if (to == "1") {
-     to = "Waiter";
-     message = "Please may we order";
-    } else {
-        return; 
-    }
-
-    mediator->notifications(to, message);
-  }
+void Table::send(){
+    std::cout << "Table ready to order..." << std::endl;
+    mediator->notifications("Waiter", "Table is ready to order.");
+    callWaiter();
+}
 
  int Table::getWaiterNumber(){
     return waiter->getWaiterNumber();
@@ -297,16 +281,8 @@ void Table::removeCustomers()
     numCurrentCustomers = 0;
 }
 
-void Table::setWaiter(Waiter* waiter){
-    this->waiter=waiter;
-   // tableWaiterNumber = waiterNumberToTable++;
-    //waiter->setWaiterNumber(tableWaiterNumber);
-}
 
-
-
-
-void Table::callWaiter(ChefHandler* chef){
+void Table::callWaiter(){
     Order * order= new Order(waiter->getWaiterNumber());
     for (auto customer: customers){
         customer->selectFoodItems(order);
@@ -321,15 +297,16 @@ Waiter* Table::getWaiter(){
 }
 
 
+
 void Table::leave(){
     setState();
-    tableState->handle(*this);
+    handleTableState();
 }
 
 
 void Table::order(){
     setState();
-    tableState->handle(*this);
+    handleTableState();
 }
 
 void Table::payBill(){
@@ -339,8 +316,43 @@ void Table::payBill(){
     //tableState
 }
 
+
+
 void Table::setState(){
     tableState = tableState->getNextState();
+}
+
+TableState* Table::getState(){
+    return tableState;
+/**
+ * @throws exception of type string - if there are currently no customers at the table
+ * @note There will always be a customer who is chosen as the payer (at random) when this method is called
+*/
+}
+BillComponent* Table::generateBill(){
+    if(customers.size() <= 0) throw "There are no customers, currently at the table, to pay the bill";
+
+    //get random payer from table
+    std::string payerName = this->customers[rand()%customers.size()]->getName();
+    
+    //create and populate internal, CompositeBillPayer node
+    CompositeBillPayer* billPayer = new CompositeBillPayer(payerName);
+    for(Customer* c : customers){
+        billPayer->addBill(c->getBill());
+    }
+
+    //add CompositeBillPayer node(s) to 'root' node
+    DelegatingCompositeBill* encompassingBill = new DelegatingCompositeBill({billPayer});
+
+    //randomly decide whether tab is opened
+    int openTab = rand()%2;
+    encompassingBill->openTab(openTab);
+
+    return encompassingBill;
+}
+
+void Table::handleTableState(){
+    tableState->handle(*this);
 }
 
 

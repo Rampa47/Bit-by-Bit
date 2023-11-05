@@ -12,6 +12,8 @@
 #include "Order.h"
 #include "TableState.h"
 #include "Complaint.h"
+#include "CompositeBillPayer.h"
+#include "DelegatingCompositebill.h"
 
 class TableState;
 
@@ -20,7 +22,6 @@ class Table: public Colleague
     public:
         Table();     // Default constructor
         Table(bool isWaitingArea);      // Parameterised constructor (Was used in testing the list)
-        Table(Waiter* w);
         Table * getNext(); 
         Table * getPrev();
         void setNext(Table * node);
@@ -63,15 +64,18 @@ class Table: public Colleague
        int getWaiterNumber();
        void setWaiter(Waiter* waiter);
        std::string getClassname();
-      void callWaiter(ChefHandler* chef);
+      void callWaiter();
       void setState();
+      TableState* getState();
+      void handleTableState();
         Waiter* getWaiter();
  
       void IsEverythingOkay(ComplaintsHandler* CH);
         int getRandomZeroOrOne();
         int generateComplaint();
         int generateDegree();
-
+      
+      BillComponent* generateBill();
 
     private:
         Table * next;

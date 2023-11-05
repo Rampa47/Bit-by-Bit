@@ -11,6 +11,7 @@
 #include "Table.h"
 #include "Restaurant.h"
 #include "Mediator.h"
+#include "AllWaiters.h"
 #include <vector>
 #include <queue>
 #include <cstdlib>
@@ -23,12 +24,14 @@ class Facade{
         queue<Customer*> customers;
         ChefHandler* orderhandler;
         vector<Waiter*> waiters;
+        AllWaiters* allWaiters;
         Restaurant* restaurant;
         Mediator* mediator;
 
     public:
         Facade(int tables);
-        void execute();
+        void execute1();
+        void execute2();
         ~Facade();
 
 };

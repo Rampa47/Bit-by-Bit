@@ -74,6 +74,7 @@ public:
         
          */
         std::string getClassname();
+        bool free=true;
        
 };
 

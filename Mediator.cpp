@@ -11,7 +11,8 @@ Mediator::~Mediator()
 }
 void Mediator::notifications(std::string to, std::string message)
 {
-    if (to == "ChefHandler" )
+    message= "\e[36m NOTIFICATION: "+message+"\e[0m";
+    if (to == "ChefHandler")
     {
 
             for (Colleague *colleague : Chef)
@@ -19,6 +20,7 @@ void Mediator::notifications(std::string to, std::string message)
                 if (colleague->getClassname() == to)
                 {
                     colleague->receive(to, message);
+                    to="";
                 }
             }
 

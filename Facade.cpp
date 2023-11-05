@@ -24,15 +24,16 @@ Facade::Facade(int tables){
 
     restaurant= new Restaurant();
     for (int i=0; i<tables; i++){
-        Waiter* w= new Waiter(i,orderhandler);
+        Waiter* w= new Waiter(i+1,orderhandler);
         waiters.push_back(w);
         w->reg(mediator);
         Table* t= restaurant->add();
+        t->setWaiter(waiters[i]);
         t->reg(mediator);
     }
 
 }
-void Facade::execute(){
+void Facade::execute1(){
     srand((unsigned) time(NULL));
 	int no_of_customers = rand()%10;
     vector<Customer*> vcustomers;
@@ -43,6 +44,12 @@ void Facade::execute(){
         customers.push(c);
     }
     maitreD->seatCustomers(*restaurant, vcustomers);
+    
+
+}
+
+void Facade::execute2(){
+    // cout<<restaurant->printCustomers()<<endl;
 
 }
 
