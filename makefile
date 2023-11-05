@@ -18,12 +18,14 @@ $(EXECUTABLE): $(OBJ_FILES)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 run: $(EXECUTABLE)
+	make clean
+	make
 	./$(EXECUTABLE)
 
 clean:
 	rm -f $(OBJ_FILES) $(EXECUTABLE)
 
-vilgrind: $(EXECUTABLE)
+valgrind: $(EXECUTABLE)
 	valgrind --leak-check=full ./$(EXECUTABLE)
 
 .PHONY: all clean

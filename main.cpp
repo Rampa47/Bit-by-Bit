@@ -6,7 +6,8 @@ int main(){
 	int tablesNo = rand()%10;
 
     Facade facade(tablesNo);
-    facade.execute();
+    facade.execute1();
+    facade.execute2();
 
     return 0;
 }

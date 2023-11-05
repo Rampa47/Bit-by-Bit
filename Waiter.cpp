@@ -1,24 +1,19 @@
 #include "Waiter.h"
 #include <iostream>
-#include "Order.h" // Include necessary headers for other classes if used
+#include <fstream>
 #include <random>
+using namespace std;
 
 Waiter::Waiter(int wNum, ChefHandler* chef) {
     this->waiterNumber = wNum;
     this->order = nullptr;
     this->currentBillAmount=0.0;
-    className="Waiter"; 
     this->chef=chef;
-    greetCustomer();
-
-
-
-
    
 }
 
 void Waiter::greetCustomer() {
-    cout<<"Waiter " << waiterNumber <<" greets customers and presents menu..."<<endl;
+    cout<<"Waiter " << waiterNumber<<" greets customers and presents menu..."<<endl;
 }
 
 void Waiter::handleComplaint(string c, int degree) 
@@ -57,8 +52,8 @@ void Waiter::takeOrder(Order* order) {
 }
 
 Waiter::~Waiter(){
-    if (this->order!=NULL) 
-        delete this->order;
+    if (order!=NULL) 
+        delete order;
 }
 
 void Waiter::updateBill(double price , int quantity) {
@@ -188,10 +183,7 @@ void Waiter::retrieveBillAmountFromTextFile()  {
 const int Waiter::getWaiterNumber(){
     return waiterNumber;
 }
-// void Waiter::setWaiterNumber(int waiternumber){
-//     this->waiterNumber=waiternumber;
 
-// }
 std::string Waiter::getClassname(){
     return "Waiter";
 }
