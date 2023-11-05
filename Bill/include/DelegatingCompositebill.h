@@ -10,6 +10,7 @@
 class DelegatingCompositeBill : public BillComponent{
     public:
         DelegatingCompositeBill();
+        virtual ~DelegatingCompositeBill();
 
         /**
          * @brief parameterized constructor for Delegating Composite bill

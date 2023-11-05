@@ -12,6 +12,7 @@ class BillPayer : public BillComponent{
         ////////////Inherited///////////////////
         std::string getBillReceipt();
         float getTotalAmount();
+        ~BillPayer();
         
 
     private:

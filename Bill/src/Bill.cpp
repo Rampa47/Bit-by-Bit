@@ -39,3 +39,7 @@ float BillPayer::getTotalAmount(){
 std::string BillPayer::getPayerName() const {
     return this->payerName;
 }
+
+BillPayer::~BillPayer(){
+    std::cout << "bill payer destroyed" << std::endl;
+}

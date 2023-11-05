@@ -45,3 +45,11 @@ float DelegatingCompositeBill::getTotalAmount(){
     }
     return total;
 }
+
+DelegatingCompositeBill::~DelegatingCompositeBill(){
+    
+    for(auto bill : bills){
+        delete bill;
+    }
+    std::cout << "delegating composite structure destroyed" << std::endl;
+}

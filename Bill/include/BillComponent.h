@@ -14,11 +14,11 @@ class BillComponent{
         virtual std::string getBillReceipt() =0;
         virtual float getTotalAmount()=0;
         virtual ~BillComponent();
-        void openTab(bool value);
+        void openTab(bool open);
         bool isTab() const;
 
     private:
-        bool openTab;
+        bool tab;
 };
 
 #endif

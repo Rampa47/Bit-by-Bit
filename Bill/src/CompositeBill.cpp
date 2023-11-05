@@ -59,3 +59,10 @@ float CompositeBillPayer::getTotalAmount(){
 
     return amountSum;
 }
+
+CompositeBillPayer::~CompositeBillPayer(){
+    for(auto bill : bills){
+        delete bill;
+    }
+    std::cout << "composite bill payer destroyed" << std::endl;
+}

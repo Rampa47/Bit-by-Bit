@@ -20,6 +20,8 @@ class CompositeBillPayer : public BillComponent{
          * @param bills a vector of shared pointers to bill objects
         */ 
         CompositeBillPayer(std::string payerName, std::vector<BillPayer*> bills);
+        virtual ~CompositeBillPayer();
+
         void addBill(BillPayer* bill);
 
         ////////////Inherited///////////////////
