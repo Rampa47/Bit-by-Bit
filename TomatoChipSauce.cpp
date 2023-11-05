@@ -14,7 +14,7 @@ void TomatoChipSauce::cook() {
      * @brief Adds the tomato chip sauce.
      */
     chips->cook();
-    std::cout << "Adding tomato chip sauce..." << std::endl;
+    std::cout << "      Adding tomato chip sauce..." << std::endl;
 }
 
 TomatoChipSauce::~TomatoChipSauce() {

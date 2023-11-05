@@ -15,13 +15,15 @@ Table::Table()
     numCurrentCustomers = 0;
     isWaitingArea = false;
     className="Table";
-    waiter= nullptr;   
-    tableState = new EmptyTable(); 
+    waiter= nullptr;  
+    tableState= new EmptyTable(); 
+    
 }
 
 void Table::setWaiter(Waiter* w)
 {
     waiter=w;
+    waiter->setTable(this);
 }
 
 
@@ -225,7 +227,7 @@ std::string Table::print()
     {
         people += customers[i]->getName() + "\n";
     }
-
+    people="The customers on the table: \n"+people+"\n";
     return people;
 }
 
@@ -254,32 +256,14 @@ bool Table::getTableType()
 
 
 void Table::receive(std::string to,std::string message){
-    std::cout<<" Table about to be serviced. Message: " << message <<std::endl;
+    std::cout<<message <<std::endl;
  }
 
-  void Table::send(){
-    std::random_device rd;
-    std::mt19937 gen(rd()); 
-    std::uniform_int_distribution<int> dis(0, 1);
-
-    
-    int random_integer = dis(gen);
-    std::string message = "";
-    std::string to = "";
-    std::cout << "Customer would you like to order now? " << std::endl;
-    std::cout << "1.Yes" << std::endl;
-    std::cout << "2.No" << std::endl;
-
-     to=random_integer;
-    if (to == "1") {
-     to = "Waiter";
-     message = "Please may we order";
-    } else {
-        return; 
-    }
-
-    mediator->notifications(to, message);
-  }
+void Table::send(){
+    std::cout << "Table ready to order..." << std::endl;
+    mediator->notifications("Waiter", "Table is ready to order.");
+    callWaiter();
+}
 
  int Table::getWaiterNumber(){
     return waiter->getWaiterNumber();
@@ -298,7 +282,7 @@ void Table::removeCustomers()
 }
 
 
-void Table::callWaiter(ChefHandler* chef){
+void Table::callWaiter(){
     Order * order= new Order(waiter->getWaiterNumber());
     for (auto customer: customers){
         customer->selectFoodItems(order);
@@ -311,6 +295,7 @@ void Table::callWaiter(ChefHandler* chef){
 Waiter* Table::getWaiter(){
     return this->waiter;
 }
+
 
 
 void Table::leave(){
@@ -331,14 +316,19 @@ void Table::payBill(){
     //tableState
 }
 
+
+
 void Table::setState(){
     tableState = tableState->getNextState();
 }
 
+TableState* Table::getState(){
+    return tableState;
 /**
  * @throws exception of type string - if there are currently no customers at the table
  * @note There will always be a customer who is chosen as the payer (at random) when this method is called
 */
+}
 BillComponent* Table::generateBill(){
     if(customers.size() <= 0) throw "There are no customers, currently at the table, to pay the bill";
 

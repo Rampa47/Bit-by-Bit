@@ -5,7 +5,7 @@ void BeefBurger::addPatty() {
     /**
      * @brief Adds a beef patty to the burger.
      */
-    std::cout << "Adding a beef patty..." << std::endl;
+    std::cout << "      Adding a beef patty..." << std::endl;
 }
 
 BeefBurger::~BeefBurger() {

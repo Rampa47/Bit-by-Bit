@@ -5,7 +5,7 @@ void FriedPoultry::cook() {
     /**
      * @brief Cooks the fried poultry.
      */
-    std::cout << "Frying the poultry..." << std::endl;
+    std::cout << "      Frying the poultry..." << std::endl;
 }
 
 FriedPoultry::~FriedPoultry() {

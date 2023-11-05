@@ -1,7 +1,4 @@
 #include "Waiter.h"
-#include <iostream>
-#include <fstream>
-#include <random>
 using namespace std;
 
 Waiter::Waiter(int wNum, ChefHandler* chef) {
@@ -13,7 +10,7 @@ Waiter::Waiter(int wNum, ChefHandler* chef) {
 }
 
 void Waiter::greetCustomer() {
-    cout<<"Waiter " << waiterNumber<<" greets customers and presents menu..."<<endl;
+    cout<<"Waiter " << waiterNumber<<" greets Table and presents menu..."<<endl;
 }
 
 void Waiter::handleComplaint(string c, int degree) 
@@ -47,8 +44,11 @@ void Waiter::takeOrder(Order* order) {
     if (this->order!=NULL) 
         delete this->order;
     this->order= order;
+    cout<<"Waiter "<<waiterNumber<<" heading to Kitchen..."<<endl;
+    send();
+    while(!chef->free){}
     chef->handleOrder(order);
-
+    cout<<"Waiter "<<waiterNumber<<" taking food to table..."<<endl;
 }
 
 Waiter::~Waiter(){
@@ -60,31 +60,11 @@ void Waiter::updateBill(double price , int quantity) {
     currentBillAmount += price *quantity;
 }
 void Waiter::receive(std::string to, std::string message) {
-    std::cout<<"Waiter "<<waiterNumber<<" message: "<< message <<std::endl;
+    std::cout<<message <<std::endl;
 }
 
 void Waiter::send() {
-    std::random_device rd;
-    std::mt19937 gen(rd()); 
-    std::uniform_int_distribution<int> dis(0, 1);
-
-    
-    int random_integer = dis(gen);
-    std::string message = "";
-    std::string to = "";
-    std::cout << "Waiter would you like to send the order to the Chef now? " << std::endl;
-    std::cout << "1.Yes" << std::endl;
-    std::cout << "2.No" << std::endl;
-
-     to=random_integer;
-    if (to == "1") {
-     to = "ChefHandler";
-     message = "Here is my order for table: "+ waiterNumber;
-    } else {
-        return; 
-    }
-
-    mediator->notifications(to,message);
+    mediator->notifications("ChefHandler","Waiter bringing order to kitchen.");
 }
 
 void Waiter::presentBill() {
@@ -186,4 +166,12 @@ const int Waiter::getWaiterNumber(){
 
 std::string Waiter::getClassname(){
     return "Waiter";
+}
+
+ void Waiter::setTable(Table * t){
+    table= t;
+}
+
+void Waiter::checkOnTable(){
+    cout<<"Waiter "<<waiterNumber<< " checks if table is ready to order..."<<endl;
 }

@@ -2,9 +2,14 @@
 #define WAITER_H
 
 #include <string>
+#include <iostream>
+#include <fstream>
+#include <random>
 #include "ComplaintsHandler.h"
 #include "Order.h"
 #include "Colleague.h"
+
+class Table;
 
 class Waiter : public ComplaintsHandler, public Colleague {
 private:
@@ -12,6 +17,7 @@ private:
     Order* order;
     double currentBillAmount;
     ChefHandler* chef;
+    Table*table;
 
 public:
     Waiter(int wNum, ChefHandler* chef);
@@ -29,6 +35,8 @@ public:
     void retrieveBillAmountFromTextFile();
     const int getWaiterNumber();
     void addNext(ComplaintsHandler* c);
+    void setTable(Table * t);
+    void checkOnTable();
     ~Waiter();
 };
 

@@ -4,8 +4,7 @@
 
 void OccupiedTable::handle(Table& table)
 {
-    std::cout << "[Customers are seated]";
-    //table.getWaiter().greet();
+    std::cout << "Customers are seated...\n";
 }
 
 

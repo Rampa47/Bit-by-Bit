@@ -3,7 +3,7 @@
 
 void AwaitingBill::handle(Table& table)
 {
-    std::cout << "[Table-" << table.getWaiterNumber() << "] is waiting for the bill]\n" << std::endl;
+    std::cout << "Table-" << table.getWaiterNumber() << " is waiting for the bill..." << std::endl;
     
     //instruct waiter to send the bill to the table
     //table.setBill(table.getWaiter().getBill());

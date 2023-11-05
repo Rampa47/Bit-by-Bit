@@ -25,7 +25,7 @@ void Customer::selectFoodItems(Order * order){
     billAmount=0;
 
     srand((unsigned) time(NULL));
-	int numOfItems = rand()%5+1;
+	int numOfItems = rand()%2+1;
     FoodItem* foodItem;
 
     for(int i=0; i<numOfItems;i++ ){
