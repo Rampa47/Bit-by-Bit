@@ -23,8 +23,7 @@ Customer/html
 Customer/latex
 Customer/obj
 Bill/obj
-Bill/my_program
-Bill/src/temp.cpp
 *.md
 .vscode/
-.gitignore
+BillMain.cpp
+*.o

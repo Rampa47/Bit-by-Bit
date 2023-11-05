@@ -3,13 +3,16 @@
 #include "BillPayer.h"
 #include <random>
 #include <string.h>
+#include "Table.h"
 
 using namespace std;
 
 void composite1Test();
 void composite2Test();
+void composite3Test();
 
 int main(){
+    srand(time(0));
     composite1Test();
     composite2Test();
 
@@ -64,4 +67,15 @@ void composite2Test(){
 
     BillComponent* bill3 = new DelegatingCompositeBill({bill,bill2});
     cout << bill3->getBillReceipt();
+}
+
+void composite2Test(){
+    Table* t = new Table();
+    t->addCust(new Customer("John"));
+    t->addCust(new Customer("Jill"));
+    t->addCust(new Customer("Jacob"));
+    t->addCust(new Customer("Cena"));
+
+    BillComponent* bill = t->generateBill();
+    cout << bill->getBillReceipt();
 }
