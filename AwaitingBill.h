@@ -9,9 +9,6 @@ class AwaitingBill: public TableState{
         virtual void handle(Table& table);
         virtual TableState* getNextState();
         virtual std::string toString();
-
-    private:
-
 };
 
 #endif // AWAITINGBILL_H

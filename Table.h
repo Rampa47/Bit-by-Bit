@@ -12,6 +12,8 @@
 #include "Order.h"
 #include "TableState.h"
 #include "Complaint.h"
+#include "CompositeBillPayer.h"
+#include "DelegatingCompositebill.h"
 
 class TableState;
 
@@ -65,13 +67,15 @@ class Table: public Colleague
       void callWaiter();
       void setState();
       TableState* getState();
+      void handleTableState();
         Waiter* getWaiter();
  
       void IsEverythingOkay(ComplaintsHandler* CH);
         int getRandomZeroOrOne();
         int generateComplaint();
         int generateDegree();
-
+      
+      BillComponent* generateBill();
 
     private:
         Table * next;
