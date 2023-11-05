@@ -61,20 +61,19 @@ public:
          * @param to Specifies to who the message is for.
          * @param message The actual message that will be received by the receiver.
          */
-       virtual void receive(std::string to,std::string message);
+       void receive(std::string to,std::string message);
         /**
          * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
          *
          * @param to Specifies to who the message is for.
          * @param message The actual message that will be received by the receiver.
          */
-       virtual void send();
+       void send();
        /**
          * @brief Gets the name of the concrete Class.
         
          */
-        virtual std::string getClassname();
-        bool free=true;
+        std::string getClassname();
        
 };
 
