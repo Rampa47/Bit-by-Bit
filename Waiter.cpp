@@ -1,6 +1,7 @@
 #include "Waiter.h"
 #include <iostream>
 #include "Order.h" // Include necessary headers for other classes if used
+#include <random>
 
 Waiter::Waiter(int wNum, ChefHandler* chef) {
     this->waiterNumber = wNum;
@@ -68,13 +69,19 @@ void Waiter::receive(std::string to, std::string message) {
 }
 
 void Waiter::send() {
-     std::string message = "";
+    std::random_device rd;
+    std::mt19937 gen(rd()); 
+    std::uniform_int_distribution<int> dis(0, 1);
+
+    
+    int random_integer = dis(gen);
+    std::string message = "";
     std::string to = "";
     std::cout << "Waiter would you like to send the order to the Chef now? " << std::endl;
     std::cout << "1.Yes" << std::endl;
     std::cout << "2.No" << std::endl;
 
-    std::cin >> to;
+     to=random_integer;
     if (to == "1") {
      to = "ChefHandler";
      message = "Here is my order for table: "+ waiterNumber;

@@ -53,6 +53,10 @@
 //#include "TimeComplaint.h"
 #include "FoodComplaint.h"
 //#include "ServiceComplaint.h"
+#include "PoultryChef.h"
+#include "BurgerChef.h"
+#include "FryChef.h"
+#include "HeadChef.h"
 using namespace std;
 
 int randomNumCustomers(int min, int max);
@@ -92,7 +96,10 @@ int main()
 //         delete context[i];
 //         context[i] = nullptr;
 //     }
-
+	ChefHandler* orderhandler = new PoultryChef();
+ 	orderhandler->addSuccessor(new FryChef());
+	orderhandler->addSuccessor(new BurgerChef());
+ 	orderhandler->addSuccessor(new HeadChef());
     Restaurant list;
     std::vector<Customer*> vect, secondVect, thirdVect, fourthVect, fifthVect, sixthVect; 
     //MaitreD<std::string> * maitreD;
@@ -126,7 +133,12 @@ int main()
     {
         thirdVect.push_back(new Customer(names[randomCustomers(names)]));
     }
+           Table* table=new Table();
+ 
 
+ 	//Waiter* waiter= new Waiter(1,orderhandler);
+ 	//table->setWaiter(waiter);
+ 	//table->callWaiter(orderhandler);
     MaitreD::instance()->seatCustomers(list,vect);
 
     MaitreD::instance()->seatCustomers(list,secondVect);

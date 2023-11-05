@@ -13,7 +13,9 @@ PoultryChef::~PoultryChef()
 void PoultryChef::handleOrder(Order* order)
 {
     std::cout << "Order passed on to the Poultry Chef..." << std::endl;
+     std::cout << order << std::endl;
     order->changeStateOfOrder();
+   
     for (FoodItem* foodItem : order->getFoodItems())
     {
         if (foodItem->getName().compare("Poultry")==0) 
