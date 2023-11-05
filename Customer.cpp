@@ -86,3 +86,11 @@ void Customer::selectFoodItems(Order * order){
 double Customer::getBillAmount(){
     return billAmount;
 }
+
+/**
+ * @brief Instantiates and returns a new BillPayer object with the current customer instance's name and bill amount
+ * @return A pointer to a newly created BillPayer object
+*/
+BillPayer* Customer::getBill(){
+    return new BillPayer(billAmount,name);
+}

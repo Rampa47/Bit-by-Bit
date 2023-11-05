@@ -15,5 +15,15 @@
 214 Project_Mediator/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-a0f8ea6020069bf53d74.json
 214 Project_Mediator/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-709c82cc18ac8c079964.json
 214 Project_Mediator/cmake-build-debug/.cmake/api/v1/reply/index-2023-10-19T09-29-15-0374.json
-*.txt
+Customer/*.txt
+Customer/src/TempMain.cpp
+Customer/my_program
+Customer/Doxyfile
+Customer/html
+Customer/latex
+Customer/obj
+Bill/obj
 *.md
+.vscode/
+BillMain.cpp
+*.o.DS_Store
