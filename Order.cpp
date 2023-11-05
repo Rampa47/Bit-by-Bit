@@ -1,5 +1,6 @@
 #include "Order.h"
 #include <iostream>
+#include "Raw.h"
 
 Order::Order(int waiter)
         : waiter(waiter){
@@ -9,12 +10,16 @@ Order::Order(int waiter)
      * @param waiter The ID of the waiter who placed the order.
      * @param chefHandler A pointer to a chefHandler responsible for the order.
      */
+   
     this->orderContext=new OrderContext(new Raw());
+    //this->orderContext->setOrderState(new Raw());
+    
     std::cout << "Waiter " << waiter << " taking Customer Order..." << std::endl;
 }
 void Order::changeStateOfOrder(){
-
+ 
     orderContext->cookChangeState();
+    //std::cout << "here2" << std::endl;
 }
 
 

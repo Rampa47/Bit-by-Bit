@@ -66,10 +66,12 @@ class Table: public Colleague
       void callWaiter(ChefHandler* chef);
       void setState();
         Waiter* getWaiter();
+ 
       void IsEverythingOkay(ComplaintsHandler* CH);
         int getRandomZeroOrOne();
         int generateComplaint();
         int generateDegree();
+
 
     private:
         Table * next;

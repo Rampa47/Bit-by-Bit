@@ -6,7 +6,7 @@
  * @class PoultryChef
  * @brief Represents a Poultry Chef responsible for preparing Poultry.
  */
-class PoultryChef:public ChefHandler
+class PoultryChef: public ChefHandler
 {
 
 public:

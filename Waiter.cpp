@@ -1,12 +1,16 @@
+
+
 #include "Waiter.h"
 #include <iostream>
 #include "Order.h" // Include necessary headers for other classes if used
+#include <random>
 
-Waiter::Waiter(int n)  {
-    this->waiterNumber = n;
+Waiter::Waiter(int wNum, ChefHandler* chef) {
+    this->waiterNumber = wNum;
     this->order = nullptr;
     this->currentBillAmount=0.0;
     className="Waiter"; 
+    this->chef=chef;
     greetCustomer();
 
 
@@ -14,10 +18,15 @@ Waiter::Waiter(int n)  {
 
    
 }
+void Waiter::checkCustomer()
+{
+    cout<<"Are you ready to order now?"<<endl;
+}
 
 void Waiter::greetCustomer() {
     cout<<"Waiter " << waiterNumber <<" greets customers and presents menu..."<<endl;
 }
+
 
 void Waiter::handleComplaint(string c, int degree) 
 {
@@ -33,6 +42,8 @@ void Waiter::handleComplaint(string c, int degree)
     }
 
 }
+
+
 void Waiter::addNext(ComplaintsHandler* c)
 {
     if(next==NULL)
@@ -46,16 +57,21 @@ void Waiter::addNext(ComplaintsHandler* c)
 }
 
 
+
 void Waiter::takeOrder(Order* order) {
-    if (order!=NULL) delete order;
+    if (this->order!=NULL) 
+        delete this->order;
     this->order= order;
-   order->handleTask();
+    chef->handleOrder(order);
 
 }
+
 
 Waiter::~Waiter(){
-    if (order!=NULL) delete order;
+    if (this->order!=NULL) 
+        delete this->order;
 }
+
 
 void Waiter::updateBill(double price , int quantity) {
     currentBillAmount += price *quantity;
@@ -65,21 +81,27 @@ void Waiter::receive(std::string to, std::string message) {
 }
 
 void Waiter::send() {
-     std::string message = "";
+    std::string message = "";
     std::string to = "";
-    std::cout << "Waiter would you like to send the order to the Chef now? " << std::endl;
-    std::cout << "1.Yes" << std::endl;
-    std::cout << "2.No" << std::endl;
+    std::cout << "Waiter: Sending order to the Chef now..." << std::endl;
 
-    std::cin >> to;
-    if (to == "1") {
-     to = "ChefHandler";
-     message = "Here is my order for table: "+ waiterNumber;
-    } else {
-        return; 
+    while (true) {
+        
+        srand(static_cast<unsigned int>(time(0))); 
+
+        int availability = rand() % 2; 
+        std::cout << "***checking poultry chefs availability**" << std::endl;
+        if (availability == 1) { 
+            to = "Poultry Chef";
+            message = "Here is my order for table: " + std::to_string(waiterNumber);
+            std::cout << "Chef is available. Order is placed" << std::endl;
+            mediator->notifications(to, message);
+            break; // Chef is available, exit the loop
+        } else {
+            std::cout << "Chef is not available at the moment. Retrying in 10 seconds." << std::endl;
+            std::this_thread::sleep_for(std::chrono::seconds(10));
+        }
     }
-
-    mediator->notifications(to,message);
 }
 
 void Waiter::presentBill() {
@@ -178,10 +200,13 @@ void Waiter::retrieveBillAmountFromTextFile()  {
 const int Waiter::getWaiterNumber(){
     return waiterNumber;
 }
-void Waiter::setWaiterNumber(int waiternumber){
-    this->waiterNumber=waiternumber;
 
-}
 std::string Waiter::getClassname(){
     return "Waiter";
+}
+
+void Waiter::generateBill()
+{
+    cout<<"**Generating customer Bill(s) "<<endl;
+
 }
