@@ -31,3 +31,5 @@ Bill/obj
 .vscode/
 BillMain.cpp
 *.o.DS_Store
+
+*.o
