@@ -7,11 +7,15 @@ OrderContext::OrderContext(OrderState* orderState){
 
 }
 void OrderContext::cookChangeState(){
-    orderState->cook(this);
+    
+   
+   
+    this->orderState->cook(this);
+ 
 }
 void OrderContext::setOrderState(OrderState* orderState){
     if(this->orderState!=nullptr){
-        delete this->orderState;
+         this->orderState=nullptr;
         this->orderState=orderState;
     }
 }
