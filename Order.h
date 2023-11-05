@@ -1,7 +1,7 @@
 #ifndef ORDER_H
 #define ORDER_H
 
-#include "ChefTask.h"
+
 #include "FoodItem.h"
 #include "ChefHandler.h"
 #include "OrderContext.h"
@@ -13,10 +13,9 @@
  * @class Order
  * @brief Represents an order placed by a customer.
  */
-class Order : public ChefTask {
+class Order  {
 private:
     int waiter; // The ID of the waiter that is in charge of the Order
-    ChefHandler* chefHandler; // A pointer to a ChefHandler
     std::vector<FoodItem*> foodItems; // A vector of food items in the order
     OrderContext* orderContext; // The context of the order's state
 
@@ -27,14 +26,7 @@ public:
      * @param waiter The ID of the waiter who placed the order.
      * @param chefHandler A pointer to a ChefHandler responsible for the order.
      */
-    Order(int waiter, ChefHandler* chefHandler);
-
-    /**
-     * @brief Handles the order placed by a waiter.
-     *
-     * This function processes the order by preparing the specified foodItems.
-     */
-    void handleTask() override;
+    Order(int waiter);
 
     /**
      * @brief Adds a food item to the order.

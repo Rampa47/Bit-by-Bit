@@ -1,8 +1,9 @@
 #include"Complaint.h"
 
-Complaint::Complaint(ComplaintsHandler* handler)
+Complaint::Complaint(ComplaintsHandler* handler,int degree)
 {
-    this->handler=handler;
+   this->handler=handler;
+   this->degree=degree;
 }
 
 Complaint::~Complaint()
@@ -11,5 +12,5 @@ Complaint::~Complaint()
 
 void Complaint::setDegree(int degree)
 {
-    this->degree=degree; //degree of complaint
+   this->degree=degree;
 }

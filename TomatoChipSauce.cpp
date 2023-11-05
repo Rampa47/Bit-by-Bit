@@ -22,3 +22,7 @@ TomatoChipSauce::~TomatoChipSauce() {
      * @brief Virtual destructor for the TomatoChipSauce class.
      */
 }
+
+double TomatoChipSauce::getPrice(){
+    return chips->getPrice()+5.99;
+}

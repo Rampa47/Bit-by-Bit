@@ -16,7 +16,7 @@ class ServiceComplaint: public Complaint
          *
          * @param handler A pointer to the ComplaintsHandler responsible for handling the complaint.
          */
-        ServiceComplaint(ComplaintsHandler* handler);
+        ServiceComplaint(ComplaintsHandler* handler,int degree);
 
         /**
          * @brief Destructor for the ServiceComplaint object.
@@ -31,7 +31,8 @@ class ServiceComplaint: public Complaint
          * @param complaint The description of the Service related complaint.
          * @param degree The degree of severity of the complaint.
          */
-        void AddressComplaint(string complaint,int degree);
+        void AddressComplaint();
+        string getname();
 };
 
 #endif

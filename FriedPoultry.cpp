@@ -13,3 +13,7 @@ FriedPoultry::~FriedPoultry() {
      * @brief Virtual destructor for the FriedPoultry class.
      */
 }
+
+double FriedPoultry::getPrice(){
+    return 130.00;
+}

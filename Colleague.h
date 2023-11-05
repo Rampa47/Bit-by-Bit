@@ -18,7 +18,7 @@ class Colleague
          * @param to Specifies to who the message is for.
          * @param message The actual message that will be received by the receiver.
          */
-       virtual void receive(std::string to,std::string message,Colleague* me)=0;
+       virtual void receive(std::string to,std::string message)=0;
        /**
          * @brief Pure virtual function which insinuates that each derived class will perform their unique implementation of the function.
          *
@@ -40,7 +40,7 @@ class Colleague
         virtual std::string getClassname()=0;
 
     
-    private:
+    protected:
     Mediator* mediator;//holds the current instance of the mediator used by all the colleagues.
     std::string className;//holds the concrete class name of the Colleagues
 };

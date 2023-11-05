@@ -18,6 +18,11 @@ public:
      * @brief Cooks the plain chips.
      */
     void cook() override;
+    /**
+     * @brief Get the price of the food item.
+     * @return the price of the food item
+     */
+    virtual double getPrice();
 };
 
 #endif

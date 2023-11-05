@@ -17,7 +17,7 @@ class FoodComplaint: public Complaint
          *
          * @param handler A pointer to the ComplaintsHandler responsible for handling the complaint.
          */
-        FoodComplaint(ComplaintsHandler* handler);
+        FoodComplaint(ComplaintsHandler* handler,int degree);
 
         /**
          * @brief Destructor for the FoodComplaint object.
@@ -32,6 +32,8 @@ class FoodComplaint: public Complaint
          * @param complaint The description of the food related complaint.
          * @param degree The degree of severity of the complaint.
          */
-        void AddressComplaint(string complaint,int degree);
+        void AddressComplaint();
+
+        string getname();
 };
 #endif
