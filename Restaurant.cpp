@@ -139,6 +139,8 @@ void Restaurant::addCustomer(std::vector<Customer*> vect)
                         ptr->incrementNumCustomers();
                     }
                 }
+                ptr->getWaiter()->greetCustomer();
+                ptr->print();
                 return;
             }
 
@@ -161,7 +163,6 @@ void Restaurant::addCustomer(std::vector<Customer*> vect)
         if(fullRestaurant)
         {
             std::cout << "All the tables are occupied" << std::endl;
-            std::cout << "Please sit in the waiting area until a table becomes available" << std::endl;
 
             Table * nodePtr = addWaitingArea();
 
@@ -237,7 +238,11 @@ std::string Restaurant::printCustomers()
             {
                 ss << count;
                 ss >> table;
-                restaurantCustomers += "Table " + table + ": " + "\n";
+                ss.clear();
+                ss << node->getWaiterNumber();
+                string wn;
+                ss >> wn;
+                restaurantCustomers += "Table " + table + ", Waiter "+wn+": \n";
                 restaurantCustomers += node->print();
                 node = node->getNext();
                 count++;

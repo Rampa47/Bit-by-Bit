@@ -1,9 +1,6 @@
 #ifndef ORDERSTATE_H
 #define ORDERSTATE_H
 #include "OrderContext.h"
-#include "Raw.h"
-#include "InProgress.h"
-#include "Done.h"
 #include <iostream>
 /**
  * @class OrderState

@@ -1,58 +1,35 @@
 #ifndef WAITER_H
 #define WAITER_H
+
 #include <string>
 #include "ComplaintsHandler.h"
 #include "Order.h"
-//#include "Bill.h"
-#include <vector>
-#include <thread>
-#include <iostream>
-#include <fstream>
-#include <cstdlib>
-#include <ctime>
-using namespace std ;
+#include "Colleague.h"
 
-
-class Waiter :public ComplaintsHandler , public Colleague{
+class Waiter : public ComplaintsHandler, public Colleague {
 private:
     int waiterNumber;
     Order* order;
-    //UNCOMMENT WHEN BILL CLASS IS AVAILABLE 
-    //Bill *customerBill;
-    ChefHandler * chef;
-   // Table *table;
+    double currentBillAmount;
+    ChefHandler* chef;
 
-   
 public:
     Waiter(int wNum, ChefHandler* chef);
-    void handleComplaint(string c, int degree);
+    void handleComplaint(std::string c, int degree);
     void takeOrder(Order* order);
-    /**
-         * @brief Receives message from Mediator .
-         * @param to Specifies to who the message is for.
-         * @param message The actual message that will be received by the receiver.
-         */
-    void receive(std::string to,std::string message);
-     /**
-         * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
-         *
-         * @param to Specifies to who the message is for.
-         * @param message The actual message that will be received by the receiver.
-         */
-       void send();
-       std::string getClassname();
-         
+    void receive(std::string to, std::string message);
+    void send() override; 
+    std::string getClassname();
     void greetCustomer();
-   
-   //NB function below must take a Bill object as param .it will have all this information
-    void saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID);
-    void checkCustomer();//checks if customer is ready to order
-    //void retrieveBillAmountFromTextFile();
+    void updateBill(double price, int quantity);
+    void presentBill();
+    void createTab();
+    void handlePayment();
+    void saveBillAmountToTextFile(double billAmount, std::string name, int contact, int ID);
+    void retrieveBillAmountFromTextFile();
     const int getWaiterNumber();
     void addNext(ComplaintsHandler* c);
-    void getBill();
     ~Waiter();
-
 };
 
 #endif

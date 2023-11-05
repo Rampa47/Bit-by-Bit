@@ -20,7 +20,6 @@ class Table: public Colleague
     public:
         Table();     // Default constructor
         Table(bool isWaitingArea);      // Parameterised constructor (Was used in testing the list)
-        Table(Waiter* w);
         Table * getNext(); 
         Table * getPrev();
         void setNext(Table * node);
