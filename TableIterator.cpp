@@ -43,7 +43,7 @@ Table* TableIterator::first()
 /**
  * @brief Destructor for the TableIterator class.
  *
- * Cleans up any allocated resources, including the firstTable and currentTable pointers.
+ * Sets variables to null.
  */
 TableIterator::~TableIterator()
 {
