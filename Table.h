@@ -69,7 +69,10 @@ class Table: public Colleague
       TableState* getState();
       void handleTableState();
       Waiter* getWaiter();
-      
+      void IsEverythingOkay(ComplaintsHandler* CH);
+      int getRandomZeroOrOne();
+      int generateComplaint();
+      int generateDegree();
       BillComponent* generateBill();
       string message="";
       static int currTableNo;
