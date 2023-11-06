@@ -1,3 +1,7 @@
+/**
+ * @file OccupiedTable.h
+ */
+
 #ifndef OCCUPIEDTABLE_H
 #define OCCUPIEDTABLE_H
 
