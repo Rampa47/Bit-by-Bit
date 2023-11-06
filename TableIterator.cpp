@@ -28,18 +28,7 @@ Table* TableIterator::first()
 
 TableIterator::~TableIterator()
 {
-    if(firstTable != nullptr)
-    {
-        delete firstTable;
-    }
-
     firstTable = nullptr;
-
-    if(currentTable != nullptr)
-    {
-        delete currentTable;
-    }
-
     currentTable = nullptr;
 }
 
