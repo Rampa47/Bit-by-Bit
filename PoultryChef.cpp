@@ -12,8 +12,10 @@ PoultryChef::~PoultryChef()
 
 void PoultryChef::handleOrder(Order* order)
 {
+    free= false;
     std::cout << "Order passed on to the Poultry Chef..." << std::endl;
     order->changeStateOfOrder();
+   
     for (FoodItem* foodItem : order->getFoodItems())
     {
         if (foodItem->getName().compare("Poultry")==0) 
@@ -21,6 +23,7 @@ void PoultryChef::handleOrder(Order* order)
             foodItem->cook();
         }
     }
-
+    ThreadSleep::threadSleep();
+    free= true;
     successor->handleOrder(order);
 }

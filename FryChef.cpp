@@ -20,5 +20,6 @@ void FryChef::handleOrder(Order* order)
             foodItem->cook();
         }
     }
+    ThreadSleep::threadSleep();
     successor->handleOrder(order);
 }

@@ -1,7 +1,8 @@
 #include "ChefHandler.h"
+#include <random>
 
 
-ChefHandler::ChefHandler(): successor(NULL)
+ChefHandler::ChefHandler(): successor(nullptr)
 {
 
 }
@@ -22,4 +23,19 @@ void ChefHandler::addSuccessor(ChefHandler* c)
     {
         successor->addSuccessor(c);
     }
+}
+
+void ChefHandler::receive(std::string to,std::string message)
+{
+    std::cout<<message <<std::endl;
+}
+
+void  ChefHandler::send()
+{
+    mediator->notifications("Waiter","Order is ready");
+}
+
+std::string ChefHandler::getClassname()
+{
+    return "ChefHandler";
 }

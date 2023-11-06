@@ -1,49 +1,44 @@
 #ifndef WAITER_H
 #define WAITER_H
+
 #include <string>
-#include "ComplaintsHandler.h"
-#include "Order.h"
-//#include "Table.h"
-#include "ChefTask.h"
-#include "FoodItem.h"
-#include "Menu.h"
-#include "Burger.h"
-#include "Poulltry.h"
-#include "Chips.h"
-#include "BeefBurger.h"
-#include "PoultryChef.h"
-#include "BurgerChef.h"
-#include "FryChef.h"
-#include "HeadChef.h"
-#include <vector>
-#include <thread>
 #include <iostream>
 #include <fstream>
-using namespace std ;
+#include <random>
+#include "ComplaintsHandler.h"
+#include "Order.h"
+#include "Colleague.h"
 
+class Table;
 
-class Waiter :public ComplaintsHandler{
-private:
-    int waiterNumber;
-    Order* order;
-    Menu *menu ;
-    int maxOrderAttempts ;
-     double currentBillAmount;
-public:
-    Waiter(int wNum);
-    void handleComplaint(string c, int degree);
-    void takeOrder();
-    void receive(string to, string message);
-    void send(string to, string message);
-    void greetCustomer();
-    void presentMenu();
-    void updateBill(double price , int quantity);
-    void presentBill();
-    void createTab();
-    void handlePayment();
-    void saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID);
-    void retrieveBillAmountFromTextFile();
+class Waiter : public ComplaintsHandler, public Colleague
+{
+    private:
+        int waiterNumber;
+        Order* order;
+        double currentBillAmount;
+        ChefHandler* chef;
+        Table*table;
 
+    public:
+        Waiter(int wNum, ChefHandler* chef);
+        void handleComplaint(std::string c, int degree);
+        void takeOrder(Order* order);
+        void receive(std::string to, std::string message);
+        void send() override; 
+        std::string getClassname();
+        void greetCustomer();
+        void updateBill(double price, int quantity);
+        void presentBill();
+        void createTab();
+        void handlePayment();
+        void saveBillAmountToTextFile(double billAmount, std::string name, int contact, int ID);
+        void retrieveBillAmountFromTextFile();
+        const int getWaiterNumber();
+        void addNext(ComplaintsHandler* c);
+        void setTable(Table * t);
+        void checkOnTable();
+        ~Waiter();
 };
 
 #endif

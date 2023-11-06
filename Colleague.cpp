@@ -1,13 +1,12 @@
 #include "Colleague.h"
 
-
-
-
- Colleague::~Colleague(){
+Colleague::~Colleague()
+{
         mediator=nullptr;
 }
 
-void Colleague::reg(Mediator* m){
+void Colleague::reg(Mediator* m)
+{
     mediator = m;
     m->registerMe(this);
 

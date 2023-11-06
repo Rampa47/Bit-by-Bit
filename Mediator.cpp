@@ -5,50 +5,104 @@ using namespace std;
 
 Mediator::~Mediator()
 {
-  ChefAndMaitreD.clear();
-  TablesAndWaiters.clear();
+    Chef.clear();
+    Tables.clear();
+    Waiter.clear();
 }
-void Mediator::notifications(std::string to, std::string message, Colleague* me)
+void Mediator::notifications(std::string to, std::string message)
 {
-  if (to == "ChefHandler" || to == "MaitreD")
-  {
-    
-    
-      for (Colleague *colleague : ChefAndMaitreD)
-      {
-        if (colleague->getClassname() == to)
+    message= "\e[36m NOTIFICATION: "+message+"\e[0m";
+    if (to == "ChefHandler")
+    {
+
+            for (Colleague *colleague : Chef)
+            {
+                if (colleague->getClassname() == to)
+                {
+                    colleague->receive(to, message);
+                    to="";
+                }
+            }
+
+
+
+    }
+    else
+    {
+        // problem is the Maitre D needs to know to which waiter to send the complaint to meaning what is the waiter number
+        if (to == "Waiter")
         {
-          colleague->receive(to, message, me);
+            for (Colleague *colleague : Waiter)
+            {
+
+
+                    std::string waiterSendingTo = "Waiter " ;
+
+                    colleague->receive(waiterSendingTo, message);
+
+                Colleague* temp =  Waiter[0];
+
+
+                Waiter.erase( Waiter.begin());
+
+
+                Waiter.push_back(temp);
+                Colleague* temp2 =  Tables[0];
+
+
+                Tables.erase( Tables.begin());
+
+
+                Tables.push_back(temp2);
+                break;
+
+            }
         }
-      }
-    
-    
-  }
-  else
-  {
-    // problem is the Maitre D needs to know to which waiter to send the complaint to meaning what is the waiter number
-    
-      for (Colleague *colleague : TablesAndWaiters)
-      {
-        if (colleague->getClassname == to)
+        else if(to == "Table")
         {
-        
-          colleague->receive(to, message, me);
+            for (Colleague *colleague : Tables)
+            {
+
+
+                colleague->receive(to, message);
+                Colleague* temp =  Tables[0];
+
+
+                Tables.erase( Tables.begin());
+
+
+                Tables.push_back(temp);
+
+                Colleague* temp2 =  Waiter[0];
+
+
+                Waiter.erase( Waiter.begin());
+
+
+                Waiter.push_back(temp2);
+                break;
+
+            }
         }
-      }
-    
-    
-  }
+    }
 }
 
 void Mediator::registerMe(Colleague *c)
 {
-  if (c->getClassname() == "ChefHandler" || c->getClassname() == "MaitreD")
-  {
-    ChefAndMaitreD.push_back(c);
-  }
-  else
-  {
-    TablesAndWaiters.push_back(c);
-  }
+    if (c->getClassname() == "ChefHandler")
+    {
+        Chef.push_back(c);
+    }
+    else
+    {
+        if(c->getClassname()=="Waiter"){
+            Waiter.push_back(c);
+        }
+        else if(c->getClassname()=="Table")
+        {
+
+            Tables.push_back(c);
+        }
+
+    }
 }

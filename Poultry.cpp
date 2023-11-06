@@ -2,7 +2,8 @@
 #include "PoultryType.h"
 #include <iostream>
 
-Poultry::Poultry(PoultryType* type) : poultryType(type) {
+Poultry::Poultry(PoultryType* type) : poultryType(type) 
+{
     /**
      * @brief Constructor for the Poultry class.
      *
@@ -10,11 +11,12 @@ Poultry::Poultry(PoultryType* type) : poultryType(type) {
      */
 }
 
-void Poultry::cook() {
+void Poultry::cook() 
+{
     /**
      * @brief Cooks the poultry dish using the specified poultry type.
      */
-    std::cout << "Preparing the Poultry..." << std::endl;
+    std::cout << "  Preparing the Poultry..." << std::endl;
     poultryType->cook(); // Delegate the cooking to the specified poultry type
 }
 
@@ -23,7 +25,8 @@ string Poultry::getName()
     return "Poultry";
 }
 
-void Poultry::setPoultryType(PoultryType* type) {
+void Poultry::setPoultryType(PoultryType* type)
+{
     /**
      * @brief Set the type of poultry for the dish.
      *
@@ -32,9 +35,15 @@ void Poultry::setPoultryType(PoultryType* type) {
     poultryType = type;
 }
 
-Poultry::~Poultry() {
+Poultry::~Poultry() 
+{
     /**
      * @brief Destructor for the Poultry class.
      */
     delete poultryType; // Release the allocated memory for the poultry type
+}
+
+double Poultry::getPrice()
+{
+    return poultryType->getPrice();
 }

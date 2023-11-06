@@ -1,15 +1,22 @@
 #include "GrilledPoultry.h"
 #include <iostream>
 
-void GrilledPoultry::cook() {
+void GrilledPoultry::cook() 
+{
     /**
      * @brief Cooks the grilled poultry.
      */
-    std::cout << "Grilling the poultry..." << std::endl;
+    std::cout << "      Grilling the poultry..." << std::endl;
 }
 
-GrilledPoultry::~GrilledPoultry() {
+GrilledPoultry::~GrilledPoultry() 
+{
     /**
      * @brief Virtual destructor for the GrilledPoultry class.
      */
+}
+
+double GrilledPoultry::getPrice()
+{
+    return 162.90;
 }
