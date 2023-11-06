@@ -366,7 +366,106 @@ Table::~Table(){
     if (tableState!=NULL) delete tableState;
 }
 
+void Table::IsEverythingOkay(ComplaintsHandler* CH)
+{
+    cout<<"Is everything okay?"<<endl;
+    int okay = getRandomZeroOrOne();
+    if(okay==1)
+    {
+        cout<<"Yes, Thank you."<<endl;
+    }
+    else
+    {
+        cout<<"No!"<<endl;
+        int degree = generateDegree();
+        int complaint= generateComplaint();
+        if(complaint==2)
+        {
+            if(c==NULL)
+            {
+               c= new TimeComplaint(CH,degree);
+            }
+            else
+            {
+                if(c->getname()=="Time")
+                {
+                    c->setDegree(6);
+                }
+                else
+                {
+                    delete c;
+                    c= new TimeComplaint(CH,degree);
+                }
+                
+            }
+            
+        }
+        else if(complaint==3)
+        {
+            if(c==NULL)
+            {
+               c= new FoodComplaint(CH,degree);
+            }
+            else
+            {
+                if(c->getname()=="Food")
+                {
+                    c->setDegree(6);
+                }
+                else
+                {
+                    delete c;
+                    c= new FoodComplaint(CH,degree);
+                }
+                
+            }
+        }
+        else{
 
+            if(c==NULL)
+            {
+               c= new ServiceComplaint(CH,degree);
+            }
+            else
+            {
+                if(c->getname()=="Service")
+                {
+                    c->setDegree(6);
+                }
+                else
+                {
+                    delete c;
+                    c= new ServiceComplaint(CH,degree);
+                }
+                
+            }
+        }
+    }
+}
+
+int Table::getRandomZeroOrOne() 
+{
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> distribution(0, 1);
+    return distribution(gen);
+}
+
+int Table::generateComplaint()
+ {
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<int> distribution(2, 4);
+    return distribution(gen);
+}
+
+int Table::generateDegree()
+{
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<int> distribution(1, 10);
+    return distribution(gen);
+}
 
 
 
