@@ -17,7 +17,5 @@ class Raw : public OrderState
      *
      */
         virtual void cook(OrderContext* orderContext);
-   
-
 };
 #endif //RAW_H

@@ -11,13 +11,15 @@
 
 class Table;
 
-class Waiter : public ComplaintsHandler, public Colleague {
-private:
-    int waiterNumber;
-    Order* order;
-    double currentBillAmount;
-    ChefHandler* chef;
-    Table*table;
+class Waiter : public ComplaintsHandler, public Colleague
+{
+    private:
+        int waiterNumber;
+        Order* order;
+        double currentBillAmount;
+        ChefHandler* chef;
+        Table*table;
+
 
 public:
     Waiter(int wNum, ChefHandler* chef);
@@ -46,6 +48,7 @@ public:
     void setTable(Table * t);
     void checkOnTable();
     ~Waiter();
+
 };
 
 #endif

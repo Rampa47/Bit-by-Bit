@@ -16,7 +16,8 @@
 
 using namespace std;
 
-class Facade{
+class Facade
+{
     private:
         static std::array<std::string, 150> names;
         MaitreD* maitreD;

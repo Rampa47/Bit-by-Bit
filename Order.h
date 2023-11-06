@@ -13,6 +13,7 @@
  * @class Order
  * @brief Represents an order placed by a customer.
  */
+
 class Order  {
 private:
     int waiter; // The ID of the waiter that is in charge of the Order
@@ -53,6 +54,7 @@ public:
      * @brief returns the waiterNumber parameter
      */
     const int getWaiter();
+
 
 
 

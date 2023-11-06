@@ -1,7 +1,8 @@
 #include "Facade.h"
 
 
-int main(){
+int main()
+{
 	int tablesNo = ThreadSleep::generateRandomNumber(1,10);
 
     Facade facade(tablesNo);

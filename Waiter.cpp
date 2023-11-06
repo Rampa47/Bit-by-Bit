@@ -3,7 +3,8 @@
 #include "ThreadSleep.h"
 using namespace std;
 
-Waiter::Waiter(int wNum, ChefHandler* chef) {
+Waiter::Waiter(int wNum, ChefHandler* chef) 
+{
     this->waiterNumber = wNum;
     this->order = nullptr;
     this->currentBillAmount=0.0;
@@ -11,7 +12,8 @@ Waiter::Waiter(int wNum, ChefHandler* chef) {
    
 }
 
-void Waiter::greetCustomer() {
+void Waiter::greetCustomer() 
+{
     cout<<"Waiter " << waiterNumber<<" greets Table "<<to_string(table->getTableNumber())<<" and presents menu..."<<endl;
 }
 
@@ -42,7 +44,8 @@ void Waiter::addNext(ComplaintsHandler* c)
 }
 
 
-void Waiter::takeOrder(Order* order) {
+void Waiter::takeOrder(Order* order) 
+{
     if (this->order!=NULL) 
         delete this->order;
     this->order= order;
@@ -55,23 +58,28 @@ void Waiter::takeOrder(Order* order) {
     ThreadSleep::threadSleep();
 }
 
-Waiter::~Waiter(){
+Waiter::~Waiter()
+{
     if (order!=NULL) 
         delete order;
 }
 
-void Waiter::updateBill(double price , int quantity) {
+void Waiter::updateBill(double price , int quantity) 
+{
     currentBillAmount += price *quantity;
 }
-void Waiter::receive(std::string to, std::string message) {
+void Waiter::receive(std::string to, std::string message) 
+{
     std::cout<<message <<std::endl;
 }
 
-void Waiter::send() {
+void Waiter::send() 
+{
     mediator->notifications("ChefHandler","Waiter bringing order to kitchen.");
 }
 
-void Waiter::presentBill() {
+void Waiter::presentBill() 
+{
     cout << " *** Waiter #" << waiterNumber << " is presenting the bill. ***" << endl;
     cout << "Your total bill amount is: R" << currentBillAmount << endl;
     cout << "What would you like to do?" << endl;
@@ -82,7 +90,8 @@ void Waiter::presentBill() {
     int choice;
     cin >> choice;
 
-    switch (choice) {
+    switch (choice) 
+    {
         case 1:
 
             handlePayment();
@@ -101,7 +110,8 @@ void Waiter::presentBill() {
 }
 
 //use random numbers for options
-void Waiter::handlePayment() {
+void Waiter::handlePayment() 
+{
     int customerRating;
     cout << "Processing payment... Thank you for joining us!" << endl;
     cout<<"Before you go, please rate your experience out of 5:"<<endl ;
@@ -116,7 +126,8 @@ void Waiter::handlePayment() {
 }
 
 
-void Waiter::createTab() {
+void Waiter::createTab() 
+{
     cout << "Creating a tab for the customer. You can settle the bill later." << endl;
     string customerName;
     int custContact, custID;
@@ -127,11 +138,11 @@ void Waiter::createTab() {
     cout<<"Please enter your ID number"<<endl;
     cin>>custID;
      saveBillAmountToTextFile(currentBillAmount, customerName,custContact, custID);
-
 }
 
 
-void Waiter::saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID) {
+void Waiter::saveBillAmountToTextFile(double billAmount ,string name , int contact,int ID) 
+{
 
     ofstream file("tabs.txt");
     if (file.is_open()) {
@@ -145,7 +156,8 @@ void Waiter::saveBillAmountToTextFile(double billAmount ,string name , int conta
 
 }
 
-void Waiter::retrieveBillAmountFromTextFile()  {
+void Waiter::retrieveBillAmountFromTextFile()  
+{
     double billAmount = 0.0;
     string custName ;
     int custContact, custId;
@@ -160,22 +172,25 @@ void Waiter::retrieveBillAmountFromTextFile()  {
     }
     this->currentBillAmount=billAmount;
     presentBill();
-
 }
 
 
-const int Waiter::getWaiterNumber(){
+const int Waiter::getWaiterNumber()
+{
     return waiterNumber;
 }
 
-std::string Waiter::getClassname(){
+std::string Waiter::getClassname()
+{
     return "Waiter";
 }
 
- void Waiter::setTable(Table * t){
+ void Waiter::setTable(Table * t)
+{
     table= t;
 }
 
-void Waiter::checkOnTable(){
+void Waiter::checkOnTable()
+{
     cout<<"Waiter "<<waiterNumber<< " checks if table "<<to_string(table->getTableNumber())<<" is ready to order..."<<endl;
 }

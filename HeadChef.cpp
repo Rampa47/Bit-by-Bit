@@ -47,6 +47,7 @@ void HeadChef::addNext(ComplaintsHandler* c)
     }
 }
 
-void HeadChef::send(){
+void HeadChef::send()
+{
     mediator->notifications("Waiter","Order is ready.");
 }

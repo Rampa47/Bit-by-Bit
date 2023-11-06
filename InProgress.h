@@ -10,7 +10,6 @@
 class OrderContext;
 class InProgress : public OrderState
 {
-
 public:
    /**
      * @brief The second concrete state of Order state.Changes the current state to the next state.
@@ -19,5 +18,6 @@ public:
      *
      */
       void cook(OrderContext* orderContext);
+
 };
 #endif

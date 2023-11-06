@@ -1,13 +1,15 @@
 #include "PlainChips.h"
 #include <iostream>
 
-PlainChips::~PlainChips() {
+PlainChips::~PlainChips() 
+{
     /**
      * @brief Destructor for the PlainChips class.
      */
 }
 
-void PlainChips::cook() {
+void PlainChips::cook() 
+{
     /**
      * @brief Cooks the plain chips.
      */
@@ -16,6 +18,7 @@ void PlainChips::cook() {
 }
 
 
-double PlainChips::getPrice(){
+double PlainChips::getPrice()
+{
     return 49.99;
 }
