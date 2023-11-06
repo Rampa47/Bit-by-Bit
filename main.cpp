@@ -5,7 +5,7 @@ int main(){
 	int tablesNo = ThreadSleep::generateRandomNumber(1,10);
 
     Facade facade(tablesNo);
-    std::cout << "Press Enter to play." << std::endl;
+    std::cout << "Press Enter to start the simulation." << std::endl;
 
     while (true) {
         char input = std::cin.get();
