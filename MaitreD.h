@@ -16,7 +16,7 @@ class MaitreD
         MaitreD();
         ~MaitreD();
         MaitreD(MaitreD&){}
-        MaitreD & operator=(const MaitreD&){return *this;}
+        MaitreD & operator=(const MaitreD&){return *maitreD;}
         
     
     private:

@@ -7,26 +7,18 @@
 
 #include <ctime>
 #include <random>
+class Facade;
 
 class ThreadSleep {
 public:
-    static void threadSleep() {
-        int time = ThreadSleep::generateRandomNumber(1000, 4000);
-        std::this_thread::sleep_for(std::chrono::milliseconds(time));
-    }
-    static void threadSleep(int n) {
-        int time = ThreadSleep::generateRandomNumber(100, n);
-        std::this_thread::sleep_for(std::chrono::milliseconds(time));
-    }
+    static void threadSleep();
+    static void threadSleep(int n);
 
-    static int generateRandomNumber(int min, int max) {
-        std::random_device rd;  
-        std::mt19937 gen(rd()); 
-
-        std::uniform_int_distribution<> dis(min, max);
-
-        return dis(gen);
-    }
+    static int generateRandomNumber(int min, int max);
+    static Facade* facade;
+    static void execute(Facade &f);
+    static void execute();
+    
 };
 
 #endif

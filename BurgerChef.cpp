@@ -12,7 +12,7 @@ BurgerChef::~BurgerChef()
 
 void BurgerChef::handleOrder(Order* order)
 {
-    std::cout << "Order passed on to the Burger Chef..." << std::endl;
+    std::cout << "Waiter "<<order->getWaiter()<<"'s order passed on to the Burger Chef..." << std::endl;
     for (FoodItem* foodItem : order->getFoodItems())
     {
         if (foodItem->getName().compare("Burger")==0)
@@ -21,5 +21,6 @@ void BurgerChef::handleOrder(Order* order)
         }
     }
     ThreadSleep::threadSleep();
+    ThreadSleep::execute();
     successor->handleOrder(order);
 }

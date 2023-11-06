@@ -2,6 +2,7 @@
 
 
 #include "Table.h"
+#include "ThreadSleep.h"
 #include <iostream>
 #include <random>
 
@@ -287,6 +288,7 @@ void Table::callWaiter(){
         customer->selectFoodItems(order);
     }
     ThreadSleep::threadSleep();
+    ThreadSleep::execute();
     waiter->takeOrder(order);
 }
 

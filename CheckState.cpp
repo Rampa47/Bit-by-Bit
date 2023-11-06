@@ -5,14 +5,15 @@
 void CheckState::handle(Table& table)
 {
     table.getWaiter()->checkOnTable();
+    cout<<"Table still browsing menu and is not ready to order..."<<endl;
     ThreadSleep::threadSleep();
 }
 
 
 TableState* CheckState::getNextState()
 {
-    if (current<=0) return new RequestToOrder();
-    else return new CheckState(--current);
+    if (current--<=0) return new RequestToOrder();
+    else return new CheckState(current);
     
 }
 

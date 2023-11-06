@@ -11,6 +11,7 @@ void RequestToOrder::handle(Table& table)
     table.message= "Table is ready to order.";
     table.send();
     ThreadSleep::threadSleep();
+    ThreadSleep::execute();
     table.callWaiter();
 }
 

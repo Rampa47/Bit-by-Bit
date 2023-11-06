@@ -28,10 +28,10 @@ class Facade{
         vector<Table*> pipeline;
 
     public:
-        Facade(int tables);
+        Facade();
+        ~Facade();
         void execute1();
         void execute2();
-        ~Facade();
 
 };
 

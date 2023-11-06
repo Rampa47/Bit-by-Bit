@@ -49,10 +49,12 @@ void Waiter::takeOrder(Order* order) {
     cout<<"Waiter "<<waiterNumber<<" heading to Kitchen..."<<endl;
     send();
     ThreadSleep::threadSleep();
+    ThreadSleep::execute();
     while(!chef->free){}
     chef->handleOrder(order);
     cout<<"Waiter "<<waiterNumber<<" taking food to table..."<<endl;
     ThreadSleep::threadSleep();
+    ThreadSleep::execute();
 }
 
 Waiter::~Waiter(){
