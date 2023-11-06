@@ -1,3 +1,7 @@
+/**
+ * @file AwaitingBill.h
+ */
+
 #ifndef AWAITINGBILL_H
 #define AWAITINGBILL_H
 

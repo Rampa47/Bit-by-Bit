@@ -1,3 +1,7 @@
+/**
+ * @file ReadyToLeave.h
+ */
+
 #ifndef READYTOLEAVE_HPP
 #define READYTOLEAVE_HPP
 

@@ -1,6 +1,6 @@
 # Compiler and compiler flags
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -g
+CXXFLAGS = -std=c++11 -Wall -Wno-inconsistent-missing-override -g
 
 # Source files and object files
 SRC_FILES := $(wildcard *.cpp)
