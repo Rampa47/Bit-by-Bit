@@ -1,3 +1,7 @@
+/**
+ * @file EmptyTable.h
+ */
+
 #ifndef EMPTYTABLE_H
 #define EMPTYTABLE_H
 
