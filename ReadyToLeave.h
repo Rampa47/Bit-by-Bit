@@ -1,3 +1,7 @@
+/**
+ * @file ReadyToLeave.h
+ */
+
 #ifndef READYTOLEAVE_HPP
 #define READYTOLEAVE_HPP
 
@@ -9,7 +13,6 @@ class ReadyToLeave: public TableState
         virtual void handle(Table& table);
         virtual TableState* getNextState();
         virtual std::string toString();
-    
 };
 
 
