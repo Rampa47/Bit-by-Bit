@@ -30,8 +30,8 @@ class Mediator
     
     private:
      std::vector<Colleague*> Chef;//holds the Colleagues that has subscribed to the Mediator specifically the Maitre D and the Chef
-     std::vector<Colleague*> Tables;//holds the Colleagues that has subscribed to the Mediator specifically the Tables and the Waiters
-     std::vector<Colleague*> Waiter;
+     std::vector<Colleague*> Tables;//holds the Colleagues that has subscribed to the Mediator specifically the Tables 
+     std::vector<Colleague*> Waiter;//holds the Colleagues that has subscribed to the Mediator specifically the  Waiters
 };
 
 #endif

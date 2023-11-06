@@ -9,6 +9,10 @@
 class OrderContext;
 class Done : public OrderState{
     public:
+    /**
+     * @brief The last concrete state of Order state.
+     
+     */
         void cook(OrderContext* orderContext);
 };
 #endif

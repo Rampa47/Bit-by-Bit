@@ -12,7 +12,12 @@ class InProgress : public OrderState
 {
 
 public:
-   
+   /**
+     * @brief The second concrete state of Order state.Changes the current state to the next state.
+     *
+     * @param orderContext the use of this pointer to change the state to the next state.Calling setOrderState().
+     *
+     */
       void cook(OrderContext* orderContext);
 };
 #endif

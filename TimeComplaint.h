@@ -8,7 +8,7 @@
  * @brief Class for Time-related complaints.
  *
  */
-class TimeComplaint:public Complaint
+class TimeComplaint :public Complaint
 {
     public:
         /**

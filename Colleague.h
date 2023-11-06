@@ -41,8 +41,8 @@ class Colleague
 
     
     protected:
-    Mediator* mediator;//holds the current instance of the mediator used by all the colleagues.
-    std::string className;//holds the concrete class name of the Colleagues
+    Mediator* mediator;//<holds the current instance of the mediator used by all the colleagues.
+    std::string className;//<holds the concrete class name of the Colleagues
 };
 
 #endif

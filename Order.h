@@ -24,14 +24,14 @@ public:
      * @brief Constructor for the Order class.
      *
      * @param waiter The ID of the waiter who placed the order.
-     * @param chefHandler A pointer to a ChefHandler responsible for the order.
+     
      */
     Order(int waiter);
 
     /**
      * @brief Adds a food item to the order.
      *
-     * @param item A pointer to the food item to be added to the order.
+     * @param foodItem A pointer to the food item to be added to the order.
      */
     void addFoodItem(FoodItem* foodItem);
 
