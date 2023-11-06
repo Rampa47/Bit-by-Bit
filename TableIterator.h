@@ -1,3 +1,7 @@
+/**
+ * @file TableIterator.h
+ */
+
 #ifndef TABLE_ITERATOR_H
 #define TABLE_ITERATOR_H
 #include "Table.h"
