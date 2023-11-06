@@ -5,7 +5,7 @@
 void EmptyTable::handle(Table& table)
 {
     //simulate cleaning or setting up the table
-    std::cout << "The table has become available.\n";
+    std::cout << "Table "<<to_string(table.getTableNumber())<<" has become available.\n";
 }
 
 

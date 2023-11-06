@@ -1,16 +1,16 @@
-#include "facade.h"
+#include "Facade.h"
+#include "ThreadSleep.h"
 
 
-Facade::Facade(int tables){
+Facade::Facade(){
     // using the singleton
+    int tables= ThreadSleep::generateRandomNumber(1,10);
     maitreD= MaitreD::instance();
 
     mediator= new Mediator();
 
-    srand((unsigned) time(NULL));
-    for(int i=0; i<tables*10; i++){
-	    int index = rand()%150;
-        customers.push(new Customer(names[index]));
+    for(int i=0; i<150; i++){
+        customers.push(new Customer(names[i]));
     }
 
     // using the chain of responsibility
@@ -34,8 +34,9 @@ Facade::Facade(int tables){
 
 }
 void Facade::execute1(){
-    srand((unsigned) time(NULL));
-	int no_of_customers = rand()%10;
+    cout<<"=====================================================================\n\n";
+    cout<<"New Customers entered restaurant..."<<endl;
+	int no_of_customers = ThreadSleep::generateRandomNumber(1,10);
     vector<Customer*> vcustomers;
     for (int i=0; i<no_of_customers; i++){
         Customer* c= customers.front();
@@ -43,13 +44,32 @@ void Facade::execute1(){
         customers.pop();
         customers.push(c);
     }
-    maitreD->seatCustomers(*restaurant, vcustomers);
+    Table* table= maitreD->seatCustomers(*restaurant, vcustomers);
+    cout<<"------------------------------------\n";
+    for (Table* t: pipeline){
+        t->setState();
+        t->getState()->handle(*t);
+        if (t->getState()->toString()=="Empty Table") pipeline.erase(pipeline.begin());    
+        cout<<"------------------------------------\n";
+    }
+    if (table!=NULL) pipeline.push_back(table);
+    cout<<"=====================================================================\n\n";
     
-
 }
 
 void Facade::execute2(){
-    // cout<<restaurant->printCustomers()<<endl;
+    cout<<"=====================================================================\n\n";
+    cout<<"MaitreD is doing rounds..."<<endl;
+    ThreadSleep::threadSleep();
+    cout<<restaurant->printCustomers();
+    cout<<"------------------------------------\n";
+    for (Table* t: pipeline){
+        t->setState();
+        t->getState()->handle(*t);
+        if (t->getState()->toString()=="Empty Table") pipeline.erase(pipeline.begin());   
+        cout<<"------------------------------------\n"; 
+    }
+    cout<<"=====================================================================\n\n";
 
 }
 
@@ -85,3 +105,6 @@ std::array<std::string, 150> Facade::names= {
         "M. McLeod", "S. Baumgartner", "A. Fuchs", "M. Miles", "E. Rubin", "R. Venegas", "L. Sullivan", "A. Colon", "A. McCloud", "D. Winslow",
         "A. Kidwell", "G. Reynoso", "S. Drury", "J. Clemens", "M. Moreno", "D. Rhoades", "B. Garner", "S. Patino", "B. Willey", "D. Falcon"
         };
+
+
+

@@ -1,16 +1,18 @@
 #include "OccupiedTable.h"
-#include "RequestToOrder.h"
+#include "CheckState.h"
 
 
 void OccupiedTable::handle(Table& table)
 {
-    std::cout << "Customers are seated...\n";
+    std::cout<<"Customers on table "<<table.getTableNumber()<<" browsing menu..."<<std::endl;
+    ThreadSleep::threadSleep();
 }
 
 
 TableState* OccupiedTable::getNextState()
 {
-    return new RequestToOrder();
+    int iterations = ThreadSleep::generateRandomNumber(0,3);
+    return new CheckState(iterations);
     
 }
 

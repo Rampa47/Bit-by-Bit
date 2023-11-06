@@ -9,14 +9,14 @@ class MaitreD
 {
     public:
         static MaitreD * instance();
-        void seatCustomers(Restaurant& list, std::vector<Customer*> vect);
+        Table* seatCustomers(Restaurant& list, std::vector<Customer*> vect);
        // void handleComplaint(std::string complaint);
 
     protected:
         MaitreD();
         ~MaitreD();
         MaitreD(MaitreD&){}
-        MaitreD & operator=(const MaitreD&){return *this;}
+        MaitreD & operator=(const MaitreD&){return *maitreD;}
         
     
     private:

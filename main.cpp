@@ -1,13 +1,19 @@
 #include "Facade.h"
-#include <cstdlib>
+
 
 int main(){
-    srand((unsigned) time(NULL));
-	int tablesNo = rand()%10;
+    Facade facade;
+    std::cout << "Press Enter to play." << std::endl;
 
-    Facade facade(tablesNo);
-    facade.execute1();
-    facade.execute2();
+    while (true) {
+        char input = std::cin.get();
+
+        if (input == '\n') {  
+            ThreadSleep::execute(facade);
+            std::cout << "Press Enter to continue." << std::endl;
+        }
+    }
+
 
     return 0;
 }

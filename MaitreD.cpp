@@ -1,5 +1,6 @@
 #include "MaitreD.h"
-#include <cstdlib>
+#include "ThreadSleep.h"
+
 
 MaitreD * MaitreD::maitreD = nullptr;
 
@@ -13,24 +14,16 @@ MaitreD * MaitreD::instance()
     return maitreD;
 }
 
-void MaitreD::seatCustomers(Restaurant& list, std::vector<Customer*> vect)
+Table* MaitreD::seatCustomers(Restaurant& list, std::vector<Customer*> vect)
 {
     std::cout<<"MaitreD assigns customers to a table..."<<std::endl;
     Table* table= list.addCustomer(vect);
+    ThreadSleep::threadSleep();
     if (!table->getTableType()){
-        table->setState();
-        table->getState()->handle(*table);
-        srand((unsigned) time(NULL));
-	    int iterations = rand()%3+1;
-        for (int i=0; i<iterations; i++){
-            table->getWaiter()->checkOnTable();
-        }
-        table->setState();
-        table->getState()->handle(*table);
-        table->setState();
-        table->getState()->handle(*table);
-
+        std::cout << "Customers on table "<<to_string(table->getTableNumber())<<" are seated...\n";
+        return table;
     }
+    return NULL;
 
 }
 
