@@ -11,7 +11,7 @@ HeadChef::~HeadChef()
 
 void HeadChef::handleOrder(Order* order)
 {
-    std::cout << "Waiter "<<order->getWaiter()<<"'s order passed on to the Head Chef..." << std::endl;
+    std::cout << "Order passed on to the Head Chef..." << std::endl;
     cout << "Waiter " << order->getWaiter() << " order almost ready" <<endl;
     cout<<"Putting the Finishing Strokes... "<<endl;
     ThreadSleep::threadSleep();

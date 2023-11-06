@@ -236,7 +236,7 @@ std::string Restaurant::printCustomers()
         {
             if(!node->getTableType())
             {
-                ss << node->getTableNumber();
+                ss << count;
                 ss >> table;
                 ss.clear();
                 ss << node->getWaiterNumber();
@@ -250,11 +250,10 @@ std::string Restaurant::printCustomers()
             }
             else
             {
-                ss << node->getTableNumber();
+                ss << waitingAreas;
                 ss >> table;
                 restaurantCustomers += "Waiting Table " + table + ": " + "\n";
                 restaurantCustomers += node->print();
-                ThreadSleep::threadSleep(150);
                 node = node->getNext();
                 waitingAreas++;
                 ss.clear();
