@@ -10,7 +10,7 @@ class TableIterator
         void next();
         Table* current();
         bool hasNext();
-        ~TableIterator();
+        virtual ~TableIterator();
     
     private:
         Table* firstTable;

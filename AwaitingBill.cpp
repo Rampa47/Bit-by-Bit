@@ -1,5 +1,6 @@
 #include "AwaitingBill.h"
 #include "ReadyToLeave.h"
+#include <cmath>
 
 void AwaitingBill::handle(Table& table)
 {
@@ -10,6 +11,8 @@ void AwaitingBill::handle(Table& table)
     BillComponent* bill= table.generateBill();
     std::cout<<"Table "<<to_string(table.getTableNumber())<<" Receipt: "<<endl;
     std::cout<<bill->getBillReceipt();
+    int rating = ThreadSleep::generateRandomNumber(1,10);
+    cout << "[Table " <<to_string(table.getTableNumber())<<" Rating: "<<to_string(rating)<<", Tip: R"<<round(bill->getTotalAmount()*0.01*rating)<<".00]"<<endl;
     ThreadSleep::threadSleep();
     if (bill->isTab()){
         std::cout << "  [Table "<<to_string(table.getTableNumber())<<" has opened a tab...]" << std::endl;

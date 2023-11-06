@@ -20,8 +20,7 @@ std::string Customer::getName()
 
 
 
-void Customer::selectFoodItems(Order * order)
-{
+void Customer::selectFoodItems(Order * order){
 
     billAmount=0;
 
@@ -83,8 +82,7 @@ void Customer::selectFoodItems(Order * order)
     
 }
 
-double Customer::getBillAmount()
-{
+double Customer::getBillAmount(){
     return billAmount;
 }
 
@@ -92,7 +90,6 @@ double Customer::getBillAmount()
  * @brief Instantiates and returns a new BillPayer object with the current customer instance's name and bill amount
  * @return A pointer to a newly created BillPayer object
 */
-BillPayer* Customer::getBill()
-{
+BillPayer* Customer::getBill(){
     return new BillPayer(billAmount,name);
 }

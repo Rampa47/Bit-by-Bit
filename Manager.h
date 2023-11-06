@@ -32,7 +32,6 @@ class Manager: public ComplaintsHandler
          * @param degree The degree of severity of the complaint.
          */
         void handleComplaint(string c, int degree);
-        void addNext(ComplaintsHandler* c);
 };
 
 #endif

@@ -11,34 +11,27 @@
 
 class Table;
 
-class Waiter : public ComplaintsHandler, public Colleague
-{
-    private:
-        int waiterNumber;
-        Order* order;
-        double currentBillAmount;
-        ChefHandler* chef;
-        Table*table;
+class Waiter : public ComplaintsHandler, public Colleague {
+private:
+    int waiterNumber;
+    Order* order;
+    double currentBillAmount;
+    ChefHandler* chef;
+    Table*table;
 
-    public:
-        Waiter(int wNum, ChefHandler* chef);
-        void handleComplaint(std::string c, int degree);
-        void takeOrder(Order* order);
-        void receive(std::string to, std::string message);
-        void send() override; 
-        std::string getClassname();
-        void greetCustomer();
-        void updateBill(double price, int quantity);
-        void presentBill();
-        void createTab();
-        void handlePayment();
-        void saveBillAmountToTextFile(double billAmount, std::string name, int contact, int ID);
-        void retrieveBillAmountFromTextFile();
-        const int getWaiterNumber();
-        void addNext(ComplaintsHandler* c);
-        void setTable(Table * t);
-        void checkOnTable();
-        ~Waiter();
+public:
+    Waiter(int wNum, ChefHandler* chef);
+    void handleComplaint(std::string c, int degree);
+    void takeOrder(Order* order);
+    void receive(std::string to, std::string message);
+    void send() override; 
+    std::string getClassname();
+    void greetCustomer();
+    void updateBill(double price, int quantity);
+    const int getWaiterNumber();
+    void setTable(Table * t);
+    void checkOnTable();
+    ~Waiter();
 };
 
 #endif

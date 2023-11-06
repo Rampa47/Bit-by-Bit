@@ -11,10 +11,10 @@ TableIterator::TableIterator(Table* table)
 
     Table* tablePtr = table;
 
-    while(tablePtr->getPrev()!=nullptr)
-    {
-        tablePtr = tablePtr->getPrev();
-    }
+    // while(tablePtr->getPrev()!=nullptr)
+    // {
+    //     tablePtr = tablePtr->getPrev();
+    // }
 
     firstTable = tablePtr;
 
@@ -28,8 +28,7 @@ Table* TableIterator::first()
 
 TableIterator::~TableIterator()
 {
-    firstTable = nullptr;
-    currentTable = nullptr;
+
 }
 
 void TableIterator::next()

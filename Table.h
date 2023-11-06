@@ -14,6 +14,9 @@
 #include "Complaint.h"
 #include "CompositeBillPayer.h"
 #include "DelegatingCompositebill.h"
+#include "TimeComplaint.h"
+#include "FoodComplaint.h"
+#include "ServiceComplaint.h"
 
 class TableState;
 
@@ -69,7 +72,7 @@ class Table: public Colleague
       TableState* getState();
       void handleTableState();
       Waiter* getWaiter();
-      
+      void IsEverythingOkay(ComplaintsHandler* CH);
       BillComponent* generateBill();
       string message="";
       static int currTableNo;

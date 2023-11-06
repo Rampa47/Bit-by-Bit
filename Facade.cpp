@@ -2,8 +2,7 @@
 #include "ThreadSleep.h"
 
 
-Facade::Facade(int tables)
-{
+Facade::Facade(int tables){
     // using the singleton
     maitreD= MaitreD::instance();
 
@@ -15,17 +14,23 @@ Facade::Facade(int tables)
     }
 
     // using the chain of responsibility
+    manager= new Manager();
     orderhandler= new PoultryChef();
     orderhandler->reg(mediator);
 	orderhandler->addSuccessor(new FryChef());
 	orderhandler->addSuccessor(new BurgerChef());
-    ChefHandler* hc= new HeadChef();
-	orderhandler->addSuccessor(hc);
+    HeadChef* hc= new HeadChef();
     hc->reg(mediator);
+    hc->addNext(manager);
+	orderhandler->addSuccessor(hc);
+    
+    
+
 
     restaurant= new Restaurant();
     for (int i=0; i<tables; i++){
         Waiter* w= new Waiter(i+1,orderhandler);
+        w->addNext(hc);
         waiters.push_back(w);
         w->reg(mediator);
         Table* t= restaurant->add();
@@ -34,9 +39,7 @@ Facade::Facade(int tables)
     }
 
 }
-
-void Facade::execute1()
-{
+void Facade::execute1(){
     cout<<"New Customers entered restaurant..."<<endl;
 	int no_of_customers = ThreadSleep::generateRandomNumber(1,10);
     vector<Customer*> vcustomers;
@@ -59,12 +62,15 @@ void Facade::execute1()
         }
     }
     if (table!=NULL) pipeline.push_back(table);
+    
+    
+
 }
 
-void Facade::execute2()
-{
-    cout<<"MaitreD is doing rounds..."<<endl;
-    ThreadSleep::threadSleep();
+void Facade::execute2(){
+    cout<<"MaitreD is doing rounds..."<<endl<<endl;
+    maitreD->checkingOnTable(restaurant);
+    cout<<endl<<"Tables after rounds..."<<endl<<endl;
     cout<<restaurant->printCustomers();
     cout<<"----------------------------------------------------------------\n";
     for (Table* t: pipeline){
@@ -80,11 +86,11 @@ void Facade::execute2()
 
 }
 
-Facade::~Facade()
-{
+Facade::~Facade(){
     delete mediator;
     delete orderhandler;
     delete restaurant;
+    delete manager;
     while (!customers.empty()) {
         Customer* c= customers.front();
         customers.pop();
@@ -96,8 +102,7 @@ Facade::~Facade()
 }
 
 
-std::array<std::string, 150> Facade::names= 
-{
+std::array<std::string, 150> Facade::names= {
         "C. Henson", "C. Key", "C. Grey", "A. Cooke", "G. Shipman", "B. Hendrix", "I. Maier", "C. Hacker", "S. Mcafee", "B. Crow",
         "M. Cantrell", "D. Acosta", "M. Ponder", "E. Hawley", "J. Hofer", "P. Desimone", "T. Beck", "A. Galindo", "M. Hunter", "K. Derosa",
         "M. Schindler", "S. Boss", "O. Forsythe", "E. Seibert", "B. Hinkle", "D. Busby", "G. Peace", "M. Montalvo", "D. McGovern", "C. Waddell",
@@ -113,4 +118,4 @@ std::array<std::string, 150> Facade::names=
         "I. Mojica", "D. Fulmer", "L. Welker", "J. Nevarez", "F. Schott", "K. Lerma", "M. Rider", "K. Stratton", "M. Smallwood", "B. Menendez",
         "M. McLeod", "S. Baumgartner", "A. Fuchs", "M. Miles", "E. Rubin", "R. Venegas", "L. Sullivan", "A. Colon", "A. McCloud", "D. Winslow",
         "A. Kidwell", "G. Reynoso", "S. Drury", "J. Clemens", "M. Moreno", "D. Rhoades", "B. Garner", "S. Patino", "B. Willey", "D. Falcon"
-};
+        };

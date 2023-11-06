@@ -4,14 +4,14 @@
 
 void OccupiedTable::handle(Table& table)
 {
-    
+    cout<<"Customers on table "<<to_string(table.getTableNumber())<<" browsing menu"<<endl;
     ThreadSleep::threadSleep();
 }
 
 
 TableState* OccupiedTable::getNextState()
 {
-    int iterations = ThreadSleep::generateRandomNumber(1,4);
+    int iterations = ThreadSleep::generateRandomNumber(0,3);
     return new CheckState(iterations);
     
 }

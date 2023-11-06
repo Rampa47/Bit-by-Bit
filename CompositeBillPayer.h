@@ -7,8 +7,7 @@
 /**
  * @brief This class models how a customer (or customers) can choose to pay the meal costs for multiple other customers.
 */
-class CompositeBillPayer : public BillComponent
-{
+class CompositeBillPayer : public BillComponent{
     public:
         /**
          * @brief parameterized constructor for Composite bill

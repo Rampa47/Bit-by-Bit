@@ -8,8 +8,7 @@
 void ReadyToLeave::handle(Table& table)
 {
     std::cout << "Table "<<to_string(table.getTableNumber())<<" is leaving restaurant..." << std::endl;
-	int rating = ThreadSleep::generateRandomNumber(1,5);
-    cout << "[Table " <<to_string(table.getTableNumber())<<" Rating: "<<to_string(rating)<<"]"<<endl;
+	
    table.removeCustomers();
    table.setState();
 }

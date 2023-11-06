@@ -83,34 +83,6 @@ void Restaurant::createList()
 
 Table* Restaurant::addCustomer(std::vector<Customer*> vect)
 {
-    if(isEmptyList())
-    {
-        Table * node = add();
-        bool extraCustomers = false;
-
-        if(vect.size() >= node->getMaxNumCustomers(extraCustomers))
-        {
-            extraCustomers = true;
-        }
-
-        for(size_t i = 0; i < vect.size(); i++)
-        {
-            if(!extraCustomers)
-            {
-                node->addCust(vect[i]);
-                node->incrementNumCustomers(); 
-            }
-            else if(extraCustomers)
-            {
-                node->addCust(vect[i]);
-                node->incrementNumCustomers();
-            }
-        }
-
-        return node;
-    }
-    else
-    {
         bool extraCustomers = false;
         Table * ptr = head;
 
@@ -162,59 +134,8 @@ Table* Restaurant::addCustomer(std::vector<Customer*> vect)
 
         if(fullRestaurant)
         {
-            std::cout << "All the tables are occupied" << std::endl;
-
-            Table * nodePtr = addWaitingArea();
-
-            for(size_t k = 0; k < vect.size(); k++)
-            {
-                nodePtr->addCust(vect[k]);
-                nodePtr->incrementNumCustomers();
-            }
-            currentNumWaitingAreas++;
-
-            return nodePtr;
+            std::cout << "The restaurant is currently at full capacity..." << std::endl;
         }
-        else
-        {
-            while(waitingArea != nullptr)
-            {
-                if(!waitingArea->isFull(false))
-                {
-                    for(size_t i = 0; i < vect.size(); i++)
-                    {
-                        waitingArea->addCust(vect[i]);
-                        waitingArea->incrementNumCustomers();
-                    }
-                    return waitingArea;
-                }
-
-                if(waitingArea->getNext() == nullptr)
-                {
-                    break;
-                }
-
-                waitingArea = waitingArea->getNext();
-            }
-
-            if(waitingArea->isFull(false) && currentNumWaitingAreas <= 3)
-            {
-                Table * newWaitingArea = addWaitingArea();
-
-                for(size_t j = 0; j < vect.size(); j++)
-                {
-                    waitingArea->addCust(vect[j]);
-                    waitingArea->incrementNumCustomers();
-                }
-
-                return waitingArea;
-            }
-
-            // std::cout << "The restaurant is filled to capacity" << std::endl;
-            // std::cout << "Apologies for the inconvenience. Please come back another time." << std::endl;
-            return waitingArea;
-        }
-    }
 }
 
 std::string Restaurant::printCustomers()
