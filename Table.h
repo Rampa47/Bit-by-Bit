@@ -63,6 +63,9 @@ class Table: public Colleague
          */
        int getWaiterNumber();
        void setWaiter(Waiter* waiter);
+       /**
+         * @brief Returns the concrete Colleagues name.
+         */
        std::string getClassname();
       void callWaiter();
       void setState();

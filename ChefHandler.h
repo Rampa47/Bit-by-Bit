@@ -51,12 +51,6 @@ class ChefHandler : public Colleague
            */
           virtual void addSuccessor(ChefHandler* c);
           
-        //Changedstate bool= if true the state if not they dont change the state
-        //the head chef has to trigger the change state
-        /**void ChangeState(){
-          * order->ChangeStateOfOrder();}
-
-        }*/
           /**
            * @brief Receives message from Mediator .
            * @param to Specifies to who the message is for.
@@ -66,8 +60,7 @@ class ChefHandler : public Colleague
           /**
            * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
            *
-           * @param to Specifies to who the message is for.
-           * @param message The actual message that will be received by the receiver.
+           *
            */
         void send();
         /**

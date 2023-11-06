@@ -10,6 +10,9 @@ class OrderContext;
 class Done : public OrderState
 {
     public:
+        /**
+       * @brief uses the orderContext to change the current state to the next state.
+       * */
         void cook(OrderContext* orderContext);
 };
 #endif
