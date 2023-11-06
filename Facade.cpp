@@ -1,4 +1,5 @@
-#include "facade.h"
+#include "Facade.h"
+#include "ThreadSleep.h"
 
 
 Facade::Facade(int tables){
@@ -7,9 +8,8 @@ Facade::Facade(int tables){
 
     mediator= new Mediator();
 
-    srand((unsigned) time(NULL));
     for(int i=0; i<tables*10; i++){
-	    int index = rand()%150;
+	    int index = ThreadSleep::generateRandomNumber(0,149);
         customers.push(new Customer(names[index]));
     }
 
@@ -34,8 +34,8 @@ Facade::Facade(int tables){
 
 }
 void Facade::execute1(){
-    srand((unsigned) time(NULL));
-	int no_of_customers = rand()%10;
+    cout<<"New Customers entered restaurant..."<<endl;
+	int no_of_customers = ThreadSleep::generateRandomNumber(1,10);
     vector<Customer*> vcustomers;
     for (int i=0; i<no_of_customers; i++){
         Customer* c= customers.front();
@@ -43,13 +43,39 @@ void Facade::execute1(){
         customers.pop();
         customers.push(c);
     }
-    maitreD->seatCustomers(*restaurant, vcustomers);
+    Table* table= maitreD->seatCustomers(*restaurant, vcustomers);
+    cout<<"----------------------------------------------------------------\n";
+    for (Table* t: pipeline){
+        t->setState();
+        if (t->getState()->toString()=="Empty Table"){
+            pipeline.erase(pipeline.begin());    
+        }
+        else{
+            t->getState()->handle(*t);
+            cout<<"----------------------------------------------------------------\n";
+        }
+    }
+    if (table!=NULL) pipeline.push_back(table);
+    
     
 
 }
 
 void Facade::execute2(){
-    // cout<<restaurant->printCustomers()<<endl;
+    cout<<"MaitreD is doing rounds..."<<endl;
+    ThreadSleep::threadSleep();
+    cout<<restaurant->printCustomers();
+    cout<<"----------------------------------------------------------------\n";
+    for (Table* t: pipeline){
+        t->setState();
+        if (t->getState()->toString()=="Empty Table"){
+            pipeline.erase(pipeline.begin());    
+        }
+        else{
+            t->getState()->handle(*t);
+            cout<<"----------------------------------------------------------------\n";
+        }
+    }
 
 }
 

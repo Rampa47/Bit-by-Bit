@@ -20,6 +20,9 @@ $(EXECUTABLE): $(OBJ_FILES)
 run: $(EXECUTABLE)
 	./$(EXECUTABLE)
 
+debug: $(EXECUTABLE)
+	gdb ./$(EXECUTABLE)
+
 clean:
 	rm -f $(OBJ_FILES) $(EXECUTABLE)
 

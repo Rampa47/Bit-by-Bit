@@ -20,5 +20,6 @@ void BurgerChef::handleOrder(Order* order)
             foodItem->cook();
         }
     }
+    ThreadSleep::threadSleep();
     successor->handleOrder(order);
 }

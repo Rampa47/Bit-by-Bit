@@ -23,6 +23,7 @@ void PoultryChef::handleOrder(Order* order)
             foodItem->cook();
         }
     }
+    ThreadSleep::threadSleep();
     free= true;
     successor->handleOrder(order);
 }

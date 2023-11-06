@@ -5,6 +5,8 @@
 #include <iostream>
 #include <random>
 
+#include "ThreadSleep.h"
+
 #include "EmptyTable.h"
 
 int Table::waiterNumberToTable = 0;
@@ -17,6 +19,7 @@ Table::Table()
     className="Table";
     waiter= nullptr;  
     tableState= new EmptyTable(); 
+    tableNumber= currTableNo++;
     
 }
 
@@ -33,11 +36,7 @@ Table::Table(bool isWaitingArea)
     next = nullptr;
     numCurrentCustomers = 0;
     tableState = new EmptyTable(); 
-
-    
-
-  
-
+    tableNumber= currTableNo++;
      
 }
 
@@ -227,7 +226,7 @@ std::string Table::print()
     {
         people += customers[i]->getName() + "\n";
     }
-    people="The customers on the table: \n"+people+"\n";
+    people="The customers on the table "+to_string(tableNumber)+": \n"+people+"\n";
     return people;
 }
 
@@ -260,9 +259,7 @@ void Table::receive(std::string to,std::string message){
  }
 
 void Table::send(){
-    std::cout << "Table ready to order..." << std::endl;
-    mediator->notifications("Waiter", "Table is ready to order.");
-    callWaiter();
+    mediator->notifications("Waiter", message);
 }
 
  int Table::getWaiterNumber(){
@@ -277,6 +274,7 @@ std::string Table::getClassname(){
 
 void Table::removeCustomers()
 {
+    
     customers.clear();
     numCurrentCustomers = 0;
 }
@@ -285,8 +283,10 @@ void Table::removeCustomers()
 void Table::callWaiter(){
     Order * order= new Order(waiter->getWaiterNumber());
     for (auto customer: customers){
+        ThreadSleep::threadSleep(500);
         customer->selectFoodItems(order);
     }
+    ThreadSleep::threadSleep();
     waiter->takeOrder(order);
 }
 
@@ -319,7 +319,9 @@ void Table::payBill(){
 
 
 void Table::setState(){
+    TableState* current= tableState;
     tableState = tableState->getNextState();
+    delete current;
 }
 
 TableState* Table::getState(){
@@ -355,7 +357,14 @@ void Table::handleTableState(){
     tableState->handle(*this);
 }
 
+int Table::currTableNo=1;
+int Table::getTableNumber(){
+    return tableNumber;
+}
 
+Table::~Table(){
+    if (tableState!=NULL) delete tableState;
+}
 
 
 

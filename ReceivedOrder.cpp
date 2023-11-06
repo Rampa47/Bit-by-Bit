@@ -5,8 +5,9 @@
 void ReceivedOrder::handle(Table& table)
 {
     // table.giveOrder(table.getWaiter().giveOrder());
-    std::cout << "The table has received their order..." << std::endl ;
-    std::cout << "The table is dining..." << std::endl ; 
+    std::cout << "Table "<<to_string(table.getTableNumber())<<" has received their order..." << std::endl ;
+    std::cout <<"Table "<<to_string(table.getTableNumber())<<" is dining..." << std::endl ; 
+    ThreadSleep::threadSleep();
 }
 
 

@@ -24,12 +24,11 @@ void Customer::selectFoodItems(Order * order){
 
     billAmount=0;
 
-    srand((unsigned) time(NULL));
-	int numOfItems = rand()%2+1;
+	int numOfItems = ThreadSleep::generateRandomNumber(1,3);
     FoodItem* foodItem;
 
     for(int i=0; i<numOfItems;i++ ){
-        int item= rand()%7;
+        int item= ThreadSleep::generateRandomNumber(0,7);
         switch (item)
         {
         case 0:

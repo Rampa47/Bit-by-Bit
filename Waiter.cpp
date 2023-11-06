@@ -1,4 +1,6 @@
 #include "Waiter.h"
+#include "Table.h"
+#include "ThreadSleep.h"
 using namespace std;
 
 Waiter::Waiter(int wNum, ChefHandler* chef) {
@@ -10,7 +12,7 @@ Waiter::Waiter(int wNum, ChefHandler* chef) {
 }
 
 void Waiter::greetCustomer() {
-    cout<<"Waiter " << waiterNumber<<" greets Table and presents menu..."<<endl;
+    cout<<"Waiter " << waiterNumber<<" greets Table "<<to_string(table->getTableNumber())<<" and presents menu..."<<endl;
 }
 
 void Waiter::handleComplaint(string c, int degree) 
@@ -46,9 +48,11 @@ void Waiter::takeOrder(Order* order) {
     this->order= order;
     cout<<"Waiter "<<waiterNumber<<" heading to Kitchen..."<<endl;
     send();
+    ThreadSleep::threadSleep();
     while(!chef->free){}
     chef->handleOrder(order);
     cout<<"Waiter "<<waiterNumber<<" taking food to table..."<<endl;
+    ThreadSleep::threadSleep();
 }
 
 Waiter::~Waiter(){
@@ -173,5 +177,5 @@ std::string Waiter::getClassname(){
 }
 
 void Waiter::checkOnTable(){
-    cout<<"Waiter "<<waiterNumber<< " checks if table is ready to order..."<<endl;
+    cout<<"Waiter "<<waiterNumber<< " checks if table "<<to_string(table->getTableNumber())<<" is ready to order..."<<endl;
 }

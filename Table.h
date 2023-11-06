@@ -68,16 +68,16 @@ class Table: public Colleague
       void setState();
       TableState* getState();
       void handleTableState();
-        Waiter* getWaiter();
- 
-      void IsEverythingOkay(ComplaintsHandler* CH);
-        int getRandomZeroOrOne();
-        int generateComplaint();
-        int generateDegree();
+      Waiter* getWaiter();
       
       BillComponent* generateBill();
+      string message="";
+      static int currTableNo;
+      int getTableNumber();
+      ~Table();
 
     private:
+        int tableNumber;
         Table * next;
         Table * prev;
         std::vector<Customer*> customers;

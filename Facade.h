@@ -11,10 +11,9 @@
 #include "Table.h"
 #include "Restaurant.h"
 #include "Mediator.h"
-#include "AllWaiters.h"
 #include <vector>
 #include <queue>
-#include <cstdlib>
+
 using namespace std;
 
 class Facade{
@@ -24,9 +23,9 @@ class Facade{
         queue<Customer*> customers;
         ChefHandler* orderhandler;
         vector<Waiter*> waiters;
-        AllWaiters* allWaiters;
         Restaurant* restaurant;
         Mediator* mediator;
+        vector<Table*> pipeline;
 
     public:
         Facade(int tables);
