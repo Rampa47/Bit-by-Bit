@@ -6,7 +6,8 @@
 #include "ThreadSleep.h"
 
 class Table;
-class TableState{
+class TableState
+{
     public:
         virtual void handle(Table& table) = 0;
         virtual TableState* getNextState()=0;

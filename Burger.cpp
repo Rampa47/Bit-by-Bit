@@ -1,7 +1,8 @@
 #include "Burger.h"
 #include <iostream>
 
-void Burger::cook() {
+void Burger::cook() 
+{
     /**
      * @brief Cooks the burger.
      *
@@ -14,21 +15,24 @@ void Burger::cook() {
     addSalads();
 }
 
-void Burger::addBuns() {
+void Burger::addBuns() 
+{
     /**
      * @brief Adds buns to the burger.
      */
     std::cout << "      Adding buns..." << std::endl;
 }
 
-void Burger::addSalads() {
+void Burger::addSalads() 
+{
     /**
      * @brief Adds salads to the burger.
      */
     std::cout << "      Adding salads..." << std::endl;
 }
 
-void Burger::addCheese() {
+void Burger::addCheese() 
+{
     /**
      * @brief Adds cheese to the burger.
      */
@@ -40,7 +44,8 @@ string Burger::getName()
     return "Burger";
 }
 
-Burger::~Burger() {
+Burger::~Burger() 
+{
     /**
      * @brief Virtual destructor for the Burger class.
      */

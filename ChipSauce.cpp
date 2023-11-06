@@ -1,6 +1,7 @@
 #include "ChipSauce.h"
 
-ChipSauce::ChipSauce(Chips* chips) : chips(chips) {
+ChipSauce::ChipSauce(Chips* chips) : chips(chips) 
+{
     /**
      * @brief Constructor for the ChipSauce class.
      *
@@ -8,7 +9,8 @@ ChipSauce::ChipSauce(Chips* chips) : chips(chips) {
      */
 }
 
-ChipSauce::~ChipSauce() {
+ChipSauce::~ChipSauce() 
+{
     /**
      * @brief Destructor for the ChipSauce class.
      */

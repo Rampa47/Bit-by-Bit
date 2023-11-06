@@ -51,10 +51,6 @@ Table * Table::getNext()
     {
         return next;
     }
-   
- 
-
-
 }
 
 
@@ -69,9 +65,6 @@ Table * Table::getPrev()
     {
         return prev;
     }
- 
-
-   
 }
 
 

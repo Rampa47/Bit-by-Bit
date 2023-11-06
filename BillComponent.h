@@ -9,7 +9,8 @@
 
 #include "Order.h"
 
-class BillComponent{
+class BillComponent
+{
     public:
         virtual std::string getBillReceipt() =0;
         virtual float getTotalAmount()=0;

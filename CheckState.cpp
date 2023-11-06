@@ -23,6 +23,7 @@ std::string CheckState::toString()
     return "Check Table";
 }
 
-CheckState::CheckState(int c){
+CheckState::CheckState(int c)
+{
     current=c;
 }

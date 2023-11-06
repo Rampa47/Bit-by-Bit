@@ -2,8 +2,8 @@
 #include <iostream>
 #include "Raw.h"
 
-Order::Order(int waiter)
-        : waiter(waiter){
+Order::Order(int waiter): waiter(waiter)
+{
     /**
      * @brief Constructor for the Order class.
      *
@@ -16,14 +16,17 @@ Order::Order(int waiter)
     
     std::cout << "Waiter " << waiter << " taking Customer Order..." << std::endl;
 }
-void Order::changeStateOfOrder(){
+
+void Order::changeStateOfOrder()
+{
  
     orderContext->cookChangeState();
     //std::cout << "here2" << std::endl;
 }
 
 
-void Order::addFoodItem(FoodItem* foodItem) {
+void Order::addFoodItem(FoodItem* foodItem) 
+{
     /**
      * @brief Adds a food item to the order.
      *
@@ -32,7 +35,8 @@ void Order::addFoodItem(FoodItem* foodItem) {
     foodItems.push_back(foodItem);
 }
 
-Order::~Order() {
+Order::~Order() 
+{
     /**
      * @brief Destructor to clean up and delete all food items in the foodItems vector.
      */
@@ -43,7 +47,8 @@ Order::~Order() {
 }
 
 
-const std::vector<FoodItem*>& Order::getFoodItems(){
+const std::vector<FoodItem*>& Order::getFoodItems()
+{
     /**
      * @brief returns the foodItems parameter
      */
@@ -51,7 +56,8 @@ const std::vector<FoodItem*>& Order::getFoodItems(){
 }
 
 
-const int Order::getWaiter(){
+const int Order::getWaiter()
+{
     /**
      * @brief returns the waiterNumber parameter
      */

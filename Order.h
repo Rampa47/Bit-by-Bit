@@ -13,49 +13,47 @@
  * @class Order
  * @brief Represents an order placed by a customer.
  */
-class Order  {
-private:
-    int waiter; // The ID of the waiter that is in charge of the Order
-    std::vector<FoodItem*> foodItems; // A vector of food items in the order
-    OrderContext* orderContext; // The context of the order's state
+class Order  
+{
+    private:
+        int waiter; // The ID of the waiter that is in charge of the Order
+        std::vector<FoodItem*> foodItems; // A vector of food items in the order
+        OrderContext* orderContext; // The context of the order's state
 
-public:
-    /**
-     * @brief Constructor for the Order class.
-     *
-     * @param waiter The ID of the waiter who placed the order.
-     * @param chefHandler A pointer to a ChefHandler responsible for the order.
-     */
-    Order(int waiter);
+    public:
+        /**
+         * @brief Constructor for the Order class.
+         *
+         * @param waiter The ID of the waiter who placed the order.
+         * @param chefHandler A pointer to a ChefHandler responsible for the order.
+         */
+        Order(int waiter);
 
-    /**
-     * @brief Adds a food item to the order.
-     *
-     * @param item A pointer to the food item to be added to the order.
-     */
-    void addFoodItem(FoodItem* foodItem);
+        /**
+         * @brief Adds a food item to the order.
+         *
+         * @param item A pointer to the food item to be added to the order.
+         */
+        void addFoodItem(FoodItem* foodItem);
 
-    /**
-     * @brief Destructor for the Order class.
-     */
-    virtual ~Order();
-    /**
-     * @brief triggers the state of the context of the order to change.
-     */
-    void changeStateOfOrder();
+        /**
+         * @brief Destructor for the Order class.
+         */
+        virtual ~Order();
+        /**
+         * @brief triggers the state of the context of the order to change.
+         */
+        void changeStateOfOrder();
 
-    /**
-     * @brief returns the foodItems parameter
-     */
-    const std::vector<FoodItem*>& getFoodItems();
+        /**
+         * @brief returns the foodItems parameter
+         */
+        const std::vector<FoodItem*>& getFoodItems();
 
-    /**
-     * @brief returns the waiterNumber parameter
-     */
-    const int getWaiter();
-
-
-
+        /**
+         * @brief returns the waiterNumber parameter
+         */
+        const int getWaiter();
 };
 
 #endif

@@ -10,9 +10,8 @@
 class OrderContext;
 class InProgress : public OrderState
 {
-
-public:
-   
-      void cook(OrderContext* orderContext);
+      public:
+      
+            void cook(OrderContext* orderContext);
 };
 #endif
