@@ -10,7 +10,7 @@ class MaitreD
     public:
         static MaitreD * instance();
         Table* seatCustomers(Restaurant& list, std::vector<Customer*> vect);
-       // void handleComplaint(std::string complaint);
+        void checkingOnTable(Restaurant* restaurant);
 
     protected:
         MaitreD();

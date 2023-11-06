@@ -51,6 +51,10 @@ Table * Table::getNext()
     {
         return next;
     }
+   
+ 
+
+
 }
 
 
@@ -65,6 +69,9 @@ Table * Table::getPrev()
     {
         return prev;
     }
+ 
+
+   
 }
 
 
@@ -357,6 +364,93 @@ int Table::getTableNumber(){
 
 Table::~Table(){
     if (tableState!=NULL) delete tableState;
+    if (c!=NULL) delete c;
+}
+
+void Table::IsEverythingOkay(ComplaintsHandler* CH)
+{
+    cout<<"MaitreD asks if table is okay..."<<endl;
+    int okay = ThreadSleep::generateRandomNumber(0,1);
+    if(okay==1)
+    {
+        cout<<"Table is okay..."<<endl;
+    }
+    else
+    {
+        cout<<"Table is not okay..."<<endl;
+        int degree = ThreadSleep::generateRandomNumber(1,10);
+        int complaint= ThreadSleep::generateRandomNumber(2,4);
+        if(complaint==2)
+        {
+            if(c==NULL)
+            {
+               c= new TimeComplaint(CH,degree);
+               c->AddressComplaint();
+            }
+            else
+            {
+                if(c->getname()=="Time")
+                {
+                    c->setDegree(6);
+                    c->AddressComplaint();
+                }
+                else
+                {
+                    delete c;
+                    c= new TimeComplaint(CH,degree);
+                    c->AddressComplaint();
+                }
+                
+            }
+            
+        }
+        else if(complaint==3)
+        {
+            if(c==NULL)
+            {
+               c= new FoodComplaint(CH,degree);
+               c->AddressComplaint();
+            }
+            else
+            {
+                if(c->getname()=="Food")
+                {
+                    c->setDegree(6);
+                    c->AddressComplaint();
+                }
+                else
+                {
+                    delete c;
+                    c= new FoodComplaint(CH,degree);
+                    c->AddressComplaint();
+                }
+                
+            }
+        }
+        else{
+
+            if(c==NULL)
+            {
+               c= new ServiceComplaint(CH,degree);
+               c->AddressComplaint();
+            }
+            else
+            {
+                if(c->getname()=="Service")
+                {
+                    c->setDegree(6);
+                    c->AddressComplaint();
+                }
+                else
+                {
+                    delete c;
+                    c= new ServiceComplaint(CH,degree);
+                    c->AddressComplaint();
+                }
+                
+            }
+        }
+    }
 }
 
 

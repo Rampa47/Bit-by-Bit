@@ -12,34 +12,35 @@ using namespace std;
  */
 class ChefHandler : public Colleague
 {
-  protected:
+protected:
     ChefHandler* successor ;
-  public:
-      /**
-       * @brief Construct a new ChefHandler object.
-       *
-       * This constructor initializes a new instance of the ChefHandler class.
-       */
-      ChefHandler();
+public:
+    /**
+     * @brief Construct a new ChefHandler object.
+     *
+     * This constructor initializes a new instance of the ChefHandler class.
+     */
+    ChefHandler();
 
-      /**
-       * @brief Destroy the ChefHandler object.
-       *
-       * This virtual destructor is responsible for cleaning up any resources
-       * associated with the ChefHandler object.
-       */
-      virtual ~ChefHandler();
+    /**
+     * @brief Destroy the ChefHandler object.
+     *
+     * This virtual destructor is responsible for cleaning up any resources
+     * associated with the ChefHandler object.
+     */
+    virtual ~ChefHandler();
 
-      /**
-       * @brief Handle a food order.
-       *
-       * This pure virtual function is responsible for preparing a food order.
-       *
-       * Subclasses must implement this function to define how they handle the order.
-       *
-       * @param order An order object representing the customer order.
-       */
-      virtual void handleOrder(Order* order)=0;
+    /**
+     * @brief Handle a food order.
+     *
+     * This pure virtual function is responsible for preparing a food order.
+     *
+     * Subclasses must implement this function to define how they handle the order.
+     *
+     * @param order An order object representing the customer order.
+     */
+    virtual void handleOrder(Order* order)=0;
+
 
           /**
            * @brief Add a successor ChefHandler.
@@ -57,18 +58,20 @@ class ChefHandler : public Colleague
            * @param message The actual message that will be received by the receiver.
            */
         void receive(std::string to,std::string message);
-          /**
-           * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
-           *
-           *
-           */
-        void send();
+
         /**
-           * @brief Gets the name of the concrete Class.
-          
-          */
-          std::string getClassname();
-          bool free=true;    
+         * @brief Will allow Colleague to send a message to a specific Colleague through the Mediator.
+         *
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
+       void send();
+       /**
+         * @brief Gets the name of the concrete Class.
+        
+         */
+        std::string getClassname();
+       
 };
 
 #endif

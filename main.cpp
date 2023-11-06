@@ -1,16 +1,17 @@
 #include "Facade.h"
 
 
-int main()
-{
-	int tablesNo = ThreadSleep::generateRandomNumber(1,10);
+int main(){
+	int tablesNo = ThreadSleep::generateRandomNumber(5,15);
 
     Facade facade(tablesNo);
     std::cout << "Press Enter to play." << std::endl;
 
     while (true) {
         char input = std::cin.get();
-
+        if (input == ' ') {  
+            break;
+        }
         if (input == '\n') {  
             int action =  ThreadSleep::generateRandomNumber(0, 1);
             if (action == 0) {
@@ -19,6 +20,7 @@ int main()
                 facade.execute2();
             }
         }
+        std::cout << "Press Enter to continue." << std::endl;
     }
 
 

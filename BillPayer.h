@@ -3,8 +3,7 @@
 
 #include "BillComponent.h"
 
-class BillPayer : public BillComponent
-{
+class BillPayer : public BillComponent{
     public:
         BillPayer(float amount, std::string payerName); //if order is passed in from waiter/table 
         

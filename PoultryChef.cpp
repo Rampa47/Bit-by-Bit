@@ -12,7 +12,6 @@ PoultryChef::~PoultryChef()
 
 void PoultryChef::handleOrder(Order* order)
 {
-    free= false;
     std::cout << "Order passed on to the Poultry Chef..." << std::endl;
     order->changeStateOfOrder();
    
@@ -24,6 +23,5 @@ void PoultryChef::handleOrder(Order* order)
         }
     }
     ThreadSleep::threadSleep();
-    free= true;
     successor->handleOrder(order);
 }

@@ -1,20 +1,18 @@
-# Compiler and compiler flags
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -g
 
-# Source files and object files
 SRC_FILES := $(wildcard *.cpp)
-OBJ_FILES := $(SRC_FILES:.cpp=.o)
+OBJ_DIR := obj
+OBJ_FILES := $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
+EXEC_DIR := exe
+EXECUTABLE = $(EXEC_DIR)/main
 
-# Executable name
-EXECUTABLE = main
-
-all: $(EXECUTABLE)
+all: directories $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJ_FILES)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-%.o: %.cpp
+$(OBJ_DIR)/%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 run: $(EXECUTABLE)
@@ -24,9 +22,12 @@ debug: $(EXECUTABLE)
 	gdb ./$(EXECUTABLE)
 
 clean:
-	rm -f $(OBJ_FILES) $(EXECUTABLE)
+	rm -rf $(OBJ_DIR) $(EXEC_DIR)
 
 valgrind: $(EXECUTABLE)
 	valgrind --leak-check=full ./$(EXECUTABLE)
 
-.PHONY: all clean
+.PHONY: all clean run debug valgrind directories
+
+directories:
+	@mkdir -p $(OBJ_DIR) $(EXEC_DIR)

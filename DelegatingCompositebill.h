@@ -7,8 +7,7 @@
  * @brief This class delegates the responsibility of calculating bill costs to its children.
  * A De
 */
-class DelegatingCompositeBill : public BillComponent
-{
+class DelegatingCompositeBill : public BillComponent{
     public:
         DelegatingCompositeBill();
         virtual ~DelegatingCompositeBill();

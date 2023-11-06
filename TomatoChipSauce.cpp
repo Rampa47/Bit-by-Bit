@@ -1,8 +1,7 @@
 #include "TomatoChipSauce.h"
 #include <iostream>
 
-TomatoChipSauce::TomatoChipSauce(Chips* chips) : ChipSauce(chips)
-{
+TomatoChipSauce::TomatoChipSauce(Chips* chips) : ChipSauce(chips) {
     /**
      * @brief Constructor for the TomatoChipSauce class.
      *
@@ -10,8 +9,7 @@ TomatoChipSauce::TomatoChipSauce(Chips* chips) : ChipSauce(chips)
      */
 }
 
-void TomatoChipSauce::cook() 
-{
+void TomatoChipSauce::cook() {
     /**
      * @brief Adds the tomato chip sauce.
      */
@@ -19,14 +17,12 @@ void TomatoChipSauce::cook()
     std::cout << "      Adding tomato chip sauce..." << std::endl;
 }
 
-TomatoChipSauce::~TomatoChipSauce() 
-{
+TomatoChipSauce::~TomatoChipSauce() {
     /**
      * @brief Virtual destructor for the TomatoChipSauce class.
      */
 }
 
-double TomatoChipSauce::getPrice()
-{
+double TomatoChipSauce::getPrice(){
     return chips->getPrice()+5.99;
 }
