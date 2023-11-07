@@ -24,6 +24,7 @@ class TableState;
 class Table: public Colleague
 {
     public:
+    std::string message;
        /**
  * @brief Default constructor for the Table class.
  */
