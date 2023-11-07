@@ -237,6 +237,7 @@ int getTableNumber();
  * @brief Destructor for the Table class.
  */
 ~Table();
+ void IsEverythingOkay(ComplaintsHandler* CH);
 
     private:
         int tableNumber;
