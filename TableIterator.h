@@ -1,3 +1,7 @@
+/**
+ * @class TableIterator
+ * @brief The iterator for the restaurant.
+ */
 #ifndef TABLE_ITERATOR_H
 #define TABLE_ITERATOR_H
 #include "Table.h"

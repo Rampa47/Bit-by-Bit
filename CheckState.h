@@ -1,3 +1,7 @@
+/**
+ * @class CheckState
+ * @brief Represents the state of the table when the customers are not ready to order.
+ */
 #ifndef CHECKSTATE_H
 #define CHECKSTATE_H
 

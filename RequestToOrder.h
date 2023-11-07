@@ -1,3 +1,7 @@
+/**
+ * @class RequestToOrder
+ * @brief Represents the state of the table when the customers are have requested to order.
+ */
 #ifndef REQUESTTOORDER_H
 #define REQUESTTOORDER_H
 

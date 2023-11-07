@@ -1,3 +1,7 @@
+/**
+ * @class AwaitingBill
+ * @brief Represents the state of the table when the customers are waiting for the bill.
+ */
 #ifndef AWAITINGBILL_H
 #define AWAITINGBILL_H
 

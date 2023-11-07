@@ -1,3 +1,7 @@
+/**
+ * @class OccupiedTable
+ * @brief Represents the state of the table just when customers have been seated at a table.
+ */
 #ifndef OCCUPIEDTABLE_H
 #define OCCUPIEDTABLE_H
 

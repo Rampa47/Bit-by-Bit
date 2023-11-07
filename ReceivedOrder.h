@@ -1,3 +1,7 @@
+/**
+ * @class ReceivedOrder
+ * @brief Represents the state of the table when the customers have received their ready meal from their waiter.
+ */
 #ifndef RECEIVEDORDER_H
 #define RECEIVEDORDER_H
 

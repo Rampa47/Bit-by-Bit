@@ -1,4 +1,7 @@
-#ifndef TABLESTATE_H
+/**
+ * @class TableState
+ * @brief Represents the state of the table.
+ */#ifndef TABLESTATE_H
 #define TABLESTATE_H
 
 #include <string>

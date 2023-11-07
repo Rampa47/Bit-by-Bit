@@ -1,3 +1,7 @@
+/**
+ * @class ReadyToLeave
+ * @brief Represents the state of the table when the customers have paid for the bill.
+ */
 #ifndef READYTOLEAVE_HPP
 #define READYTOLEAVE_HPP
 

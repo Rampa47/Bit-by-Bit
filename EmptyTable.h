@@ -1,3 +1,7 @@
+/**
+ * @class EmptyTable
+ * @brief Represents the state of the table when there are no customers at the table.
+ */
 #ifndef EMPTYTABLE_H
 #define EMPTYTABLE_H
 
