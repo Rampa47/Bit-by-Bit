@@ -29,9 +29,9 @@ class Mediator
        void registerMe(Colleague* colleague);
     
     private:
-     std::vector<Colleague*> Chef;//holds the Colleagues that has subscribed to the Mediator specifically the Maitre D and the Chef
-     std::vector<Colleague*> Tables;//holds the Colleagues that has subscribed to the Mediator specifically Tables
-     std::vector<Colleague*> Waiter;//holds thethe Colleagues that has subscribed to the Mediator specifically the Waiters
+     std::vector<Colleague*> Chef;//<holds the Colleagues that has subscribed to the Mediator specifically the Maitre D and the Chef
+     std::vector<Colleague*> Tables;//<holds the Colleagues that has subscribed to the Mediator specifically Tables
+     std::vector<Colleague*> Waiter;//<holds thethe Colleagues that has subscribed to the Mediator specifically the Waiters
 };
 
 #endif
