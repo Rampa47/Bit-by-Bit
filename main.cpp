@@ -20,7 +20,7 @@ int main(){
                 facade.execute2();
             }
         }
-        std::cout << "Press Enter to continue." << std::endl;
+        std::cout << "Press Enter to continue. Press backspace to exit " << std::endl;
     }
 
 
