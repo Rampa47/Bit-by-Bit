@@ -34,8 +34,30 @@ public:
      */
     void handleOrder(Order* order);
 
+    /**
+     * @brief Handle complaint.
+     *
+     *  This function is responsible for handling omplaints. 
+     *
+     * @param c A customer complaint.
+     * @param degreee The degree severity of the complaint.
+     */    
     void handleComplaint(string c, int degree);
+
+    /**
+     * @brief send message to a Colleague.
+     *
+     *  This function is responsible for sending a message . 
+     *
+     */    
     void send();
+
+    /**
+     * @brief Get next handler.
+     *
+     *  This function is responsible for getting the next complaints handler  . 
+     *
+     */    
     ComplaintsHandler* getNext(){return next;}
 };
 
