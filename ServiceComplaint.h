@@ -32,6 +32,12 @@ class ServiceComplaint: public Complaint
          * @param degree The degree of severity of the complaint.
          */
         void AddressComplaint();
+
+        /**
+         * @brief Get class name.
+         *
+         * This function returns the type of complaint
+         */
         string getname();
 };
 
