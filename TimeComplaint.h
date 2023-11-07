@@ -33,6 +33,12 @@ class TimeComplaint:public Complaint
          */
         void AddressComplaint();
 
+        
+        /**
+         * @brief Get class name.
+         *
+         * This function returns the type of complaint
+         */
         string getname();
 };
 

@@ -22,8 +22,6 @@ class Colleague
        /**
          * @brief Pure virtual function which insinuates that each derived class will perform their unique implementation of the function.
          *
-         * @param to Specifies to who the message is for.
-         * @param message The actual message that will be received by the receiver.
          */
        virtual void send()=0;
        /**

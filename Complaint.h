@@ -34,14 +34,23 @@ class Complaint
          *
          * This pure virtual function is responsible for addressing a customer complaint
          * with the given degree of severity.The inheriting classes must have their own implementation of the function.
-         *
-         * @param complaint The description of the customer's complaint.
-         * @param degree The degree of severity of the complaint.
          */
         virtual void AddressComplaint() = 0;
 
+        
+        /**
+         * @brief Set degree of a complaint.
+         *
+         * This function sets the degree of this complaint.
+         * @param degree The degree of severity of complaint.
+         */
         void setDegree(int degree);
 
+         /**
+         * @brief Get class name.
+         *
+         *This function returns the name of the complaint.
+         */
         virtual string getname()=0;
 };
 #endif

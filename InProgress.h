@@ -11,8 +11,11 @@ class OrderContext;
 class InProgress : public OrderState
 {
 
-public:
-   
-      void cook(OrderContext* orderContext);
+      public:
+      /**
+       * @brief uses the orderContext to change the current state to the next state.
+       * */
+            void cook(OrderContext* orderContext);
+
 };
 #endif
