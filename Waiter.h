@@ -1,3 +1,6 @@
+/**
+ * @file Waiter.h
+ */
 #ifndef WAITER_H
 #define WAITER_H
 
@@ -11,6 +14,11 @@
 
 class Table;
 
+
+/**
+ * @class Waiter
+ * @brief Represents a waiter responsible for handling orders and complaints at a restaurant.
+ */
 class Waiter : public ComplaintsHandler, public Colleague {
 private:
     int waiterNumber;
