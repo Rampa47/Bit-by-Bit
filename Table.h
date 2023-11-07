@@ -1,4 +1,5 @@
 
+
 #ifndef TABLE_H
 #define TABLE_H
 #include <iostream>
@@ -251,3 +252,4 @@ int getTableNumber();
         static int waiterNumberToTable;//a unique waiter number will be generated for each table that creates ab instance of the waiter
 };
 #endif
+
