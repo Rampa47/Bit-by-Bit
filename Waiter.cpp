@@ -78,3 +78,15 @@ std::string Waiter::getClassname(){
 void Waiter::checkOnTable(){
     cout<<"Waiter "<<waiterNumber<< " checks if table "<<to_string(table->getTableNumber())<<" is ready to order..."<<endl;
 }
+void Waiter::addNext(ComplaintsHandler* c)
+{
+    if(next==NULL)
+    {
+        next=c;
+    }
+    else
+    {
+        next->addNext(c);
+    }
+}
+
