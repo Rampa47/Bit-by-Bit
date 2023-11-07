@@ -244,7 +244,7 @@ void addCust(Customer * value);
          * @param to Specifies to who the message is for.
          * @param message The actual message that will be received by the receiver.
          */
-
+static int currTableNo;
     private:
         int tableNumber;
         Table * next;
