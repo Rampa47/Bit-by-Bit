@@ -5,7 +5,7 @@
 
 /**
  * @class PlainChips
- * @brief Represents a specific type of chips: plain chips.
+ * @brief Represents a specific type of chips known as plain chips.
  */
 class PlainChips : public Chips {
 public:
@@ -16,11 +16,16 @@ public:
 
     /**
      * @brief Cooks the plain chips.
+     *
+     * This function represents the process of cooking plain chips.
      */
     void cook() override;
+
     /**
-     * @brief Get the price of the food item.
-     * @return the price of the food item
+     * @brief Get the price of the plain chips.
+     *
+     * This function retrieves the price of the plain chips.
+     * @return the price of the plain chips
      */
     virtual double getPrice();
 };

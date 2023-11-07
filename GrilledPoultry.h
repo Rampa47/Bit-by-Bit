@@ -12,7 +12,7 @@ public:
     /**
      * @brief Cooks the grilled poultry.
      *
-     * This implementation represents the cooking process for grilled poultry.
+     * This function represents the process of cooking grilled poultry.
      */
     void cook() override;
 
@@ -22,8 +22,10 @@ public:
     virtual ~GrilledPoultry();
     
     /**
-     * @brief Get the price of the food item.
-     * @return the price of the food item
+     * @brief Get the price of the grilled poultry.
+     *
+     * This function retrieves the price of the grilled poultry as a double.
+     * @return the price of the grilled poultry
      */
     virtual double getPrice();
 };

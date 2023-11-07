@@ -5,7 +5,7 @@
 
 /**
  * @class Chips
- * @brief Represents a type of food item: chips.
+ * @brief Represents a specific type of food item known as chips.
  */
 class Chips : public FoodItem {
 public:
@@ -15,27 +15,29 @@ public:
     virtual ~Chips() = default;
 
     /**
-     * @brief Get the name of the class.
+     * @brief Get the name of the chips.
      *
-     * This function retrieves the name of the class(food item) and returns it as a string.
+     * Retrieves and returns the name of the class (food item) as a string.
      *
-     * @return A string containing the name of the class.
+     * @return A string containing the name of the class (chips).
      */
     string getName();
 
     /**
      * @brief Cooks the chips.
      *
-     * This is a pure virtual function that needs to be implemented by derived classes.
+     * This is a pure virtual function that must be implemented by derived classes.
      */
     virtual void cook() = 0;
 
-
     /**
-     * @brief Get the price of the food item.
-     * @return the price of the food item
+     * @brief Get the price of the chips.
+     *
+     * This function retrieves the price of the chips as a double.
+     *
+     * @return the price of the chips
      */
-    virtual double getPrice()=0;
+    virtual double getPrice() = 0;
 };
 
 #endif

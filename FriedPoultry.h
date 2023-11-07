@@ -12,7 +12,7 @@ public:
     /**
      * @brief Cooks the fried poultry.
      *
-     * This implementation represents the cooking process for fried poultry.
+     * This function represents the process of cooking fried poultry.
      */
     void cook() override;
 
@@ -22,8 +22,10 @@ public:
     virtual ~FriedPoultry();
 
     /**
-     * @brief Get the price of the food item.
-     * @return the price of the food item
+     * @brief Get the price of the fried poultry.
+     *
+     * This function retrieves the price of the fried poultry as a double.
+     * @return the price of the fried poultry
      */
     virtual double getPrice();
 };

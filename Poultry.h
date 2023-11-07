@@ -6,9 +6,9 @@
 
 /**
  * @class Poultry
- * @brief Represents a type of food item: poultry dish.
+ * @brief Represents a type of food item: a poultry dish.
  */
-class Poultry: public FoodItem {
+class Poultry : public FoodItem {
 private:
     PoultryType* poultryType; // Pointer to the type of poultry
 
@@ -28,9 +28,9 @@ public:
     /**
      * @brief Get the name of the class.
      *
-     * This function retrieves the name of the class(food item) and returns it as a string.
+     * This function retrieves the name of the class (food item) and returns it as a string.
      *
-     * @return A string containing the name of the class.
+     * @return A string containing the name of the class (Poultry).
      */
     string getName();
 
@@ -47,8 +47,10 @@ public:
     virtual ~Poultry();
 
     /**
-     * @brief Get the price of the food item.
-     * @return the price of the food item
+     * @brief Get the price of the poultry dish.
+     *
+     * This function retrieves the price of the poultry dish as a double.
+     * @return the price of the poultry dish
      */
     virtual double getPrice();
 };

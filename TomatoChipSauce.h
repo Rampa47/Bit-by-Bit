@@ -5,7 +5,7 @@
 
 /**
  * @class TomatoChipSauce
- * @brief Represents a type of sauce for chips: tomato-based sauce.
+ * @brief Represents a sauce for chips, specifically a tomato-based sauce.
  */
 class TomatoChipSauce : public ChipSauce {
 public:
@@ -23,12 +23,16 @@ public:
 
     /**
      * @brief Adds the tomato chip sauce.
+     *
+     * This function adds the tomato chip sauce to the associated chips.
      */
     void cook() override;
 
     /**
-     * @brief Get the price of the food item.
-     * @return the price of the food item
+     * @brief Get the price of the tomato chip sauce.
+     *
+     * This function retrieves the price of the tomato chip sauce as a double.
+     * @return the price of the tomato chip sauce
      */
     virtual double getPrice();
 };

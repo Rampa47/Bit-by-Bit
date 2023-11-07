@@ -5,7 +5,7 @@
 
 /**
  * @class JalapenoChipSauce
- * @brief Represents a type of sauce for chips: jalapeno-based sauce.
+ * @brief Represents a specific type of sauce for chips, specifically a jalapeno-based sauce.
  */
 class JalapenoChipSauce : public ChipSauce {
 public:
@@ -23,12 +23,17 @@ public:
 
     /**
      * @brief Adds the jalapeno chip sauce.
+     *
+     * This function adds the jalapeno chip sauce to the associated chips.
      */
     void cook() override;
 
     /**
-     * @brief Get the price of the food item.
-     * @return the price of the food item
+     * @brief Get the price of the jalapeno chip sauce.
+     *
+     * This function retrieves the price of the jalapeno chip sauce as a double.
+     *
+     * @return the price of the jalapeno chip sauce
      */
     virtual double getPrice();
 };

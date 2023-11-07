@@ -5,7 +5,7 @@
 
 /**
  * @class ChipSauce
- * @brief Represents a type of sauce for chips.
+ * @brief Represents a specific type of sauce intended for chips.
  */
 class ChipSauce : public Chips {
 protected:
@@ -26,14 +26,19 @@ public:
 
     /**
      * @brief Cooks the chip sauce (pure virtual).
+     *
+     * This function, when implemented in derived classes, is responsible for cooking the chip sauce.
      */
     virtual void cook() = 0;
 
     /**
-     * @brief Get the price of the food item.
-     * @return the price of the food item
+     * @brief Get the price of the chip sauce.
+     *
+     * This function retrieves the price of the chip sauce as a double.
+     *
+     * @return the price of the chip sauce
      */
-    virtual double getPrice()=0;
+    virtual double getPrice() = 0;
 };
 
 #endif

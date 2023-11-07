@@ -5,14 +5,14 @@
 
 /**
  * @class ChickenBurger
- * @brief Represents a Chicken burger, a specific type of burger.
+ * @brief Represents a specific type of burger known as a chicken burger.
  */
 class ChickenBurger : public Burger {
 public:
     /**
-     * @brief Adds a chicken patty to the burger.
+     * @brief Adds a chicken patty to the chicken burger.
      *
-     * This implementation adds a chicken patty to the burger.
+     * This function implements the addition of a chicken patty to the chicken burger.
      */
     void addPatty() override;
 
@@ -20,9 +20,12 @@ public:
      * @brief Virtual destructor for the ChickenBurger class.
      */
     virtual ~ChickenBurger();
+
     /**
-     * @brief Get the price of the food item.
-     * @return the price of the food item
+     * @brief Get the price of the chicken burger.
+     *
+     * This function retrieves the price of the chicken burger.
+     * @return the price of the chicken burger
      */
     virtual double getPrice();
 };
