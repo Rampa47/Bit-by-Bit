@@ -238,6 +238,12 @@ int getTableNumber();
  */
 ~Table();
  void IsEverythingOkay(ComplaintsHandler* CH);
+void addCust(Customer * value);
+        /**
+         * @brief Receives message from Mediator .
+         * @param to Specifies to who the message is for.
+         * @param message The actual message that will be received by the receiver.
+         */
 
     private:
         int tableNumber;
