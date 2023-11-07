@@ -21,11 +21,11 @@ class Table;
  */
 class Waiter : public ComplaintsHandler, public Colleague {
 private:
-    int waiterNumber;
-    Order* order;
-    double currentBillAmount;
-    ChefHandler* chef;
-    Table*table;
+    int waiterNumber; /**< Unique identifier for the waiter. */
+    Order* order;  /**< Pointer to the current order being processed. */
+    double currentBillAmount;  /**< Current bill amount for the table. */
+    ChefHandler* chef; /**< Pointer to the ChefHandler for order processing. */
+    Table*table; /**< Pointer to the table the waiter is serving. */
 
 
     public:
