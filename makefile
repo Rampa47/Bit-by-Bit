@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -g
+CXXFLAGS = -std=c++11 -Wall -Wno-inconsistent-missing-override -g
 
 SRC_FILES := $(wildcard *.cpp)
 OBJ_DIR := obj
